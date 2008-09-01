@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<Database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="afasfadb" Class="afasfadb" BaseType="DbLinq.Linq.DataContext" ContextNamespace="br.org.afasfadb" EntityNamespace="br.org.afasfadb" Provider="MySql" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="afasfa.assistencias" Member="Assistencias">
+    <Type Name="AssistEnCiaS">
+      <Column Name="ASSISTENCIA" Member="Assistencia" Storage="assistEnCia" Type="System.UInt32" DbType="int unsigned" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DESCRICAO" Member="Descricao" Storage="desCrIcaO" Type="System.String" DbType="varchar(60)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="RESPONSAVEL" Member="Responsavel" Storage="reSpOnSaveL" Type="System.String" DbType="varchar(30)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="afasfa.dados_quantitativos" Member="DadosQuantitativos">
+    <Type Name="DadoSQuaNtItAtIVOs">
+      <Column Name="ASSISTENCIA" Member="Assistencias" Storage="assistEnCia" Type="System.UInt32" DbType="int unsigned" IsPrimaryKey="true" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="DESCRICAO" Member="Descricao" Storage="desCrIcaO" Type="System.String" DbType="varchar(40)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="MESANO" Member="MesAno" Storage="meSanO" Type="System.String" DbType="varchar(6)" IsPrimaryKey="true" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="QTDEADOLESCENTESF" Member="QtdeAdolescenteFeminino" Storage="qtDEaDolescentEsF" Type="System.UInt32" DbType="int unsigned" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="QTDEADOLESCENTESM" Member="QtdeAdolescenteMasculino" Storage="qtDEaDolescentEsM" Type="System.UInt32" DbType="int unsigned" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="QTDEADULTOSF" Member="QtdeAdultosFeminino" Storage="qtDEaDultOsF" Type="System.UInt32" DbType="int unsigned" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="QTDEADULTOSM" Member="QtdeAdultosMasculino" Storage="qtDEaDultOsM" Type="System.UInt32" DbType="int unsigned" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="QTDECRIANCASF" Member="QtdeCriancasFeminino" Storage="qtDEcRiAnCasF" Type="System.UInt32" DbType="int unsigned" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="QTDECRIANCASM" Member="QtdeCriancasMasculino" Storage="qtDEcRiAnCasM" Type="System.UInt32" DbType="int unsigned" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="QTDEFAMILIA" Member="QtdeFamilias" Storage="qtdEfAmIlIa" Type="System.UInt32" DbType="int unsigned" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="RESPONSAVEL" Member="Responsavel" Storage="reSpOnSaveL" Type="System.String" DbType="varchar(60)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="afasfa.doacoes" Member="Doacoes">
+    <Type Name="DoaCOeS">
+      <Column Name="DATADOACAO" Member="DataDoacao" Storage="dataDoaCaO" Type="System.DateTime" DbType="date" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="DISPONIBILIDADE" Member="Disponibilidade" Storage="diSpOnIbiLiDade" Type="System.String" DbType="text" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="DOACAO" Member="Doacao" Storage="doaCaO" Type="System.UInt32" DbType="int unsigned" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EMAIL" Member="Email" Storage="email" Type="System.String" DbType="varchar(100)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="ESTADO" Member="Estado" Storage="estAdo" Type="System.String" DbType="char(1)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="ITENS" Member="Itens" Storage="itEns" Type="System.String" DbType="text" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="NOME" Member="Nome" Storage="nome" Type="System.String" DbType="varchar(60)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="OBSERVACAO" Member="Observacao" Storage="obSErVAcAo" Type="System.String" DbType="text" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="TELEFONECEL" Member="TelefoneCelular" Storage="teLefoNeCeL" Type="System.Decimal" DbType="decimal" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="TELEFONERES" Member="TelefoneResidencial" Storage="teLefoNeReS" Type="System.Decimal" DbType="decimal" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="afasfa.eventos" Member="Eventos">
+    <Type Name="EventOs">
+      <Column Name="APRESENTAR" Member="Apresentar" Storage="apResentAr" Type="System.Boolean" DbType="tinyint(1)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="DATAEVENTO" Member="DataEvento" Storage="dataEventO" Type="System.DateTime" DbType="date" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="DATAMAXIMA" Member="DataMaxima" Storage="dataMaxima" Type="System.DateTime" DbType="date" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="DESCRICAO" Member="Descricao" Storage="desCrIcaO" Type="System.String" DbType="varchar(60)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="EVENTO" Member="Evento" Storage="eventO" Type="System.UInt32" DbType="int unsigned" IsPrimaryKey="true" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="FOTOINICIAL" Member="FotoInicial" Storage="foTOiNIcIaL" Type="System.String" DbType="varchar(100)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="JAREALIZADO" Member="JaRealizado" Storage="jaReaLizAdo" Type="System.Byte" DbType="tinyint(1)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="LOCALEVENTO" Member="LocalEvento" Storage="localeVentO" Type="System.String" DbType="varchar(150)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="OBSERVACAO" Member="Observacao" Storage="obSErVAcAo" Type="System.String" DbType="text" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="RESERVADISPONIVEL" Member="ReservaDisponivel" Storage="reSeRvAdisPoNIvel" Type="System.Boolean" DbType="tinyint(1)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="VALORCONVITEA" Member="ValorConviteAnticipado" Storage="valorConViTea" Type="System.Decimal" DbType="decimal(10,2)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="VALORCONVITEC" Member="ValorConvite" Storage="valorConViTeC" Type="System.Decimal" DbType="decimal(10,2)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="afasfa.projetos" Member="Projetos">
+    <Type Name="ProJetOs">
+      <Column Name="DADOSDOPROJETO" Member="DadosProjeto" Storage="dadoSdOprOjEtO" Type="System.String" DbType="text" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="DESCRICAO" Member="Descricao" Storage="desCrIcaO" Type="System.String" DbType="varchar(50)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="FOTO" Member="Foto" Storage="foTO" Type="System.String" DbType="varchar(100)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="ORDEMAPRESENTACAO" Member="OrdemApresentacao" Storage="orDemApResentAcAo" Type="System.Int32" DbType="int" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="PROJETO" Member="Projeto" Storage="proJetO" Type="System.UInt32" DbType="int unsigned" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="afasfa.usuarios" Member="Usuarios">
+    <Type Name="UsUarIoS">
+      <Column Name="BAIRRO" Member="Bairro" Storage="baIrRo" Type="System.String" DbType="varchar(30)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="CEP" Member="CEP" Storage="ceP" Type="System.String" DbType="varchar(10)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="CIDADE" Member="Cidade" Storage="cidAdE" Type="System.String" DbType="varchar(30)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="COMPLEMENTO" Member="Complemento" Storage="complementO" Type="System.String" DbType="varchar(20)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="EMAIL" Member="Email" Storage="email" Type="System.String" DbType="varchar(100)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="FOTO" Member="Foto" Storage="foTO" Type="System.String" DbType="varchar(150)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="LOGIN" Member="Login" Storage="login" Type="System.String" DbType="varchar(10)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="LOGRADOURO" Member="Logradouro" Storage="logRadOurO" Type="System.String" DbType="varchar(50)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="NOME" Member="Nome" Storage="nome" Type="System.String" DbType="varchar(60)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="NUMERO" Member="Numero" Storage="numEro" Type="System.UInt32" DbType="int unsigned" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="RECEBERINFORMACOES" Member="ReceberInformacoes" Storage="recEbERiNFormAcOeS" Type="System.Boolean" DbType="tinyint(1)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="SENHA" Member="Senha" Storage="seNHa" Type="System.String" DbType="varchar(10)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="TELEFONECEL" Member="TelefoneCelular" Storage="teLefoNeCeL" Type="System.Decimal" DbType="decimal" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="TELEFONERES" Member="TelefoneResidencial" Storage="teLefoNeReS" Type="System.Decimal" DbType="decimal" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="UF" Member="UF" Storage="uf" Type="System.String" DbType="char(2)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="USUARIO" Member="Usuario" Storage="usUarIo" Type="System.UInt32" DbType="int unsigned" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="afasfa.voluntarios" Member="Voluntarios">
+    <Type Name="VOLuNTarIoS">
+      <Column Name="ACEITATERMO" Member="AceitaTermo" Storage="aceItAterMo" Type="System.Byte" DbType="tinyint(1)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="APELIDO" Member="Apelido" Storage="apeLido" Type="System.String" DbType="varchar(20)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="CIDADEORIGEM" Member="CidadeOrigem" Storage="cidAdEorIgEm" Type="System.String" DbType="varchar(40)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="COMOFICOUSABENDO" Member="ComoFicouSabendo" Storage="comOfIcouSAbEndO" Type="System.String" DbType="varchar(60)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="DATANASCIMENTO" Member="DataNascimento" Storage="dataNasCiMenTo" Type="System.DateTime" DbType="date" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="ESCOLARIDADE" Member="Escolaridade" Storage="esColaRiDade" Type="System.String" DbType="varchar(30)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="ESTADO" Member="UF" Storage="estAdo" Type="System.String" DbType="char(1)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="ESTADOCIVIL" Member="EstadoCivil" Storage="estAdoCivil" Type="System.String" DbType="char(1)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="ESTADOORIGEM" Member="UFOrigem" Storage="estAdoOrIgEm" Type="System.String" DbType="varchar(2)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="HABILITADO" Member="Habilitado" Storage="haBiLItAdo" Type="System.Byte" DbType="tinyint(1)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="LOCALDETRABALHO" Member="LocalDeTrabalho" Storage="localDetrABaLhO" Type="System.String" DbType="varchar(40)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="NACIONALIDADE" Member="Nacionalidade" Storage="naCIonAlIDade" Type="System.String" DbType="char(1)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="NOME" Member="Nome" Storage="nome" Type="System.String" DbType="varchar(60)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+      <Column Name="PROFISSAO" Member="Profissao" Storage="profIsSao" Type="System.String" DbType="varchar(40)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="QUADISPONIBILIDADE" Member="Disponibilidade" Storage="quadIsPOnIbiLiDade" Type="System.UInt32" DbType="int unsigned" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="QUAISDIAS" Member="DiasDisponiveis" Storage="quaiSdiAs" Type="System.UInt32" DbType="int unsigned" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="QUALATIVIDADE" Member="Atividade" Storage="quaLaTivIDade" Type="System.String" DbType="varchar(100)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="TEMPODOVOLUNTARIO" Member="TempoDoVoluntario" Storage="tempoDoVolUNtArIo" Type="System.String" DbType="varchar(100)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="TIPOVOLUNTARIO" Member="TipoVoluntario" Storage="tipOvolUNtArIo" Type="System.String" DbType="char(1)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="TRABALHA" Member="Trabalha" Storage="trABaLhA" Type="System.Boolean" DbType="tinyint(1)" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="true" />
+      <Column Name="USUARIOS_USUARIO" Member="Usuario" Storage="usUarIoSuSUarIo" Type="System.UInt32" DbType="int unsigned" IsPrimaryKey="false" IsDbGenerated="false" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>
