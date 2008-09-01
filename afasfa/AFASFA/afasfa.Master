@@ -1,0 +1,112 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="afasfa.master.cs" Inherits="AFASFA.afasfa" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>#### AFASFA - Associação Filantrópica e Assistêncial São Francisco de Assis ####
+    </title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <link href="estilos/estilos.css" rel="stylesheet" type="text/css" />
+    </asp:ContentPlaceHolder>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+    <div id="container">
+        <form id="form1" runat="server">
+        <div id="topo">
+            <img src="Imagens/LOGOTIPO.jpg" />
+            <br />
+            <label class="lblFormLogin">
+                Login.:</label><input class="txtFormLogin" name="Login" type="text" size="10" maxlength="20" />
+            <label class="lblFormLogin">
+                Senha:</label><input class="txtFormLogin" name="Senha" type="password" size="10"
+                    maxlength="10" />
+            <input align="right" name="OK" type="submit" value="OK" class="lblFormLogin" />
+        </div>
+        <br>
+  
+        <div id="menu">
+            <br>
+            <p class="lblMenuPrincipal">
+                Menu Principal</p>
+            <ul>
+                <li>
+                    <div align="left">
+                        <a href="index.aspx" class="LinkMenu">In&iacute;cio</a></div>
+                </li>
+                <li>
+                    <div align="left">
+                        <a href="projetos.aspx" class="LinkMenu" onclick="navega('projetos.aspx'); return false">
+                            Projetos AFASFA</a></div>
+                </li>
+                <li>
+                    <div align="left">
+                        <a href="projeto_vivaarte.aspx" class="LinkMenu" onclick="navega('projeto_vivaarte.aspx'); return false">
+                            Projetos Viva-Arte</a></div>
+                </li>
+                <li>
+                    <div align="left">
+                        <a href="eventos.aspx" class="LinkMenu" onclick="navega('eventos.aspx'); return false">
+                            Eventos</a></div>
+                </li>
+                <li>
+                    <div align="left">
+                        <a href="#" class="LinkMenu">Doações</a></div>
+                </li>
+                <li>
+                    <div align="left">
+                        <a href="como_chegar.aspx" class="LinkMenu" onclick="navega_maps('como_chegar.aspx'); return false">
+                            Como Chegar ao Lar</a></div>
+                </li>
+                <li>
+                    <div align="left">
+                        <a href="/faleconosco.aspx" class="LinkMenu" onclick="navega('faleconosco.aspx'); return false">
+                            Fale Conosco</a></div>
+                </li>
+                <li>
+                    <div align="left">
+                        <a href="#" class="LinkMenu">Seja Voluntário</a></div>
+                </li>
+                <li>
+                    <div align="left">
+                        <a href="campanhas.aspx" class="LinkMenu" onclick="navega('campanhas.aspx'); return false">
+                            Campanhas</a></div>
+                </li>
+                <li>
+                    <div align="left">
+                        <a href="#" class="LinkMenu">Recursos Humanos</a></div>
+                </li>
+            </ul>
+            <p class="lblMenuPrincipal">
+                Menu Administrativo</p>
+            <ul>
+                <li>
+                    <div align="left">
+                        <a href="cadastrar_eventos.aspx" class="LinkMenu">Cadastro de Eventos</a></div>
+                </li>
+                <li>
+                    <div align="left">
+                        <a href="#" class="LinkMenu">Dados Quantitativos</a></div>
+                </li>
+                <li>
+                    <div align="left">
+                        <a href="#" class="LinkMenu">Relatórios</a></div>
+                </li>
+                <li>
+                    <div align="left">
+                        <a href="#" class="LinkMenu">Mala Direta</a></div>
+                </li>
+                <li>
+                    <div align="left">
+                        <a href="#" class="LinkMenu">Cadastro de Usuários</a></div>
+                </li>
+            </ul>
+            <br>
+        </div>
+        <div id="conteudo">
+            <asp:ContentPlaceHolder ID="CplConteudo" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AFASFA", "AFASFA\AFASFA.csproj", "{F99C66D9-E81E-4DDF-A314-9DEEE8C0CA6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "acesso_dados", "acesso_dados\acesso_dados.csproj", "{C499C716-35A6-46CC-A36C-BBAC70A85CF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F99C66D9-E81E-4DDF-A314-9DEEE8C0CA6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F99C66D9-E81E-4DDF-A314-9DEEE8C0CA6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F99C66D9-E81E-4DDF-A314-9DEEE8C0CA6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F99C66D9-E81E-4DDF-A314-9DEEE8C0CA6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C499C716-35A6-46CC-A36C-BBAC70A85CF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C499C716-35A6-46CC-A36C-BBAC70A85CF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C499C716-35A6-46CC-A36C-BBAC70A85CF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C499C716-35A6-46CC-A36C-BBAC70A85CF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

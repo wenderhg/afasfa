@@ -1,0 +1,15 @@
+c:\projeto_afasfa\afasfa\acesso_dados\bin\Debug\acesso_dados.dll
+c:\projeto_afasfa\afasfa\acesso_dados\bin\Debug\acesso_dados.pdb
+c:\projeto_afasfa\afasfa\acesso_dados\obj\Debug\ResolveAssemblyReference.cache
+c:\projeto_afasfa\afasfa\acesso_dados\obj\Debug\acesso_dados.dll
+c:\projeto_afasfa\afasfa\acesso_dados\obj\Debug\acesso_dados.pdb
+c:\projeto_afasfa\afasfa\acesso_dados\bin\Debug\DbLinq.dll
+c:\projeto_afasfa\afasfa\acesso_dados\bin\Debug\DbLinq.MySql.dll
+c:\projeto_afasfa\afasfa\acesso_dados\bin\Debug\DbLinq.MySql.pdb
+c:\projeto_afasfa\afasfa\acesso_dados\bin\Debug\DbLinq.pdb
+D:\wender\unopec\TCC\projeto_afasfa\afasfa\acesso_dados\bin\Debug\acesso_dados.dll
+D:\wender\unopec\TCC\projeto_afasfa\afasfa\acesso_dados\bin\Debug\acesso_dados.pdb
+D:\wender\unopec\TCC\projeto_afasfa\afasfa\acesso_dados\obj\Debug\ResolveAssemblyReference.cache
+D:\wender\unopec\TCC\projeto_afasfa\afasfa\acesso_dados\obj\Debug\acesso_dados.dll
+D:\wender\unopec\TCC\projeto_afasfa\afasfa\acesso_dados\obj\Debug\acesso_dados.pdb
+D:\wender\unopec\TCC\projeto_afasfa\afasfa\acesso_dados\bin\Debug\acesso_dados.dll.config
