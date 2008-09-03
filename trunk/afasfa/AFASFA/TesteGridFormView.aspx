@@ -48,7 +48,7 @@
         <Columns>
             <asp:BoundField DataField="Doacao" HeaderText="Doacao" ReadOnly="True" SortExpression="Doacao" />
             <asp:BoundField DataField="Nome" HeaderText="Nome" SortExpression="Nome" />
-            <asp:BoundField DataField="DATADOACAO" HeaderText="DATADOACAO" SortExpression="DATADOACAO" />
+            <asp:BoundField DataField="DATADOACAO" HeaderText="Data Doação" SortExpression="DATADOACAO" />
             <asp:BoundField DataField="ITENS" HeaderText="ITENS" SortExpression="ITENS" />
             <asp:BoundField DataField="DISPONIBILIDADE" HeaderText="DISPONIBILIDADE" SortExpression="DISPONIBILIDADE" />
             <asp:BoundField DataField="OBSERVACAO" HeaderText="OBSERVACAO" SortExpression="OBSERVACAO" />
@@ -56,11 +56,11 @@
             <asp:BoundField DataField="TELEFONERES" HeaderText="TELEFONERES" SortExpression="TELEFONERES" />
             <asp:BoundField DataField="TELEFONECEL" HeaderText="TELEFONECEL" SortExpression="TELEFONECEL" />
             <asp:BoundField DataField="EMAIL" HeaderText="EMAIL" SortExpression="EMAIL" />
-            <asp:CommandField ShowEditButton="True" ShowInsertButton="True" />
+            <asp:CommandField ShowEditButton="True" ShowInsertButton="True" EditText="Alterar" InsertText="Inserir" />
         </Columns>
     </asp:GridView>
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="Doacao" DataSourceID="ObjectDataSource1"
-        OnModeChanging="FormView1_ModeChanging">
+        OnModeChanging="FormView1_ModeChanging" Visible="false">
         <EditItemTemplate>
             Doacao:
             <asp:Label ID="DoacaoLabel1" runat="server" Text='<%# Eval("Doacao") %>' />
@@ -68,7 +68,7 @@
             Nome:
             <asp:TextBox ID="NomeTextBox" runat="server" Text='<%# Bind("Nome") %>' />
             <br />
-            DATADOACAO:
+            Data Doação:
             <asp:TextBox ID="DATADOACAOTextBox" runat="server" Text='<%# Bind("DATADOACAO") %>' />
             <br />
             ITENS:
@@ -93,9 +93,9 @@
             <asp:TextBox ID="EMAILTextBox" runat="server" Text='<%# Bind("EMAIL") %>' />
             <br />
             <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update"
-                Text="Update" />
+                Text="Atualizar" />
             &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False"
-                CommandName="Cancel" Text="Cancel" />
+                CommandName="Cancel" Text="Cancelar" />
         </EditItemTemplate>
         <InsertItemTemplate>
             Doacao:
@@ -104,7 +104,7 @@
             Nome:
             <asp:TextBox ID="NomeTextBox" runat="server" Text='<%# Bind("Nome") %>' />
             <br />
-            DATADOACAO:
+            Data Doação:
             <asp:TextBox ID="DATADOACAOTextBox" runat="server" Text='<%# Bind("DATADOACAO") %>' />
             <br />
             ITENS:
@@ -129,9 +129,9 @@
             <asp:TextBox ID="EMAILTextBox" runat="server" Text='<%# Bind("EMAIL") %>' />
             <br />
             <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert"
-                Text="Insert" />
+                Text="Inserir" />
             &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False"
-                CommandName="Cancel" Text="Cancel" />
+                CommandName="Cancel" Text="Cancelar" />
         </InsertItemTemplate>
         <ItemTemplate>
             Doacao:
@@ -140,7 +140,7 @@
             Nome:
             <asp:Label ID="NomeLabel" runat="server" Text='<%# Bind("Nome") %>' />
             <br />
-            DATADOACAO:
+            Data Doação:
             <asp:Label ID="DATADOACAOLabel" runat="server" Text='<%# Bind("DATADOACAO") %>' />
             <br />
             ITENS:
@@ -165,11 +165,11 @@
             <asp:Label ID="EMAILLabel" runat="server" Text='<%# Bind("EMAIL") %>' />
             <br />
             <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit"
-                Text="Edit" />
+                Text="Alterar" />
             &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete"
-                Text="Delete" />
+                Text="Excluir" />
             &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New"
-                Text="New" />
+                Text="Novo" />
         </ItemTemplate>
     </asp:FormView>
     </form>
