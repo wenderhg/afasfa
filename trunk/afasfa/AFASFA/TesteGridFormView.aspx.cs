@@ -48,5 +48,10 @@ namespace AFASFA
                 FormView1.ChangeMode(FormViewMode.ReadOnly);
             }
         }
+
+        protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

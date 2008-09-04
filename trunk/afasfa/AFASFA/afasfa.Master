@@ -5,15 +5,18 @@
 <head runat="server">
     <title>#### AFASFA - Associação Filantrópica e Assistêncial São Francisco de Assis ####
     </title>
+    <link href="/estilos/estilos.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
-        <link href="estilos/estilos.css" rel="stylesheet" type="text/css" />
     </asp:ContentPlaceHolder>
 </head>
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
     <div id="container">
         <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true"
+            EnableScriptLocalization="true">
+        </asp:ScriptManager>
         <div id="topo">
-            <img src="Imagens/LOGOTIPO.jpg" />
+            <img src="/Imagens/LOGOTIPO.jpg" />
             <br />
             <label class="lblFormLogin">
                 Login.:</label><input class="txtFormLogin" name="Login" type="text" size="10" maxlength="20" />
@@ -23,7 +26,6 @@
             <input align="right" name="OK" type="submit" value="OK" class="lblFormLogin" />
         </div>
         <br>
-  
         <div id="menu">
             <br>
             <p class="lblMenuPrincipal">
@@ -50,7 +52,7 @@
                 </li>
                 <li>
                     <div align="left">
-                        <a href="#" class="LinkMenu">Doações</a></div>
+                        <a href="/cadastros/cadastro_doacoes.aspx" class="LinkMenu">Doações</a></div>
                 </li>
                 <li>
                     <div align="left">
@@ -103,6 +105,8 @@
             <br>
         </div>
         <div id="conteudo">
+            <asp:ValidationSummary ID="ValidationSummary1" runat="server" BorderWidth="1px" BorderColor="Red"
+                BackColor="Green" />
             <asp:ContentPlaceHolder ID="CplConteudo" runat="server">
             </asp:ContentPlaceHolder>
         </div>
