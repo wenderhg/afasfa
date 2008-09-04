@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.0.20820.16598, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Util\AjaxControlToolkit-Framework3.5SP1\SampleWebSite\Bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core">
@@ -70,6 +74,13 @@
     <Compile Include="cadastrar_eventos.aspx.designer.cs">
       <DependentUpon>cadastrar_eventos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cadastros\cadastro_doacoes.aspx.cs">
+      <DependentUpon>cadastro_doacoes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cadastros\cadastro_doacoes.aspx.designer.cs">
+      <DependentUpon>cadastro_doacoes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="campanhas.aspx.cs">
       <DependentUpon>campanhas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -107,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\Default\LabelSkin.skin" />
+    <Content Include="Cadastros\cadastro_doacoes.aspx" />
     <Content Include="TesteGridFormView.aspx" />
   </ItemGroup>
   <ItemGroup>

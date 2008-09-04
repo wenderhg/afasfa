@@ -44,11 +44,17 @@
     </div>
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
         AutoGenerateColumns="False" DataKeyNames="Doacao" DataSourceID="ObjectDataSource1"
-        OnRowCommand="GridView1_RowCommand" OnRowEditing="GridView1_RowEditing">
+        OnRowCommand="GridView1_RowCommand" OnRowEditing="GridView1_RowEditing" BackColor="#9999FF"
+        BorderColor="#6699FF" BorderStyle="Dashed" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1"
+        CellPadding="2" CellSpacing="1" HorizontalAlign="Center">
+        <EmptyDataRowStyle BackColor="Yellow" />
         <Columns>
-            <asp:BoundField DataField="Doacao" HeaderText="Doacao" ReadOnly="True" SortExpression="Doacao" />
+            <asp:BoundField DataField="Doacao" HeaderText="Doacao" ReadOnly="True" SortExpression="Doacao"
+                ControlStyle-BackColor="White">
+            </asp:BoundField>
             <asp:BoundField DataField="Nome" HeaderText="Nome" SortExpression="Nome" />
-            <asp:BoundField DataField="DATADOACAO" HeaderText="Data Doação" SortExpression="DATADOACAO" />
+            <asp:BoundField DataField="Data da doação" HeaderText="Data da doação" 
+                SortExpression="Data da doação" ItemStyle-BackColor="DarkBlue" />
             <asp:BoundField DataField="ITENS" HeaderText="ITENS" SortExpression="ITENS" />
             <asp:BoundField DataField="DISPONIBILIDADE" HeaderText="DISPONIBILIDADE" SortExpression="DISPONIBILIDADE" />
             <asp:BoundField DataField="OBSERVACAO" HeaderText="OBSERVACAO" SortExpression="OBSERVACAO" />
@@ -56,11 +62,13 @@
             <asp:BoundField DataField="TELEFONERES" HeaderText="TELEFONERES" SortExpression="TELEFONERES" />
             <asp:BoundField DataField="TELEFONECEL" HeaderText="TELEFONECEL" SortExpression="TELEFONECEL" />
             <asp:BoundField DataField="EMAIL" HeaderText="EMAIL" SortExpression="EMAIL" />
-            <asp:CommandField ShowEditButton="True" ShowInsertButton="True" EditText="Alterar" InsertText="Inserir" />
         </Columns>
+        <HeaderStyle ForeColor="White" Height="9px" HorizontalAlign="Center" VerticalAlign="Middle" />
+        <EditRowStyle BackColor="Black" />
+        <AlternatingRowStyle BackColor="#99CCFF" />
     </asp:GridView>
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="Doacao" DataSourceID="ObjectDataSource1"
-        OnModeChanging="FormView1_ModeChanging" Visible="false">
+        OnModeChanging="FormView1_ModeChanging" Visible="False">
         <EditItemTemplate>
             Doacao:
             <asp:Label ID="DoacaoLabel1" runat="server" Text='<%# Eval("Doacao") %>' />
@@ -68,8 +76,9 @@
             Nome:
             <asp:TextBox ID="NomeTextBox" runat="server" Text='<%# Bind("Nome") %>' />
             <br />
-            Data Doação:
-            <asp:TextBox ID="DATADOACAOTextBox" runat="server" Text='<%# Bind("DATADOACAO") %>' />
+            Data da doação:
+            <asp:TextBox ID="Data_da_doaçãoTextBox" runat="server" 
+                Text='<%# Bind("[Data da doação]") %>' />
             <br />
             ITENS:
             <asp:TextBox ID="ITENSTextBox" runat="server" Text='<%# Bind("ITENS") %>' />
@@ -93,19 +102,20 @@
             <asp:TextBox ID="EMAILTextBox" runat="server" Text='<%# Bind("EMAIL") %>' />
             <br />
             <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update"
-                Text="Atualizar" />
+                Text="Update" />
             &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False"
-                CommandName="Cancel" Text="Cancelar" />
+                CommandName="Cancel" Text="Cancel" />
         </EditItemTemplate>
         <InsertItemTemplate>
             Doacao:
-            <asp:Label ID="DoacaoLabel1" runat="server" Text='<%# Eval("Doacao") %>' />
+            <asp:TextBox ID="DoacaoTextBox" runat="server" Text='<%# Bind("Doacao") %>' />
             <br />
             Nome:
             <asp:TextBox ID="NomeTextBox" runat="server" Text='<%# Bind("Nome") %>' />
             <br />
-            Data Doação:
-            <asp:TextBox ID="DATADOACAOTextBox" runat="server" Text='<%# Bind("DATADOACAO") %>' />
+            Data da doação:
+            <asp:TextBox ID="Data_da_doaçãoTextBox" runat="server" 
+                Text='<%# Bind("[Data da doação]") %>' />
             <br />
             ITENS:
             <asp:TextBox ID="ITENSTextBox" runat="server" Text='<%# Bind("ITENS") %>' />
@@ -129,9 +139,9 @@
             <asp:TextBox ID="EMAILTextBox" runat="server" Text='<%# Bind("EMAIL") %>' />
             <br />
             <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert"
-                Text="Inserir" />
+                Text="Insert" />
             &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False"
-                CommandName="Cancel" Text="Cancelar" />
+                CommandName="Cancel" Text="Cancel" />
         </InsertItemTemplate>
         <ItemTemplate>
             Doacao:
@@ -140,8 +150,9 @@
             Nome:
             <asp:Label ID="NomeLabel" runat="server" Text='<%# Bind("Nome") %>' />
             <br />
-            Data Doação:
-            <asp:Label ID="DATADOACAOLabel" runat="server" Text='<%# Bind("DATADOACAO") %>' />
+            Data da doação:
+            <asp:Label ID="Data_da_doaçãoLabel" runat="server" 
+                Text='<%# Bind("[Data da doação]") %>' />
             <br />
             ITENS:
             <asp:Label ID="ITENSLabel" runat="server" Text='<%# Bind("ITENS") %>' />
@@ -165,11 +176,11 @@
             <asp:Label ID="EMAILLabel" runat="server" Text='<%# Bind("EMAIL") %>' />
             <br />
             <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit"
-                Text="Alterar" />
+                Text="Edit" />
             &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete"
-                Text="Excluir" />
+                Text="Delete" />
             &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New"
-                Text="Novo" />
+                Text="New" />
         </ItemTemplate>
     </asp:FormView>
     </form>
