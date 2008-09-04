@@ -86,8 +86,6 @@
 	color: #FF0000;
 	font-weight: bold;
 	text-decoration: none;
-
-
 }
 .txtFormulario {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -141,7 +139,7 @@
 	text-decoration: none;
 }
 .TextoTitulo {
-	font-size: x-large;
+	font-size: small;
 	color: #000000;
 	font-family: Hancock, Verdana;
 
