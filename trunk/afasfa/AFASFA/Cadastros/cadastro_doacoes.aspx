@@ -38,7 +38,7 @@
         </InsertParameters>
     </asp:ObjectDataSource>
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="Doacao" DefaultMode="Insert"
-        DataSourceID="ObjectDataSource1" BackColor="#E6E7F2" BorderColor="#E6E7F2" BorderStyle="Ridge">
+        DataSourceID="ObjectDataSource1" BackColor="#ecffff" BorderColor="#ecffff" BorderStyle="Ridge">
         <InsertItemTemplate>
             <table cellpadding="0" cellspacing="0">
                 <tr>
@@ -46,6 +46,15 @@
                         <td colspan="2" class="TextoTitulo">
                             <br />
                             DISPONIBILIZAR DOAÇÃO
+                            <br />
+                            <br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="TextoPagina">
+                            Aceitamos todo e qualquer tipo de doação, que são de extrema importância para nosso
+                            trabalho. As doações em dinheiro podem ser feitas através do Banco Itaú - Agência
+                            0041 - Conta Corrente: 63.555-8.
                             <br />
                             <br />
                         </td>
@@ -106,10 +115,12 @@
                     </td>
                     <td class="txtFormulario" align="left">
                         <asp:TextBox ID="TelefoneResTextBox" runat="server" Text='<%# Bind("TelefoneRes") %>'
-                            Width="80" Height="25" />
+                            Width="80" />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorTelefoneRes" runat="server"
                             ErrorMessage="Telefone residencial é de preenchimento obrigatório" ControlToValidate="TelefoneResTextBox"
                             Display="None"></asp:RequiredFieldValidator>
+                        <cc1:MaskedEditExtender runat="server" id="maskTelefoneRes" >
+                        </cc1:MaskedEditExtender>
                     </td>
                 </tr>
                 <tr>
@@ -156,10 +167,10 @@
                 <tr>
                     <td colspan="2" class="txtFormLogin" align="center">
                         <br />
-                        <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert"
-                            Text="Enviar Dados" />
-                        &nbsp;<asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False"
-                            CommandName="Cancel" Text="Cancelar" />
+                        <asp:Button ID="InsertButton" runat="server" CausesValidation="True" Text="Enviar Dados"
+                            CommandName="Insert" />
+                        &nbsp;<asp:Button ID="btnInsertCancelButton" runat="server" CausesValidation="False"
+                            OnClick="InsertCancelButton_Click" Text="Cancelar" />
                         <br />
                         <br />
                     </td>
@@ -167,4 +178,25 @@
             </table>
         </InsertItemTemplate>
     </asp:FormView>
+    <asp:Panel ID="pnConfirmacao" runat="server" Style="display: none" CssClass="modalPopup">
+        <asp:Panel ID="Panel3" runat="server" Style="cursor: move; background-color: #DDDDDD;
+            border: solid 1px Gray; color: Black">
+            <div>
+                <p>
+                    Confirmacao</p>
+            </div>
+        </asp:Panel>
+        Confirma cancelamento?
+        <br>
+        <asp:Button ID="btnOK" runat="server" Text="Sim" OnClick="btnOK_Click" UseSubmitBehavior="false"
+            SkinID="Outro" CausesValidation="false" />
+        <asp:Button ID="btnCancelar" runat="server" Text="Não" OnClick="btnCancelar_Click"
+            CausesValidation="false" />
+    </asp:Panel>
+    <asp:Button ID="btnModalPopupCancelar" runat="server" Text="" Style="display: none" />
+    <cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server" PopupControlID="pnConfirmacao"
+        RepositionMode="RepositionOnWindowResize" TargetControlID="btnModalPopupCancelar"
+        BackgroundCssClass="modalBackground" OkControlID="btnOK" CancelControlID="btnCancelar"
+        DropShadow="true" PopupDragHandleControlID="Panel3">
+    </cc1:ModalPopupExtender>
 </asp:Content>
