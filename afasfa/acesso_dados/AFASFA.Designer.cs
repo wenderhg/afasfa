@@ -474,6 +474,10 @@ namespace acesso_dados {
             
             private global::System.Data.DataColumn columnemail;
             
+            private global::System.Data.DataColumn columnEndereco;
+            
+            private global::System.Data.DataColumn columnBairro;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public doacoesDataTable() {
                 this.TableName = "doacoes";
@@ -575,6 +579,20 @@ namespace acesso_dados {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn EnderecoColumn {
+                get {
+                    return this.columnEndereco;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn BairroColumn {
+                get {
+                    return this.columnBairro;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -603,7 +621,7 @@ namespace acesso_dados {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public doacoesRow AdddoacoesRow(uint Doacao, string Nome, System.DateTime DataDoacao, string Itens, string Disponibilidade, string Observacao, string Estado, decimal TelefoneRes, decimal TelefoneCel, string email) {
+            public doacoesRow AdddoacoesRow(uint Doacao, string Nome, System.DateTime DataDoacao, string Itens, string Disponibilidade, string Observacao, string Estado, decimal TelefoneRes, decimal TelefoneCel, string email, string Endereco, string Bairro) {
                 doacoesRow rowdoacoesRow = ((doacoesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Doacao,
@@ -615,7 +633,9 @@ namespace acesso_dados {
                         Estado,
                         TelefoneRes,
                         TelefoneCel,
-                        email};
+                        email,
+                        Endereco,
+                        Bairro};
                 rowdoacoesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdoacoesRow);
                 return rowdoacoesRow;
@@ -651,6 +671,8 @@ namespace acesso_dados {
                 this.columnTelefoneRes = base.Columns["TelefoneRes"];
                 this.columnTelefoneCel = base.Columns["TelefoneCel"];
                 this.columnemail = base.Columns["email"];
+                this.columnEndereco = base.Columns["Endereco"];
+                this.columnBairro = base.Columns["Bairro"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -675,6 +697,10 @@ namespace acesso_dados {
                 base.Columns.Add(this.columnTelefoneCel);
                 this.columnemail = new global::System.Data.DataColumn("email", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnemail);
+                this.columnEndereco = new global::System.Data.DataColumn("Endereco", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEndereco);
+                this.columnBairro = new global::System.Data.DataColumn("Bairro", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBairro);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnDoacao}, true));
                 this.columnDoacao.AllowDBNull = false;
@@ -687,9 +713,16 @@ namespace acesso_dados {
                 this.columnDisponibilidade.AllowDBNull = false;
                 this.columnDisponibilidade.MaxLength = 65535;
                 this.columnObservacao.MaxLength = 65535;
+                this.columnEstado.DefaultValue = ((string)("P"));
                 this.columnEstado.MaxLength = 1;
                 this.columnTelefoneRes.AllowDBNull = false;
                 this.columnemail.MaxLength = 100;
+                this.columnEndereco.AllowDBNull = false;
+                this.columnEndereco.Caption = "ENDERECO";
+                this.columnEndereco.MaxLength = 60;
+                this.columnBairro.AllowDBNull = false;
+                this.columnBairro.Caption = "BAIRRO";
+                this.columnBairro.MaxLength = 30;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3301,6 +3334,26 @@ namespace acesso_dados {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Endereco {
+                get {
+                    return ((string)(this[this.tabledoacoes.EnderecoColumn]));
+                }
+                set {
+                    this[this.tabledoacoes.EnderecoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Bairro {
+                get {
+                    return ((string)(this[this.tabledoacoes.BairroColumn]));
+                }
+                set {
+                    this[this.tabledoacoes.BairroColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsNomeNull() {
                 return this.IsNull(this.tabledoacoes.NomeColumn);
             }
@@ -5129,6 +5182,8 @@ namespace acesso_dados.AFASFATableAdapters {
             tableMapping.ColumnMappings.Add("TELEFONERES", "TelefoneRes");
             tableMapping.ColumnMappings.Add("TELEFONECEL", "TelefoneCel");
             tableMapping.ColumnMappings.Add("EMAIL", "email");
+            tableMapping.ColumnMappings.Add("ENDERECO", "Endereco");
+            tableMapping.ColumnMappings.Add("BAIRRO", "Bairro");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -5144,7 +5199,7 @@ namespace acesso_dados.AFASFATableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `afasfa`.`doacoes` (`NOME`, `DATADOACAO`, `ITENS`, `DISPONIBILIDADE`, `OBSERVACAO`, `ESTADO`, `TELEFONERES`, `TELEFONECEL`, `EMAIL`) VALUES (@NOME, @DATADOACAO, @ITENS, @DISPONIBILIDADE, @OBSERVACAO, @ESTADO, @TELEFONERES, @TELEFONECEL, @EMAIL)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `afasfa`.`doacoes` (`NOME`, `DATADOACAO`, `ENDERECO`, `BAIRRO`, `ITENS`, `DISPONIBILIDADE`, `OBSERVACAO`, `ESTADO`, `TELEFONERES`, `TELEFONECEL`, `EMAIL`) VALUES (@NOME, @DATADOACAO, @ENDERECO, @BAIRRO, @ITENS, @DISPONIBILIDADE, @OBSERVACAO, @ESTADO, @TELEFONERES, @TELEFONECEL, @EMAIL)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@NOME";
@@ -5159,6 +5214,20 @@ namespace acesso_dados.AFASFATableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
             param.IsNullable = true;
             param.SourceColumn = "DATADOACAO";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@ENDERECO";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "ENDERECO";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@BAIRRO";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "BAIRRO";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@ITENS";
@@ -5207,8 +5276,9 @@ namespace acesso_dados.AFASFATableAdapters {
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE    doacoes
-SET              NOME = @NOME, DATADOACAO = @DATADOACAO, ITENS = @ITENS, DISPONIBILIDADE = @DISPONIBILIDADE, OBSERVACAO = @OBSERVACAO, 
-                      ESTADO = @ESTADO, TELEFONERES = @TELEFONERES, TELEFONECEL = @TELEFONECEL, EMAIL = @EMAIL
+SET              NOME = @NOME, DATADOACAO = @DATADOACAO, ENDERECO = @ENDERECO, BAIRRO = @BAIRRO, ITENS = @ITENS, 
+                      DISPONIBILIDADE = @DISPONIBILIDADE, OBSERVACAO = @OBSERVACAO, ESTADO = @ESTADO, TELEFONERES = @TELEFONERES, 
+                      TELEFONECEL = @TELEFONECEL, EMAIL = @EMAIL
 WHERE     (DOACAO = @Original_DOACAO)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -5225,6 +5295,22 @@ WHERE     (DOACAO = @Original_DOACAO)";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
             param.IsNullable = true;
             param.SourceColumn = "DATADOACAO";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@ENDERECO";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 60;
+            param.IsNullable = true;
+            param.SourceColumn = "ENDERECO";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@BAIRRO";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 30;
+            param.IsNullable = true;
+            param.SourceColumn = "BAIRRO";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@ITENS";
@@ -5298,12 +5384,19 @@ WHERE     (DOACAO = @Original_DOACAO)";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `DOACAO`, `NOME`, `DATADOACAO`, `ITENS`, `DISPONIBILIDADE`, `OBSERVACAO`, " +
-                "`ESTADO`, `TELEFONERES`, `TELEFONECEL`, `EMAIL` FROM `afasfa`.`doacoes`";
+            this._commandCollection[0].CommandText = "SELECT `DOACAO`, `NOME`, `DATADOACAO`, `ENDERECO`,`BAIRRO`,`ITENS`, `DISPONIBILID" +
+                "ADE`, `OBSERVACAO`, `ESTADO`, `TELEFONERES`, `TELEFONECEL`, `EMAIL` FROM `afasfa" +
+                "`.`doacoes`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT     DOACAO, NOME, DATADOACAO, ENDERECO, BAIRRO, ITENS, DISPONIBILIDADE, OB" +
+                "SERVACAO, ESTADO, TELEFONERES, TELEFONECEL, \r\n                      EMAIL\r\nFROM " +
+                "        doacoes\r\nWHERE     (ESTADO = \'P\')";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5323,6 +5416,28 @@ WHERE     (DOACAO = @Original_DOACAO)";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual AFASFA.doacoesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            AFASFA.doacoesDataTable dataTable = new AFASFA.doacoesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(AFASFA.doacoesDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual AFASFA.doacoesDataTable RetornaDoacoesPendentes() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             AFASFA.doacoesDataTable dataTable = new AFASFA.doacoesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -5377,7 +5492,7 @@ WHERE     (DOACAO = @Original_DOACAO)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string NOME, global::System.Nullable<global::System.DateTime> DATADOACAO, string ITENS, string DISPONIBILIDADE, string OBSERVACAO, string ESTADO, string TELEFONERES, string TELEFONECEL, string EMAIL) {
+        public virtual int Insert(string NOME, global::System.Nullable<global::System.DateTime> DATADOACAO, string ENDERECO, string BAIRRO, string ITENS, string DISPONIBILIDADE, string OBSERVACAO, string ESTADO, string TELEFONERES, string TELEFONECEL, string EMAIL) {
             if ((NOME == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -5390,47 +5505,59 @@ WHERE     (DOACAO = @Original_DOACAO)";
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
+            if ((ENDERECO == null)) {
+                throw new global::System.ArgumentNullException("ENDERECO");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(ENDERECO));
+            }
+            if ((BAIRRO == null)) {
+                throw new global::System.ArgumentNullException("BAIRRO");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(BAIRRO));
+            }
             if ((ITENS == null)) {
                 throw new global::System.ArgumentNullException("ITENS");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(ITENS));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(ITENS));
             }
             if ((DISPONIBILIDADE == null)) {
                 throw new global::System.ArgumentNullException("DISPONIBILIDADE");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(DISPONIBILIDADE));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(DISPONIBILIDADE));
             }
             if ((OBSERVACAO == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(OBSERVACAO));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(OBSERVACAO));
             }
             if ((ESTADO == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(ESTADO));
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(ESTADO));
             }
             if ((TELEFONERES == null)) {
                 throw new global::System.ArgumentNullException("TELEFONERES");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(TELEFONERES));
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(TELEFONERES));
             }
             if ((TELEFONECEL == null)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(TELEFONECEL));
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(TELEFONECEL));
             }
             if ((EMAIL == null)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(EMAIL));
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(EMAIL));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5451,7 +5578,7 @@ WHERE     (DOACAO = @Original_DOACAO)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string NOME, global::System.Nullable<global::System.DateTime> DATADOACAO, string ITENS, string DISPONIBILIDADE, string OBSERVACAO, string ESTADO, decimal TELEFONERES, global::System.Nullable<decimal> TELEFONECEL, string EMAIL, int Original_DOACAO) {
+        public virtual int Update(string NOME, global::System.Nullable<global::System.DateTime> DATADOACAO, string ENDERECO, string BAIRRO, string ITENS, string DISPONIBILIDADE, string OBSERVACAO, string ESTADO, decimal TELEFONERES, global::System.Nullable<decimal> TELEFONECEL, string EMAIL, int Original_DOACAO) {
             if ((NOME == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -5464,44 +5591,56 @@ WHERE     (DOACAO = @Original_DOACAO)";
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
+            if ((ENDERECO == null)) {
+                throw new global::System.ArgumentNullException("ENDERECO");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(ENDERECO));
+            }
+            if ((BAIRRO == null)) {
+                throw new global::System.ArgumentNullException("BAIRRO");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(BAIRRO));
+            }
             if ((ITENS == null)) {
                 throw new global::System.ArgumentNullException("ITENS");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(ITENS));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(ITENS));
             }
             if ((DISPONIBILIDADE == null)) {
                 throw new global::System.ArgumentNullException("DISPONIBILIDADE");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(DISPONIBILIDADE));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(DISPONIBILIDADE));
             }
             if ((OBSERVACAO == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(OBSERVACAO));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(OBSERVACAO));
             }
             if ((ESTADO == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(ESTADO));
-            }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(TELEFONERES));
-            if ((TELEFONECEL.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(TELEFONECEL.Value));
-            }
-            else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((EMAIL == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(ESTADO));
+            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(TELEFONERES));
+            if ((TELEFONECEL.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(TELEFONECEL.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(EMAIL));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_DOACAO));
+            if ((EMAIL == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(EMAIL));
+            }
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_DOACAO));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {

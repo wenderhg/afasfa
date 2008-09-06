@@ -1,3 +1,5 @@
 ﻿
 <asp:Button runat="server" font-family="Verdana" BackColor="#E6E7F2" BorderColor="#E6E7F2" Font-Bold="true" />
 
+<asp:Button SkinID="Outro" runat="server" font-family="Verdana" BackColor="red" BorderColor="#E6E7F2" Font-Bold="true" />
+

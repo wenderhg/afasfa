@@ -11,7 +11,25 @@ namespace AFASFA.cadastros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
+
+        protected void InsertCancelButton_Click(object sender, EventArgs e)
+        {
+            this.ModalPopupExtender1.Show();
+        }
+
+        protected void btnOK_Click(object sender, EventArgs e)
+        {
+            this.ModalPopupExtender1.Hide();
+            this.FormView1.ChangeMode(FormViewMode.ReadOnly);
+            this.FormView1.ChangeMode(FormViewMode.Insert);
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.ModalPopupExtender1.Hide();
+        }
+        
     }
 }
