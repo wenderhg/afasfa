@@ -4,6 +4,10 @@
 
     public partial class AFASFA
     {
+        partial class assistenciasDataTable
+        {
+        }
+    
         partial class doacoesDataTable
         {
         }

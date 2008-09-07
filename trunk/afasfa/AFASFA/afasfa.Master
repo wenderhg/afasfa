@@ -83,7 +83,11 @@
             <ul>
                 <li>
                     <div align="left">
-                        <a href="cadastrar_eventos.aspx" class="LinkMenu">Cadastro de Eventos</a></div>
+                        <a href="/cadastros/cadastro_eventos.aspx" class="LinkMenu">Cadastro de Eventos</a></div>
+                </li>
+                <li>
+                    <div align="left">
+                        <a href="/cadastros/cadastro_tipos_assistencias.aspx" class="LinkMenu">Cadastrar Tipos de Assistência</a></div>
                 </li>
                 <li>
                     <div align="left">
@@ -106,7 +110,7 @@
         </div>
         <div id="conteudo">
             <asp:ValidationSummary ID="ValidationSummary1" runat="server" BorderWidth="1px" BorderColor="Red"
-                BackColor="Green" />
+                BackColor=#E6E7F2 />
             <asp:ContentPlaceHolder ID="CplConteudo" runat="server">
             </asp:ContentPlaceHolder>
         </div>
