@@ -12,8 +12,7 @@
 	{
 		margin: 1em auto;
 		width: 750px;
-		<!--o width padrão era 680 -->
-		text-align: center;
+		text-align: justify;
 		background-color: #FFFFFF;
 		border: 1px solid black;
 	}
@@ -22,23 +21,25 @@
 	#topo {	
 	height: 130px;
 	width: 100%;
+	text-align:center;
 	}
 	
 	#menu
 	{
-		float: left;
-		
+		float: left;		
 		width: 166px;
 		background-color: #E6E7F2;
-	height: 350px;
+		text-align: center;
+	
 }
 	
 	#conteudo
 	{
 	background-color: #FFFFFF;
-	margin-top: 0px;
+	margin-top: 30px;
 	margin-bottom: 0px;
 	margin-left: 200px;
+	margin-right: 35px;
 	}
 	
 	#rodape
@@ -368,4 +369,40 @@
 	border-color:Gray;
 	padding:3px;
 	width:250px;
+}
+
+.lblBtnFomularioCadastro{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	font-style: normal;
+	color: #FF0000;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.lblPreenchimentoObrigatorio{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	font-style: normal;
+	color: Black;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.lblCabecalhoModalPop{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	font-style: normal;
+	color: red;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.lblPerguntaModalPop{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	font-style: normal;
+	color: Black;
+	font-weight: bold;
+	text-decoration: none;
 }

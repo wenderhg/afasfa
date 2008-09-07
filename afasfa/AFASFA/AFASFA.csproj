@@ -67,19 +67,26 @@
     <Compile Include="afasfa.Master.designer.cs">
       <DependentUpon>afasfa.Master</DependentUpon>
     </Compile>
-    <Compile Include="cadastrar_eventos.aspx.cs">
-      <DependentUpon>cadastrar_eventos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="cadastrar_eventos.aspx.designer.cs">
-      <DependentUpon>cadastrar_eventos.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Cadastros\cadastro_doacoes.aspx.cs">
       <DependentUpon>cadastro_doacoes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Cadastros\cadastro_doacoes.aspx.designer.cs">
       <DependentUpon>cadastro_doacoes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\cadastro_eventos.aspx.cs">
+      <DependentUpon>cadastro_eventos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cadastros\cadastro_eventos.aspx.designer.cs">
+      <DependentUpon>cadastro_eventos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\cadastro_tipos_assistencias.aspx.cs">
+      <DependentUpon>cadastro_tipos_assistencias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cadastros\cadastro_tipos_assistencias.aspx.designer.cs">
+      <DependentUpon>cadastro_tipos_assistencias.aspx</DependentUpon>
     </Compile>
     <Compile Include="campanhas.aspx.cs">
       <DependentUpon>campanhas.aspx</DependentUpon>
@@ -106,7 +113,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="afasfa.Master" />
-    <Content Include="cadastrar_eventos.aspx" />
     <Content Include="campanhas.aspx" />
     <Content Include="estilos\estilos.css" />
     <Content Include="estilos\estilos_OLD.css" />
@@ -119,6 +125,9 @@
   <ItemGroup>
     <Content Include="App_Themes\Default\LabelSkin.skin" />
     <Content Include="Cadastros\cadastro_doacoes.aspx" />
+    <Content Include="Cadastros\cadastro_eventos.aspx" />
+    <Content Include="Cadastros\cadastro_tipos_assistencias.aspx" />
+    <Content Include="Imagens\Calendar.bmp" />
     <Content Include="TesteGridFormView.aspx" />
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/afasfa.Master" AutoEventWireup="true"
     CodeBehind="cadastro_doacoes.aspx.cs" Inherits="AFASFA.cadastros.cadastro_doacoes" %>
 
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<%@ Register Assembly="AjaxControlToolkit, Version=3.0.20820.16598, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"
+    Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="CplConteudo" runat="server">
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" DeleteMethod="Delete"
         InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData"
@@ -43,7 +44,7 @@
             <table cellpadding="0" cellspacing="0">
                 <tr>
                     <tr>
-                        <td colspan="2" class="TextoTitulo">
+                        <td colspan="2" class="TextoTitulo" align="center">
                             <br />
                             DISPONIBILIZAR DOAÇÃO
                             <br />
@@ -51,7 +52,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="TextoPagina">
+                        <td colspan="2" class="TextoPagina" align="justify">
                             Aceitamos todo e qualquer tipo de doação, que são de extrema importância para nosso
                             trabalho. As doações em dinheiro podem ser feitas através do Banco Itaú - Agência
                             0041 - Conta Corrente: 63.555-8.
@@ -80,7 +81,7 @@
                             ErrorMessage="Data da Doação é de preenchimento obrigatório." ControlToValidate="DataDoacaoTextBox"
                             SetFocusOnError="true" Display="None"></asp:RequiredFieldValidator>
                         <cc1:CalendarExtender ID="CalendarExtenderDataDoacao" runat="server" Animated="true"
-                            Format="dd/MM/yyyy" PopupPosition="BottomRight" TargetControlID="DataDoacaoTextBox">
+                            Format="dd/MM/yyyy" PopupPosition="BottomRight" TargetControlID="DataDoacaoTextBox" PopupButtonID="calendar">
                         </cc1:CalendarExtender>
                         <asp:CompareValidator ID="CompareValidatorDataDoacao" runat="server" Display="None"
                             ControlToValidate="DataDoacaoTextBox" ErrorMessage="Data da doação inválida."
@@ -119,7 +120,7 @@
                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorTelefoneRes" runat="server"
                             ErrorMessage="Telefone residencial é de preenchimento obrigatório" ControlToValidate="TelefoneResTextBox"
                             Display="None"></asp:RequiredFieldValidator>
-                        <cc1:MaskedEditExtender runat="server" id="maskTelefoneRes" >
+                        <cc1:MaskedEditExtender runat="server" ID="maskTelefoneRes">
                         </cc1:MaskedEditExtender>
                     </td>
                 </tr>
@@ -183,11 +184,11 @@
             border: solid 1px Gray; color: Black">
             <div>
                 <p>
-                    Confirmacao</p>
+                    Alerta !!!</p>
             </div>
         </asp:Panel>
-        Confirma cancelamento?
-        <br>
+        Confirma cancelamento ?
+        <br />
         <asp:Button ID="btnOK" runat="server" Text="Sim" OnClick="btnOK_Click" UseSubmitBehavior="false"
             SkinID="Outro" CausesValidation="false" />
         <asp:Button ID="btnCancelar" runat="server" Text="Não" OnClick="btnCancelar_Click"

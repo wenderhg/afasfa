@@ -1,5 +1,9 @@
 ﻿
-<asp:Button runat="server" font-family="Verdana" BackColor="#E6E7F2" BorderColor="#E6E7F2" Font-Bold="true" />
 
+
+<asp:Button SkinID="btnFormularioCadastro" runat="server"  BackColor="#666699" 
+        BorderColor="#003366" BorderStyle="Double" BorderWidth="2px" 
+        CssClass="lblBtnFomularioCadastro" Font-Names="Verdana" ForeColor="White" />
+        
 <asp:Button SkinID="Outro" runat="server" font-family="Verdana" BackColor="red" BorderColor="#E6E7F2" Font-Bold="true" />
 
