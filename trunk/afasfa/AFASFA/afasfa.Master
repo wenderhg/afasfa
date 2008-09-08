@@ -16,16 +16,16 @@
             EnableScriptLocalization="true">
         </asp:ScriptManager>
         <div id="topo">
-            <img src="/Imagens/LOGOTIPO.jpg" />
-            <br />
+            <asp:Image ImageUrl="/Imagens/LOGOTIPO.jpg" runat="server" />
             <label class="lblFormLogin">
-                Login.:</label><input class="txtFormLogin" name="Login" type="text" size="10" maxlength="20" />
+                Login.:</label>
+            <input class="txtFormLogin" name="Login" type="text" size="10" maxlength="20" />
             <label class="lblFormLogin">
-                Senha:</label><input class="txtFormLogin" name="Senha" type="password" size="10"
-                    maxlength="10" />
+                Senha:</label>
+            <input class="txtFormLogin" name="Senha" type="password" size="10" maxlength="10" />
             <input align="right" name="OK" type="submit" value="OK" class="lblFormLogin" />
         </div>
-        <br>
+        <br />
         <div id="menu">
             <br>
             <p class="lblMenuPrincipal">
@@ -87,7 +87,8 @@
                 </li>
                 <li>
                     <div align="left">
-                        <a href="/cadastros/cadastro_tipos_assistencias.aspx" class="LinkMenu">Cadastrar Tipos de Assistência</a></div>
+                        <a href="/cadastros/cadastro_tipos_assistencias.aspx" class="LinkMenu">Cadastrar Tipos
+                            de Assistência</a></div>
                 </li>
                 <li>
                     <div align="left">
@@ -110,7 +111,7 @@
         </div>
         <div id="conteudo">
             <asp:ValidationSummary ID="ValidationSummary1" runat="server" BorderWidth="1px" BorderColor="Red"
-                BackColor=#E6E7F2 />
+                BackColor="#E6E7F2" />
             <asp:ContentPlaceHolder ID="CplConteudo" runat="server">
             </asp:ContentPlaceHolder>
         </div>
