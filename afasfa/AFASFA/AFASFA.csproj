@@ -110,6 +110,13 @@
     <Compile Include="TesteGridFormView.aspx.designer.cs">
       <DependentUpon>TesteGridFormView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="afasfa.Master" />
@@ -129,6 +136,7 @@
     <Content Include="Cadastros\cadastro_tipos_assistencias.aspx" />
     <Content Include="Imagens\Calendar.bmp" />
     <Content Include="TesteGridFormView.aspx" />
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\acesso_dados\acesso_dados.csproj">

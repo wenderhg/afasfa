@@ -80,6 +80,8 @@
                                 <td align="left" valign="middle">
                                     <asp:TextBox ID="DataEventoTextBox" runat="server" Text='<%# Bind("Dataevento") %>'
                                         Width="80" class="txtFormulario" />
+                                    <cc1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" MaskType="Date" Mask="99/99/9999">
+                                    </cc1:MaskedEditExtender>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorDataEventoTextBox" runat="server"
                                         ErrorMessage="Data do Evento é de preenchimento obrigatório." ControlToValidate="DataEventoTextBox"
                                         SetFocusOnError="true" Display="None"></asp:RequiredFieldValidator>
@@ -243,3 +245,5 @@
         DropShadow="true" PopupDragHandleControlID="Panel3">
     </cc1:ModalPopupExtender>
 </asp:Content>
+
+
