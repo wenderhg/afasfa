@@ -11,17 +11,20 @@
         TypeName="acesso_dados.AFASFATableAdapters.eventosTableAdapter">
         <DeleteParameters>
             <asp:Parameter Name="Original_EVENTO" Type="UInt32" />
-            <asp:Parameter Name="Original_DESCRICAO" Type="String" />
-            <asp:Parameter Name="Original_DATAEVENTO" Type="DateTime" />
-            <asp:Parameter Name="Original_LOCALEVENTO" Type="String" />
-            <asp:Parameter Name="Original_FOTOINICIAL" Type="String" />
-            <asp:Parameter Name="Original_JAREALIZADO" Type="Byte" />
-            <asp:Parameter Name="Original_APRESENTAR" Type="Byte" />
-            <asp:Parameter Name="Original_RESERVADISPONIVEL" Type="Byte" />
-            <asp:Parameter Name="Original_DATAMAXIMA" Type="DateTime" />
-            <asp:Parameter Name="Original_VALORCONVITEA" Type="String" />
-            <asp:Parameter Name="Original_VALORCONVITEC" Type="String" />
         </DeleteParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="DESCRICAO" Type="String" />
+            <asp:Parameter Name="DATAEVENTO" Type="DateTime" />
+            <asp:Parameter Name="LOCALEVENTO" Type="String" />
+            <asp:Parameter Name="FOTOINICIAL" Type="String" />
+            <asp:Parameter Name="JAREALIZADO" Type="Byte" />
+            <asp:Parameter Name="APRESENTAR" Type="Byte" />
+            <asp:Parameter Name="RESERVADISPONIVEL" Type="Byte" />
+            <asp:Parameter Name="DATAMAXIMA" Type="DateTime" />
+            <asp:Parameter Name="VALORCONVITEA" Type="String" />
+            <asp:Parameter Name="VALORCONVITEC" Type="String" />
+            <asp:Parameter Name="OBSERVACAO" Type="String" />
+        </UpdateParameters>
         <InsertParameters>
             <asp:Parameter Name="EVENTO" Type="UInt32" />
             <asp:Parameter Name="DESCRICAO" Type="String" />
@@ -80,14 +83,16 @@
                                 <td align="left" valign="middle">
                                     <asp:TextBox ID="DataEventoTextBox" runat="server" Text='<%# Bind("Dataevento") %>'
                                         Width="80" class="txtFormulario" />
-                                    <cc1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" MaskType="Date" Mask="99/99/9999">
+                                    <cc1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" MaskType="Date" AcceptNegative="None"
+                                        Mask="99/99/9999" TargetControlID="DataEventoTextBox" UserDateFormat="DayMonthYear"
+                                        AutoComplete="true" AutoCompleteValue="09/08/2008">
                                     </cc1:MaskedEditExtender>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorDataEventoTextBox" runat="server"
                                         ErrorMessage="Data do Evento é de preenchimento obrigatório." ControlToValidate="DataEventoTextBox"
                                         SetFocusOnError="true" Display="None"></asp:RequiredFieldValidator>
-                                    <asp:ImageButton ImageUrl="../Imagens/Calendar.bmp" runat="server" />
+                                    <asp:Image runat="server" ID="imgCalendarioDataEvento" ImageUrl="../Imagens/Calendar.bmp" />
                                     <cc1:CalendarExtender ID="CalendarExtenderDataDoacao" runat="server" Animated="true"
-                                        Format="dd/MM/yyyy" PopupPosition="BottomRight" TargetControlID="DataEventoTextBox">
+                                        Format="dd/MM/yyyy" TargetControlID="DataEventoTextBox" PopupButtonID="imgCalendarioDataEvento">
                                     </cc1:CalendarExtender>
                                     <asp:CompareValidator ID="CompareValidatorDataEventoTextBox" runat="server" Display="None"
                                         ControlToValidate="DataEventoTextBox" ErrorMessage="Data do evento inválida."
@@ -187,9 +192,9 @@
                             <tr>
                                 <td colspan="2" align="center">
                                     <br />
-                                    <asp:Button ID="InsertButton" runat="server" CausesValidation="False" CommandName="Insert"
-                                        Text="Salvar Dados" SkinID="btnFormularioCadastro" />
-                                    <asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel"
+                                    <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Salvar Dados"
+                                        SkinID="btnFormularioCadastro" />
+                                    <asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False"
                                         Text="Cancelar" SkinID="btnFormularioCadastro" OnClick="InsertCancelButton_Click" />
                                     <br />
                                     <br />
@@ -245,5 +250,3 @@
         DropShadow="true" PopupDragHandleControlID="Panel3">
     </cc1:ModalPopupExtender>
 </asp:Content>
-
-

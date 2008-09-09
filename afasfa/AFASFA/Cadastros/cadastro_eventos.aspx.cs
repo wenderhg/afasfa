@@ -11,8 +11,13 @@ namespace AFASFA.Cadastros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //TextBox _txtDataEvento = (this.FormView1.FindControl("DataEventoTextBox") as TextBox);
+            //if (_txtDataEvento != null)
+            //{
+            //    _txtDataEvento.Text = DateTime.Today.ToShortDateString();
+            //}
         }
+
         protected void InsertCancelButton_Click(object sender, EventArgs e)
         {
             this.ModalPopupExtender1.Show();
