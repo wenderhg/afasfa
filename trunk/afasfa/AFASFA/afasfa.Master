@@ -33,21 +33,21 @@
             <ul>
                 <li>
                     <div align="left">
-                        <a href="index.aspx" class="LinkMenu">In&iacute;cio</a></div>
+                        <a href="/index.aspx" class="LinkMenu">In&iacute;cio</a></div>
                 </li>
                 <li>
                     <div align="left">
-                        <a href="projetos.aspx" class="LinkMenu" onclick="navega('projetos.aspx'); return false">
+                        <a href="/projetos.aspx" class="LinkMenu" onclick="navega('projetos.aspx'); return false">
                             Projetos AFASFA</a></div>
                 </li>
                 <li>
                     <div align="left">
-                        <a href="projeto_vivaarte.aspx" class="LinkMenu" onclick="navega('projeto_vivaarte.aspx'); return false">
+                        <a href="/projeto_vivaarte.aspx" class="LinkMenu" onclick="navega('projeto_vivaarte.aspx'); return false">
                             Projetos Viva-Arte</a></div>
                 </li>
                 <li>
                     <div align="left">
-                        <a href="eventos.aspx" class="LinkMenu" onclick="navega('eventos.aspx'); return false">
+                        <a href="/eventos.aspx" class="LinkMenu" onclick="navega('eventos.aspx'); return false">
                             Eventos</a></div>
                 </li>
                 <li>
@@ -56,7 +56,7 @@
                 </li>
                 <li>
                     <div align="left">
-                        <a href="como_chegar.aspx" class="LinkMenu" onclick="navega_maps('como_chegar.aspx'); return false">
+                        <a href="/como_chegar.aspx" class="LinkMenu" onclick="navega_maps('como_chegar.aspx'); return false">
                             Como Chegar ao Lar</a></div>
                 </li>
                 <li>
@@ -70,7 +70,7 @@
                 </li>
                 <li>
                     <div align="left">
-                        <a href="campanhas.aspx" class="LinkMenu" onclick="navega('campanhas.aspx'); return false">
+                        <a href="/campanhas.aspx" class="LinkMenu" onclick="navega('campanhas.aspx'); return false">
                             Campanhas</a></div>
                 </li>
                 <li>
@@ -111,7 +111,8 @@
         </div>
         <div id="conteudo">
             <asp:ValidationSummary ID="ValidationSummary1" runat="server" BorderWidth="1px" BorderColor="Red"
-                BackColor="#E6E7F2" />
+                BackColor="#E6E7F2"/>
+            <br />
             <asp:ContentPlaceHolder ID="CplConteudo" runat="server">
             </asp:ContentPlaceHolder>
         </div>

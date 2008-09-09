@@ -120,8 +120,6 @@
                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorTelefoneRes" runat="server"
                             ErrorMessage="Telefone residencial é de preenchimento obrigatório" ControlToValidate="TelefoneResTextBox"
                             Display="None"></asp:RequiredFieldValidator>
-                        <cc1:MaskedEditExtender runat="server" ID="maskTelefoneRes">
-                        </cc1:MaskedEditExtender>
                     </td>
                 </tr>
                 <tr>
