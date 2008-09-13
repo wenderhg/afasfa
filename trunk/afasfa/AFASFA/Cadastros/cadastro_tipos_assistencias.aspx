@@ -35,8 +35,18 @@
                 </tr>
                 <tr>
                     <td colspan="2" class="TextoPagina" align="justify">
-                        As informações inseridas neste cadastro serão utilizadas no cadastro de quantidade
-                        de pessoas assistidas.
+                        Olá !!!! Muito Obrigado pelos serviços prestados....
+                        <br />
+                        <br />
+                        Saiba que as informações aqui inseridas serão utilizadas e apresentadas na página
+                        aberta ao que mostra a quantidade de pessoas assistidas pelos projetos o Lar , por
+                        isso os dados devem conter informações corretas.
+                        <br />
+                        <br />
+                        Bom Trabalho.
+                        <br />
+                        <br />
+                        Caso Necessite de Ajuda click aqui !!!!
                         <br />
                         <br />
                     </td>
@@ -46,7 +56,7 @@
                         <table>
                             <tr>
                                 <td class="lblFomulario" align="right">
-                                    <strong>*</strong> Descrição:
+                                    <strong style="color: red">*</strong> Descrição:
                                 </td>
                                 <td align="left">
                                     <asp:TextBox ID="DescricaoTextBox" runat="server" Text='<%# Bind("Descricao") %>'
@@ -58,7 +68,7 @@
                             </tr>
                             <tr>
                                 <td class="lblFomulario" align="right">
-                                    <strong>*</strong> Responsavel:
+                                    <strong style="color: red">*</strong> Responsavel:
                                 </td>
                                 <td align="left">
                                     <asp:TextBox ID="ResponsavelTextBox" runat="server" Text='<%# Bind("Responsavel") %>'

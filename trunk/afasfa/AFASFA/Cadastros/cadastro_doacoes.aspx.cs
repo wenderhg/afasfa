@@ -19,6 +19,31 @@ namespace AFASFA.cadastros
             this.ModalPopupExtender1.Show();
         }
 
+        protected void InsertButton_Click(object sender, EventArgs e)
+        {
+            //System.Net.Mail.MailMessage _message = new System.Net.Mail.MailMessage();
+            //_message.IsBodyHtml = true;
+            //_message.From = new System.Net.Mail.MailAddress(@"afa@afasaofranciscodeassis.org.br");
+            //_message.Subject = "Doação aguardando aprovação.";
+            //_message.Body = "Foi incluido uma doação";
+            //_message.To.Add(@"rodrigoprog@gmail.com");
+            //System.Net.Mail.SmtpClient _smtp = new System.Net.Mail.SmtpClient("afasaofranciscodeassis.org.br");
+            ////_smtp.Host = "smtp.";
+            ////_smtp.Port = 587;
+            //_smtp.EnableSsl = false;
+            ////System.Net.Security.NegotiateStream _auth = new System.Net.Security.NegotiateStream();
+            ////_auth.AuthenticateAsServer(
+            //    //System.Security.Authentication.SslProtocols.Tls _cred = new System.Net.NetworkCredential();
+            //System.Net.NetworkCredential _cred = new System.Net.NetworkCredential();
+            ////_cred.Domain = @"afasaofranciscodeassis.org.br";
+            //_cred.UserName = "afasaofranciscodeass";
+            //_cred.Password = @"RODRIGO1212";            
+            //_smtp.Credentials = _cred;
+            ////_smtp.ServicePoint.Address = new Uri(@"afasaofranciscodeassis.org.br");
+            //_smtp.Send(_message);
+        }
+        
+
         protected void btnOK_Click(object sender, EventArgs e)
         {
             this.ModalPopupExtender1.Hide();

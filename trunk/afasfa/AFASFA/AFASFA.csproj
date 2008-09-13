@@ -88,6 +88,13 @@
     <Compile Include="Cadastros\cadastro_tipos_assistencias.aspx.designer.cs">
       <DependentUpon>cadastro_tipos_assistencias.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cadastros\cadastro_voluntarios.aspx.cs">
+      <DependentUpon>cadastro_voluntarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cadastros\cadastro_voluntarios.aspx.designer.cs">
+      <DependentUpon>cadastro_voluntarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="campanhas.aspx.cs">
       <DependentUpon>campanhas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -134,6 +141,7 @@
     <Content Include="Cadastros\cadastro_doacoes.aspx" />
     <Content Include="Cadastros\cadastro_eventos.aspx" />
     <Content Include="Cadastros\cadastro_tipos_assistencias.aspx" />
+    <Content Include="Cadastros\cadastro_voluntarios.aspx" />
     <Content Include="Imagens\Calendar.bmp" />
     <Content Include="TesteGridFormView.aspx" />
     <Content Include="WebForm1.aspx" />
