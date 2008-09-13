@@ -22,6 +22,7 @@ namespace TesteUsuario
         private void button1_Click(object sender, EventArgs e)
         {
             txtHash1.Text = RetornaSenha(txtSenha.Text);
+            txtHash2.Text = txtHash1.Text.Length.ToString();
         }
 
         public string RetornaSenha(string senha)
