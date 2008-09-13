@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AFASFA", "AFASFA\AFASFA.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "acesso_dados", "acesso_dados\acesso_dados.csproj", "{C499C716-35A6-46CC-A36C-BBAC70A85CF4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servico", "Servico\Servico.csproj", "{03BFA8D5-DBB5-4DD8-B199-2F3B3DAE6448}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{C499C716-35A6-46CC-A36C-BBAC70A85CF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C499C716-35A6-46CC-A36C-BBAC70A85CF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C499C716-35A6-46CC-A36C-BBAC70A85CF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03BFA8D5-DBB5-4DD8-B199-2F3B3DAE6448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03BFA8D5-DBB5-4DD8-B199-2F3B3DAE6448}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03BFA8D5-DBB5-4DD8-B199-2F3B3DAE6448}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03BFA8D5-DBB5-4DD8-B199-2F3B3DAE6448}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

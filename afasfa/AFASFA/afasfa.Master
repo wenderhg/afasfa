@@ -15,16 +15,25 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true"
             EnableScriptLocalization="true">
         </asp:ScriptManager>
-        <div id="topo">
-            <asp:Image ImageUrl="/Imagens/LOGOTIPO.jpg" runat="server" />
-            <label class="lblFormLogin">
-                Login.:</label>
-            <input class="txtFormLogin" name="Login" type="text" size="10" maxlength="20" />
-            <label class="lblFormLogin">
-                Senha:</label>
-            <input class="txtFormLogin" name="Senha" type="password" size="10" maxlength="10" />
-            <input align="right" name="OK" type="submit" value="OK" class="lblFormLogin" />
-        </div>
+        <asp:Image ID="Image1" ImageUrl="/Imagens/LOGOTIPO.jpg" runat="server" />
+        <asp:Panel runat="server" ID="pnLogin" CssClass="Login">
+            <span class="lblFormLogin">Login:
+                <asp:TextBox ID="txtUsuario" runat="server" MaxLength="20" CssClass="txtFormLogin"></asp:TextBox>
+                &nbsp; Senha:
+                <asp:TextBox ID="txtSenha" runat="server" TextMode="Password" MaxLength="10" CssClass="txtFormLogin"></asp:TextBox>
+                &nbsp;
+                <asp:Button runat="server" ID="btnLogin" Text="OK" CssClass="lblFormLogin" OnClick="btnLogin_Click" />
+                &nbsp;
+                <asp:Label runat="server" ID="lbErro" CssClass="txtFormLogin" Text="Usuário ou senha inválido"
+                    Visible="false" EnableViewState="false"></asp:Label>
+            </span>
+        </asp:Panel>
+        <asp:Panel runat="server" ID="pnLogout" CssClass="Login">
+            <span class="lblFormLogin">Usuario:
+                <asp:Literal ID="ltUsuario" runat="server"></asp:Literal>
+            </span>&nbsp;
+            <asp:LinkButton ID="lkLogout" runat="server" Text="Sair" OnClick="lkLogout_Click"></asp:LinkButton>
+        </asp:Panel>
         <br />
         <div id="menu">
             <br>
