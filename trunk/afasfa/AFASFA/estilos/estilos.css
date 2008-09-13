@@ -1,57 +1,59 @@
-	body
-	{
-		margin: 0;
-		padding: 0;
-		font: 85% arial, hevetica, sans-serif;
-		text-align: center;
-		color: #000000;
-		background-color: #E6E7F2;
-	}
-	
-	#container
-	{
-		margin: 1em auto;
-		width: 750px;
-		text-align: justify;
-		background-color: #FFFFFF;
-		border: 1px solid black;
-	}
-	
-	
-	#topo {	
+body
+{
+	margin: 0;
+	padding: 0;
+	font: 85% arial, hevetica, sans-serif;
+	text-align: center;
+	color: #000000;
+	background-color: #E6E7F2;
+}
+
+#container
+{
+	margin: 1em auto;
+	width: 750px;
+	text-align: justify;
+	background-color: #FFFFFF;
+	border: 1px solid black;
+}
+
+
+.Login
+{
 	height: 130px;
 	width: 100%;
-	text-align:center;
-	}
-	
-	#menu
-	{
-		float: left;		
-		width: 166px;
-		background-color: #E6E7F2;
-		text-align: center;
-	
+	text-align: center;
+	vertical-align: middle;
 }
-	
-	#conteudo
-	{
+
+#menu
+{
+	float: left;
+	width: 166px;
+	background-color: #E6E7F2;
+	text-align: center;
+}
+
+#conteudo
+{
 	background-color: #FFFFFF;
 	margin-top: 30px;
 	margin-bottom: 0px;
 	margin-left: 200px;
 	margin-right: 35px;
-	}
-	
-	#rodape
-	{
+}
+
+#rodape
+{
 	clear: both;
 	height: 20px;
 	background-color: #666699;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 9px;
-	}
-	
-	#formlogin{
+}
+
+#formlogin
+{
 	background-color: #E6E7F2;
 	margin-top: 0px;
 	margin-bottom: 0px;
@@ -65,270 +67,260 @@
 	border-right-style: solid;
 	border-bottom-style: solid;
 	border-left-style: solid;
-	}
+}
 
-.LinkMenu {
+.LinkMenu
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: x-small;
 	color: #666699;
 	text-decoration: none;
 }
-.LinkMenu:hover {
+.LinkMenu:hover
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: x-small;
 	color: #FF0000;
 	text-decoration: none;
 	background-color: #FFFF00;
-
 }
-.lblFomulario {
+.lblFomulario
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: xx-small;
 	font-style: normal;
-	color: black	;
+	color: black;
 	font-weight: bold;
 	text-decoration: none;
 }
-.txtFormulario {
+.txtFormulario
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: xx-small;
 	color: #336699;
 }
-.linkTopo {
+.linkTopo
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: x-small;
 	color: #FF0000;
 	text-decoration: none;
-
 }
-.linkTopo:hover {
+.linkTopo:hover
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: x-small;
 	color: #666699;
 	text-decoration: none;
-
 }
-.TextoPagina {
+.TextoPagina
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: x-small;
 	color: #FF0000;
-
 }
-.TextoPaginaInicial {
+.TextoPaginaInicial
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: x-small;
 	color: #666699;
 	background-color: #FFFFFF;
-
 }
 
-.TextoRodape {
+.TextoRodape
+{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	color: #FFFFFF;
 }
-.lblFormLogin {
+.lblFormLogin
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: xx-small;
 	color: #000000;
 	text-decoration: none;
 }
-.txtFormLogin {
+.txtFormLogin
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: xx-small;
 	color: #FF0000;
 	text-decoration: none;
 }
-.TextoTitulo {
+.TextoTitulo
+{
 	font-size: x-large;
 	color: #666699;
 	font-family: Monotype Corsiva;
-
 }
-.LinkVerFotos {
+.LinkVerFotos
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: x-small;
 	color: #FFFF00;
 	text-decoration: none;
 }
-.LinkVerFotos:hover {
+.LinkVerFotos:hover
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: x-small;
 	color: #FFFFFF;
 	text-decoration: none;
 }
-.TextoSaudacoes {
-	font-family: Georgia, "Times New Roman", Times, serif;
+.TextoSaudacoes
+{
+	font-family: Georgia, "Times New Roman" , Times, serif;
 	font-size: x-small;
 	font-style: italic;
 	color: #3399CC;
-
 }
-.LinkFechar {
+.LinkFechar
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: x-small;
 	color: #FFFFFF;
 	text-decoration: none;
 }
-.linkFechar:Hover {
+.linkFechar:Hover
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: x-small;
 	color: #FF0000;
 	text-decoration: none;
 }
-.BordaImagemAzul {
-
-	font-family: Georgia, "Times New Roman", Times, serif;
+.BordaImagemAzul
+{
+	font-family: Georgia, "Times New Roman" , Times, serif;
 	font-size: x-small;
 	font-style: italic;
 	color: #3399CC;
 	border: thick solid #3399CC;
 }
-.BordaImagemLaranja {
-
-
-	font-family: Georgia, "Times New Roman", Times, serif;
+.BordaImagemLaranja
+{
+	font-family: Georgia, "Times New Roman" , Times, serif;
 	font-size: x-small;
 	font-style: italic;
 	color: #FFCC99;
 	border: thick solid #FFCC99;
 }
-.BordaImagemVerde {
-
-
-
-	font-family: Georgia, "Times New Roman", Times, serif;
+.BordaImagemVerde
+{
+	font-family: Georgia, "Times New Roman" , Times, serif;
 	font-size: x-small;
 	font-style: italic;
 	color: #006600;
 	border: thick solid #006600;
 }
-.BordaImagemMarrom {
-
-
-
-
-	font-family: Georgia, "Times New Roman", Times, serif;
+.BordaImagemMarrom
+{
+	font-family: Georgia, "Times New Roman" , Times, serif;
 	font-size: x-small;
 	font-style: italic;
 	color: #FF9933;
 	border: thick solid #FF9933;
 }
-.BordaImagemLilas {
-
-
-
-	font-family: Georgia, "Times New Roman", Times, serif;
+.BordaImagemLilas
+{
+	font-family: Georgia, "Times New Roman" , Times, serif;
 	font-size: x-small;
 	font-style: italic;
 	color: #CC66FF;
 	border: thick solid #CC66FF;
 }
-.BordaImagemMarrom1 {
-
-
-
-
-
-	font-family: Georgia, "Times New Roman", Times, serif;
+.BordaImagemMarrom1
+{
+	font-family: Georgia, "Times New Roman" , Times, serif;
 	font-size: x-small;
 	font-style: italic;
 	color: #663300;
 	border: thick solid #663300;
 }
-.linkTopoFotos {
+.linkTopoFotos
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: x-small;
 	color: #FFFFFF;
 	text-decoration: none;
 	font-weight: bold;
-
 }
-.BordaImagemVermelha {
-	font-family: Georgia, "Times New Roman", Times, serif;
+.BordaImagemVermelha
+{
+	font-family: Georgia, "Times New Roman" , Times, serif;
 	font-size: x-small;
 	font-style: italic;
 	color: #FF0000;
 	border: thick solid #FF0000;
-
 }
-.BordaImagemAmarela {
-
-
-
-
-	font-family: Georgia, "Times New Roman", Times, serif;
+.BordaImagemAmarela
+{
+	font-family: Georgia, "Times New Roman" , Times, serif;
 	font-size: x-small;
 	font-style: italic;
 	color: #FFFF00;
 	border: thick solid #FFFF00;
 }
-.BordaImagemVinho {
-
-
-
-
-	font-family: Georgia, "Times New Roman", Times, serif;
+.BordaImagemVinho
+{
+	font-family: Georgia, "Times New Roman" , Times, serif;
 	font-size: x-small;
 	font-style: italic;
 	color: #660066;
 	border: thick solid #660066;
 }
-#FotoProjeto {
+#FotoProjeto
+{
 	position: static;
-
 }
-#textoProjetos {
+#textoProjetos
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-style: italic;
 	text-decoration: none;
 	position: relative;
 	left: 521px;
 	top: 11px;
-
-
 }
-#Projetos {
-
+#Projetos
+{
 	background-color: #FFCCFF;
 	margin-top: 0px;
 	margin-bottom: 0px;
 	margin-left: 200px;
 }
-.TextoPaginaProjetos {
-
+.TextoPaginaProjetos
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: x-small;
 	color: #FF0000;
 	background-color: #FFFFFF;
 }
-.TextoTituloProjetos {
-	font-family: Georgia, "Times New Roman", Times, serif;
+.TextoTituloProjetos
+{
+	font-family: Georgia, "Times New Roman" , Times, serif;
 	font-size: x-small;
 	font-style: normal;
 	color: #3399CC;
 	background-color: #FFFFFF;
 	text-decoration: none;
-
-
 }
-.BordaImagemPaginaInicial {
-
-
-	font-family: Georgia, "Times New Roman", Times, serif;
+.BordaImagemPaginaInicial
+{
+	font-family: Georgia, "Times New Roman" , Times, serif;
 	font-size: x-small;
 	font-style: italic;
 	color: #E6E7F2;
 	border: thick solid #E6E7F2;
 }
-.TextoPaginaCampanhas {
-
+.TextoPaginaCampanhas
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: x-small;
 	color: #666699;
 	background-color: #FFFFFF;
 }
-.TextoTituloCampanhas {
+.TextoTituloCampanhas
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	font-style: normal;
@@ -336,19 +328,17 @@
 	background-color: #CCCCCC;
 	font-weight: bolder;
 	background-position: center center;
-
-
 }
-.LinkCampanhas {
-
+.LinkCampanhas
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: x-small;
 	font-style: normal;
 	color: #0000FF;
 	text-decoration: none;
 }
-.LinkCampanhas:Hover {
-
+.LinkCampanhas:Hover
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: x-small;
 	color: #FF0000;
@@ -356,22 +346,25 @@
 	font-weight: normal;
 	font-style: normal;
 }
-.modalBackground {
-	background-color:Gray;
-	filter:alpha(opacity=70);
-	opacity:0.7;
+.modalBackground
+{
+	background-color: Gray;
+	filter: alpha(opacity=70);
+	opacity: 0.7;
 }
 
-.modalPopup {
-	background-color:#ffffdd;
-	border-width:3px;
-	border-style:solid;
-	border-color:Gray;
-	padding:3px;
-	width:250px;
+.modalPopup
+{
+	background-color: #ffffdd;
+	border-width: 3px;
+	border-style: solid;
+	border-color: Gray;
+	padding: 3px;
+	width: 250px;
 }
 
-.lblBtnFomularioCadastro{
+.lblBtnFomularioCadastro
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: xx-small;
 	font-style: normal;
@@ -380,7 +373,8 @@
 	text-decoration: none;
 }
 
-.lblPreenchimentoObrigatorio{
+.lblPreenchimentoObrigatorio
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: xx-small;
 	font-style: normal;
@@ -389,7 +383,8 @@
 	text-decoration: none;
 }
 
-.lblCabecalhoModalPop{
+.lblCabecalhoModalPop
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: xx-small;
 	font-style: normal;
@@ -398,7 +393,8 @@
 	text-decoration: none;
 }
 
-.lblPerguntaModalPop{
+.lblPerguntaModalPop
+{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: xx-small;
 	font-style: normal;

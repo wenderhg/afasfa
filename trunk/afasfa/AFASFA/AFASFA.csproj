@@ -88,13 +88,6 @@
     <Compile Include="Cadastros\cadastro_tipos_assistencias.aspx.designer.cs">
       <DependentUpon>cadastro_tipos_assistencias.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\cadastro_voluntarios.aspx.cs">
-      <DependentUpon>cadastro_voluntarios.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cadastros\cadastro_voluntarios.aspx.designer.cs">
-      <DependentUpon>cadastro_voluntarios.aspx</DependentUpon>
-    </Compile>
     <Compile Include="campanhas.aspx.cs">
       <DependentUpon>campanhas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -141,7 +134,6 @@
     <Content Include="Cadastros\cadastro_doacoes.aspx" />
     <Content Include="Cadastros\cadastro_eventos.aspx" />
     <Content Include="Cadastros\cadastro_tipos_assistencias.aspx" />
-    <Content Include="Cadastros\cadastro_voluntarios.aspx" />
     <Content Include="Imagens\Calendar.bmp" />
     <Content Include="TesteGridFormView.aspx" />
     <Content Include="WebForm1.aspx" />
@@ -150,6 +142,10 @@
     <ProjectReference Include="..\acesso_dados\acesso_dados.csproj">
       <Project>{C499C716-35A6-46CC-A36C-BBAC70A85CF4}</Project>
       <Name>acesso_dados</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Servico\Servico.csproj">
+      <Project>{03BFA8D5-DBB5-4DD8-B199-2F3B3DAE6448}</Project>
+      <Name>Servico</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
