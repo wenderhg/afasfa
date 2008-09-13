@@ -43,7 +43,7 @@
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="Evento" DataSourceID="ObjectDataSource1"
         DefaultMode="Insert" BackColor="#E6E7F2" BorderColor="#ecffff" BorderStyle="Ridge">
         <InsertItemTemplate>
-            <table cellpadding="0" cellspacing="0">
+            <table cellpadding="0" cellspacing="0" width="100%">
                 <tr>
                     <tr>
                         <br />
@@ -56,21 +56,32 @@
                 </tr>
                 <tr>
                     <td colspan="2" class="TextoPagina" align="justify">
-                        As informações inseridas neste cadastro serão apresentadas na consulta de eventos.
+                        Olá !!!! Muito Obrigado pelos serviços prestados....
+                        <br />
+                        <br />
+                        Saiba que as informações aqui inseridas serão apresentadas na página aberta ao público
+                        onde serão apresentados os eventos realizados pelo Lar, por isso os dados devem
+                        conter informações corretas.
+                        <br />
+                        <br />
+                        Bom Trabalho.
+                        <br />
+                        <br />
+                        Caso Necessite de Ajuda click aqui !!!!
                         <br />
                         <br />
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" align="center">
-                        <table>
+                    <td colspan="2">
+                        <table cellpadding="0" cellspacing="0" width="100%">
                             <tr>
-                                <td class="lblFomulario" align="right">
-                                    <strong>*</strong> Descrição:
+                                <td width="20%" align="right" class="lblFomulario">
+                                    <strong style="color: Red">*</strong> Descrição:
                                 </td>
-                                <td align="left">
+                                <td width="80%" align="left">
                                     <asp:TextBox ID="DescricaoTextBox" runat="server" Text='<%# Bind("Descricao") %>'
-                                        Width="390" class="txtFormulario" />
+                                        Width="98%" class="txtFormulario" />
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorDescricaoTextBox" runat="server"
                                         ErrorMessage="Descrição é de preenchimento obrigatório" ControlToValidate="DescricaoTextBox"
                                         Display="None"></asp:RequiredFieldValidator>
@@ -78,11 +89,11 @@
                             </tr>
                             <tr>
                                 <td class="lblFomulario" align="right">
-                                    <strong>*</strong> Data:
+                                    <strong style="color: Red">*</strong> Data:
                                 </td>
-                                <td align="left" valign="middle">
+                                <td align="left">
                                     <asp:TextBox ID="DataEventoTextBox" runat="server" Text='<%# Bind("Dataevento") %>'
-                                        Width="80" class="txtFormulario" />
+                                        Width="16%" class="txtFormulario" />
                                     <cc1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" MaskType="Date" AcceptNegative="None"
                                         Mask="99/99/9999" TargetControlID="DataEventoTextBox" UserDateFormat="DayMonthYear"
                                         AutoComplete="true" AutoCompleteValue="09/08/2008">
@@ -101,11 +112,11 @@
                             </tr>
                             <tr>
                                 <td class="lblFomulario" align="right">
-                                    <strong>*</strong> Local:
+                                    <strong style="color: Red">*</strong> Local:
                                 </td>
                                 <td align="left">
                                     <asp:TextBox ID="LocalEventoTextBox" runat="server" Text='<%# Bind("LocalEvento") %>'
-                                        Width="390" class="txtFormulario" />
+                                        Width="98%" class="txtFormulario" />
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorLocalEventoTextBox" runat="server"
                                         ErrorMessage="Local do Evento é de preenchimento obrigatório" ControlToValidate="LocalEventoTextBox"
                                         Display="None"></asp:RequiredFieldValidator>
@@ -115,27 +126,25 @@
                                 <td class="lblFomulario" align="right">
                                     Foto Inicial:
                                 </td>
-                                <td align="left">
+                                <td align="left">                                    
                                     <asp:TextBox ID="FotoInicialTextBox" runat="server" Text='<%# Bind("FotoInicial") %>'
-                                        Width="390" class="txtFormulario" />
+                                        Width="98%" class="txtFormulario" />
                                 </td>
                             </tr>
                             <tr>
                                 <td class="lblFomulario" align="right">
                                     Já Realizado:
                                 </td>
-                                <td align="left">
-                                    <asp:CheckBox ID="JaRealizadoCheckBox" runat="server" Checked='<%# Bind("JaRealizado") %>'
-                                        class="txtFormulario" />
+                                <td class="txtFormulario" align="left">
+                                    <asp:CheckBox ID="JaRealizadoCheckBox" runat="server" Checked='<%# Bind("JaRealizado") %>' />
                                 </td>
                             </tr>
                             <tr>
                                 <td class="lblFomulario" align="right">
                                     Apresentar:
                                 </td>
-                                <td align="left">
-                                    <asp:CheckBox ID="ApresentarCheckBox" runat="server" Checked='<%# Bind("Apresentar") %>'
-                                        class="txtFormulario" />
+                                <td class="txtFormulario" align="left">
+                                    <asp:CheckBox ID="ApresentarCheckBox" runat="server" Checked='<%# Bind("Apresentar") %>' />
                                 </td>
                             </tr>
                             <tr>
@@ -143,8 +152,8 @@
                                     Reserva Disponível:
                                 </td>
                                 <td align="left">
-                                    <asp:CheckBox ID="ReservaDisponivelCheckBox" runat="server" Checked='<%# Bind("ReservaDisponivel") %>'
-                                        class="txtFormulario" />
+                                    <asp:CheckBox class="txtFormulario" ID="ReservaDisponivelCheckBox" runat="server"
+                                        Checked='<%# Bind("ReservaDisponivel") %>' />
                                 </td>
                             </tr>
                             <tr>
@@ -153,30 +162,58 @@
                                 </td>
                                 <td align="left">
                                     <asp:TextBox ID="DataMaximaTextBox" runat="server" Text='<%# Bind("DataMaxima") %>'
-                                        class="txtFormulario" />
+                                        Width="16%" class="txtFormulario" />
+                                    <cc1:MaskedEditExtender ID="MaskedEditExtender2" runat="server" MaskType="Date" AcceptNegative="None"
+                                        Mask="99/99/9999" TargetControlID="DataMaximaTextBox" UserDateFormat="DayMonthYear"
+                                        AutoComplete="true" AutoCompleteValue="09/08/2008">
+                                    </cc1:MaskedEditExtender>
+                                    <asp:Image runat="server" ID="imgCalendarioDataMaxima" ImageUrl="../Imagens/Calendar.bmp" />
+                                    <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Animated="true" Format="dd/MM/yyyy"
+                                        TargetControlID="DataMaximaTextBox" PopupButtonID="imgCalendarioDataMaxima">
+                                    </cc1:CalendarExtender>
+                                    <asp:CompareValidator ID="CompareValidator1" runat="server" Display="None" ControlToValidate="DataMaximaTextBox"
+                                        ErrorMessage="Data máxima para apresentar o evento inválida." Type="Date" Operator="DataTypeCheck">
+                                    </asp:CompareValidator>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="lblFomulario" align="right">
-                                    <strong>*</strong> Valor do Convite para Adultos R$:
+                                    <strong style="color: Red">*</strong> Valor do Convite para Adultos R$:
                                 </td>
                                 <td align="left">
                                     <asp:TextBox ID="ValorConviteAdultoTextBox" runat="server" Text='<%# Bind("ValorConviteAdulto") %>'
-                                        Width="80" class="txtFormulario" />
+                                        Width="20%" MaxLength="1" class="txtFormulario" />
+                                    <br />
+                                    <cc1:MaskedEditExtender ID="MaskedEditExtender3" runat="server" Mask="999,999.99"
+                                        MaskType="Number" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus"
+                                        TargetControlID="ValorConviteAdultoTextBox" CultureName="pt-BR" InputDirection="RightToLeft">
+                                    </cc1:MaskedEditExtender>
+                                    <%--<cc1:MaskedEditValidator ID="MaskedEditValidator2" runat="server" ControlExtender="MaskedEditExtender3"
+                                        ControlToValidate="ValorConviteAdultoTextBox" Display="Dynamic" IsValidEmpty="False">
+                                    </cc1:MaskedEditValidator>--%>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorValorConviteAdultoTextBox"
-                                        runat="server" ErrorMessage="Valor do Convite para Adulto é de preenchimento obrigatório"
-                                        ControlToValidate="ValorConviteAdultoTextBox" Display="None"></asp:RequiredFieldValidator>
+                                        runat="server" ErrorMessage="Valor do convite para adulto é de preenchimento obrigatório"
+                                        ControlToValidate="ValorConviteAdultoTextBox" Display="None">
+                                    </asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="lblFomulario" align="right">
-                                    <strong>*</strong> Valor do Convite para Crianças R$:
+                                    <strong style="color: Red">*</strong> Valor do Convite para Crianças R$:
                                 </td>
                                 <td align="left">
                                     <asp:TextBox ID="ValorConviteCriancaTextBox" runat="server" Text='<%# Bind("ValorConviteCrianca") %>'
-                                        Width="80" class="txtFormulario" />
+                                        Width="20%" MaxLength="1" class="txtFormulario" />
+                                    <cc1:MaskedEditExtender ID="MaskedEditExtender4" runat="server" Mask="999,999.99"
+                                        MaskType="Number" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus"
+                                        OnInvalidCssClass="MaskedEditError" TargetControlID="ValorConviteCriancaTextBox"
+                                        CultureName="pt-BR" InputDirection="RightToLeft">
+                                    </cc1:MaskedEditExtender>
+                                    <%--<cc1:MaskedEditValidator ID="MaskedEditValidator2" runat="server" ControlExtender="MaskedEditExtender3"
+                                        ControlToValidate="ValorConviteAdultoTextBox" Display="Dynamic" IsValidEmpty="False">
+                                    </cc1:MaskedEditValidator>--%>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorValorConviteCriancaTextBox"
-                                        runat="server" ErrorMessage="Valor do Convite para Adulto é de preenchimento obrigatório"
+                                        runat="server" ErrorMessage="Valor do convite para criança é de preenchimento obrigatório"
                                         ControlToValidate="ValorConviteCriancaTextBox" Display="None"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
@@ -194,8 +231,8 @@
                                     <br />
                                     <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Salvar Dados"
                                         SkinID="btnFormularioCadastro" />
-                                    <asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False"
-                                        Text="Cancelar" SkinID="btnFormularioCadastro" OnClick="InsertCancelButton_Click" />
+                                    <asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False" Text="Cancelar"
+                                        SkinID="btnFormularioCadastro" OnClick="InsertCancelButton_Click" />
                                     <br />
                                     <br />
                                 </td>
