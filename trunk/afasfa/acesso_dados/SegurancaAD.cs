@@ -32,11 +32,11 @@ namespace AFASFA.acesso_dados
         /// </summary>
         /// <param name="usuario">Usuario</param>
         /// <param name="senha">Senha</param>
-        /// <returns>int</returns>
-        public int RetornaUsuarioSenha(string usuario, string senha)
+        /// <returns>string</returns>
+        public string RetornaUsuarioSenha(string usuario, string senha)
         {
-            int _result;
-            using (MySqlCommand _command = new MySqlCommand("Select count(1) from usuarios where login = @usuario and senha = @senha", Conexao.Instance))
+            string _result;
+            using (MySqlCommand _command = new MySqlCommand("Select nome from usuarios where login = @usuario and senha = @senha", Conexao.Instance))
             {
 
                 _command.Parameters.Add("usuario", MySqlDbType.VarChar, 20);
@@ -44,7 +44,7 @@ namespace AFASFA.acesso_dados
                 _command.Parameters.Add("senha", MySqlDbType.VarChar, 100);
                 _command.Parameters["senha"].Value = senha;
                 _command.Connection.Open();
-                _result = Convert.ToInt16(_command.ExecuteScalar());
+                _result = Convert.ToString(_command.ExecuteScalar());
                 _command.Connection.Close();
             }
 

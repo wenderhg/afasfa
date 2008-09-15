@@ -42,7 +42,7 @@ namespace TesteUsuario
 
             if (pos != int.MinValue)
             {
-                return GeraHashDigest(result.Substring(pos, pos), HashMethod.SHA384);
+                return GeraHashDigest(String.Concat(senha, result.Substring(pos, pos), result), HashMethod.SHA384);
             }
             else
             {
