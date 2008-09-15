@@ -103,10 +103,10 @@ namespace Servico.Seguranca
         /// <param name="usuario"></param>
         /// <param name="senha"></param>
         /// <returns></returns>
-        public static bool LoginValido(string usuario, string senha)
+        public static bool LoginValido(string usuario, string senha, out string nomeUsuario)
         {
-            int _result = SegurancaAD.Instance.RetornaUsuarioSenha(usuario, RetornaSenha(senha));
-            return _result == 1;
+            nomeUsuario = SegurancaAD.Instance.RetornaUsuarioSenha(usuario, RetornaSenha(senha));
+            return !String.IsNullOrEmpty(nomeUsuario);
         }
     }
 }

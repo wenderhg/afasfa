@@ -39,8 +39,9 @@ namespace AFASFA
         /// <param name="e"></param>
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            //Gera hash da senha para confrontar com o que está no banco de dados
-            if (Seguranca.LoginValido(Server.HtmlEncode(txtUsuario.Text), Server.HtmlEncode(txtSenha.Text)))
+            string nomeUsuario;
+            //Gera hash da senha para confrontar com o que está no banco de dados            
+            if (Seguranca.LoginValido(Server.HtmlEncode(txtUsuario.Text), Server.HtmlEncode(txtSenha.Text), out nomeUsuario))
             {
                 FormsAuthenticationTicket _ticket = new FormsAuthenticationTicket(1,
                                                                                   txtUsuario.Text,
@@ -50,7 +51,7 @@ namespace AFASFA
                                                                                   string.Empty);
                 Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(_ticket)));
                 ltUsuario.Text = txtUsuario.Text;
-                AtualizaPainelLogin(true);       
+                AtualizaPainelLogin(true);
             }
             else
             {
