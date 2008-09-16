@@ -8,7 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 using MySql.Data.MySqlClient;
-using linq.afasfa;
 
 namespace TesteUsuario
 {
@@ -91,14 +90,7 @@ namespace TesteUsuario
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MySqlConnection _conn = new MySqlConnection("server=localhost;user id=root;database=afasfa");
-            AfAsFa afasfadb = new AfAsFa(_conn);
-            var _doacoes = from c in afasfadb.DoaCOeS
-                           select c;
-            foreach (var doacao in _doacoes)
-            {
-                this.listBox1.Items.Add(String.Format("Nome: {0} - Email: {1}", doacao.Nome, doacao.Email));
-            }
+
         }
 
     }

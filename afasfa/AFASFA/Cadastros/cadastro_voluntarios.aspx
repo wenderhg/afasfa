@@ -320,8 +320,8 @@
                                                 <table cellpadding="0" cellspacing="0" width="100%">
                                                     <tr>
                                                         <td>
-                                                            <asp:RadioButton ID="TipoVoluntarioCheckBox" runat="server" Checked='<%# Bind("TipoVoluntario") %>'
-                                                                Text="Voluntário Direto" class="txtFormulario" />
+                                                            <asp:RadioButton ID="TipoVoluntarioCheckBox" runat="server" Text="Voluntário Direto"
+                                                                GroupName="TipoVoluntario" class="txtFormulario" />
                                                         </td>
                                                         <td class="txtFormulario">
                                                             Trabalho dentro de organização.
@@ -329,8 +329,8 @@
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <asp:RadioButton ID="TipoVoluntarioCheckBox1" runat="server" Checked='<%# Bind("TipoVoluntario") %>'
-                                                                Text="Voluntário Indireto" class="txtFormulario" />
+                                                            <asp:RadioButton ID="TipoVoluntarioCheckBox1" runat="server" Text="Voluntário Indireto"
+                                                                GroupName="TipoVoluntario" class="txtFormulario" />
                                                         </td>
                                                         <td class="txtFormulario">
                                                             Trabalho foda da organização.

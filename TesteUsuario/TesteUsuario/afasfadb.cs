@@ -21,8 +21,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using DbLinq.Linq;
-using DbLinq.Linq.Mapping;
+
 
 namespace linq.afasfa
 {

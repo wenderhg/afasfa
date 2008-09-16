@@ -50,13 +50,14 @@ namespace AFASFA
                                                                                   false,
                                                                                   string.Empty);
                 Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(_ticket)));
-                ltUsuario.Text = txtUsuario.Text;
+                //ltUsuario.Text = txtUsuario.Text;
                 AtualizaPainelLogin(true);
             }
             else
             {
                 AtualizaPainelLogin(false);
-                lbErro.Visible = true;
+                //lbErro.Visible = true;
+                this.ModalPopupExtenderErro.Show();
             }
 
         }
@@ -72,6 +73,17 @@ namespace AFASFA
             FormsAuthentication.SignOut();
             AtualizaPainelLogin(false);
         }
+
+        protected void InsertCancelButton_Click(object sender, EventArgs e)
+        {
+            this.ModalPopupExtenderErro.Show();
+        }
+
+        protected void btnOK_Click(object sender, EventArgs e)
+        {
+            this.ModalPopupExtenderErro.Hide();
+        }
+
 
     }
 }
