@@ -23,6 +23,7 @@ body
 	width: 100%;
 	text-align: center;
 	vertical-align: middle;
+	background-color: #E6E7F2;
 }
 
 #menu
@@ -36,7 +37,7 @@ body
 #conteudo
 {
 	background-color: #FFFFFF;
-	margin-top: 30px;
+	margin-top: 0px;
 	margin-bottom: 0px;
 	margin-left: 200px;
 	margin-right: 35px;
