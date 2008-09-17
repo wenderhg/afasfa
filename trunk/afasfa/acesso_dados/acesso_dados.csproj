@@ -62,7 +62,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="SegurancaAD.cs" />
+    <Compile Include="Seguranca\SegurancaAD.cs" />
+    <Compile Include="Seguranca\Usuario.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AFASFA.xsc">

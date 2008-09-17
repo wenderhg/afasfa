@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Security.Cryptography;
-using AFASFA.acesso_dados;
+using AFASFA.acesso_dados.Seguranca;
 
-namespace Servico.Seguranca
+namespace AFASFA.Servico.Seguranca
 {
+
     /// <summary>
     /// Classe de seguranca ou método referente a usuario e senha
     /// </summary>
@@ -102,11 +103,10 @@ namespace Servico.Seguranca
         /// </summary>
         /// <param name="usuario"></param>
         /// <param name="senha"></param>
-        /// <returns></returns>
-        public static bool LoginValido(string usuario, string senha, out string nomeUsuario)
+        /// <returns>Usuario</returns>
+        public static Usuario RetornaUsuarioValido(string usuario, string senha)
         {
-            nomeUsuario = SegurancaAD.Instance.RetornaUsuarioSenha(usuario, RetornaSenha(senha));
-            return !String.IsNullOrEmpty(nomeUsuario);
+            return SegurancaAD.Instance.RetornaUsuarioSenha(usuario, RetornaSenha(senha));
         }
     }
 }
