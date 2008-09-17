@@ -1,0 +1,2 @@
+ALTER TABLE `usuarios` ADD `SEXO` CHAR( 1 ) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL DEFAULT 'M' COMMENT 'Indica o sexo',
+ADD `APELIDO` VARCHAR( 20 ) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL COMMENT 'Indica o apelido';
