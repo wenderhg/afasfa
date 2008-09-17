@@ -67,7 +67,6 @@
     <Compile Include="afasfa.Master.designer.cs">
       <DependentUpon>afasfa.Master</DependentUpon>
     </Compile>
-    <Content Include="Seguranca.cs" />
     <Compile Include="Cadastros\cadastro_doacoes.aspx.cs">
       <DependentUpon>cadastro_doacoes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

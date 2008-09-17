@@ -10,7 +10,8 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
-using Servico.Seguranca;
+using AFASFA.Servico.Seguranca;
+using AFASFA.acesso_dados.Seguranca;
 
 namespace AFASFA
 {
@@ -39,9 +40,9 @@ namespace AFASFA
         /// <param name="e"></param>
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            string nomeUsuario;
-            //Gera hash da senha para confrontar com o que está no banco de dados            
-            if (Seguranca.LoginValido(Server.HtmlEncode(txtUsuario.Text), Server.HtmlEncode(txtSenha.Text), out nomeUsuario))
+            //Retorna objeto usuario se o usuario existir e a senha estiver valida
+            Usuario _usuario = Seguranca.RetornaUsuarioValido(Server.HtmlEncode(txtUsuario.Text), Server.HtmlEncode(txtSenha.Text));
+            if (_usuario != null)
             {
                 FormsAuthenticationTicket _ticket = new FormsAuthenticationTicket(1,
                                                                                   txtUsuario.Text,
@@ -50,6 +51,7 @@ namespace AFASFA
                                                                                   false,
                                                                                   string.Empty);
                 Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(_ticket)));
+                ltSaudacao.Text = RetornaSaudacaoCompleta(_usuario);
                 //ltUsuario.Text = txtUsuario.Text;
                 AtualizaPainelLogin(true);
             }
@@ -60,6 +62,29 @@ namespace AFASFA
                 this.ModalPopupExtenderErro.Show();
             }
 
+        }
+
+        private string RetornaSaudacaoCompleta(Usuario usuario)
+        {
+            //Retorna string formatada da saudacao
+            return String.Format("{0} {1} seja bem vind{2}", RetornaSaudacao(), 
+                usuario.Apelido, 
+                usuario.Sexo.Equals("M") ? "o" : "a" //tipo iif, expressao ? true : false
+                );
+        }
+
+        private string RetornaSaudacao()
+        {
+            if (DateTime.Now.Hour < 12)
+            {
+                return "Bom dia";
+            }
+            else if (DateTime.Now.Hour < 19)
+            {
+                return "Boa tarde";
+            }
+            else
+                return "Boa noite";
         }
 
         /// <summary>
