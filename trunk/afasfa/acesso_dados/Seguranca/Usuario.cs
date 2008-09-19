@@ -14,6 +14,7 @@ namespace AFASFA.acesso_dados.Seguranca
         public string NomeUsuario { get; set; }
         public string Sexo { get; set; }
         public string Apelido { get; set; }
+        public string Senha { get; set; }
         
     }
 }
