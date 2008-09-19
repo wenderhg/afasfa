@@ -109,6 +109,13 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="mala_direta.aspx.cs">
+      <DependentUpon>mala_direta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mala_direta.aspx.designer.cs">
+      <DependentUpon>mala_direta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TesteGridFormView.aspx.cs">
       <DependentUpon>TesteGridFormView.aspx</DependentUpon>
@@ -143,6 +150,7 @@
     <Content Include="Cadastros\cadastro_tipos_assistencias.aspx" />
     <Content Include="Cadastros\cadastro_voluntarios.aspx" />
     <Content Include="Imagens\Calendar.bmp" />
+    <Content Include="mala_direta.aspx" />
     <Content Include="TesteGridFormView.aspx" />
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
