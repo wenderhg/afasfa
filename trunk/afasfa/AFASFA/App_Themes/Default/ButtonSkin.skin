@@ -1,5 +1,8 @@
 ﻿
 
+<asp:Button SkinID="btnSolicitarSenha" runat="server"  BackColor="#666699"         
+        Font-Names="Verdana" ForeColor="White" 
+        CssClass="lblBtnFomularioCadastro" />
 
 <asp:Button SkinID="btnFormularioCadastro" runat="server"  BackColor="#666699" 
         BorderColor="#003366" BorderStyle="Double" BorderWidth="2px" 
