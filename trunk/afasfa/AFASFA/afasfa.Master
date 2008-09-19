@@ -31,8 +31,6 @@
                 <asp:LinkButton runat="server" ID="lnkSolicitarSenha" CssClass="linkTopo" Font-Underline="True"
                     CausesValidation="false">
                 Solicitar Senha</asp:LinkButton>
-                <%--<asp:Label runat="server" ID="lbErro" CssClass="txtFormLogin" Text="Usuário ou senha inválido"
-                    Visible="false" EnableViewState="false"></asp:Label>--%>
             </span>
         </asp:Panel>
         <asp:Panel runat="server" ID="pnLogout" CssClass="Login">
@@ -40,7 +38,8 @@
                 <asp:Literal ID="ltSaudacao" runat="server"></asp:Literal>
                 <asp:Literal ID="ltUsuario" runat="server"></asp:Literal>
             </span>&nbsp;
-            <asp:LinkButton ID="lkLogout" runat="server" Text="Efetuar Logoff" OnClick="lkLogout_Click"></asp:LinkButton>
+            <asp:LinkButton runat="server" ID="lkLogout" Text="Efetuar Logoff" CssClass="linkTopo"
+                Font-Underline="True" OnClick="lkLogout_Click" CausesValidation="false"></asp:LinkButton>
         </asp:Panel>
         <br />
         <div id="menu">
@@ -149,6 +148,7 @@
                     <td align="center" class="lblPerguntaModalPop">
                         Usuário ou senha inválido.
                         <br />
+                        <br />
                     </td>
                 </tr>
                 <tr>
@@ -170,7 +170,7 @@
                 <table>
                     <tr>
                         <td class="lblCabecalhoModalPop">
-                            Solicitação de Senha ?
+                            Solicitar Senha ?
                         </td>
                     </tr>
                 </table>
@@ -181,6 +181,7 @@
                     <td align="center" class="lblPerguntaModalPop" colspan="2">
                         Digite seu usário ou email para que possamos lhe enviar sua senha.
                         <br />
+                        <br />
                     </td>
                 </tr>
                 <tr>
@@ -188,7 +189,7 @@
                         Email:
                     </td>
                     <td>
-                        <asp:TextBox ID="EmailTextBox" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                        <asp:TextBox ID="EmailTextBox" runat="server" CssClass="txtFormulario" Width="98%"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -196,7 +197,7 @@
                         Login:
                     </td>
                     <td>
-                        <asp:TextBox ID="LoginTextBox" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                        <asp:TextBox ID="LoginTextBox" runat="server" CssClass="txtFormulario" Width="20%"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -210,6 +211,45 @@
         <cc1:ModalPopupExtender ID="ModalPopupExtenderSolicitarSenha" runat="server" PopupControlID="pnSolicitarSenha"
             RepositionMode="RepositionOnWindowResize" TargetControlID="lnkSolicitarSenha"
             BackgroundCssClass="modalBackground" OkControlID="btnOk" DropShadow="true">
+        </cc1:ModalPopupExtender>
+        <%-- MODAL POPPUP DO EFETUAR LOGOFF--%>
+        <asp:Panel runat="server" ID="pnConfirmaLogoff" Style="display: none" CssClass="modalPopup">
+            <asp:Panel ID="Panel3" runat="server" Style="cursor: move; background-color: #DDDDDD;
+                border: solid 1px Gray; color: Black">
+                <table>
+                    <tr>
+                        <td class="lblCabecalhoModalPop">
+                            Ajuda !!!
+                        </td>
+                    </tr>
+                </table>
+            </asp:Panel>
+            <br />
+            <table width="100%" height="100%">
+                <tr>
+                    <td align="center" class="lblPerguntaModalPop" colspan="2" colspan="2">
+                        Confirma logoff ?
+                        <br />
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" width="50%">
+                        <asp:Button ID="btnOkEfetuarLogoff" runat="server" Text="OK" OnClick="btnOkEfetuarLogoff_Click"
+                            UseSubmitBehavior="false" SkinID="btnFormularioCadastro" CausesValidation="false"
+                            Width="60px" />
+                    </td>
+                    <td align="center" width="50%">
+                        <asp:Button ID="btnCancelarEfetuarLogoff" runat="server" Text="Cancelar" OnClick="btnCancelarEfetuarLogoff_Click"
+                            UseSubmitBehavior="false" SkinID="btnFormularioCadastro" CausesValidation="false"
+                            Width="60px" />
+                    </td>
+                </tr>
+            </table>
+        </asp:Panel>
+        <cc1:ModalPopupExtender ID="ModalPopupExtenderEfetuarLogoff" runat="server" PopupControlID="pnConfirmaLogoff"
+            RepositionMode="RepositionOnWindowResize" TargetControlID="lkLogout" BackgroundCssClass="modalBackground"
+            OkControlID="btnOk" DropShadow="true">
         </cc1:ModalPopupExtender>
         </form>
     </div>

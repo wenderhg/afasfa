@@ -110,15 +110,31 @@ namespace AFASFA
         }
 
 
-        protected void btnOKSolicitarSenha_Click(object sender, EventArgs e)
-        {
-            
-            this.ModalPopupExtenderSolicitarSenha.Hide();
-        }
         protected void btnOkSolicitarSenha_Click(object sender, EventArgs e)
         {
-            this.ModalPopupExtenderSolicitarSenha.Hide();
+            Usuario _usuario = Seguranca.RetornaSolicitaSenha(Server.HtmlEncode(EmailTextBox.Text), Server.HtmlEncode(LoginTextBox.Text));
+            if (_usuario != null)
+            {
+                FormsAuthenticationTicket _ticket = new FormsAuthenticationTicket(1,
+                                                                                  EmailTextBox.Text,
+                                                                                  DateTime.Now,
+                                                                                  DateTime.Now.AddMinutes(30),
+                                                                                  false,
+                                                                                  string.Empty);
+                Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(_ticket)));
+                this.ModalPopupExtenderSolicitarSenha.Hide();
+            }
         }
 
+        protected void btnCancelarEfetuarLogoff_Click(object sender, EventArgs e)
+        {
+
+            this.ModalPopupExtenderEfetuarLogoff.Show();
+        }
+
+        protected void btnOkEfetuarLogoff_Click(object sender, EventArgs e)
+        {
+            this.ModalPopupExtenderEfetuarLogoff.Hide();
+        }
     }
 }
