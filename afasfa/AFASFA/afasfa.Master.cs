@@ -67,8 +67,8 @@ namespace AFASFA
         private string RetornaSaudacaoCompleta(Usuario usuario)
         {
             //Retorna string formatada da saudacao
-            return String.Format("{0} {1} seja bem vind{2}", RetornaSaudacao(), 
-                usuario.Apelido, 
+            return String.Format("{0} {1} seja bem vind{2}", RetornaSaudacao(),
+                usuario.Apelido,
                 usuario.Sexo.Equals("M") ? "o" : "a" //tipo iif, expressao ? true : false
                 );
         }
@@ -109,6 +109,16 @@ namespace AFASFA
             this.ModalPopupExtenderErro.Hide();
         }
 
+
+        protected void btnOKSolicitarSenha_Click(object sender, EventArgs e)
+        {
+            
+            this.ModalPopupExtenderSolicitarSenha.Hide();
+        }
+        protected void btnOkSolicitarSenha_Click(object sender, EventArgs e)
+        {
+            this.ModalPopupExtenderSolicitarSenha.Hide();
+        }
 
     }
 }

@@ -28,9 +28,11 @@
                 &nbsp;
                 <asp:Button runat="server" ID="btnLogin" Text="Efetuar Login" CssClass="lblFormLogin"
                     SkinID="btnFormularioCadastro" OnClick="btnLogin_Click" CausesValidation="false" />
-                &nbsp;
-                <asp:Label runat="server" ID="lbErro" CssClass="txtFormLogin" Text="Usuário ou senha inválido"
-                    Visible="false" EnableViewState="false"></asp:Label>
+                <asp:LinkButton runat="server" ID="lnkSolicitarSenha" CssClass="linkTopo" Font-Underline="True"
+                    CausesValidation="false">
+                Solicitar Senha</asp:LinkButton>
+                <%--<asp:Label runat="server" ID="lbErro" CssClass="txtFormLogin" Text="Usuário ou senha inválido"
+                    Visible="false" EnableViewState="false"></asp:Label>--%>
             </span>
         </asp:Panel>
         <asp:Panel runat="server" ID="pnLogout" CssClass="Login">
@@ -130,17 +132,84 @@
             <asp:ContentPlaceHolder ID="CplConteudo" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-        <asp:Panel runat="server" ID="pnErroLogin" CssClass="Login">
-            <span class="lblFormLogin">
-                Usuário ou senha inválido.
-                <asp:Button ID="btnOK" runat="server" Text="OK" OnClick="btnOK_Click" UseSubmitBehavior="false"
-                    SkinID="btnFormularioCadastro" CausesValidation="false" />
-            </span>
+        <asp:Panel runat="server" ID="pnErroLogin" Style="display: none" CssClass="modalPopup">
+            <asp:Panel ID="Pane13" runat="server" Style="cursor: move; background-color: #DDDDDD;
+                border: solid 1px Gray; color: Black">
+                <table>
+                    <tr>
+                        <td class="lblCabecalhoModalPop">
+                            Alerta !!!
+                        </td>
+                    </tr>
+                </table>
+            </asp:Panel>
+            <br />
+            <table width="100%" heigh="100%">
+                <tr>
+                    <td align="center" class="lblPerguntaModalPop">
+                        Usuário ou senha inválido.
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <asp:Button ID="btnOK" runat="server" Text="OK" OnClick="btnOK_Click" UseSubmitBehavior="false"
+                            SkinID="btnFormularioCadastro" CausesValidation="false" />
+                    </td>
+                </tr>
+            </table>
         </asp:Panel>
-        <asp:Label ID="lbErroLogin" runat="server" Style="display: none"></asp:Label>
         <cc1:ModalPopupExtender ID="ModalPopupExtenderErro" runat="server" PopupControlID="pnErroLogin"
-            RepositionMode="RepositionOnWindowResize" TargetControlID="lbErroLogin" BackgroundCssClass="modalBackground"
+            RepositionMode="RepositionOnWindowResize" TargetControlID="btnLogin" BackgroundCssClass="modalBackground"
             OkControlID="btnOk" DropShadow="true">
+        </cc1:ModalPopupExtender>
+        <%-- MODAL POPPUP DO SOLICITAR SENHA--%>
+        <asp:Panel runat="server" ID="pnSolicitarSenha" Style="display: none" CssClass="modalPopup">
+            <asp:Panel ID="Panel2" runat="server" Style="cursor: move; background-color: #DDDDDD;
+                border: solid 1px Gray; color: Black">
+                <table>
+                    <tr>
+                        <td class="lblCabecalhoModalPop">
+                            Solicitação de Senha ?
+                        </td>
+                    </tr>
+                </table>
+            </asp:Panel>
+            <br />
+            <table width="100%" height="100%">
+                <tr>
+                    <td align="center" class="lblPerguntaModalPop" colspan="2">
+                        Digite seu usário ou email para que possamos lhe enviar sua senha.
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lblBtnFomularioCadastro" width="50%" align="right">
+                        Email:
+                    </td>
+                    <td>
+                        <asp:TextBox ID="EmailTextBox" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="lblBtnFomularioCadastro" width="50%" align="right">
+                        Login:
+                    </td>
+                    <td>
+                        <asp:TextBox ID="LoginTextBox" runat="server" CssClass="txtFormulario"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2">
+                        <asp:Button ID="btnOkSolicitarSenha" runat="server" Text="OK" OnClick="btnOkSolicitarSenha_Click"
+                            UseSubmitBehavior="false" SkinID="btnFormularioCadastro" CausesValidation="false" />
+                    </td>
+                </tr>
+            </table>
+        </asp:Panel>
+        <cc1:ModalPopupExtender ID="ModalPopupExtenderSolicitarSenha" runat="server" PopupControlID="pnSolicitarSenha"
+            RepositionMode="RepositionOnWindowResize" TargetControlID="lnkSolicitarSenha"
+            BackgroundCssClass="modalBackground" OkControlID="btnOk" DropShadow="true">
         </cc1:ModalPopupExtender>
         </form>
     </div>

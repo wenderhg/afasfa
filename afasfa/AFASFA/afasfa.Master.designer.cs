@@ -86,13 +86,13 @@ namespace AFASFA {
         protected global::System.Web.UI.WebControls.Button btnLogin;
         
         /// <summary>
-        /// lbErro control.
+        /// lnkSolicitarSenha control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbErro;
+        protected global::System.Web.UI.WebControls.LinkButton lnkSolicitarSenha;
         
         /// <summary>
         /// pnLogout control.
@@ -158,6 +158,15 @@ namespace AFASFA {
         protected global::System.Web.UI.WebControls.Panel pnErroLogin;
         
         /// <summary>
+        /// Pane13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Pane13;
+        
+        /// <summary>
         /// btnOK control.
         /// </summary>
         /// <remarks>
@@ -167,15 +176,6 @@ namespace AFASFA {
         protected global::System.Web.UI.WebControls.Button btnOK;
         
         /// <summary>
-        /// lbErroLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbErroLogin;
-        
-        /// <summary>
         /// ModalPopupExtenderErro control.
         /// </summary>
         /// <remarks>
@@ -183,5 +183,59 @@ namespace AFASFA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.ModalPopupExtender ModalPopupExtenderErro;
+        
+        /// <summary>
+        /// pnSolicitarSenha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnSolicitarSenha;
+        
+        /// <summary>
+        /// Panel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel2;
+        
+        /// <summary>
+        /// EmailTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox EmailTextBox;
+        
+        /// <summary>
+        /// LoginTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox LoginTextBox;
+        
+        /// <summary>
+        /// btnOkSolicitarSenha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnOkSolicitarSenha;
+        
+        /// <summary>
+        /// ModalPopupExtenderSolicitarSenha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender ModalPopupExtenderSolicitarSenha;
     }
 }
