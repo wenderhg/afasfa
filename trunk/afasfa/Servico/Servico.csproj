@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seguranca\Seguranca.cs" />
+    <Compile Include="Util\MailSender.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\acesso_dados\acesso_dados.csproj">

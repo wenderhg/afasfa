@@ -108,5 +108,16 @@ namespace AFASFA.Servico.Seguranca
         {
             return SegurancaAD.Instance.RetornaUsuarioSenha(usuario, RetornaSenha(senha));
         }
+
+        /// <summary>
+        /// Retorna a senha para ser enviada por email
+        /// </summary>
+        /// <param name="login"></param>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public static Usuario RetornaSolicitaSenha(string login, string email)
+        {
+            return SegurancaAD.Instance.RetornaSolicitaSenha(login, email);
+        }
     }
 }
