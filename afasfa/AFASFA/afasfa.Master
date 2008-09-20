@@ -202,15 +202,16 @@
                 </tr>
                 <tr>
                     <td align="center" colspan="2">
+                        <br />
                         <asp:Button ID="btnOkSolicitarSenha" runat="server" Text="OK" OnClick="btnOkSolicitarSenha_Click"
-                             SkinID="btnFormularioCadastro" CausesValidation="false" />
+                            SkinID="btnFormularioCadastro" CausesValidation="false" UseSubmitBehavior="false" />
                     </td>
                 </tr>
             </table>
         </asp:Panel>
         <cc1:ModalPopupExtender ID="ModalPopupExtenderSolicitarSenha" runat="server" PopupControlID="pnSolicitarSenha"
             RepositionMode="RepositionOnWindowResize" TargetControlID="lnkSolicitarSenha"
-            BackgroundCssClass="modalBackground" OkControlID="btnOk" DropShadow="true">
+            BackgroundCssClass="modalBackground" OkControlID="btnOkSolicitarSenha" DropShadow="true">
         </cc1:ModalPopupExtender>
         <%-- MODAL POPPUP DO EFETUAR LOGOFF--%>
         <asp:Panel runat="server" ID="pnConfirmaLogoff" Style="display: none" CssClass="modalPopup">

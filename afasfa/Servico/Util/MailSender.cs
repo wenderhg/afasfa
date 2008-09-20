@@ -12,35 +12,32 @@ namespace Servico.Util
     /// </summary>
     public class MailSender
     {
-        /// <summary>
-        /// Host para envio do email
-        /// </summary>
-        public static string Host { get; set; }
-        /// <summary>
-        /// Port para envio do email
-        /// </summary>
-        public static int Port { get; set; }
-        /// <summary>
-        /// Usuario para envio do email
-        /// </summary>
-        public static string Usuario { get; set; }
-        /// <summary>
-        /// Senha para envio do email
-        /// </summary>
-        public static string Senha { get; set; }
-
-        public static bool EnviarEMail(string to, string assunto, string corpo)
+        public static void EnviarEMail(string to, string assunto, string corpo)
         {
             //Cria objeto de mensagem de email
             MailMessage _message = new MailMessage();
             _message.To.Add(to);
             _message.Subject = assunto;
             _message.Body = corpo;
+            Enviar(_message);
+        }
+
+        public static void EnviarEMailHTML(string to, string assunto, string corpo)
+        {
+            //Cria objeto de mensagem de email
+            MailMessage _message = new MailMessage();
+            _message.To.Add(to);
+            _message.IsBodyHtml = true;
+            _message.Subject = assunto;
+            _message.Body = corpo;
+            Enviar(_message);
+        }
+
+        public static void Enviar(MailMessage message)
+        {
             SmtpClient _smtp = new SmtpClient();
             _smtp.EnableSsl = true;
-            //_smtp.Credentials = new NetworkCredential(Usuario, Senha);
-            _smtp.Send(_message);
-            return true;
+            _smtp.Send(message);
         }
     }
 }
