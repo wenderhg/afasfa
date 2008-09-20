@@ -117,8 +117,8 @@ namespace AFASFA
             if (_usuario != null)
             {
                 MailSender.EnviarEMail("wendehg@gmail.com", "teste", "teste");
-                this.ModalPopupExtenderSolicitarSenha.Hide();
             }
+            this.ModalPopupExtenderSolicitarSenha.Hide();
         }
 
         protected void btnCancelarEfetuarLogoff_Click(object sender, EventArgs e)
