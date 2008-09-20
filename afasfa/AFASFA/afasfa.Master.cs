@@ -12,6 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using AFASFA.Servico.Seguranca;
 using AFASFA.acesso_dados.Seguranca;
+using Servico.Util;
 
 namespace AFASFA
 {
@@ -112,16 +113,10 @@ namespace AFASFA
 
         protected void btnOkSolicitarSenha_Click(object sender, EventArgs e)
         {
-            Usuario _usuario = Seguranca.RetornaSolicitaSenha(Server.HtmlEncode(EmailTextBox.Text), Server.HtmlEncode(LoginTextBox.Text));
+            Usuario _usuario = Seguranca.RetornaSolicitaSenha(Server.HtmlEncode(LoginTextBox.Text), Server.HtmlEncode(EmailTextBox.Text));
             if (_usuario != null)
             {
-                FormsAuthenticationTicket _ticket = new FormsAuthenticationTicket(1,
-                                                                                  EmailTextBox.Text,
-                                                                                  DateTime.Now,
-                                                                                  DateTime.Now.AddMinutes(30),
-                                                                                  false,
-                                                                                  string.Empty);
-                Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(_ticket)));
+                MailSender.EnviarEMail("wendehg@gmail.com", "teste", "teste");
                 this.ModalPopupExtenderSolicitarSenha.Hide();
             }
         }

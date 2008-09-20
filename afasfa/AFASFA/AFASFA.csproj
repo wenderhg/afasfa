@@ -116,6 +116,13 @@
     <Compile Include="mala_direta.aspx.designer.cs">
       <DependentUpon>mala_direta.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PaginaErro.aspx.cs">
+      <DependentUpon>PaginaErro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaginaErro.aspx.designer.cs">
+      <DependentUpon>PaginaErro.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TesteGridFormView.aspx.cs">
       <DependentUpon>TesteGridFormView.aspx</DependentUpon>
@@ -151,6 +158,7 @@
     <Content Include="Cadastros\cadastro_voluntarios.aspx" />
     <Content Include="Imagens\Calendar.bmp" />
     <Content Include="mala_direta.aspx" />
+    <Content Include="PaginaErro.aspx" />
     <Content Include="TesteGridFormView.aspx" />
     <Content Include="WebForm1.aspx" />
   </ItemGroup>

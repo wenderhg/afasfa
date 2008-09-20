@@ -185,7 +185,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="lblBtnFomularioCadastro" width="50%" align="right">
+                    <td class="lblBtnFomularioCadastro" width="30%" align="left">
                         Email:
                     </td>
                     <td>
@@ -193,17 +193,17 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="lblBtnFomularioCadastro" width="50%" align="right">
+                    <td class="lblBtnFomularioCadastro" width="30%" align="left">
                         Login:
                     </td>
                     <td>
-                        <asp:TextBox ID="LoginTextBox" runat="server" CssClass="txtFormulario" Width="20%"></asp:TextBox>
+                        <asp:TextBox ID="LoginTextBox" runat="server" CssClass="txtFormulario" Width="98%"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td align="center" colspan="2">
                         <asp:Button ID="btnOkSolicitarSenha" runat="server" Text="OK" OnClick="btnOkSolicitarSenha_Click"
-                            UseSubmitBehavior="false" SkinID="btnFormularioCadastro" CausesValidation="false" />
+                             SkinID="btnFormularioCadastro" CausesValidation="false" />
                     </td>
                 </tr>
             </table>
