@@ -88,6 +88,13 @@
     <Compile Include="Cadastros\cadastro_tipos_assistencias.aspx.designer.cs">
       <DependentUpon>cadastro_tipos_assistencias.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cadastros\Cadastro_Usuario.aspx.cs">
+      <DependentUpon>Cadastro_Usuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Cadastro_Usuario.aspx.designer.cs">
+      <DependentUpon>Cadastro_Usuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cadastros\cadastro_voluntarios.aspx.cs">
       <DependentUpon>cadastro_voluntarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -148,6 +155,7 @@
     <Content Include="Cadastros\cadastro_doacoes.aspx" />
     <Content Include="Cadastros\cadastro_eventos.aspx" />
     <Content Include="Cadastros\cadastro_tipos_assistencias.aspx" />
+    <Content Include="Cadastros\Cadastro_Usuario.aspx" />
     <Content Include="Cadastros\cadastro_voluntarios.aspx" />
     <Content Include="Imagens\Calendar.bmp" />
     <Content Include="mala_direta.aspx" />
@@ -164,6 +172,9 @@
       <Project>{03BFA8D5-DBB5-4DD8-B199-2F3B3DAE6448}</Project>
       <Name>Servico</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Default\TextBoxSkin.skin" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
