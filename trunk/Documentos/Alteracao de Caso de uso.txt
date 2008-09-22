@@ -1,0 +1,5 @@
+N caso de uso de cadatrar usuario adicionar abaixo de Nome
+
+3 - Como deseja ser chamado: Campo texto de preenchimento obrigatório, é preenchido com o conteúdo do campo de login inicialmente, podendo ser alterado.
+
+- Colocar o campo foto por ultimo, alterar seu tipo para componente de upload
