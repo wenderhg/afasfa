@@ -26,6 +26,7 @@ namespace AFASFA
         private void AtualizaPainelLogin(bool autenticado)
         {
             pnLogin.Visible = !autenticado;
+            pnMenuCadastro.Visible = true;
             pnLogout.Visible = autenticado;
         }
 
@@ -93,7 +94,7 @@ namespace AFASFA
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void lkLogout_Click(object sender, EventArgs e)
+        protected void lnkLogoff_Click(object sender, EventArgs e)
         {
             Response.Cookies.Remove(FormsAuthentication.FormsCookieName);
             FormsAuthentication.SignOut();
@@ -116,14 +117,14 @@ namespace AFASFA
             Usuario _usuario = Seguranca.RetornaSolicitaSenha(Server.HtmlEncode(LoginTextBox.Text), Server.HtmlEncode(EmailTextBox.Text));
             if (_usuario != null)
             {
-                MailSender.EnviarEMail("wendehg@gmail.com", "teste", "teste");
+                Usuario _senha = Seguranca.RetornaSolicitaSenha(Server.HtmlEncode(LoginTextBox.Text), Server.HtmlEncode(EmailTextBox.Text));
+                MailSender.EnviarEMail("rodrigopro@gmail.com", "rodrigoprog", "ceci2701");
             }
             this.ModalPopupExtenderSolicitarSenha.Hide();
         }
 
         protected void btnCancelarEfetuarLogoff_Click(object sender, EventArgs e)
         {
-
             this.ModalPopupExtenderEfetuarLogoff.Show();
         }
 
