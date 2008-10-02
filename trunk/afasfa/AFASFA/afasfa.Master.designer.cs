@@ -86,6 +86,15 @@ namespace AFASFA {
         protected global::System.Web.UI.WebControls.Button btnLogin;
         
         /// <summary>
+        /// lnkSolicitarSenha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkSolicitarSenha;
+        
+        /// <summary>
         /// pnLogout control.
         /// </summary>
         /// <remarks>
@@ -113,22 +122,13 @@ namespace AFASFA {
         protected global::System.Web.UI.WebControls.Literal ltUsuario;
         
         /// <summary>
-        /// lnkLogoff control.
+        /// lkLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkLogoff;
-        
-        /// <summary>
-        /// pnMenuCadastro control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnMenuCadastro;
+        protected global::System.Web.UI.WebControls.LinkButton lkLogout;
         
         /// <summary>
         /// ValidationSummary1 control.
@@ -174,15 +174,6 @@ namespace AFASFA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnOK;
-        
-        /// <summary>
-        /// btnSolicitarSenha control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSolicitarSenha;
         
         /// <summary>
         /// ModalPopupExtenderErro control.

@@ -1,7 +1,8 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="afasfa.master.cs" Inherits="AFASFA.afasfa" %>
 
-<%@ Register Assembly="AjaxControlToolkit, Version=3.0.20820.16598, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"
-    Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -39,7 +40,7 @@
                 <asp:Literal ID="ltUsuario" runat="server"></asp:Literal>
             </span>&nbsp;
             <asp:LinkButton runat="server" ID="lkLogout" Text="Efetuar Logoff" CssClass="linkTopo"
-                Font-Underline="True" OnClick="lkLogout_Click" CausesValidation="false"></asp:LinkButton>
+                Font-Underline="True" CausesValidation="false"></asp:LinkButton>
         </asp:Panel>
         <br />
         <div id="menu">

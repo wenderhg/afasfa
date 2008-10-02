@@ -71,7 +71,7 @@
                             </td>
                             <td align="left">
                                 <br />
-                                <asp:TextBox ID="LoginTextBox" runat="server" class="txtFormulario" onblur='PreencheApelido();'
+                                <asp:TextBox ID="LoginTextBox" runat="server" CssClass="txtFormulario" onblur='PreencheApelido();'
                                     Text='<%# Bind("Login") %>' />
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorLoginTextBox" runat="server"
                                     ControlToValidate="LoginTextBox" Display="None" ErrorMessage="Login é de preenchimento obrigatório"></asp:RequiredFieldValidator>
@@ -120,12 +120,12 @@
                                 <asp:TextBox ID="txtSenha" runat="server" TextMode="Password" />
                                 <asp:RequiredFieldValidator ID="RequiredFieldtxtSenha" runat="server" ControlToValidate="txtSenha"
                                     Display="None" ErrorMessage="Senha é de preenchimento obrigatório"></asp:RequiredFieldValidator>
-                                <cc1:PasswordStrength ID="PasswordStrength1" runat="server" DisplayPosition="RightSide"
-                                    TargetControlID="txtSenha" StrengthIndicatorType="BarIndicator" PreferredPasswordLength="6"
-                                    MinimumLowerCaseCharacters="1" MinimumNumericCharacters="1" MinimumSymbolCharacters="1"
-                                    MinimumUpperCaseCharacters="1" RequiresUpperAndLowerCaseCharacters="true" 
-                                    HelpStatusLabelID="lblHelp">
-                                </cc1:PasswordStrength>
+                                <cc1:PasswordStrength ID="PasswordStrengthSenha" runat="server" TargetControlID="txtSenha"
+                                    DisplayPosition="RightSide" StrengthIndicatorType="BarIndicator" PreferredPasswordLength="6"
+                                    HelpStatusLabelID="lblHelp" StrengthStyles="BarIndicator_Senha_weak;BarIndicator_Senha_average;BarIndicator_Senha_good"
+                                    BarBorderCssClass="BarBorder_Senha" MinimumNumericCharacters="1" 
+                                    TextStrengthDescriptions="Muito fraco;Fraco;Médio;Forte;Excelente" RequiresUpperAndLowerCaseCharacters="true" />
+                                <br />
                                 <asp:Label ID="lblHelp" runat="server" Text="A senha deve ter no mínimo 6 caracteres, sendo au menos uma letra Maiúscula, uma minúscula, um numero e um símbolo."></asp:Label>
                             </td>
                         </tr>
