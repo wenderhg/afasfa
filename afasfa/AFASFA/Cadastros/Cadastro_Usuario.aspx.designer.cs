@@ -131,13 +131,13 @@ namespace AFASFA.Cadastros {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldtxtSenha;
         
         /// <summary>
-        /// PasswordStrength1 control.
+        /// PasswordStrengthSenha control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.PasswordStrength PasswordStrength1;
+        protected global::AjaxControlToolkit.PasswordStrength PasswordStrengthSenha;
         
         /// <summary>
         /// lblHelp control.

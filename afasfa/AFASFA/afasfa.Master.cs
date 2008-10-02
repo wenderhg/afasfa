@@ -26,7 +26,7 @@ namespace AFASFA
         private void AtualizaPainelLogin(bool autenticado)
         {
             pnLogin.Visible = !autenticado;
-            pnMenuCadastro.Visible = true;
+            //pnMenuCadastro.Visible = true;
             pnLogout.Visible = autenticado;
         }
 
