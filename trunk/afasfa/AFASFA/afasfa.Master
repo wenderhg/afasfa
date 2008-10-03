@@ -95,35 +95,37 @@
                         <a href="#" class="LinkMenu">Recursos Humanos</a></div>
                 </li>
             </ul>
-            <p class="lblMenuPrincipal">
-                Menu Administrativo</p>
-            <ul>
-                <li>
-                    <div align="left">
-                        <a href="/cadastros/cadastro_eventos.aspx" class="LinkMenu">Cadastro de Eventos</a></div>
-                </li>
-                <li>
-                    <div align="left">
-                        <a href="/cadastros/cadastro_tipos_assistencias.aspx" class="LinkMenu">Cadastrar Tipos
-                            de Assistência</a></div>
-                </li>
-                <li>
-                    <div align="left">
-                        <a href="#" class="LinkMenu">Dados Quantitativos</a></div>
-                </li>
-                <li>
-                    <div align="left">
-                        <a href="#" class="LinkMenu">Relatórios</a></div>
-                </li>
-                <li>
-                    <div align="left">
-                        <a href="mala_direta.aspx" class="LinkMenu">Mala Direta</a></div>
-                </li>
-                <li>
-                    <div align="left">
-                        <a href="/Cadastros/Cadastro_Usuario.aspx" class="LinkMenu">Cadastro de Usuários</a></div>
-                </li>
-            </ul>
+            <asp:Panel runat="server" Visible="false" ID="pnMenuCadastro">
+                <p class="lblMenuPrincipal">
+                    Menu Administrativo</p>
+                <ul>
+                    <li>
+                        <div align="left">
+                            <a href="/cadastros/cadastro_eventos.aspx" class="LinkMenu">Cadastro de Eventos</a></div>
+                    </li>
+                    <li>
+                        <div align="left">
+                            <a href="/cadastros/cadastro_tipos_assistencias.aspx" class="LinkMenu">Cadastrar Tipos
+                                de Assistência</a></div>
+                    </li>
+                    <li>
+                        <div align="left">
+                            <a href="#" class="LinkMenu">Dados Quantitativos</a></div>
+                    </li>
+                    <li>
+                        <div align="left">
+                            <a href="#" class="LinkMenu">Relatórios</a></div>
+                    </li>
+                    <li>
+                        <div align="left">
+                            <a href="mala_direta.aspx" class="LinkMenu">Mala Direta</a></div>
+                    </li>
+                    <li>
+                        <div align="left">
+                            <a href="#" class="LinkMenu">Cadastro de Usuários</a></div>
+                    </li>
+                </ul>
+            </asp:Panel>
             <br>
         </div>
         <div id="conteudo">
@@ -198,21 +200,20 @@
                         Login:
                     </td>
                     <td>
-                        <asp:TextBox ID="LoginTextBox" runat="server" CssClass="txtFormulario" Width="98%"></asp:TextBox>
+                        <asp:TextBox ID="LoginTextBox" runat="server" CssClass="txtFormulario" Width="60%"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td align="center" colspan="2">
-                        <br />
                         <asp:Button ID="btnOkSolicitarSenha" runat="server" Text="OK" OnClick="btnOkSolicitarSenha_Click"
-                            SkinID="btnFormularioCadastro" CausesValidation="false" UseSubmitBehavior="false" />
+                            SkinID="btnFormularioCadastro" CausesValidation="false" />
                     </td>
                 </tr>
             </table>
         </asp:Panel>
         <cc1:ModalPopupExtender ID="ModalPopupExtenderSolicitarSenha" runat="server" PopupControlID="pnSolicitarSenha"
             RepositionMode="RepositionOnWindowResize" TargetControlID="lnkSolicitarSenha"
-            BackgroundCssClass="modalBackground" OkControlID="btnOkSolicitarSenha" DropShadow="true">
+            BackgroundCssClass="modalBackground" OkControlID="btnOk" DropShadow="true">
         </cc1:ModalPopupExtender>
         <%-- MODAL POPPUP DO EFETUAR LOGOFF--%>
         <asp:Panel runat="server" ID="pnConfirmaLogoff" Style="display: none" CssClass="modalPopup">
