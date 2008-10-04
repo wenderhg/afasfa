@@ -26,7 +26,7 @@
                     Width="10%"></asp:TextBox>
                 &nbsp;
                 <asp:Button runat="server" ID="btnLogin" Text="Efetuar Login" CssClass="lblFormLogin"
-                    SkinID="btnFormularioCadastro" OnClick="btnLogin_Click" CausesValidation="false" />
+                    SkinID="btnFormularioCadastro" OnClick="btnLogin_Click" CausesValidation="false"  />
             </span>
         </asp:Panel>
         <asp:Panel runat="server" ID="pnLogout" CssClass="Login">
@@ -34,9 +34,9 @@
                 <asp:Literal ID="ltSaudacao" runat="server"></asp:Literal>
                 <asp:Literal ID="ltUsuario" runat="server"></asp:Literal>
             </span>&nbsp;
-            <asp:LinkButton runat="server" ID="lkLogout" BackColor="#666699" BorderColor="#003366"
+            <asp:LinkButton runat="server" ID="lnkLogoff" BackColor="#666699" BorderColor="#003366"
                 BorderStyle="Double" BorderWidth="2px" CssClass="lblBtnFomularioCadastro" Font-Names="Verdana"
-                ForeColor="White">Efetuar Logoff</asp:LinkButton>
+                ForeColor="White" >Efetuar Logoff</asp:LinkButton>
         </asp:Panel>
         <br />
         <div id="menu">
@@ -152,16 +152,55 @@
                 </tr>
                 <tr>
                     <td align="center">
-                        <asp:Button ID="btnOK" runat="server" Text="OK" OnClick="btnOK_Click" SkinID="btnFormularioCadastro"
+                        <asp:Button ID="btnOK" runat="server" Text="Ok" OnClick="btnOK_Click" SkinID="btnFormularioCadastro"
                             CausesValidation="false" />
+                        <asp:Button ID="btnSolicitarSenha" runat="server" Text="Soliciar Senha" OnClick="btnSolicitarSenha_Click"
+                            CausesValidation="false" SkinID="btnFormularioCadastro" />
                     </td>
                 </tr>
             </table>
         </asp:Panel>
+        <asp:Button ID="btnModalPopupCancelar" runat="server" Text="" Style="display: none" />
         <cc1:ModalPopupExtender ID="ModalPopupExtenderGeral" runat="server" PopupControlID="pnErroLogin"
             RepositionMode="None" TargetControlID="btnLogin" BackgroundCssClass="modalBackground"
-            OkControlID="btnOK" CancelControlID="btnSolicitarSenha" DropShadow="true" PopupDragHandleControlID="Panel13"
-            EnableViewState="false">
+            PopupDragHandleControlID="Panel13">
+        </cc1:ModalPopupExtender>
+        
+        
+        <%--Modal de mensagem " Confirma solicitação de efetuar logoff ? "--%>
+        <asp:Panel runat="server" ID="pnEfetuarLogoff" Style="display: none" CssClass="modalPopup">
+            <asp:Panel ID="Panel2" runat="server" Style="cursor: move; background-color: #DDDDDD;
+                border: solid 1px Gray; color: Black">
+                <table>
+                    <tr>
+                        <td class="lblCabecalhoModalPop">
+                            Alerta !!!
+                        </td>
+                    </tr>
+                </table>
+            </asp:Panel>
+            <br />
+            <table width="100%" heigh="100%">
+                <tr>
+                    <td align="center" class="lblPerguntaModalPop">
+                        Confirma solicitação de efetuar logoff ?
+                        <br />
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <asp:Button ID="btnSimEfetuarLogoff" runat="server" Text="Sim" OnClick="btnSimEfetuarLogoff_Click" SkinID="btnFormularioCadastro"
+                            CausesValidation="false" />
+                        <asp:Button ID="btnNaoEfetuarLogoff" runat="server" Text="Não" 
+                            CausesValidation="false" SkinID="btnFormularioCadastro" />
+                    </td>
+                </tr>
+            </table>
+        </asp:Panel>        
+        <cc1:ModalPopupExtender ID="ModalPopupExtenderEfetuarLogoff" runat="server" PopupControlID="pnEfetuarLogoff"
+            RepositionMode="None" TargetControlID="lnkLogoff" BackgroundCssClass="modalBackground"
+            PopupDragHandleControlID="Panel13">
         </cc1:ModalPopupExtender>
         </form>
     </div>

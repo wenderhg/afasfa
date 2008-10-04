@@ -86,15 +86,6 @@ namespace AFASFA {
         protected global::System.Web.UI.WebControls.Button btnLogin;
         
         /// <summary>
-        /// lnkSolicitarSenha control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkSolicitarSenha;
-        
-        /// <summary>
         /// pnLogout control.
         /// </summary>
         /// <remarks>
@@ -122,13 +113,13 @@ namespace AFASFA {
         protected global::System.Web.UI.WebControls.Literal ltUsuario;
         
         /// <summary>
-        /// lkLogout control.
+        /// lnkLogoff control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lkLogout;
+        protected global::System.Web.UI.WebControls.LinkButton lnkLogoff;
         
         /// <summary>
         /// pnMenuCadastro control.
@@ -185,6 +176,24 @@ namespace AFASFA {
         protected global::System.Web.UI.WebControls.Button btnOK;
         
         /// <summary>
+        /// btnSolicitarSenha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSolicitarSenha;
+        
+        /// <summary>
+        /// btnModalPopupCancelar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModalPopupCancelar;
+        
+        /// <summary>
         /// ModalPopupExtenderGeral control.
         /// </summary>
         /// <remarks>
@@ -192,5 +201,50 @@ namespace AFASFA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.ModalPopupExtender ModalPopupExtenderGeral;
+        
+        /// <summary>
+        /// pnEfetuarLogoff control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnEfetuarLogoff;
+        
+        /// <summary>
+        /// Panel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel2;
+        
+        /// <summary>
+        /// btnSimEfetuarLogoff control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSimEfetuarLogoff;
+        
+        /// <summary>
+        /// btnNaoEfetuarLogoff control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNaoEfetuarLogoff;
+        
+        /// <summary>
+        /// ModalPopupExtenderEfetuarLogoff control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender ModalPopupExtenderEfetuarLogoff;
     }
 }

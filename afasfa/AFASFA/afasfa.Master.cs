@@ -54,17 +54,18 @@ namespace AFASFA
                                                                                   string.Empty);
                 Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(_ticket)));
                 ltSaudacao.Text = RetornaSaudacaoCompleta(_usuario);
-                //ltUsuario.Text = txtUsuario.Text;
                 AtualizaPainelLogin(true);
             }
             else
             {
-                AtualizaPainelLogin(false);
-                this.ModalPopupExtenderGeral.TargetControlID = this.btnSolicitarSenha.ID;
-                this.ModalPopupExtenderGeral.PopupControlID = this.pnErroLogin.ClientID;
-                //this.ModalPopupExtenderGeral.Show();
+                AtualizaPainelLogin(false);                
             }
 
+        }
+
+        protected void btnSolicitarSenha_Click(object sender, EventArgs e)
+        {            
+            Response.Redirect("/solicitar_senha.aspx");
         }
 
         private string RetornaSaudacaoCompleta(Usuario usuario)
@@ -91,39 +92,21 @@ namespace AFASFA
         }
 
         /// <summary>
-        /// Evento de click do Logout
+        /// Evento de click do botão confirma efetuar logoff
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void lnkLogoff_Click(object sender, EventArgs e)
+        protected void btnSimEfetuarLogoff_Click(object sender, EventArgs e)
         {
-            //Response.Cookies.Remove(FormsAuthentication.FormsCookieName);
-            //FormsAuthentication.SignOut();
-            //AtualizaPainelLogin(false);
-            this.ModalPopupExtenderEfetuarLogoff.Show();
+            Response.Cookies.Remove(FormsAuthentication.FormsCookieName);
+            FormsAuthentication.SignOut();
+            AtualizaPainelLogin(false);
         }
 
         protected void btnOK_Click(object sender, EventArgs e)
         {
-            this.ModalPopupExtenderGeral.TargetControlID = this.btnLogin.ID;
+            //this.ModalPopupExtenderGeral.TargetControlID = this.btnLogin.ID;
             //this.ModalPopupExtenderGeral.Hide();
-        }
-
-
-        protected void btnOkSolicitarSenha_Click(object sender, EventArgs e)
-        {
-            Usuario _usuario = Seguranca.RetornaSolicitaSenha(Server.HtmlEncode(LoginTextBox.Text), Server.HtmlEncode(EmailTextBox.Text));
-            if (_usuario != null)
-            {
-                Usuario _senha = Seguranca.RetornaSolicitaSenha(Server.HtmlEncode(LoginTextBox.Text), Server.HtmlEncode(EmailTextBox.Text));
-                //MailSender.EnviarEMail("rodrigopro@gmail.com", "rodrigoprog", "ceci2701");
-            }
-            this.ModalPopupExtenderGeral.Hide();
-        }
-        
-        protected void btnCancelarEfetuarLogoff_Click(object sender, EventArgs e)
-        {
-            //this.ModalPopupExtenderEfetuarLogoff.Show();
         }
 
         /// <summary>
@@ -136,7 +119,6 @@ namespace AFASFA
             Response.Cookies.Remove(FormsAuthentication.FormsCookieName);
             FormsAuthentication.SignOut();
             AtualizaPainelLogin(false);
-            this.ModalPopupExtenderEfetuarLogoff.Hide();
         }
     }
 }
