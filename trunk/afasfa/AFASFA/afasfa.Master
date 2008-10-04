@@ -152,106 +152,16 @@
                 </tr>
                 <tr>
                     <td align="center">
-                        <asp:Button ID="btnOK" runat="server" Text="Voltar" OnClick="btnOK_Click" UseSubmitBehavior="false"
-                            SkinID="btnFormularioCadastro" CausesValidation="false" />
-                        <asp:Button runat="server" ID="btnSolicitarSenha" Text="Solicitar Senha" UseSubmitBehavior="false"
-                            CausesValidation="false" OnClick="btnSolicitarSenha_Click" SkinID="btnFormularioCadastro">
-                        </asp:Button>
+                        <asp:Button ID="btnOK" runat="server" Text="OK" OnClick="btnOK_Click" SkinID="btnFormularioCadastro"
+                            CausesValidation="false" />
                     </td>
                 </tr>
             </table>
         </asp:Panel>
-        <cc1:ModalPopupExtender ID="ModalPopupExtenderErro" runat="server" PopupControlID="pnErroLogin"
-            RepositionMode="RepositionOnWindowResize" TargetControlID="btnLogin" BackgroundCssClass="modalBackground"
-            OkControlID="btnOk" DropShadow="true">
-        </cc1:ModalPopupExtender>
-        <%-- MODAL POPPUP DO SOLICITAR SENHA--%>
-        <asp:Panel runat="server" ID="pnSolicitarSenha" Style="display: none" CssClass="modalPopup">
-            <asp:Panel ID="Panel2" runat="server" Style="cursor: move; background-color: #DDDDDD;
-                border: solid 1px Gray; color: Black">
-                <table>
-                    <tr>
-                        <td class="lblCabecalhoModalPop">
-                            Solicitar Senha ?
-                        </td>
-                    </tr>
-                </table>
-            </asp:Panel>
-            <br />
-            <table width="100%" height="100%">
-                <tr>
-                    <td align="center" class="lblPerguntaModalPop" colspan="2">
-                        Digite seu usário ou email para que possamos lhe enviar sua senha.
-                        <br />
-                        <br />
-                    </td>
-                </tr>
-                <tr>
-                    <td class="lblBtnFomularioCadastro" width="30%" align="left">
-                        Email:
-                    </td>
-                    <td>
-                        <asp:TextBox ID="EmailTextBox" runat="server" CssClass="txtFormulario" Width="98%"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="lblBtnFomularioCadastro" width="30%" align="left">
-                        Login:
-                    </td>
-                    <td>
-                        <asp:TextBox ID="LoginTextBox" runat="server" CssClass="txtFormulario" Width="60%"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" colspan="2">
-                        <asp:Button ID="btnOkSolicitarSenha" runat="server" Text="OK" OnClick="btnOkSolicitarSenha_Click"
-                            SkinID="btnFormularioCadastro" CausesValidation="false" />
-                    </td>
-                </tr>
-            </table>
-        </asp:Panel>
-        <cc1:ModalPopupExtender ID="ModalPopupExtenderSolicitarSenha" runat="server" PopupControlID="pnSolicitarSenha"
-            RepositionMode="RepositionOnWindowResize" TargetControlID="btnSolicitarSenha"
-            BackgroundCssClass="modalBackground" OkControlID="btnOk" DropShadow="true">
-        </cc1:ModalPopupExtender>
-        <%-- MODAL POPPUP DO EFETUAR LOGOFF--%>
-        <asp:Panel runat="server" ID="pnConfirmaLogoff" Style="display: none" CssClass="modalPopup">
-            <asp:Panel ID="Panel3" runat="server" Style="cursor: move; background-color: #DDDDDD;
-                border: solid 1px Gray; color: Black">
-                <table>
-                    <tr>
-                        <td class="lblCabecalhoModalPop">
-                            Ajuda !!!
-                        </td>
-                    </tr>
-                </table>
-            </asp:Panel>
-            <br />
-            <table width="100%" height="100%">
-                <tr>
-                    <td align="center" class="lblPerguntaModalPop" colspan="2" colspan="2">
-                        Confirma logoff ?
-                        <br />
-                        <br />
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" width="50%">
-                        <asp:Button ID="btnOkEfetuarLogoff" runat="server" Text="OK" OnClick="btnOkEfetuarLogoff_Click"
-                            UseSubmitBehavior="false" SkinID="btnFormularioCadastro" CausesValidation="false"
-                            Width="60px" />
-                    </td>
-                    <td align="center" width="50%">
-                        <asp:Button ID="btnCancelarEfetuarLogoff" runat="server" Text="Cancelar" OnClick="btnCancelarEfetuarLogoff_Click"
-                            UseSubmitBehavior="false" SkinID="btnFormularioCadastro" CausesValidation="false"
-                            Width="60px" />
-                    </td>
-                </tr>
-            </table>
-        </asp:Panel>
-        <cc1:ModalPopupExtender ID="ModalPopupExtenderEfetuarLogoff" runat="server" PopupControlID="pnConfirmaLogoff"
-            RepositionMode="RepositionOnWindowResize" TargetControlID="lkLogout" BackgroundCssClass="modalBackground"
-            OkControlID="btnOk" DropShadow="true">
+        <cc1:ModalPopupExtender ID="ModalPopupExtenderGeral" runat="server" PopupControlID="pnErroLogin"
+            RepositionMode="None" TargetControlID="btnLogin" BackgroundCssClass="modalBackground"
+            OkControlID="btnOK" CancelControlID="btnSolicitarSenha" DropShadow="true" PopupDragHandleControlID="Panel13"
+            EnableViewState="false">
         </cc1:ModalPopupExtender>
         </form>
     </div>

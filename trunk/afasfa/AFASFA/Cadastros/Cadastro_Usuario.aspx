@@ -30,6 +30,7 @@
             <asp:Parameter Name="TELEFONECEL" Type="String" />
             <asp:Parameter Name="TELEFONERES" Type="String" />
             <asp:Parameter Name="EMAIL" Type="String" />
+            <asp:Parameter Name="APELIDO" Type="String" />
             <asp:Parameter Name="Original_USUARIO" Type="UInt32" />
         </UpdateParameters>
         <InsertParameters>
@@ -48,6 +49,7 @@
             <asp:Parameter Name="TELEFONECEL" Type="String" />
             <asp:Parameter Name="TELEFONERES" Type="String" />
             <asp:Parameter Name="EMAIL" Type="String" />
+            <asp:Parameter Name="APELIDO" Type="String" />
         </InsertParameters>
     </asp:ObjectDataSource>
     <div style="background-color: #E6E7F2; border-color: #ecffff; border-style: ridge">
@@ -59,7 +61,7 @@
                         <br />
                         <tr>
                             <td align="center" class="TextoTitulo" colspan="2">
-                                CADASTRAR TIPOS DE ASSISTÊNCIAS
+                                CADASTRAR USUÁRIOS
                                 <br />
                                 <br />
                             </td>
@@ -123,8 +125,8 @@
                                 <cc1:PasswordStrength ID="PasswordStrengthSenha" runat="server" TargetControlID="txtSenha"
                                     DisplayPosition="RightSide" StrengthIndicatorType="BarIndicator" PreferredPasswordLength="6"
                                     HelpStatusLabelID="lblHelp" StrengthStyles="BarIndicator_Senha_weak;BarIndicator_Senha_average;BarIndicator_Senha_good"
-                                    BarBorderCssClass="BarBorder_Senha" MinimumNumericCharacters="1" 
-                                    TextStrengthDescriptions="Muito fraco;Fraco;Médio;Forte;Excelente" RequiresUpperAndLowerCaseCharacters="true" />
+                                    BarBorderCssClass="BarBorder_Senha" MinimumNumericCharacters="1" TextStrengthDescriptions="Muito fraco;Fraco;Médio;Forte;Excelente"
+                                    RequiresUpperAndLowerCaseCharacters="true" />
                                 <br />
                                 <asp:Label ID="lblHelp" runat="server" Text="A senha deve ter no mínimo 6 caracteres, sendo au menos uma letra Maiúscula, uma minúscula, um numero e um símbolo."></asp:Label>
                             </td>
@@ -174,7 +176,7 @@
                         <tr>
                             <td align="left" class="lblFomulario" colspan="2">
                                 <br />
-                                <asp:CheckBox ID="ReceberInformacaoesCheckBox" runat="server" Checked="true" TextAlign="Left"
+                                <asp:CheckBox ID="ReceberInformacoesCheckBox" runat="server" Checked="true" TextAlign="Left"
                                     Text="Receber informações da instituição" />
                             </td>
                         </tr>
