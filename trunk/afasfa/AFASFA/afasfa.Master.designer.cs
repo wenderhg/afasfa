@@ -113,13 +113,13 @@ namespace AFASFA {
         protected global::System.Web.UI.WebControls.Literal ltUsuario;
         
         /// <summary>
-        /// lnkLogoff control.
+        /// lkLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkLogoff;
+        protected global::System.Web.UI.WebControls.LinkButton lkLogout;
         
         /// <summary>
         /// pnMenuCadastro control.
