@@ -26,7 +26,7 @@ namespace AFASFA
         private void AtualizaPainelLogin(bool autenticado)
         {
             pnLogin.Visible = !autenticado;
-            //pnMenuCadastro.Visible = true;
+            pnMenuCadastro.Visible = autenticado;
             pnLogout.Visible = autenticado;
         }
 
@@ -96,10 +96,23 @@ namespace AFASFA
         /// <param name="e"></param>
         protected void lnkLogoff_Click(object sender, EventArgs e)
         {
-            Response.Cookies.Remove(FormsAuthentication.FormsCookieName);
-            FormsAuthentication.SignOut();
-            AtualizaPainelLogin(false);
+            //Response.Cookies.Remove(FormsAuthentication.FormsCookieName);
+            //FormsAuthentication.SignOut();
+            //AtualizaPainelLogin(false);
+            this.ModalPopupExtenderEfetuarLogoff.Show();
         }
+
+        /// <summary>
+        /// Evento de click Solicitar Senha
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnSolicitarSenha_Click(object sender, EventArgs e)
+        {
+            this.ModalPopupExtenderErro.Hide();
+            this.ModalPopupExtenderSolicitarSenha.Show();
+        }
+
 
         protected void InsertCancelButton_Click(object sender, EventArgs e)
         {
@@ -128,8 +141,16 @@ namespace AFASFA
             this.ModalPopupExtenderEfetuarLogoff.Show();
         }
 
+        /// <summary>
+        /// Evento click do botão OK do modalpopup efetuar logoff
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnOkEfetuarLogoff_Click(object sender, EventArgs e)
         {
+            Response.Cookies.Remove(FormsAuthentication.FormsCookieName);
+            FormsAuthentication.SignOut();
+            AtualizaPainelLogin(false);
             this.ModalPopupExtenderEfetuarLogoff.Hide();
         }
     }
