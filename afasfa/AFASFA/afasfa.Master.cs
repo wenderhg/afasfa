@@ -60,8 +60,9 @@ namespace AFASFA
             else
             {
                 AtualizaPainelLogin(false);
-                //lbErro.Visible = true;
-                this.ModalPopupExtenderErro.Show();
+                this.ModalPopupExtenderGeral.TargetControlID = this.btnSolicitarSenha.ID;
+                this.ModalPopupExtenderGeral.PopupControlID = this.pnErroLogin.ClientID;
+                //this.ModalPopupExtenderGeral.Show();
             }
 
         }
@@ -102,26 +103,10 @@ namespace AFASFA
             this.ModalPopupExtenderEfetuarLogoff.Show();
         }
 
-        /// <summary>
-        /// Evento de click Solicitar Senha
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void btnSolicitarSenha_Click(object sender, EventArgs e)
-        {
-            this.ModalPopupExtenderErro.Hide();
-            this.ModalPopupExtenderSolicitarSenha.Show();
-        }
-
-
-        protected void InsertCancelButton_Click(object sender, EventArgs e)
-        {
-            this.ModalPopupExtenderErro.Show();
-        }
-
         protected void btnOK_Click(object sender, EventArgs e)
         {
-            this.ModalPopupExtenderErro.Hide();
+            this.ModalPopupExtenderGeral.TargetControlID = this.btnLogin.ID;
+            //this.ModalPopupExtenderGeral.Hide();
         }
 
 
@@ -131,14 +116,14 @@ namespace AFASFA
             if (_usuario != null)
             {
                 Usuario _senha = Seguranca.RetornaSolicitaSenha(Server.HtmlEncode(LoginTextBox.Text), Server.HtmlEncode(EmailTextBox.Text));
-                MailSender.EnviarEMail("rodrigopro@gmail.com", "rodrigoprog", "ceci2701");
+                //MailSender.EnviarEMail("rodrigopro@gmail.com", "rodrigoprog", "ceci2701");
             }
-            this.ModalPopupExtenderSolicitarSenha.Hide();
+            this.ModalPopupExtenderGeral.Hide();
         }
-
+        
         protected void btnCancelarEfetuarLogoff_Click(object sender, EventArgs e)
         {
-            this.ModalPopupExtenderEfetuarLogoff.Show();
+            //this.ModalPopupExtenderEfetuarLogoff.Show();
         }
 
         /// <summary>
