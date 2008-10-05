@@ -41,6 +41,7 @@ namespace AFASFA.cadastros
             //_smtp.Credentials = _cred;
             ////_smtp.ServicePoint.Address = new Uri(@"afasaofranciscodeassis.org.br");
             //_smtp.Send(_message);
+            this.ModalPopupExtender2.Show();
         }
         
 
