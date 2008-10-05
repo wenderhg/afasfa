@@ -40,7 +40,7 @@ namespace AFASFA
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void btnLogin_Click(object sender, EventArgs e)
+        protected void btnLogin_Click(object sender, EventArgs e )
         {
             //Retorna objeto usuario se o usuario existir e a senha estiver valida
             Usuario _usuario = Seguranca.RetornaUsuarioValido(Server.HtmlEncode(txtUsuario.Text), Server.HtmlEncode(txtSenha.Text));
@@ -54,10 +54,11 @@ namespace AFASFA
                                                                                   string.Empty);
                 Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(_ticket)));
                 ltSaudacao.Text = RetornaSaudacaoCompleta(_usuario);
-                AtualizaPainelLogin(true);
+                AtualizaPainelLogin(true);               
             }
             else
             {
+                this.ModalPopupExtenderGeral.Show();
                 AtualizaPainelLogin(false);                
             }
 

@@ -141,7 +141,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="afasfa.Master" />
-    <Content Include="campanhas.aspx" />
     <Content Include="estilos\estilos.css" />
     <Content Include="estilos\estilos_OLD.css" />
     <Content Include="Imagens\LOGOTIPO.jpg" />
@@ -174,6 +173,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\Default\TextBoxSkin.skin" />
+    <Content Include="campanhas.aspx" />
     <Content Include="solicitar_senha.aspx" />
   </ItemGroup>
   <ItemGroup>

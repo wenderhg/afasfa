@@ -1,8 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/afasfa.Master" AutoEventWireup="true"
     CodeBehind="cadastro_doacoes.aspx.cs" Inherits="AFASFA.cadastros.cadastro_doacoes" %>
 
-<%@ Register Assembly="AjaxControlToolkit, Version=3.0.20820.16598, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"
-    Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="CplConteudo" runat="server">
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" DeleteMethod="Delete"
         InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData"
@@ -18,7 +17,7 @@
             <asp:Parameter Name="BAIRRO" Type="String" />
             <asp:Parameter Name="DISPONIBILIDADE" Type="String" />
             <asp:Parameter Name="OBSERVACAO" Type="String" />
-            <asp:Parameter Name="ESTADO" Type="String" />
+            <asp:Parameter Name="ESTADO" Type="String" DefaultValue="P" />
             <asp:Parameter Name="TELEFONERES" Type="Decimal" />
             <asp:Parameter Name="TELEFONECEL" Type="Decimal" />
             <asp:Parameter Name="EMAIL" Type="String" />
@@ -32,7 +31,7 @@
             <asp:Parameter Name="ITENS" Type="String" />
             <asp:Parameter Name="DISPONIBILIDADE" Type="String" />
             <asp:Parameter Name="OBSERVACAO" Type="String" />
-            <asp:Parameter Name="ESTADO" Type="String" />
+            <asp:Parameter Name="ESTADO" Type="String" DefaultValue="P"/>
             <asp:Parameter Name="TELEFONERES" Type="String" />
             <asp:Parameter Name="TELEFONECEL" Type="String" />
             <asp:Parameter Name="EMAIL" Type="String" />
@@ -244,6 +243,40 @@
     <cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server" PopupControlID="pnConfirmacao"
         RepositionMode="RepositionOnWindowResize" TargetControlID="btnModalPopupCancelar"
         BackgroundCssClass="modalBackground" OkControlID="btnOK" CancelControlID="btnCancelar"
+        DropShadow="true" PopupDragHandleControlID="Panel3">
+    </cc1:ModalPopupExtender>
+    
+    <%--ModalPopup para resposta da doação--%>
+    <asp:Panel ID="pnObrigado" runat="server" Style="display: none" CssClass="modalPopup">
+        <asp:Panel ID="Panel2" runat="server" Style="cursor: move; background-color: #DDDDDD;
+            border: solid 1px Gray; color: Black">
+            <table>
+                <tr>
+                    <td class="lblCabecalhoModalPop">
+                        Agradecimento !!!
+                    </td>
+                </tr>
+            </table>
+        </asp:Panel>
+        <br />
+        <table width="100%" heigh="100%">
+            <tr>
+                <td align="center" class="lblPerguntaModalPop">
+                    Muito Obrigado por disponibilizar sua doação. Logo entraremos em contato com você.
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <asp:Button ID="btnVoltar" runat="server" Text="Voltar" UseSubmitBehavior="false"
+                        SkinID="btnFormularioCadastro" CausesValidation="false" />                    
+                </td>
+            </tr>
+        </table>
+    </asp:Panel>    
+    <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server" PopupControlID="pnObrigado"
+        RepositionMode="RepositionOnWindowResize" TargetControlID="btnModalPopupCancelar"
+        BackgroundCssClass="modalBackground" OkControlID="btnVoltar" 
         DropShadow="true" PopupDragHandleControlID="Panel3">
     </cc1:ModalPopupExtender>
 </asp:Content>

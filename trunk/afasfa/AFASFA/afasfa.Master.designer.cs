@@ -185,13 +185,13 @@ namespace AFASFA {
         protected global::System.Web.UI.WebControls.Button btnSolicitarSenha;
         
         /// <summary>
-        /// btnModalPopupCancelar control.
+        /// btnModalPopupCancelar1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModalPopupCancelar;
+        protected global::System.Web.UI.WebControls.Button btnModalPopupCancelar1;
         
         /// <summary>
         /// ModalPopupExtenderGeral control.
