@@ -1,0 +1,20 @@
+EFETUARLOGIN
+	O botão de eftuar login não mostra o modla popup... se ele mostrar não efetua o login, não passa pelo onclick do botão....
+
+
+EFETUAR LOGOFF
+	OK
+
+SOLICITAR SENHA
+	No botão de enviar senha, esta dando erro no envio do email.. tanbem não sei se os dados gerados na pesquisa estão corretos...
+
+DISPONIBILIZAR DOAÇÕES
+	O layout formulário esta correto
+	Os campos estão todos formatados
+	botão cancelar 				OK
+	botão enviar dados   
+		ESTA INSERINDO CORRETAMENTE OS DADOS A DOAÇÃO EESTA COM  ESTADO " P " DE PENDENTE DE APROVAÇÃO	FALTA ENVIAR O EMAIL PARA O APROVADOR
+
+
+
+	
