@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using MySql.Data.MySqlClient;
 using acesso_dados.Properties;
+using acesso_dados.DataSetAFASFATableAdapters;
 
 namespace AFASFA.acesso_dados
 {
@@ -25,6 +26,23 @@ namespace AFASFA.acesso_dados
                     _instance = new MySqlConnection(Settings.Default.afasfaConnectionString);
                 }
                 return _instance;
+            }
+        }
+
+        private static TableAdapterManager _afasfaManager = null;
+        /// <summary>
+        /// Retornar instancia de TableAdapterManager (representa o modelo do banco)
+        /// </summary>
+        public static TableAdapterManager AfasfaManager
+        {
+            get
+            {
+                if (_afasfaManager == null)
+                {
+                    _afasfaManager = new TableAdapterManager();
+                    _afasfaManager.Connection = Instance;
+                }
+                return _afasfaManager;
             }
         }
     }

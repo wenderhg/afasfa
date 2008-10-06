@@ -32,6 +32,8 @@ namespace AFASFA
 
         protected void Page_PreRender(object sender, EventArgs e)
         {
+            //Response.Redirect("/Cadastro/Senha.aspx?Param=dakslds");
+            //Server.Transfer("/Cadastro/Senha.aspx?Param=dakslds");
         }
 
 
