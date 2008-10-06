@@ -7,10 +7,25 @@
     <title>#### AFASFA - Associação Filantrópica e Assistêncial São Francisco de Assis ####
     </title>
     <link href="/estilos/estilos.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript">
+
+        //<![CDATA[
+
+        function load() {
+        }
+
+        function GUnload() {
+        }
+
+        //]]>
+    </script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onload="load()"
+    onunload="GUnload()">
     <div id="container">
         <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true"
@@ -69,8 +84,7 @@
                 </li>
                 <li>
                     <div align="left">
-                        <a href="/como_chegar.aspx" class="LinkMenu" onclick="navega_maps('como_chegar.aspx'); return false">
-                            Como Chegar ao Lar</a></div>
+                        <a href="/ComoChegar/ComoChegar.aspx" class="LinkMenu">Como Chegar ao Lar</a></div>
                 </li>
                 <li>
                     <div align="left">

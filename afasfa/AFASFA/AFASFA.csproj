@@ -109,6 +109,13 @@
     <Compile Include="campanhas.aspx.designer.cs">
       <DependentUpon>campanhas.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ComoChegar\ComoChegar.aspx.cs">
+      <DependentUpon>ComoChegar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComoChegar\ComoChegar.aspx.designer.cs">
+      <DependentUpon>ComoChegar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -174,6 +181,7 @@
   <ItemGroup>
     <Content Include="App_Themes\Default\TextBoxSkin.skin" />
     <Content Include="campanhas.aspx" />
+    <Content Include="ComoChegar\ComoChegar.aspx" />
     <Content Include="solicitar_senha.aspx" />
   </ItemGroup>
   <ItemGroup>
