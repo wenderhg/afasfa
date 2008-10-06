@@ -1,8 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/afasfa.Master" AutoEventWireup="true"
     CodeBehind="cadastro_tipos_assistencias.aspx.cs" Inherits="AFASFA.Cadastros.cadastro_tipos_assistencias" %>
 
-<%@ Register Assembly="AjaxControlToolkit, Version=3.0.20820.16598, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e"
-    Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CplConteudo" runat="server">

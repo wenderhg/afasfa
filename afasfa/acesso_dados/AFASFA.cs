@@ -1,36 +1,16 @@
-﻿namespace acesso_dados
-{
-
-
-    public partial class AFASFA
-    {
-        partial class assistenciasDataTable
-        {
-        }
+﻿namespace acesso_dados {
     
-        partial class doacoesDataTable
-        {
-        }
     
-        partial class voluntariosDataTable
-        {
-        }
-
-        partial class dtDoacoesDataTable
-        {
-        }
-
-        partial class eventosDataTable
+    public partial class DataSetAFASFA {
+        partial class usuariosDataTable
         {
         }
     }
 }
 
-namespace acesso_dados.AFASFATableAdapters
-{
-
-
-    public partial class dtDoacoesTableAdapter
-    {
+namespace acesso_dados.DataSetAFASFATableAdapters {
+    
+    
+    public partial class usuariosTableAdapter {
     }
 }
