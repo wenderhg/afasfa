@@ -28,6 +28,10 @@ namespace AFASFA
             pnLogin.Visible = !autenticado;
             pnMenuCadastro.Visible = autenticado;
             pnLogout.Visible = autenticado;
+            if (autenticado)
+            {
+                lbSaudacao.Text = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).UserData;
+            }
         }
 
         protected void Page_PreRender(object sender, EventArgs e)
@@ -42,7 +46,7 @@ namespace AFASFA
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void btnLogin_Click(object sender, EventArgs e )
+        protected void btnLogin_Click(object sender, EventArgs e)
         {
             //Retorna objeto usuario se o usuario existir e a senha estiver valida
             Usuario _usuario = Seguranca.RetornaUsuarioValido(Server.HtmlEncode(txtUsuario.Text), Server.HtmlEncode(txtSenha.Text));
@@ -53,21 +57,21 @@ namespace AFASFA
                                                                                   DateTime.Now,
                                                                                   DateTime.Now.AddMinutes(30),
                                                                                   false,
-                                                                                  string.Empty);
+                                                                                  RetornaSaudacaoCompleta(_usuario));
                 Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(_ticket)));
-                ltSaudacao.Text = RetornaSaudacaoCompleta(_usuario);
-                AtualizaPainelLogin(true);               
+                lbSaudacao.Text = _ticket.UserData;
+                AtualizaPainelLogin(true);
             }
             else
             {
                 this.ModalPopupExtenderGeral.Show();
-                AtualizaPainelLogin(false);                
+                AtualizaPainelLogin(false);
             }
 
         }
 
         protected void btnSolicitarSenha_Click(object sender, EventArgs e)
-        {            
+        {
             Response.Redirect("/solicitar_senha.aspx");
         }
 

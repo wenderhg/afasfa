@@ -5,31 +5,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CplConteudo" runat="server">
-    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" DeleteMethod="Delete"
-        InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData"
-        TypeName="acesso_dados.AFASFATableAdapters.eventosTableAdapter">
-        <DeleteParameters>
-            <asp:Parameter Name="Original_EVENTO" Type="UInt32" />
-        </DeleteParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="DESCRICAO" Type="String" />
-            <asp:Parameter Name="DATAEVENTO" Type="DateTime" />
-            <asp:Parameter Name="LOCALEVENTO" Type="String" />
-            <asp:Parameter Name="FOTOINICIAL" Type="String" />
-            <asp:Parameter Name="JAREALIZADO" Type="Byte" />
-            <asp:Parameter Name="APRESENTAR" Type="Byte" />
-            <asp:Parameter Name="RESERVADISPONIVEL" Type="Byte" />
-            <asp:Parameter Name="DATAMAXIMA" Type="DateTime" />
-            <asp:Parameter Name="VALORCONVITEA" Type="String" />
-            <asp:Parameter Name="VALORCONVITEC" Type="String" />
-            <asp:Parameter Name="OBSERVACAO" Type="String" />
-        </UpdateParameters>
+    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" InsertMethod="Insert"
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="acesso_dados.DataSetAFASFATableAdapters.eventosTableAdapter"
+        DeleteMethod="Delete" UpdateMethod="Update">
         <InsertParameters>
-            <asp:Parameter Name="EVENTO" Type="UInt32" />
+<%--            <asp:Parameter Name="EVENTO" Type="UInt32" />--%>
             <asp:Parameter Name="DESCRICAO" Type="String" />
             <asp:Parameter Name="DATAEVENTO" Type="DateTime" />
             <asp:Parameter Name="LOCALEVENTO" Type="String" />
-            <asp:Parameter Name="FOTOINICIAL" Type="String" />
+            <%--<asp:Parameter Name="FOTOINICIAL" Type="String" />--%>
             <asp:Parameter Name="JAREALIZADO" Type="Byte" />
             <asp:Parameter Name="APRESENTAR" Type="Byte" />
             <asp:Parameter Name="RESERVADISPONIVEL" Type="Byte" />
@@ -40,14 +24,14 @@
         </InsertParameters>
     </asp:ObjectDataSource>
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="Evento" DataSourceID="ObjectDataSource1"
-        DefaultMode="Insert" BackColor="#E6E7F2" BorderColor="#ecffff" BorderStyle="Ridge">
+        DefaultMode="Insert" BackColor="#E6E7F2" BorderColor="#ECFFFF" BorderStyle="Ridge">
         <InsertItemTemplate>
             <table cellpadding="0" cellspacing="0" width="100%">
                 <tr>
                     <tr>
                         <br />
                         <td colspan="2" class="TextoTitulo" align="center">
-                            CADASTRAR EVENTOS
+                            CADASTRO DE EVENTOS
                             <br />
                             <br />
                         </td>
@@ -125,9 +109,12 @@
                                 <td class="lblFomulario" align="right">
                                     Foto Inicial:
                                 </td>
-                                <td align="left">                                    
-                                    <asp:TextBox ID="FotoInicialTextBox" runat="server" Text='<%# Bind("FotoInicial") %>'
-                                        Width="98%" class="txtFormulario" />
+                                <td align="left">
+                                    <%--<asp:TextBox ID="FotoInicialTextBox" runat="server" Text='<%# Bind("FotoInicial") %>'
+                                        Width="50%" class="txtFormulario" />--%>
+                                    <asp:FileUpload ID="UploadFotoEvento" runat="server" BackColor="#666699" BorderColor="#003366"
+                                        BorderStyle="Double" BorderWidth="2px" CssClass="lblBtnFomularioCadastro" Font-Names="Verdana"
+                                        ForeColor="White" Width="98%"/>
                                 </td>
                             </tr>
                             <tr>
@@ -180,7 +167,7 @@
                                     <strong style="color: Red">*</strong> Valor do Convite para Adultos R$:
                                 </td>
                                 <td align="left">
-                                    <asp:TextBox ID="ValorConviteAdultoTextBox" runat="server" Text='<%# Bind("ValorConviteAdulto") %>'
+                                    <asp:TextBox ID="ValorConviteAdultoTextBox" runat="server" Text='<%# Bind("ValorConviteA") %>'
                                         Width="20%" MaxLength="1" class="txtFormulario" />
                                     <br />
                                     <cc1:MaskedEditExtender ID="MaskedEditExtender3" runat="server" Mask="999,999.99"
@@ -201,7 +188,7 @@
                                     <strong style="color: Red">*</strong> Valor do Convite para Crianças R$:
                                 </td>
                                 <td align="left">
-                                    <asp:TextBox ID="ValorConviteCriancaTextBox" runat="server" Text='<%# Bind("ValorConviteCrianca") %>'
+                                    <asp:TextBox ID="ValorConviteCriancaTextBox" runat="server" Text='<%# Bind("ValorConviteC") %>'
                                         Width="20%" MaxLength="1" class="txtFormulario" />
                                     <cc1:MaskedEditExtender ID="MaskedEditExtender4" runat="server" Mask="999,999.99"
                                         MaskType="Number" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus"
