@@ -14,6 +14,8 @@
 
 
         var map = null;
+        var _busca = null;
+        
         function load() {
             if (GBrowserIsCompatible()) {
                 map = new GMap2(document.getElementById("map"));
@@ -24,20 +26,53 @@
                 map.addControl(new GOverviewMapControl());
                 map.addControl(new GSmallMapControl());
                 map.addControl(new GMenuMapTypeControl());
+                
+                _busca = new GDirections(map, document.getElementById("rota"));
+                GEvent.addListener(_busca, "error", handleErrors);
+                
+                //map.setCenter(new GLatLng(42.351505, -71.094455), 15);
+                //directionsPanel = document.getElementById("route");
+                //var directions = new GDirections(map, document.getElementById("rota"));
+                //directions.load("from: 500 Memorial Drive, Cambridge, MA to: 4 Yawkey Way, Boston, MA 02215 (Fenway Park)");
+                
+                //var _busca = new GDirections(map, document.getElementById("rota"));
+                //_busca.load("from: av. coronel antonio estanislau do amaral to: av. paulista");
 
-                map.addOverlay(new GMarker(map.getCenter(), { title: "Lar São Francisco" }));
+                map.addOverlay(new GMarker(map.getCenter(), { title: "Lar São Francisco", clickable: false }));
 
-                GEvent.addListener(map, "click", function(overlay, latlng) {
-                    if (latlng != null)
-                        alert("Aqui é:" + latlng.lat() + " " + latlng.lng() + " " + map.getZoom());
-                });
+                //                GEvent.addListener(map, "click", function(overlay, latlng) {
+                //                    if (latlng != null)
+                //                        alert("Aqui é:" + latlng.lat() + " " + latlng.lng() + " " + map.getZoom());
+                //                });
             }
+        }
+
+        function handleErrors() {
+            if (_busca.getStatus().code == G_GEO_UNKNOWN_ADDRESS)
+                alert("Não é possível encontrar um ponto específico com o endereço pesquisado.\nVerique se o endereço está correto e/ou contém todas as informações necessárias como Estado ou tente encontrar pelo CEP.");
+            else if (_busca.getStatus().code == G_GEO_SERVER_ERROR)
+                alert("Não foi possível renderizar corretamente o endereço requisitado.");
+
+            else if (_busca.getStatus().code == G_GEO_MISSING_QUERY)
+                alert("Não existe parametro para pesquisa ou ele não tem valor.");
+
+            //   else if (gdir.getStatus().code == G_UNAVAILABLE_ADDRESS)  <--- Doc bug... this is either not defined, or Doc is wrong
+            //     alert("The geocode for the given address or the route for the given directions query cannot be returned due to legal or contractual reasons.\n Error code: " + gdir.getStatus().code);
+
+            else if (_busca.getStatus().code == G_GEO_BAD_KEY)
+                alert("Chave passada está incorreta." );
+
+            else if (_busca.getStatus().code == G_GEO_BAD_REQUEST)
+                alert("As informações de rota estão com formato inválido.");
+
+            else alert("Erro desconhecido.");
+        
         }
 
         function procuraEndereco() {
             var txtEndereco = document.getElementById("<% =txtEndereco.ClientID %>");
-            var _busca = new GClientGeocoder();
-            _busca.getLatLng(txtEndereco.value, resultadoBusca);
+            //_busca.load("from: " + txtEndereco.value + ", SP, Brazil to: Rua Padre Bento Pacheco 3150, Indaiatuba, SP, Brazil");
+            _busca.load("from: " + txtEndereco.value + ", Brasil to: Estrada Municipal Pedro Vila 230, Indaiatuba, SP, Brasil", {"locale": "pt_BR"});
         }
 
         function resultadoBusca(latlng) {
@@ -62,7 +97,7 @@
             <tr>
                 <td>
                     <asp:Label ID="lblEndereco" runat="server" Text="Informe seu endereço: "></asp:Label>
-                    <asp:TextBox ID="txtEndereco" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtEndereco" runat="server" Width="250px" AutoCompleteType="HomeStreetAddress"></asp:TextBox>
                 </td>
                 <td>
                     <input type="button" title="Montar rota" value="Montar rota" onclick="procuraEndereco();" />
@@ -71,6 +106,12 @@
             <tr>
                 <td colspan="2" style="text-align: center">
                     <div id="map" style="width: 600px; height: 400px">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center">
+                    <div id="rota" >
                     </div>
                 </td>
             </tr>
