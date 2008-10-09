@@ -95,22 +95,22 @@ namespace AFASFA {
         protected global::System.Web.UI.WebControls.Panel pnLogout;
         
         /// <summary>
-        /// ltSaudacao control.
+        /// lbSaudacao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltSaudacao;
+        protected global::System.Web.UI.WebControls.Label lbSaudacao;
         
         /// <summary>
-        /// ltUsuario control.
+        /// lbUsuario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltUsuario;
+        protected global::System.Web.UI.WebControls.Label lbUsuario;
         
         /// <summary>
         /// lnkLogoff control.
