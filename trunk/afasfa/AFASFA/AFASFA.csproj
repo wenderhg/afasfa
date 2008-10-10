@@ -123,6 +123,13 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="mala_direta.aspx.cs">
+      <DependentUpon>mala_direta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mala_direta.aspx.designer.cs">
+      <DependentUpon>mala_direta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="solicitar_senha.aspx.cs">
       <DependentUpon>solicitar_senha.aspx</DependentUpon>
@@ -182,6 +189,7 @@
     <Content Include="App_Themes\Default\TextBoxSkin.skin" />
     <Content Include="campanhas.aspx" />
     <Content Include="ComoChegar\ComoChegar.aspx" />
+    <Content Include="mala_direta.aspx" />
     <Content Include="solicitar_senha.aspx" />
   </ItemGroup>
   <ItemGroup>

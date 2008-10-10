@@ -146,6 +146,16 @@ body
 	font-size: xx-small;
 	text-decoration: none;
 }
+
+.lblSaudacao
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	text-decoration: none;
+	color: Red;
+}
+
+
 .TextoTitulo
 {
 	font-size: x-large;

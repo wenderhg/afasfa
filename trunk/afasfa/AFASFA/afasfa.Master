@@ -45,9 +45,8 @@
             </span>
         </asp:Panel>
         <asp:Panel runat="server" ID="pnLogout" CssClass="Login">
-            <span class="lblFormLogin">
-                <asp:Label ID="lbSaudacao" runat="server"></asp:Label>
-                <asp:Label ID="lbUsuario" runat="server"></asp:Label>
+            <span class="lblSaudacao">
+                <asp:Label ID="lbSaudacao" runat="server"></asp:Label>                
             </span>&nbsp;
             <asp:LinkButton runat="server" ID="lnkLogoff" BackColor="#666699" BorderColor="#003366"
                 BorderStyle="Double" BorderWidth="2px" CssClass="lblBtnFomularioCadastro" Font-Names="Verdana"
@@ -128,7 +127,7 @@
                     </li>
                     <li>
                         <div align="left">
-                            <a href="mala_direta.aspx" class="LinkMenu">Mala Direta</a></div>
+                            <a href="/mala_direta.aspx" class="LinkMenu">Mala Direta</a></div>
                     </li>
                     <li>
                         <div align="left">
