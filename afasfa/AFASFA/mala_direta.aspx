@@ -1,10 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/afasfa.Master" AutoEventWireup="true"
     CodeBehind="mala_direta.aspx.cs" Inherits="AFASFA.mala_direta" %>
+    
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CplConteudo" runat="server">
-    <table cellpadding="0" cellspacing="0" width="100%" style=": background="#E6E7F2"
+    <table cellpadding="0" cellspacing="0" width="100%" style=": " background="#E6E7F2"
         border="Ridge">
         <tr>
             <tr>
@@ -50,6 +52,11 @@
                         </td>
                         <td>
                             <asp:TextBox ID="MesDesejadoTextBox" runat="server" CssClass="txtFormulario" Width="7%"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Button ID="btnCriarPesquisa" runat="server" Text="Gerar Pesquisa" OnClick="btnCriarPesquisa_Clik" />
                         </td>
                     </tr>
                 </table>
