@@ -44,7 +44,8 @@ namespace AFASFA.Servico.Seguranca
             }
             else
             {
-                throw new Exception("Senha deve conter números.");
+                //Gera o hash real contanando informacoes
+                return GeraHashDigest(String.Concat(senha, result), HashMethod.SHA384);
             }
         }
 

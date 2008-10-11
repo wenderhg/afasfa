@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using acesso_dados;
 using acesso_dados.DataSetAFASFATableAdapters;
 using AFASFA.acesso_dados;
+using System.IO;
 
 
 namespace AFASFA.Cadastros
@@ -20,7 +21,6 @@ namespace AFASFA.Cadastros
 
         protected void btnPreencheApelido_Click(object sender, EventArgs e)
         {
-            //(this.FindControl("ApelidoTextBox") as TextBox).Text = (this.FindControl("LoginTextBox") as TextBox).Text;
             this.ApelidoTextBox.Text = this.LoginTextBox.Text;
             this.NomeTextBox.Focus();
         }
@@ -29,28 +29,8 @@ namespace AFASFA.Cadastros
         {
             if (Page.IsValid)
             {
-
-
-                ////Cria instancia da Tabela de usuario
-                //using (DataSetAFASFA.usuariosDataTable _usuario = new DataSetAFASFA.usuariosDataTable())
-                //{
-
-                //    //Cria instancia do objeto que referencia uma linha da tabela
-                //    DataSetAFASFA.usuariosRow _row = _usuario.NewusuariosRow();
-
-                //    PreencheCampos(_row);
-
-                //    _usuario.AddusuariosRow(_row);
-                //    _usuario.AcceptChanges();
-
-                //    AtualizaDados(_usuario);
-
-                //}
-
                 InserirUsuario();
-
             }
-
         }
 
         private void InserirUsuario()
@@ -59,10 +39,12 @@ namespace AFASFA.Cadastros
             {
                 Conexao.AfasfaManager.usuariosTableAdapter = new usuariosTableAdapter();
             }
+            string _nomeArquivo = RetornaNomeArquivo();
+            CarregaArquivo(_nomeArquivo);
             Conexao.AfasfaManager.usuariosTableAdapter.Insert(this.LoginTextBox.Text,
                                                               this.NomeTextBox.Text,
                                                               AFASFA.Servico.Seguranca.Seguranca.RetornaSenha(this.txtSenha.Text),
-                                                              String.Empty,
+                                                              _nomeArquivo,
                                                               string.Empty,
                                                               string.Empty,
                                                               null,
@@ -73,10 +55,32 @@ namespace AFASFA.Cadastros
                                                               RetornaTelefone(this.TelefoneCelTextBox.Text),
                                                               RetornaTelefone(this.TelefoneResTextBox.Text),
                                                               this.EMailTextBox.Text,
-                                                              this.chkMasculino.Checked ? "M" : "F",
+                                                              ddlSexo.SelectedValue,
                                                               this.ApelidoTextBox.Text,
                                                               this.AdministradorCheckBox.Checked ? "S" : "N",
-                                                              null);
+                                                              Convert.ToByte(this.ReceberInformacoesCheckBox.Checked));
+        }
+
+        private string RetornaNomeArquivo()
+        {
+            return String.Concat(AFASFA.Servico.Seguranca.Seguranca.RetornaSenha(this.fuFoto.FileName + DateTime.Now.ToString()),
+                System.IO.Path.GetExtension(this.fuFoto.FileName));
+        }
+
+        private void CarregaArquivo(string nomeArquivo)
+        {
+            string _diretorio = String.Concat(Server.MapPath("/"), "foto/");
+            //Se tem arquivo informado
+            if (this.fuFoto.HasFile)
+            {
+                //Cria o diretorio se nao existir
+                if (!Directory.Exists(_diretorio))
+                {
+                    Directory.CreateDirectory(_diretorio);
+                }
+                //Salva o arquivo com o hash gerado a partir do nome e a data atual
+                this.fuFoto.SaveAs(_diretorio + nomeArquivo);
+            }
         }
 
         private string RetornaTelefone(string telefone)
@@ -149,9 +153,21 @@ namespace AFASFA.Cadastros
             args.IsValid = _chkFeminino.Checked != _chkMasculino.Checked;
         }
 
-        protected void FormView1_ItemInserting(object sender, FormViewInsertEventArgs e)
+        protected void CustomValidatorLoginRepetido_ServerValidate(object source, ServerValidateEventArgs args)
         {
-
+            if (Conexao.AfasfaManager.usuariosTableAdapter == null)
+            {
+                Conexao.AfasfaManager.usuariosTableAdapter = new usuariosTableAdapter();
+            }
+            args.IsValid = Conexao.AfasfaManager.usuariosTableAdapter.RetornaLoginRepetido(this.LoginTextBox.Text) == 0;
         }
+
+        protected void CustomValidatorContato_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            //Se algum não for empty, retorna true
+            args.IsValid = (!String.IsNullOrEmpty(this.TelefoneCelTextBox.Text) || !String.IsNullOrEmpty(this.TelefoneResTextBox.Text) ||
+                !String.IsNullOrEmpty(this.EMailTextBox.Text));
+        }
+        
     }
 }

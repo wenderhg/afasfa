@@ -59,6 +59,15 @@ namespace AFASFA.Cadastros {
         protected global::System.Web.UI.WebControls.Button btnPreencheApelido;
         
         /// <summary>
+        /// CustomValidatorLoginRepetido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorLoginRepetido;
+        
+        /// <summary>
         /// NomeTextBox control.
         /// </summary>
         /// <remarks>
@@ -194,31 +203,40 @@ namespace AFASFA.Cadastros {
         protected global::System.Web.UI.WebControls.TextBox EMailTextBox;
         
         /// <summary>
-        /// chkMasculino control.
+        /// CustomValidatorContato control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkMasculino;
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorContato;
         
         /// <summary>
-        /// chkFeminino control.
+        /// RegularExpressionValidatorEMail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkFeminino;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorEMail;
         
         /// <summary>
-        /// CustomValidatorchkMasculino control.
+        /// ddlSexo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorchkMasculino;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSexo;
+        
+        /// <summary>
+        /// RequiredFieldValidatorddlSexo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorddlSexo;
         
         /// <summary>
         /// ReceberInformacoesCheckBox control.
