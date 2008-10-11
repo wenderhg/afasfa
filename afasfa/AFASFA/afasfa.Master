@@ -131,7 +131,7 @@
                     </li>
                     <li>
                         <div align="left">
-                            <a href="#" class="LinkMenu">Cadastro de Usuários</a></div>
+                            <a href="/Cadastros/Cadastro_Usuario.aspx" class="LinkMenu">Cadastro de Usuários</a></div>
                     </li>
                 </ul>
             </asp:Panel>

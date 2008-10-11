@@ -20,9 +20,9 @@ namespace AFASFA.Cadastros
 
         protected void btnPreencheApelido_Click(object sender, EventArgs e)
         {
-            (this.FindControl("ApelidoTextBox") as TextBox).Text = (this.FindControl("LoginTextBox") as TextBox).Text;
-            //this.ApelidoTextBox.Text = this.LoginTextBox.Text;
-            (this.FindControl("NomeTextBox") as TextBox).Focus();
+            //(this.FindControl("ApelidoTextBox") as TextBox).Text = (this.FindControl("LoginTextBox") as TextBox).Text;
+            this.ApelidoTextBox.Text = this.LoginTextBox.Text;
+            this.NomeTextBox.Focus();
         }
 
         protected void InsertButton_Click(object sender, EventArgs e)
@@ -31,53 +31,92 @@ namespace AFASFA.Cadastros
             {
 
 
-                //Cria instancia da Tabela de usuario
-                using (DataSetAFASFA.usuariosDataTable _usuario = new DataSetAFASFA.usuariosDataTable())
-                {
+                ////Cria instancia da Tabela de usuario
+                //using (DataSetAFASFA.usuariosDataTable _usuario = new DataSetAFASFA.usuariosDataTable())
+                //{
 
-                    //Cria instancia do objeto que referencia uma linha da tabela
-                    DataSetAFASFA.usuariosRow _row = _usuario.NewusuariosRow();
+                //    //Cria instancia do objeto que referencia uma linha da tabela
+                //    DataSetAFASFA.usuariosRow _row = _usuario.NewusuariosRow();
 
-                    PreencheCampos(_row);
+                //    PreencheCampos(_row);
 
-                    _usuario.AddusuariosRow(_row);
-                    _usuario.AcceptChanges();
+                //    _usuario.AddusuariosRow(_row);
+                //    _usuario.AcceptChanges();
 
-                    AtualizaDados(_usuario);
+                //    AtualizaDados(_usuario);
 
-                }
+                //}
+
+                InserirUsuario();
+
             }
+
         }
 
-        private void AtualizaDados(DataSetAFASFA.usuariosDataTable _usuario)
+        private void InserirUsuario()
         {
             if (Conexao.AfasfaManager.usuariosTableAdapter == null)
             {
                 Conexao.AfasfaManager.usuariosTableAdapter = new usuariosTableAdapter();
             }
+            Conexao.AfasfaManager.usuariosTableAdapter.Insert(this.LoginTextBox.Text,
+                                                              this.NomeTextBox.Text,
+                                                              AFASFA.Servico.Seguranca.Seguranca.RetornaSenha(this.txtSenha.Text),
+                                                              String.Empty,
+                                                              string.Empty,
+                                                              string.Empty,
+                                                              null,
+                                                              string.Empty,
+                                                              string.Empty,
+                                                              string.Empty,
+                                                              string.Empty,
+                                                              RetornaTelefone(this.TelefoneCelTextBox.Text),
+                                                              RetornaTelefone(this.TelefoneResTextBox.Text),
+                                                              this.EMailTextBox.Text,
+                                                              this.chkMasculino.Checked ? "M" : "F",
+                                                              this.ApelidoTextBox.Text,
+                                                              this.AdministradorCheckBox.Checked ? "S" : "N",
+                                                              null);
+        }
 
-            Conexao.AfasfaManager.usuariosTableAdapter.Update(_usuario);
+        private string RetornaTelefone(string telefone)
+        {
+            decimal _fone;
+            if (decimal.TryParse(telefone, out _fone))
+            {
+                return _fone.ToString();
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        private void AtualizaDados(DataSetAFASFA.usuariosDataTable _usuario)
+        {
+
+            //Conexao.AfasfaManager.usuariosTableAdapter.Insert(_usuario);
         }
 
         private void PreencheCampos(DataSetAFASFA.usuariosRow _row)
         {
-            //_row.Login = LoginTextBox.Text;
-            //_row.Nome = NomeTextBox.Text;
-            //_row.APELIDO = ApelidoTextBox.Text;
-            //_row.ADMINISTRADOR = AdministradorCheckBox.Checked ? "S" : "N";
-            ////Retorna senha criptografada para ser gravada no banco
-            //_row.Senha = Servico.Seguranca.Seguranca.RetornaSenha(txtSenha.Text);
-            //Decimal _telefone = decimal.MinValue;
-            //if (Decimal.TryParse(TelefoneResTextBox.Text, out _telefone))
-            //    _row.TELEFONERES = _telefone;
-            //_telefone = decimal.MinValue;
-            //if (Decimal.TryParse(TelefoneCelTextBox.Text, out _telefone))
-            //    _row.TELEFONECEL = _telefone;
+            _row.Login = LoginTextBox.Text;
+            _row.Nome = NomeTextBox.Text;
+            _row.APELIDO = ApelidoTextBox.Text;
+            _row.ADMINISTRADOR = AdministradorCheckBox.Checked ? "S" : "N";
+            //Retorna senha criptografada para ser gravada no banco
+            _row.Senha = Servico.Seguranca.Seguranca.RetornaSenha(txtSenha.Text);
+            Decimal _telefone = decimal.MinValue;
+            if (Decimal.TryParse(TelefoneResTextBox.Text, out _telefone))
+                _row.TELEFONERES = _telefone;
+            _telefone = decimal.MinValue;
+            if (Decimal.TryParse(TelefoneCelTextBox.Text, out _telefone))
+                _row.TELEFONECEL = _telefone;
 
-            //_row.EMAIL = EMailTextBox.Text;
-            //_row.ReceberInformacaoes = ReceberInformacoesCheckBox.Checked ? "S" : "N";
-            //_row.Usuario = 0;
-            //_row.SEXO = RetornaSexo();
+            _row.EMAIL = EMailTextBox.Text;
+            _row.RECEBERINFORMACOES = ReceberInformacoesCheckBox.Checked;
+            _row.Usuario = 0;
+            _row.SEXO = RetornaSexo();
         }
 
         private string RetornaSexo()
