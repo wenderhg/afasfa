@@ -2193,8 +2193,6 @@ namespace acesso_dados {
             
             private global::System.Data.DataColumn columnFoto;
             
-            private global::System.Data.DataColumn columnReceberInformacaoes;
-            
             private global::System.Data.DataColumn columnCep;
             
             private global::System.Data.DataColumn columnLogradouro;
@@ -2220,6 +2218,8 @@ namespace acesso_dados {
             private global::System.Data.DataColumn columnAPELIDO;
             
             private global::System.Data.DataColumn columnADMINISTRADOR;
+            
+            private global::System.Data.DataColumn columnRECEBERINFORMACOES;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public usuariosDataTable() {
@@ -2283,13 +2283,6 @@ namespace acesso_dados {
             public global::System.Data.DataColumn FotoColumn {
                 get {
                     return this.columnFoto;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn ReceberInformacaoesColumn {
-                get {
-                    return this.columnReceberInformacaoes;
                 }
             }
             
@@ -2385,6 +2378,13 @@ namespace acesso_dados {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn RECEBERINFORMACOESColumn {
+                get {
+                    return this.columnRECEBERINFORMACOES;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2419,7 +2419,6 @@ namespace acesso_dados {
                         string Nome, 
                         string Senha, 
                         string Foto, 
-                        string ReceberInformacaoes, 
                         string Cep, 
                         string Logradouro, 
                         uint Numero, 
@@ -2432,7 +2431,8 @@ namespace acesso_dados {
                         string EMAIL, 
                         string SEXO, 
                         string APELIDO, 
-                        string ADMINISTRADOR) {
+                        string ADMINISTRADOR, 
+                        bool RECEBERINFORMACOES) {
                 usuariosRow rowusuariosRow = ((usuariosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Usuario,
@@ -2440,7 +2440,6 @@ namespace acesso_dados {
                         Nome,
                         Senha,
                         Foto,
-                        ReceberInformacaoes,
                         Cep,
                         Logradouro,
                         Numero,
@@ -2453,7 +2452,8 @@ namespace acesso_dados {
                         EMAIL,
                         SEXO,
                         APELIDO,
-                        ADMINISTRADOR};
+                        ADMINISTRADOR,
+                        RECEBERINFORMACOES};
                 rowusuariosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowusuariosRow);
                 return rowusuariosRow;
@@ -2484,7 +2484,6 @@ namespace acesso_dados {
                 this.columnNome = base.Columns["Nome"];
                 this.columnSenha = base.Columns["Senha"];
                 this.columnFoto = base.Columns["Foto"];
-                this.columnReceberInformacaoes = base.Columns["ReceberInformacaoes"];
                 this.columnCep = base.Columns["Cep"];
                 this.columnLogradouro = base.Columns["Logradouro"];
                 this.columnNumero = base.Columns["Numero"];
@@ -2498,6 +2497,7 @@ namespace acesso_dados {
                 this.columnSEXO = base.Columns["SEXO"];
                 this.columnAPELIDO = base.Columns["APELIDO"];
                 this.columnADMINISTRADOR = base.Columns["ADMINISTRADOR"];
+                this.columnRECEBERINFORMACOES = base.Columns["RECEBERINFORMACOES"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2512,8 +2512,6 @@ namespace acesso_dados {
                 base.Columns.Add(this.columnSenha);
                 this.columnFoto = new global::System.Data.DataColumn("Foto", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFoto);
-                this.columnReceberInformacaoes = new global::System.Data.DataColumn("ReceberInformacaoes", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnReceberInformacaoes);
                 this.columnCep = new global::System.Data.DataColumn("Cep", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCep);
                 this.columnLogradouro = new global::System.Data.DataColumn("Logradouro", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2540,6 +2538,8 @@ namespace acesso_dados {
                 base.Columns.Add(this.columnAPELIDO);
                 this.columnADMINISTRADOR = new global::System.Data.DataColumn("ADMINISTRADOR", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnADMINISTRADOR);
+                this.columnRECEBERINFORMACOES = new global::System.Data.DataColumn("RECEBERINFORMACOES", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRECEBERINFORMACOES);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnUsuario}, true));
                 this.columnUsuario.AllowDBNull = false;
@@ -2555,9 +2555,6 @@ namespace acesso_dados {
                 this.columnSenha.MaxLength = 100;
                 this.columnFoto.Caption = "FOTO";
                 this.columnFoto.MaxLength = 150;
-                this.columnReceberInformacaoes.Caption = "RECEBERINFORMACOES";
-                this.columnReceberInformacaoes.DefaultValue = ((string)("S"));
-                this.columnReceberInformacaoes.MaxLength = 1;
                 this.columnCep.Caption = "CEP";
                 this.columnCep.MaxLength = 10;
                 this.columnLogradouro.Caption = "LOGRADOURO";
@@ -4157,21 +4154,6 @@ namespace acesso_dados {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string ReceberInformacaoes {
-                get {
-                    try {
-                        return ((string)(this[this.tableusuarios.ReceberInformacaoesColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ReceberInformacaoes\' in table \'usuarios\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableusuarios.ReceberInformacaoesColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public string Cep {
                 get {
                     try {
@@ -4352,6 +4334,21 @@ namespace acesso_dados {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool RECEBERINFORMACOES {
+                get {
+                    try {
+                        return ((bool)(this[this.tableusuarios.RECEBERINFORMACOESColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RECEBERINFORMACOES\' in table \'usuarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusuarios.RECEBERINFORMACOESColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsNomeNull() {
                 return this.IsNull(this.tableusuarios.NomeColumn);
             }
@@ -4369,16 +4366,6 @@ namespace acesso_dados {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetFotoNull() {
                 this[this.tableusuarios.FotoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsReceberInformacaoesNull() {
-                return this.IsNull(this.tableusuarios.ReceberInformacaoesColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetReceberInformacaoesNull() {
-                this[this.tableusuarios.ReceberInformacaoesColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4479,6 +4466,16 @@ namespace acesso_dados {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetEMAILNull() {
                 this[this.tableusuarios.EMAILColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsRECEBERINFORMACOESNull() {
+                return this.IsNull(this.tableusuarios.RECEBERINFORMACOESColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetRECEBERINFORMACOESNull() {
+                this[this.tableusuarios.RECEBERINFORMACOESColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7272,7 +7269,7 @@ WHERE     (DOACAO = @Original_DOACAO)";
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `afasfa`.`eventos` WHERE ((`EVENTO` = @Original_EVENTO) AND (`DESCRICAO` = @Original_DESCRICAO) AND (`DATAEVENTO` = @Original_DATAEVENTO) AND (`LOCALEVENTO` = @Original_LOCALEVENTO) AND ((@IsNull_FOTOINICIAL = 1 AND `FOTOINICIAL` IS NULL) OR (`FOTOINICIAL` = @Original_FOTOINICIAL)) AND ((@IsNull_JAREALIZADO = 1 AND `JAREALIZADO` IS NULL) OR (`JAREALIZADO` = @Original_JAREALIZADO)) AND ((@IsNull_APRESENTAR = 1 AND `APRESENTAR` IS NULL) OR (`APRESENTAR` = @Original_APRESENTAR)) AND ((@IsNull_RESERVADISPONIVEL = 1 AND `RESERVADISPONIVEL` IS NULL) OR (`RESERVADISPONIVEL` = @Original_RESERVADISPONIVEL)) AND ((@IsNull_DATAMAXIMA = 1 AND `DATAMAXIMA` IS NULL) OR (`DATAMAXIMA` = @Original_DATAMAXIMA)) AND (`VALORCONVITEA` = @Original_VALORCONVITEA) AND (`VALORCONVITEC` = @Original_VALORCONVITEC))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `afasfa`.`eventos` WHERE ((`EVENTO` = @Original_EVENTO))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_EVENTO";
@@ -7282,140 +7279,10 @@ WHERE     (DOACAO = @Original_DOACAO)";
             param.SourceColumn = "EVENTO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_DESCRICAO";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "DESCRICAO";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_DATAEVENTO";
-            param.DbType = global::System.Data.DbType.Date;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
-            param.IsNullable = true;
-            param.SourceColumn = "DATAEVENTO";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_LOCALEVENTO";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "LOCALEVENTO";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@IsNull_FOTOINICIAL";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "FOTOINICIAL";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_FOTOINICIAL";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "FOTOINICIAL";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@IsNull_JAREALIZADO";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "JAREALIZADO";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_JAREALIZADO";
-            param.DbType = global::System.Data.DbType.SByte;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
-            param.IsNullable = true;
-            param.SourceColumn = "JAREALIZADO";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@IsNull_APRESENTAR";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "APRESENTAR";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_APRESENTAR";
-            param.DbType = global::System.Data.DbType.SByte;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
-            param.IsNullable = true;
-            param.SourceColumn = "APRESENTAR";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@IsNull_RESERVADISPONIVEL";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "RESERVADISPONIVEL";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_RESERVADISPONIVEL";
-            param.DbType = global::System.Data.DbType.SByte;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
-            param.IsNullable = true;
-            param.SourceColumn = "RESERVADISPONIVEL";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@IsNull_DATAMAXIMA";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "DATAMAXIMA";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_DATAMAXIMA";
-            param.DbType = global::System.Data.DbType.Date;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
-            param.IsNullable = true;
-            param.SourceColumn = "DATAMAXIMA";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_VALORCONVITEA";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
-            param.IsNullable = true;
-            param.SourceColumn = "VALORCONVITEA";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_VALORCONVITEC";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
-            param.IsNullable = true;
-            param.SourceColumn = "VALORCONVITEC";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `afasfa`.`eventos` (`EVENTO`, `DESCRICAO`, `DATAEVENTO`, `LOCALEVENTO`, `FOTOINICIAL`, `JAREALIZADO`, `APRESENTAR`, `RESERVADISPONIVEL`, `DATAMAXIMA`, `VALORCONVITEA`, `VALORCONVITEC`, `OBSERVACAO`) VALUES (@EVENTO, @DESCRICAO, @DATAEVENTO, @LOCALEVENTO, @FOTOINICIAL, @JAREALIZADO, @APRESENTAR, @RESERVADISPONIVEL, @DATAMAXIMA, @VALORCONVITEA, @VALORCONVITEC, @OBSERVACAO)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `afasfa`.`eventos` (`DESCRICAO`, `DATAEVENTO`, `LOCALEVENTO`, `FOTOINICIAL`, `JAREALIZADO`, `APRESENTAR`, `RESERVADISPONIVEL`, `DATAMAXIMA`, `VALORCONVITEA`, `VALORCONVITEC`, `OBSERVACAO`) VALUES (@DESCRICAO, @DATAEVENTO, @LOCALEVENTO, @FOTOINICIAL, @JAREALIZADO, @APRESENTAR, @RESERVADISPONIVEL, @DATAMAXIMA, @VALORCONVITEA, @VALORCONVITEC, @OBSERVACAO)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@EVENTO";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
-            param.IsNullable = true;
-            param.SourceColumn = "EVENTO";
-            this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@DESCRICAO";
             param.DbType = global::System.Data.DbType.String;
@@ -7492,15 +7359,8 @@ WHERE     (DOACAO = @Original_DOACAO)";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `afasfa`.`eventos` SET `EVENTO` = @EVENTO, `DESCRICAO` = @DESCRICAO, `DATAEVENTO` = @DATAEVENTO, `LOCALEVENTO` = @LOCALEVENTO, `FOTOINICIAL` = @FOTOINICIAL, `JAREALIZADO` = @JAREALIZADO, `APRESENTAR` = @APRESENTAR, `RESERVADISPONIVEL` = @RESERVADISPONIVEL, `DATAMAXIMA` = @DATAMAXIMA, `VALORCONVITEA` = @VALORCONVITEA, `VALORCONVITEC` = @VALORCONVITEC, `OBSERVACAO` = @OBSERVACAO WHERE ((`EVENTO` = @Original_EVENTO) AND (`DESCRICAO` = @Original_DESCRICAO) AND (`DATAEVENTO` = @Original_DATAEVENTO) AND (`LOCALEVENTO` = @Original_LOCALEVENTO) AND ((@IsNull_FOTOINICIAL = 1 AND `FOTOINICIAL` IS NULL) OR (`FOTOINICIAL` = @Original_FOTOINICIAL)) AND ((@IsNull_JAREALIZADO = 1 AND `JAREALIZADO` IS NULL) OR (`JAREALIZADO` = @Original_JAREALIZADO)) AND ((@IsNull_APRESENTAR = 1 AND `APRESENTAR` IS NULL) OR (`APRESENTAR` = @Original_APRESENTAR)) AND ((@IsNull_RESERVADISPONIVEL = 1 AND `RESERVADISPONIVEL` IS NULL) OR (`RESERVADISPONIVEL` = @Original_RESERVADISPONIVEL)) AND ((@IsNull_DATAMAXIMA = 1 AND `DATAMAXIMA` IS NULL) OR (`DATAMAXIMA` = @Original_DATAMAXIMA)) AND (`VALORCONVITEA` = @Original_VALORCONVITEA) AND (`VALORCONVITEC` = @Original_VALORCONVITEC))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `afasfa`.`eventos` SET `DESCRICAO` = @DESCRICAO, `DATAEVENTO` = @DATAEVENTO, `LOCALEVENTO` = @LOCALEVENTO, `FOTOINICIAL` = @FOTOINICIAL, `JAREALIZADO` = @JAREALIZADO, `APRESENTAR` = @APRESENTAR, `RESERVADISPONIVEL` = @RESERVADISPONIVEL, `DATAMAXIMA` = @DATAMAXIMA, `VALORCONVITEA` = @VALORCONVITEA, `VALORCONVITEC` = @VALORCONVITEC, `OBSERVACAO` = @OBSERVACAO WHERE ((`EVENTO` = @Original_EVENTO))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@EVENTO";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
-            param.IsNullable = true;
-            param.SourceColumn = "EVENTO";
-            this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@DESCRICAO";
             param.DbType = global::System.Data.DbType.String;
@@ -7583,129 +7443,6 @@ WHERE     (DOACAO = @Original_DOACAO)";
             param.SourceColumn = "EVENTO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_DESCRICAO";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "DESCRICAO";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_DATAEVENTO";
-            param.DbType = global::System.Data.DbType.Date;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
-            param.IsNullable = true;
-            param.SourceColumn = "DATAEVENTO";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_LOCALEVENTO";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "LOCALEVENTO";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@IsNull_FOTOINICIAL";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "FOTOINICIAL";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_FOTOINICIAL";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "FOTOINICIAL";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@IsNull_JAREALIZADO";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "JAREALIZADO";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_JAREALIZADO";
-            param.DbType = global::System.Data.DbType.SByte;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
-            param.IsNullable = true;
-            param.SourceColumn = "JAREALIZADO";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@IsNull_APRESENTAR";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "APRESENTAR";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_APRESENTAR";
-            param.DbType = global::System.Data.DbType.SByte;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
-            param.IsNullable = true;
-            param.SourceColumn = "APRESENTAR";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@IsNull_RESERVADISPONIVEL";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "RESERVADISPONIVEL";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_RESERVADISPONIVEL";
-            param.DbType = global::System.Data.DbType.SByte;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
-            param.IsNullable = true;
-            param.SourceColumn = "RESERVADISPONIVEL";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@IsNull_DATAMAXIMA";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "DATAMAXIMA";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_DATAMAXIMA";
-            param.DbType = global::System.Data.DbType.Date;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
-            param.IsNullable = true;
-            param.SourceColumn = "DATAMAXIMA";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_VALORCONVITEA";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
-            param.IsNullable = true;
-            param.SourceColumn = "VALORCONVITEA";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_VALORCONVITEC";
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
-            param.IsNullable = true;
-            param.SourceColumn = "VALORCONVITEC";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7719,9 +7456,9 @@ WHERE     (DOACAO = @Original_DOACAO)";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `EVENTO`, `DESCRICAO`, `DATAEVENTO`, `LOCALEVENTO`, `FOTOINICIAL`, `JAREAL" +
-                "IZADO`, `APRESENTAR`, `RESERVADISPONIVEL`, `DATAMAXIMA`, `VALORCONVITEA`, `VALOR" +
-                "CONVITEC`, `OBSERVACAO` FROM `afasfa`.`eventos`";
+            this._commandCollection[0].CommandText = "SELECT        EVENTO, DESCRICAO, DATAEVENTO, LOCALEVENTO, FOTOINICIAL, JAREALIZAD" +
+                "O, APRESENTAR, RESERVADISPONIVEL, DATAMAXIMA, VALORCONVITEA, \r\n                 " +
+                "        VALORCONVITEC, OBSERVACAO\r\nFROM            eventos";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7770,6 +7507,190 @@ WHERE     (DOACAO = @Original_DOACAO)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(uint Original_EVENTO) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((uint)(Original_EVENTO));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string DESCRICAO, System.DateTime DATAEVENTO, string LOCALEVENTO, string FOTOINICIAL, global::System.Nullable<byte> JAREALIZADO, global::System.Nullable<byte> APRESENTAR, global::System.Nullable<byte> RESERVADISPONIVEL, global::System.Nullable<global::System.DateTime> DATAMAXIMA, string VALORCONVITEA, string VALORCONVITEC, string OBSERVACAO) {
+            if ((DESCRICAO == null)) {
+                throw new global::System.ArgumentNullException("DESCRICAO");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(DESCRICAO));
+            }
+            this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(DATAEVENTO));
+            if ((LOCALEVENTO == null)) {
+                throw new global::System.ArgumentNullException("LOCALEVENTO");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(LOCALEVENTO));
+            }
+            if ((FOTOINICIAL == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(FOTOINICIAL));
+            }
+            if ((JAREALIZADO.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((byte)(JAREALIZADO.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((APRESENTAR.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((byte)(APRESENTAR.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((RESERVADISPONIVEL.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((byte)(RESERVADISPONIVEL.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((DATAMAXIMA.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((System.DateTime)(DATAMAXIMA.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((VALORCONVITEA == null)) {
+                throw new global::System.ArgumentNullException("VALORCONVITEA");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(VALORCONVITEA));
+            }
+            if ((VALORCONVITEC == null)) {
+                throw new global::System.ArgumentNullException("VALORCONVITEC");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(VALORCONVITEC));
+            }
+            if ((OBSERVACAO == null)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(OBSERVACAO));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string DESCRICAO, System.DateTime DATAEVENTO, string LOCALEVENTO, string FOTOINICIAL, global::System.Nullable<byte> JAREALIZADO, global::System.Nullable<byte> APRESENTAR, global::System.Nullable<byte> RESERVADISPONIVEL, global::System.Nullable<global::System.DateTime> DATAMAXIMA, string VALORCONVITEA, string VALORCONVITEC, string OBSERVACAO, uint Original_EVENTO) {
+            if ((DESCRICAO == null)) {
+                throw new global::System.ArgumentNullException("DESCRICAO");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(DESCRICAO));
+            }
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(DATAEVENTO));
+            if ((LOCALEVENTO == null)) {
+                throw new global::System.ArgumentNullException("LOCALEVENTO");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(LOCALEVENTO));
+            }
+            if ((FOTOINICIAL == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(FOTOINICIAL));
+            }
+            if ((JAREALIZADO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((byte)(JAREALIZADO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((APRESENTAR.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((byte)(APRESENTAR.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((RESERVADISPONIVEL.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((byte)(RESERVADISPONIVEL.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((DATAMAXIMA.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(DATAMAXIMA.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((VALORCONVITEA == null)) {
+                throw new global::System.ArgumentNullException("VALORCONVITEA");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(VALORCONVITEA));
+            }
+            if ((VALORCONVITEC == null)) {
+                throw new global::System.ArgumentNullException("VALORCONVITEC");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(VALORCONVITEC));
+            }
+            if ((OBSERVACAO == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(OBSERVACAO));
+            }
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((uint)(Original_EVENTO));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
         }
     }
     
@@ -8381,7 +8302,6 @@ WHERE     (DOACAO = @Original_DOACAO)";
             tableMapping.ColumnMappings.Add("NOME", "Nome");
             tableMapping.ColumnMappings.Add("SENHA", "Senha");
             tableMapping.ColumnMappings.Add("FOTO", "Foto");
-            tableMapping.ColumnMappings.Add("RECEBERINFORMACOES", "ReceberInformacaoes");
             tableMapping.ColumnMappings.Add("CEP", "Cep");
             tableMapping.ColumnMappings.Add("LOGRADOURO", "Logradouro");
             tableMapping.ColumnMappings.Add("NUMERO", "Numero");
@@ -8395,22 +8315,32 @@ WHERE     (DOACAO = @Original_DOACAO)";
             tableMapping.ColumnMappings.Add("SEXO", "SEXO");
             tableMapping.ColumnMappings.Add("APELIDO", "APELIDO");
             tableMapping.ColumnMappings.Add("ADMINISTRADOR", "ADMINISTRADOR");
+            tableMapping.ColumnMappings.Add("RECEBERINFORMACOES", "RECEBERINFORMACOES");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM usuarios\r\nWHERE        (USUARIO = @Original_USUARIO)";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `afasfa`.`usuarios` WHERE ((`USUARIO` = @Original_USUARIO) AND (`LOGI" +
+                "N` = @Original_LOGIN))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_USUARIO";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.DbType = global::System.Data.DbType.UInt32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
             param.IsNullable = true;
             param.SourceColumn = "USUARIO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_LOGIN";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "LOGIN";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `afasfa`.`usuarios` (`LOGIN`, `NOME`, `SENHA`, `FOTO`, `RECEBERINFORMACOES`, `CEP`, `LOGRADOURO`, `NUMERO`, `COMPLEMENTO`, `BAIRRO`, `CIDADE`, `UF`, `TELEFONECEL`, `TELEFONERES`, `EMAIL`, `SEXO`, `APELIDO`, `ADMINISTRADOR`) VALUES (@LOGIN, @NOME, @SENHA, @FOTO, @RECEBERINFORMACOES, @CEP, @LOGRADOURO, @NUMERO, @COMPLEMENTO, @BAIRRO, @CIDADE, @UF, @TELEFONECEL, @TELEFONERES, @EMAIL, @SEXO, @APELIDO, @ADMINISTRADOR)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `afasfa`.`usuarios` (`LOGIN`, `NOME`, `SENHA`, `FOTO`, `CEP`, `LOGRADOURO`, `NUMERO`, `COMPLEMENTO`, `BAIRRO`, `CIDADE`, `UF`, `TELEFONECEL`, `TELEFONERES`, `EMAIL`, `SEXO`, `APELIDO`, `ADMINISTRADOR`, `RECEBERINFORMACOES`) VALUES (@LOGIN, @NOME, @SENHA, @FOTO, @CEP, @LOGRADOURO, @NUMERO, @COMPLEMENTO, @BAIRRO, @CIDADE, @UF, @TELEFONECEL, @TELEFONERES, @EMAIL, @SEXO, @APELIDO, @ADMINISTRADOR, @RECEBERINFORMACOES)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@LOGIN";
@@ -8439,13 +8369,6 @@ WHERE     (DOACAO = @Original_DOACAO)";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "FOTO";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@RECEBERINFORMACOES";
-            param.DbType = global::System.Data.DbType.SByte;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
-            param.IsNullable = true;
-            param.SourceColumn = "RECEBERINFORMACOES";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@CEP";
@@ -8536,20 +8459,21 @@ WHERE     (DOACAO = @Original_DOACAO)";
             param.IsNullable = true;
             param.SourceColumn = "ADMINISTRADOR";
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@RECEBERINFORMACOES";
+            param.DbType = global::System.Data.DbType.SByte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.IsNullable = true;
+            param.SourceColumn = "RECEBERINFORMACOES";
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE       usuarios
-SET                LOGIN = @LOGIN, NOME = @NOME, SENHA = @SENHA, FOTO = @FOTO, RECEBERINFORMACOES = @RECEBERINFORMACOES, CEP = @CEP, 
-                         LOGRADOURO = @LOGRADOURO, NUMERO = @NUMERO, COMPLEMENTO = @COMPLEMENTO, BAIRRO = @BAIRRO, CIDADE = @CIDADE, UF = @UF, 
-                         TELEFONECEL = @TELEFONECEL, TELEFONERES = @TELEFONERES, EMAIL = @EMAIL, SEXO = @SEXO, APELIDO = @APELIDO, 
-                         ADMINISTRADOR = @ADMINISTRADOR
-WHERE        (USUARIO = @Original_USUARIO)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `afasfa`.`usuarios` SET `LOGIN` = @LOGIN, `NOME` = @NOME, `SENHA` = @SENHA, `FOTO` = @FOTO, `CEP` = @CEP, `LOGRADOURO` = @LOGRADOURO, `NUMERO` = @NUMERO, `COMPLEMENTO` = @COMPLEMENTO, `BAIRRO` = @BAIRRO, `CIDADE` = @CIDADE, `UF` = @UF, `TELEFONECEL` = @TELEFONECEL, `TELEFONERES` = @TELEFONERES, `EMAIL` = @EMAIL, `SEXO` = @SEXO, `APELIDO` = @APELIDO, `ADMINISTRADOR` = @ADMINISTRADOR, `RECEBERINFORMACOES` = @RECEBERINFORMACOES WHERE ((`USUARIO` = @Original_USUARIO) AND (`LOGIN` = @Original_LOGIN))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@LOGIN";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 20;
             param.IsNullable = true;
             param.SourceColumn = "LOGIN";
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -8557,7 +8481,6 @@ WHERE        (USUARIO = @Original_USUARIO)";
             param.ParameterName = "@NOME";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 60;
             param.IsNullable = true;
             param.SourceColumn = "NOME";
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -8565,7 +8488,6 @@ WHERE        (USUARIO = @Original_USUARIO)";
             param.ParameterName = "@SENHA";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 100;
             param.IsNullable = true;
             param.SourceColumn = "SENHA";
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -8573,23 +8495,13 @@ WHERE        (USUARIO = @Original_USUARIO)";
             param.ParameterName = "@FOTO";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 150;
             param.IsNullable = true;
             param.SourceColumn = "FOTO";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@RECEBERINFORMACOES";
-            param.DbType = global::System.Data.DbType.Object;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "RECEBERINFORMACOES";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@CEP";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 10;
             param.IsNullable = true;
             param.SourceColumn = "CEP";
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -8597,14 +8509,13 @@ WHERE        (USUARIO = @Original_USUARIO)";
             param.ParameterName = "@LOGRADOURO";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "LOGRADOURO";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@NUMERO";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.DbType = global::System.Data.DbType.UInt32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
             param.IsNullable = true;
             param.SourceColumn = "NUMERO";
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -8612,7 +8523,6 @@ WHERE        (USUARIO = @Original_USUARIO)";
             param.ParameterName = "@COMPLEMENTO";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 20;
             param.IsNullable = true;
             param.SourceColumn = "COMPLEMENTO";
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -8620,7 +8530,6 @@ WHERE        (USUARIO = @Original_USUARIO)";
             param.ParameterName = "@BAIRRO";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 30;
             param.IsNullable = true;
             param.SourceColumn = "BAIRRO";
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -8628,28 +8537,24 @@ WHERE        (USUARIO = @Original_USUARIO)";
             param.ParameterName = "@CIDADE";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 30;
             param.IsNullable = true;
             param.SourceColumn = "CIDADE";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@UF";
-            param.DbType = global::System.Data.DbType.String;
+            param.DbType = global::System.Data.DbType.StringFixedLength;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
-            param.Size = 2;
             param.IsNullable = true;
             param.SourceColumn = "UF";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@TELEFONECEL";
-            param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
             param.SourceColumn = "TELEFONECEL";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@TELEFONERES";
-            param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
             param.IsNullable = true;
             param.SourceColumn = "TELEFONERES";
@@ -8658,15 +8563,13 @@ WHERE        (USUARIO = @Original_USUARIO)";
             param.ParameterName = "@EMAIL";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 100;
             param.IsNullable = true;
             param.SourceColumn = "EMAIL";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@SEXO";
-            param.DbType = global::System.Data.DbType.String;
+            param.DbType = global::System.Data.DbType.StringFixedLength;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
-            param.Size = 1;
             param.IsNullable = true;
             param.SourceColumn = "SEXO";
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -8674,24 +8577,37 @@ WHERE        (USUARIO = @Original_USUARIO)";
             param.ParameterName = "@APELIDO";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 20;
             param.IsNullable = true;
             param.SourceColumn = "APELIDO";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@ADMINISTRADOR";
-            param.DbType = global::System.Data.DbType.String;
+            param.DbType = global::System.Data.DbType.StringFixedLength;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.String;
-            param.Size = 1;
             param.IsNullable = true;
             param.SourceColumn = "ADMINISTRADOR";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@RECEBERINFORMACOES";
+            param.DbType = global::System.Data.DbType.SByte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.IsNullable = true;
+            param.SourceColumn = "RECEBERINFORMACOES";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_USUARIO";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.DbType = global::System.Data.DbType.UInt32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
             param.IsNullable = true;
             param.SourceColumn = "USUARIO";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_LOGIN";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "LOGIN";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -8707,9 +8623,9 @@ WHERE        (USUARIO = @Original_USUARIO)";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        USUARIO, LOGIN, NOME, SENHA, FOTO, RECEBERINFORMACOES, CEP, LOGRADO" +
-                "URO, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, UF, TELEFONECEL, \r\n                   " +
-                "      TELEFONERES, EMAIL, SEXO, APELIDO, ADMINISTRADOR\r\nFROM            usuarios" +
+            this._commandCollection[0].CommandText = "SELECT        USUARIO, LOGIN, NOME, SENHA, FOTO, CEP, LOGRADOURO, NUMERO, COMPLEM" +
+                "ENTO, BAIRRO, CIDADE, UF, TELEFONECEL, TELEFONERES, EMAIL, \r\n                   " +
+                "      SEXO, APELIDO, ADMINISTRADOR, RECEBERINFORMACOES\r\nFROM            usuarios" +
                 "";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
@@ -8759,6 +8675,334 @@ WHERE        (USUARIO = @Original_USUARIO)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(uint Original_USUARIO, string Original_LOGIN) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((uint)(Original_USUARIO));
+            if ((Original_LOGIN == null)) {
+                throw new global::System.ArgumentNullException("Original_LOGIN");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_LOGIN));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(
+                    string LOGIN, 
+                    string NOME, 
+                    string SENHA, 
+                    string FOTO, 
+                    string CEP, 
+                    string LOGRADOURO, 
+                    global::System.Nullable<uint> NUMERO, 
+                    string COMPLEMENTO, 
+                    string BAIRRO, 
+                    string CIDADE, 
+                    string UF, 
+                    string TELEFONECEL, 
+                    string TELEFONERES, 
+                    string EMAIL, 
+                    string SEXO, 
+                    string APELIDO, 
+                    string ADMINISTRADOR, 
+                    global::System.Nullable<byte> RECEBERINFORMACOES) {
+            if ((LOGIN == null)) {
+                throw new global::System.ArgumentNullException("LOGIN");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(LOGIN));
+            }
+            if ((NOME == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(NOME));
+            }
+            if ((SENHA == null)) {
+                throw new global::System.ArgumentNullException("SENHA");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(SENHA));
+            }
+            if ((FOTO == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(FOTO));
+            }
+            if ((CEP == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(CEP));
+            }
+            if ((LOGRADOURO == null)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(LOGRADOURO));
+            }
+            if ((NUMERO.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((uint)(NUMERO.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((COMPLEMENTO == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(COMPLEMENTO));
+            }
+            if ((BAIRRO == null)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(BAIRRO));
+            }
+            if ((CIDADE == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(CIDADE));
+            }
+            if ((UF == null)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(UF));
+            }
+            if ((TELEFONECEL == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(TELEFONECEL));
+            }
+            if ((TELEFONERES == null)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(TELEFONERES));
+            }
+            if ((EMAIL == null)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(EMAIL));
+            }
+            if ((SEXO == null)) {
+                throw new global::System.ArgumentNullException("SEXO");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(SEXO));
+            }
+            if ((APELIDO == null)) {
+                throw new global::System.ArgumentNullException("APELIDO");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(APELIDO));
+            }
+            if ((ADMINISTRADOR == null)) {
+                throw new global::System.ArgumentNullException("ADMINISTRADOR");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(ADMINISTRADOR));
+            }
+            if ((RECEBERINFORMACOES.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[17].Value = ((byte)(RECEBERINFORMACOES.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    string LOGIN, 
+                    string NOME, 
+                    string SENHA, 
+                    string FOTO, 
+                    string CEP, 
+                    string LOGRADOURO, 
+                    global::System.Nullable<uint> NUMERO, 
+                    string COMPLEMENTO, 
+                    string BAIRRO, 
+                    string CIDADE, 
+                    string UF, 
+                    string TELEFONECEL, 
+                    string TELEFONERES, 
+                    string EMAIL, 
+                    string SEXO, 
+                    string APELIDO, 
+                    string ADMINISTRADOR, 
+                    global::System.Nullable<byte> RECEBERINFORMACOES, 
+                    uint Original_USUARIO, 
+                    string Original_LOGIN) {
+            if ((LOGIN == null)) {
+                throw new global::System.ArgumentNullException("LOGIN");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(LOGIN));
+            }
+            if ((NOME == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(NOME));
+            }
+            if ((SENHA == null)) {
+                throw new global::System.ArgumentNullException("SENHA");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(SENHA));
+            }
+            if ((FOTO == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(FOTO));
+            }
+            if ((CEP == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(CEP));
+            }
+            if ((LOGRADOURO == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(LOGRADOURO));
+            }
+            if ((NUMERO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((uint)(NUMERO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((COMPLEMENTO == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(COMPLEMENTO));
+            }
+            if ((BAIRRO == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(BAIRRO));
+            }
+            if ((CIDADE == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(CIDADE));
+            }
+            if ((UF == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(UF));
+            }
+            if ((TELEFONECEL == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(TELEFONECEL));
+            }
+            if ((TELEFONERES == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(TELEFONERES));
+            }
+            if ((EMAIL == null)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(EMAIL));
+            }
+            if ((SEXO == null)) {
+                throw new global::System.ArgumentNullException("SEXO");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(SEXO));
+            }
+            if ((APELIDO == null)) {
+                throw new global::System.ArgumentNullException("APELIDO");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(APELIDO));
+            }
+            if ((ADMINISTRADOR == null)) {
+                throw new global::System.ArgumentNullException("ADMINISTRADOR");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(ADMINISTRADOR));
+            }
+            if ((RECEBERINFORMACOES.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((byte)(RECEBERINFORMACOES.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((uint)(Original_USUARIO));
+            if ((Original_LOGIN == null)) {
+                throw new global::System.ArgumentNullException("Original_LOGIN");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_LOGIN));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
         }
     }
     
