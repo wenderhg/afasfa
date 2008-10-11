@@ -26,30 +26,30 @@ namespace AFASFA
         protected void btnCriarPesquisa_Clik(object sender, EventArgs e)
         //public Usuario RetornaPesquisaMalaDireta(string usuario, string senha)
         {
-            using (MySqlCommand _command = new MySqlCommand("Select senha from usuarios where login = @login or email = @email", Conexao.Instance))
-            {
-                //Define os parametros
-                _command.Parameters.Add("login", MySqlDbType.VarChar, 20);
-                _command.Parameters["login"].Value = login;
-                _command.Parameters.Add("email", MySqlDbType.VarChar, 100);
-                _command.Parameters["email"].Value = email;
-                //Abre a conexao
-                _command.Connection.Open();
-                //Executa o select e cria objeto que só vai para frente apontando para uma linha do retorno
-                using (IDataReader reader = _command.ExecuteReader())
-                {
-                    if (reader.Read())//Avança uma linha no retorno do select
-                    {
-                        _result = new Usuario(); //Cria usuario
-                        //Se o campo nao for nulo preenche a propriedade do objeto usuario
-                        if (reader["Senha"] != DBNull.Value)
-                        {
-                            _result.Senha = Convert.ToString(reader["Senha"]);
-                        }
-                    }
-                }
-                _command.Connection.Close(); //Fecha conexao
-            }
+            //using (MySqlCommand _command = new MySqlCommand("Select senha from usuarios where login = @login or email = @email", Conexao.Instance))
+            //{
+            //    //Define os parametros
+            //    _command.Parameters.Add("login", MySqlDbType.VarChar, 20);
+            //    _command.Parameters["login"].Value = login;
+            //    _command.Parameters.Add("email", MySqlDbType.VarChar, 100);
+            //    _command.Parameters["email"].Value = email;
+            //    //Abre a conexao
+            //    _command.Connection.Open();
+            //    //Executa o select e cria objeto que só vai para frente apontando para uma linha do retorno
+            //    using (IDataReader reader = _command.ExecuteReader())
+            //    {
+            //        if (reader.Read())//Avança uma linha no retorno do select
+            //        {
+            //            _result = new Usuario(); //Cria usuario
+            //            //Se o campo nao for nulo preenche a propriedade do objeto usuario
+            //            if (reader["Senha"] != DBNull.Value)
+            //            {
+            //                _result.Senha = Convert.ToString(reader["Senha"]);
+            //            }
+            //        }
+            //    }
+            //    _command.Connection.Close(); //Fecha conexao
+            //}
         }
         //public Usuario RetornaSolicitaSenha(string login, string email)
         //{

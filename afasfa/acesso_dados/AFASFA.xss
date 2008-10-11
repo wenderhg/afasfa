@@ -11,7 +11,7 @@
     <Shape ID="DesignTable:dados_quantitativos" ZOrder="5" X="774" Y="92" Height="258" Width="258" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="211" />
     <Shape ID="DesignTable:eventos" ZOrder="2" X="302" Y="283" Height="305" Width="190" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:projetos" ZOrder="4" X="660" Y="398" Height="156" Width="189" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="109" />
-    <Shape ID="DesignTable:usuarios" ZOrder="1" X="964" Y="373" Height="305" Width="193" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:usuarios" ZOrder="1" X="964" Y="373" Height="324" Width="212" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:voluntarios" ZOrder="3" X="39" Y="48" Height="428" Width="208" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="381" />
   </Shapes>
   <Connectors />
