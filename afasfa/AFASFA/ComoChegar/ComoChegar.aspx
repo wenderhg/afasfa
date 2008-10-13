@@ -15,39 +15,67 @@
 
         var map = null;
         var _busca = null;
-        
+
         function load() {
             if (GBrowserIsCompatible()) {
                 map = new GMap2(document.getElementById("map"));
-                map.setCenter(new GLatLng(-23.098996821848434, -47.199647426605225), 18);
+                map.setCenter(new GLatLng(-23.09913498340584, -47.19956696033478), 18);
                 map.enableInfoWindow();
                 map.enableScrollWheelZoom();
                 map.setMapType(G_HYBRID_MAP);
                 map.addControl(new GOverviewMapControl());
                 map.addControl(new GSmallMapControl());
                 map.addControl(new GMenuMapTypeControl());
-                
+
                 _busca = new GDirections(map, document.getElementById("rota"));
-                GEvent.addListener(_busca, "error", handleErrors);
-                
-                //map.setCenter(new GLatLng(42.351505, -71.094455), 15);
-                //directionsPanel = document.getElementById("route");
-                //var directions = new GDirections(map, document.getElementById("rota"));
-                //directions.load("from: 500 Memorial Drive, Cambridge, MA to: 4 Yawkey Way, Boston, MA 02215 (Fenway Park)");
-                
-                //var _busca = new GDirections(map, document.getElementById("rota"));
-                //_busca.load("from: av. coronel antonio estanislau do amaral to: av. paulista");
+                GEvent.addListener(_busca, "error", manipulaErros);
+                GEvent.addListener(_busca, "load", carregaRota);
+                GEvent.addListener(_busca, "addoverlay", adicionaCamadas);
 
-                map.addOverlay(new GMarker(map.getCenter(), { title: "Lar São Francisco", clickable: false }));
+                var _larMarker = new GMarker(map.getCenter(), { title: "Lar São Francisco" });
+                GEvent.addListener(_larMarker, "click", function() {
+                    _larMarker.openInfoWindowHtml("<b>Associação Filantrópica e Assistencial<br />São Francisco de Assis.</b>");
+                });
+                map.addOverlay(_larMarker);
 
-                //                GEvent.addListener(map, "click", function(overlay, latlng) {
-                //                    if (latlng != null)
-                //                        alert("Aqui é:" + latlng.lat() + " " + latlng.lng() + " " + map.getZoom());
-                //                });
+                GEvent.addListener(map, "click", function(overlay, latlng) {
+                    if (latlng != null)
+                        alert("Aqui é:" + latlng.lat() + " " + latlng.lng() + " " + map.getZoom());
+                });
             }
         }
 
-        function handleErrors() {
+        function carregaRota() {
+
+            var portaoLarLatLng = new GLatLng(-23.099248473150272, -47.199395298957825);
+            var dentroLarLatLng = new GLatLng(-23.09913498340584, -47.19956696033478);
+            var gp = _busca.getPolyline();
+            //Vai até a recepcao do Lar
+            gp.insertVertex(gp.getVertexCount(), dentroLarLatLng);
+            //Completa a rota até a entrada do lar
+            gp.insertVertex(gp.getVertexCount(), portaoLarLatLng);
+            //Altera o segundo ponto da rota para dentro do lar
+            var _marker = _busca.getMarker(1);
+            _marker.setLatLng(portaoLarLatLng);
+
+            //#0000ff
+            //0.45
+
+            //            _linha = new GPolyline([new GLatLng(-23.09772, -47.19804),
+            //                                    new GLatLng(-23.099154720759593, -47.19932556152344)],
+            //                                   gp.color, gp.weight, gp.opacity);
+
+            //   map.addOverlay(_linha);
+        }
+
+        function adicionaCamadas() {
+            map.setZoom(map.getZoom() - 1);
+            var _marker = _busca.getMarker(1);
+            _marker.hide();
+            map.removeOverlay(_marker);
+        }
+
+        function manipulaErros() {
             if (_busca.getStatus().code == G_GEO_UNKNOWN_ADDRESS)
                 alert("Não é possível encontrar um ponto específico com o endereço pesquisado.\nVerique se o endereço está correto e/ou contém todas as informações necessárias como Estado ou tente encontrar pelo CEP.");
             else if (_busca.getStatus().code == G_GEO_SERVER_ERROR)
@@ -60,19 +88,21 @@
             //     alert("The geocode for the given address or the route for the given directions query cannot be returned due to legal or contractual reasons.\n Error code: " + gdir.getStatus().code);
 
             else if (_busca.getStatus().code == G_GEO_BAD_KEY)
-                alert("Chave passada está incorreta." );
+                alert("Chave passada está incorreta.");
 
             else if (_busca.getStatus().code == G_GEO_BAD_REQUEST)
                 alert("As informações de rota estão com formato inválido.");
 
             else alert("Erro desconhecido.");
-        
+
         }
 
         function procuraEndereco() {
             var txtEndereco = document.getElementById("<% =txtEndereco.ClientID %>");
             //_busca.load("from: " + txtEndereco.value + ", SP, Brazil to: Rua Padre Bento Pacheco 3150, Indaiatuba, SP, Brazil");
-            _busca.load("from: " + txtEndereco.value + ", Brasil to: Estrada Municipal Pedro Vila 230, Indaiatuba, SP, Brasil", {"locale": "pt_BR"});
+            _busca.load("from: " + txtEndereco.value + ", Brasil to: Estrada Municipal Pedro Vila 230, Indaiatuba, SP, Brasil", { "locale": "pt_BR" });
+
+
         }
 
         function resultadoBusca(latlng) {
@@ -111,7 +141,7 @@
             </tr>
             <tr>
                 <td colspan="2" style="text-align: center">
-                    <div id="rota" >
+                    <div id="rota">
                     </div>
                 </td>
             </tr>
