@@ -11,8 +11,11 @@ namespace AFASFA.Cadastros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (! IsPostBack)
+            if (!IsPostBack)
             {
+                AFASFA.AfasfaWebService.UFService _ufService = new AFASFA.AfasfaWebService.UFService();
+                (this.FindControl("EstadoOrigemDropDownList") as DropDownList).DataSource = _ufService.RetornaUF();
+                (this.FindControl("EstadoOrigemDropDownList") as DropDownList).DataBind();
             }
         }
         protected void InsertCancelButton_Click(object sender, EventArgs e)
@@ -23,8 +26,8 @@ namespace AFASFA.Cadastros
         protected void btnOK_Click(object sender, EventArgs e)
         {
             this.ModalPopupExtender1.Hide();
-            this.FormView1.ChangeMode(FormViewMode.ReadOnly);
-            this.FormView1.ChangeMode(FormViewMode.Insert);
+            //this.FormView1.ChangeMode(FormViewMode.ReadOnly);
+            //this.FormView1.ChangeMode(FormViewMode.Insert);
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -32,12 +35,11 @@ namespace AFASFA.Cadastros
             this.ModalPopupExtender1.Hide();
         }
 
-        protected void FormView1_DataBound(object sender, EventArgs e)
+        protected void Inserir_Click(object sender, EventArgs e)
         {
-             AFASFA.AfasfaWebService.UFService _ufService = new AFASFA.AfasfaWebService.UFService();
-            (this.FindControl("EstadoOrigemDropDownList") as DropDownList).DataSource = _ufService.RetornaUF();
-            (this.FindControl("EstadoOrigemDropDownList") as DropDownList).DataBind();
+
         }
+
 
     }
 }
