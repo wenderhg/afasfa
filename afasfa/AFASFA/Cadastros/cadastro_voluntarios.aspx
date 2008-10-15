@@ -1,4 +1,4 @@
-Ôªø<%@ Page Title="" Language="C#" MasterPageFile="~/afasfa.Master" AutoEventWireup="true"
+<%@ Page Title="" Language="C#" MasterPageFile="~/afasfa.Master" AutoEventWireup="true"
     CodeBehind="cadastro_voluntarios.aspx.cs" Inherits="AFASFA.Cadastros.cadastro_voluntarios" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
@@ -31,15 +31,17 @@
             <asp:Parameter Name="ESTADO" Type="String" />
         </InsertParameters>
     </asp:ObjectDataSource>
+    
     <asp:FormView ID="FormView1" runat="server" DataSourceID="ObjectDataSource1" DefaultMode="Insert"
-        BackColor="#E6E7F2" BorderColor="#ECFFFF" BorderStyle="Ridge">
+        BackColor="#E6E7F2" BorderColor="#ECFFFF" BorderStyle="Ridge" 
+        ondatabound="FormView1_DataBound">
         <InsertItemTemplate>
             <table cellpadding="0" cellspacing="0" width="100%">
                 <tr>
                     <tr>
                         <br />
                         <td colspan="2" class="TextoTitulo" align="center">
-                            SEJA VOLUNT√ÅRIO
+                            SEJA VOLUNT¡RIO
                             <br />
                             <br />
                         </td>
@@ -47,11 +49,11 @@
                 </tr>
                 <tr>
                     <td colspan="2" class="TextoPagina" align="justify">
-                        Ol√° !!!! Muito Obrigado por sua visita em nosso site......
+                        Ol· !!!! Muito Obrigado por sua visita em nosso site......
                         <br />
                         <br />
-                        O servi√ßo volunt√°rio √© de extrema import√¢ncia para o Lar, todos nossos eventos e
-                        projetos realizados dependem da ajuda de nossos volunt√°rios.
+                        O serviÁo volunt·rio È de extrema import‚ncia para o Lar, todos nossos eventos e
+                        projetos realizados dependem da ajuda de nossos volunt·rios.
                         <br />
                         <br />
                         Caso Necessite de Ajuda click aqui !!!!
@@ -70,7 +72,7 @@
                                     <asp:TextBox ID="NomeTextBox" runat="server" Text='<%# Bind("Nome") %>' Width="98%"
                                         class="txtFormulario" />
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorNomeTextBox" runat="server"
-                                        ErrorMessage="Nomde √© de preenchimento obrigat√≥rio" ControlToValidate="NomeTextBox"
+                                        ErrorMessage="Nomde È de preenchimento obrigatÛrio" ControlToValidate="NomeTextBox"
                                         Display="None">
                                     </asp:RequiredFieldValidator>
                                 </td>
@@ -83,7 +85,7 @@
                                     <asp:TextBox ID="ApelidoTextBox" runat="server" Text='<%# Bind("Apelido") %>' Width="30%"
                                         class="txtFormulario" />
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorApelidoTextBox" runat="server"
-                                        ErrorMessage="Apelido √© de preenchimento obrigat√≥rio" ControlToValidate="ApelidoTextBox"
+                                        ErrorMessage="Apelido È de preenchimento obrigatÛrio" ControlToValidate="ApelidoTextBox"
                                         Display="None">
                                     </asp:RequiredFieldValidator>
                                 </td>
@@ -104,7 +106,7 @@
                                         TargetControlID="DataNascimentoTextBox" PopupButtonID="imgCalendarioDataNascimento">
                                     </cc1:CalendarExtender>
                                     <asp:CompareValidator ID="CompareValidator1" runat="server" Display="None" ControlToValidate="DataNascimentoTextBox"
-                                        ErrorMessage="Data de nascimento √© inv√°lida." Type="Date" Operator="DataTypeCheck">
+                                        ErrorMessage="Data de nascimento È inv·lida." Type="Date" Operator="DataTypeCheck">
                                     </asp:CompareValidator>
                                 </td>
                             </tr>
@@ -113,8 +115,10 @@
                                     Nacionalidade:
                                 </td>
                                 <td width="80%" align="left">
-                                    <asp:CheckBox ID="JaRealizadoCheckBox" runat="server" Checked='<%# Bind("Nacionalidade") %>'
-                                        Text="Brasileira" class="txtFormulario" />
+                                    <asp:RadioButtonList ID="rblNacionalidade" runat="server">
+                                        <asp:ListItem Text="Brasileira" Value="B"></asp:ListItem>
+                                        <asp:ListItem Text="Estrangeira" Value="E"></asp:ListItem>
+                                    </asp:RadioButtonList>
                                 </td>
                             </tr>
                             <tr>
@@ -122,7 +126,8 @@
                                     <strong style="color: Red">*</strong> Estado de Origem:
                                 </td>
                                 <td width="80%" align="left">
-                                    <asp:CheckBoxList ID="EstadoOrigemChecBoxkList" runat="server" Text='<%# Bind("[Estado Origem]") %>' />
+                                    <asp:DropDownList ID="EstadoOrigemDropDownList" runat="server" DataTextField="Nome"
+                                        DataValueField="Codigo" />
                                 </td>
                             </tr>
                             <tr>
@@ -130,8 +135,7 @@
                                     <strong style="color: Red">*</strong> Cidade Origem:
                                 </td>
                                 <td width="80%" align="left">
-                                    <asp:CheckBoxList ID="CidadeOrigemCheckBoxList" runat="server" Text='<%# Bind("[Cidade Origem]") %>'
-                                        class="txtFormulario" Width="200%" />
+                                    <asp:TextBox ID="CidadeOrigemCheckBoxList" runat="server" class="txtFormulario" Width="200%" />
                                 </td>
                             </tr>
                             <tr>
@@ -141,7 +145,7 @@
                                 <td width="80%" align="left">
                                     <asp:TextBox ID="CepTextBox" runat="server" Text='<%# Bind("[Cep]") %>' class="txtFormulario"
                                         Width="16%" />
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="CEP √© de preenchimento obrigat√≥rio"
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="CEP È de preenchimento obrigatÛrio"
                                         ControlToValidate="CepTextBox" Display="None">
                                     </asp:RequiredFieldValidator>
                                 </td>
@@ -157,12 +161,12 @@
                             </tr>
                             <tr>
                                 <td width="20%" align="right" class="lblFomulario">
-                                    <strong style="color: Red">*</strong> N√∫mero:
+                                    <strong style="color: Red">*</strong> N˙mero:
                                 </td>
                                 <td width="80%" align="left">
                                     <asp:TextBox ID="NumeroTextbox" runat="server" Text='<%# Bind("[Numero]") %>' class="txtFormulario"
                                         Width="10%" />
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="N√∫mero √© de preenchimento obrigat√≥rio"
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="N˙mero È de preenchimento obrigatÛrio"
                                         ControlToValidate="NumeroTextbox" Display="None">
                                     </asp:RequiredFieldValidator>
                                 </td>
@@ -209,7 +213,7 @@
                                 </td>
                                 <td width="80%" align="left">
                                     <asp:TextBox ID="EmailTextBox" runat="server" Text='<%# Bind("[Email]") %>' class="txtFormulario"
-                                        Width="98%" ToolTip="E-mail ser√° usado como contato principal caso seja informado" />
+                                        Width="98%" ToolTip="E-mail ser· usado como contato principal caso seja informado" />
                                 </td>
                             </tr>
                             <tr>
@@ -224,7 +228,7 @@
                                         AutoComplete="true">
                                     </cc1:MaskedEditExtender>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorTelefoneRes" runat="server"
-                                        ErrorMessage="Telefone residencial √© de preenchimento obrigat√≥rio" ControlToValidate="TelefoneResTextBox"
+                                        ErrorMessage="Telefone residencial È de preenchimento obrigatÛrio" ControlToValidate="TelefoneResTextBox"
                                         Display="None">
                                     </asp:RequiredFieldValidator>
                                 </td>
@@ -244,7 +248,7 @@
                             </tr>
                             <tr>
                                 <td class="lblFomulario" align="right">
-                                    Possui Habilita√ß√£o:
+                                    Possui HabilitaÁ„o:
                                 </td>
                                 <td align="left">
                                     <asp:CheckBox ID="HabilitadoCheckBox" runat="server" Checked='<%# Bind("Habilitado") %>'
@@ -253,7 +257,7 @@
                             </tr>
                             <tr>
                                 <td class="lblFomulario" align="right">
-                                    Estado C√≠vil:
+                                    Estado CÌvil:
                                 </td>
                                 <td align="left">
                                     <asp:TextBox ID="EstadoCivilTextBox" runat="server" Text='<%# Bind("EstadoCivil") %>'
@@ -280,7 +284,7 @@
                             </tr>
                             <tr>
                                 <td class="lblFomulario" align="right">
-                                    Profiss√£o:
+                                    Profiss„o:
                                 </td>
                                 <td align="left">
                                     <asp:TextBox ID="ProfissaoTextBox" runat="server" Text='<%# Bind("Profissao") %>'
@@ -298,7 +302,7 @@
                             </tr>
                             <tr>
                                 <td class="lblFomulario" align="right">
-                                    Como ficou sabendo de nossa institui√ß√£o:
+                                    Como ficou sabendo de nossa instituiÁ„o:
                                 </td>
                                 <td align="left">
                                     <asp:TextBox ID="ComoFicouSabendoTextBox" runat="server" Text='<%# Bind("ComoFicouSabendo") %>'
@@ -311,7 +315,7 @@
                                     <table cellpadding="5px" cellspacing="0" width="100%">
                                         <tr bgcolor="#495196">
                                             <td colspan="2" align="center" class="lblCaptionGrid">
-                                                Qual forma gostaria de colaborar com nossa Institui√ß√£o.
+                                                Qual forma gostaria de colaborar com nossa InstituiÁ„o.
                                             </td>
                                         </tr>
                                         <tr align="center">
@@ -319,20 +323,20 @@
                                                 <table cellpadding="0" cellspacing="0" width="100%">
                                                     <tr>
                                                         <td>
-                                                            <asp:RadioButton ID="TipoVoluntarioCheckBox" runat="server" Text="Volunt√°rio Direto"
+                                                            <asp:RadioButton ID="TipoVoluntarioCheckBox" runat="server" Text="Volunt·rio Direto"
                                                                 GroupName="TipoVoluntario" class="txtFormulario" />
                                                         </td>
                                                         <td class="txtFormulario">
-                                                            Trabalho dentro de organiza√ß√£o.
+                                                            Trabalho dentro de organizaÁ„o.
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <asp:RadioButton ID="TipoVoluntarioCheckBox1" runat="server" Text="Volunt√°rio Indireto"
+                                                            <asp:RadioButton ID="TipoVoluntarioCheckBox1" runat="server" Text="Volunt·rio Indireto"
                                                                 GroupName="TipoVoluntario" class="txtFormulario" />
                                                         </td>
                                                         <td class="txtFormulario">
-                                                            Trabalho foda da organiza√ß√£o.
+                                                            Trabalho foda da organizaÁ„o.
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -404,7 +408,7 @@
                                                                 class="txtFormulario" />
                                                         </td>
                                                         <td>
-                                                            <asp:CheckBox ID="CheckBox6" runat="server" Checked='<%# Bind("QuaisDias") %>' Text="Ter√ßa"
+                                                            <asp:CheckBox ID="CheckBox6" runat="server" Checked='<%# Bind("QuaisDias") %>' Text="TerÁa"
                                                                 class="txtFormulario" />
                                                         </td>
                                                         <td>
@@ -420,7 +424,7 @@
                                                                 class="txtFormulario" />
                                                         </td>
                                                         <td>
-                                                            <asp:CheckBox ID="CheckBox10" runat="server" Checked='<%# Bind("QuaisDias") %>' Text="S√°bado"
+                                                            <asp:CheckBox ID="CheckBox10" runat="server" Checked='<%# Bind("QuaisDias") %>' Text="S·bado"
                                                                 class="txtFormulario" />
                                                         </td>
                                                         <td>
@@ -448,7 +452,7 @@
                 </tr>
                 <tr>
                     <td width="20%" class="lblFomulario" align="right">
-                        Tempo de Volunt√°rio:
+                        Tempo de Volunt·rio:
                     </td>
                     <td width="80%" align="left">
                         <asp:TextBox ID="TempoDoVoluntarioTextBox" runat="server" Text='<%# Bind("TempoDoVoluntario") %>'
@@ -469,7 +473,7 @@
                 <tr>
                     <td colspan="2" class="lblPreenchimentoObrigatorio" align="center">
                         <br />
-                        (*) campo de preenchimento obrigat√≥rio
+                        (*) campo de preenchimento obrigatÛrio
                         <br />
                         <br />
                     </td>
@@ -501,7 +505,7 @@
                 <td align="center">
                     <asp:Button ID="btnOK" runat="server" Text="Sim" OnClick="btnOK_Click" UseSubmitBehavior="false"
                         SkinID="btnFormularioCadastro" CausesValidation="false" />
-                    <asp:Button ID="btnCancelar" runat="server" Text="N√£o" OnClick="btnCancelar_Click"
+                    <asp:Button ID="btnCancelar" runat="server" Text="N„o" OnClick="btnCancelar_Click"
                         CausesValidation="false" SkinID="btnFormularioCadastro" />
                 </td>
             </tr>
