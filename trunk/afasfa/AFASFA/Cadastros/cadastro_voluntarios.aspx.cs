@@ -42,6 +42,17 @@ namespace AFASFA.Cadastros
 
         }
 
+        protected void btnCEP_Click(object sender, EventArgs e)
+        {
+            br.com.bronzebusiness.www.wscep _cep = new AFASFA.br.com.bronzebusiness.www.wscep();
+            System.Data.DataSet _dsCEP = _cep.cep(this.CepTextBox.Text);
+            //_dsCEP.Tables[0].Rows[0]
+            //<xs:element name="logradouro" type="xs:string" minOccurs="0"/>
+            //<xs:element name="nome" type="xs:string" minOccurs="0"/>
+            //<xs:element name="bairro" type="xs:string" minOccurs="0"/>
+            //<xs:element name="UF" type="xs:string" minOccurs="0"/>
+            //<xs:element name="cidade" type="xs:string" minOccurs="0"/>
+        }
 
     }
 }

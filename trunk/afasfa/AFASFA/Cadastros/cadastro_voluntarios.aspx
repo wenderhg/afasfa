@@ -138,7 +138,8 @@
                         </td>
                         <td width="80%" align="left">
                             <asp:TextBox ID="CepTextBox" runat="server" Text='<%# Bind("[Cep]") %>' class="txtFormulario"
-                                Width="16%" />
+                                Width="16%"  onblur='<%= btnCEP.ClientID %>.click();'/>
+                            <asp:Button ID="btnCEP" runat="server" Text="_" Style="display: none" OnClick="btnCEP_Click"/>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="CEP é de preenchimento obrigatório"
                                 ControlToValidate="CepTextBox" Display="None">
                             </asp:RequiredFieldValidator>
@@ -459,7 +460,7 @@
         <tr>
             <td colspan="2" align="center">
                 <br />
-                <asp:Button ID="InsertButton" runat="server" CausesValidation="True" Click="Inserir_Click"
+                <asp:Button ID="InsertButton" runat="server" CausesValidation="True" OnClick="Inserir_Click"
                     Text="Enviar Interesse" SkinID="btnFormularioCadastro" />
                 &nbsp;<asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False"
                     CommandName="Cancel" Text="Cancelar" SkinID="btnFormularioCadastro" />
