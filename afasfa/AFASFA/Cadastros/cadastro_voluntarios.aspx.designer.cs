@@ -140,6 +140,15 @@ namespace AFASFA.Cadastros {
         protected global::System.Web.UI.WebControls.TextBox CepTextBox;
         
         /// <summary>
+        /// btnCEP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCEP;
+        
+        /// <summary>
         /// RequiredFieldValidator3 control.
         /// </summary>
         /// <remarks>
