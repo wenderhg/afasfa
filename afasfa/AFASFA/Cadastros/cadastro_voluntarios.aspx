@@ -32,14 +32,14 @@
         </InsertParameters>
     </asp:ObjectDataSource>
     <table cellpadding="0" cellspacing="0" width="100%">
-            <tr>
+        <tr>
+            <br />
+            <td colspan="2" class="TextoTitulo" align="center">
+                SEJA VOLUNTÁRIO
                 <br />
-                <td colspan="2" class="TextoTitulo" align="center">
-                    SEJA VOLUNTÁRIO
-                    <br />
-                    <br />
-                </td>
-            </tr>
+                <br />
+            </td>
+        </tr>
         </tr>
         <tr>
             <td colspan="2" class="TextoPagina" align="justify">
@@ -109,7 +109,7 @@
                             Nacionalidade:
                         </td>
                         <td width="80%" align="left">
-                            <asp:RadioButtonList ID="rblNacionalidade" runat="server">
+                            <asp:RadioButtonList ID="rblNacionalidade" runat="server" RepeatColumns="2">
                                 <asp:ListItem Text="Brasileira" Value="B"></asp:ListItem>
                                 <asp:ListItem Text="Estrangeira" Value="E"></asp:ListItem>
                             </asp:RadioButtonList>
@@ -197,8 +197,7 @@
                             <strong style="color: Red">*</strong> UF:
                         </td>
                         <td width="80%" align="left">
-                            <asp:TextBox ID="UfTextBox" runat="server" Text='<%# Bind("[Uf]") %>' class="txtFormulario"
-                                Width="10%" Enabled="false" />
+                            <asp:DropDownList ID="UfDropDownList" runat="server" DataTextField="Nome" DataValueField="Codigo" />
                         </td>
                     </tr>
                     <tr>
@@ -254,8 +253,12 @@
                             Estado Cívil:
                         </td>
                         <td align="left">
-                            <asp:TextBox ID="EstadoCivilTextBox" runat="server" Text='<%# Bind("EstadoCivil") %>'
-                                Width="10%" class="txtFormulario" />
+                            <asp:DropDownList ID="EstadoCivilDropDownList" runat="server">
+                                <asp:ListItem Text="Solteiro" Value="Solteiro"></asp:ListItem>
+                                <asp:ListItem Text="Casado" Value="Casado"></asp:ListItem>
+                            </asp:DropDownList>
+                            <asp:TextBox ID="TextBox" runat="server" Text='<%# Bind("EstadoCivil") %>' Width="10%"
+                                class="txtFormulario" />
                         </td>
                     </tr>
                     <tr>

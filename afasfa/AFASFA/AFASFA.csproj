@@ -155,6 +155,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\br.com.bronzebusiness.www\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -201,6 +206,11 @@
     <Content Include="ComoChegar\ComoChegar.aspx" />
     <Content Include="mala_direta.aspx" />
     <Content Include="solicitar_senha.aspx" />
+    <None Include="Web References\br.com.bronzebusiness.www\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\br.com.bronzebusiness.www\wscep.disco" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -214,6 +224,7 @@
     </None>
     <None Include="Web References\AfasfaWebService\UF.disco" />
     <None Include="Web References\AfasfaWebService\UF.wsdl" />
+    <None Include="Web References\br.com.bronzebusiness.www\wscep.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
@@ -229,6 +240,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>AFASFA_AfasfaWebService_UFService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://www.bronzebusiness.com.br/webservices/wscep.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\br.com.bronzebusiness.www\</RelPath>
+      <UpdateFromURL>http://www.bronzebusiness.com.br/webservices/wscep.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>AFASFA_br_com_bronzebusiness_www_wscep</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>

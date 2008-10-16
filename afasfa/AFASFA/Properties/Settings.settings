@@ -5,5 +5,8 @@
     <Setting Name="AFASFA_AfasfaWebService_UFService" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost:51349/UF.asmx</Value>
     </Setting>
+    <Setting Name="AFASFA_br_com_bronzebusiness_www_wscep" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://www.bronzebusiness.com.br/webservices/wscep.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
