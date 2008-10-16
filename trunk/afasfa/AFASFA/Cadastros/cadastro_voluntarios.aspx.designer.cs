@@ -203,13 +203,13 @@ namespace AFASFA.Cadastros {
         protected global::System.Web.UI.WebControls.TextBox CidadeTextBox;
         
         /// <summary>
-        /// UfTextBox control.
+        /// UfDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UfTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList UfDropDownList;
         
         /// <summary>
         /// EmailTextBox control.
@@ -275,13 +275,22 @@ namespace AFASFA.Cadastros {
         protected global::System.Web.UI.WebControls.CheckBox HabilitadoCheckBox;
         
         /// <summary>
-        /// EstadoCivilTextBox control.
+        /// EstadoCivilDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EstadoCivilTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList EstadoCivilDropDownList;
+        
+        /// <summary>
+        /// TextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox;
         
         /// <summary>
         /// TrabalhoCheckBox control.

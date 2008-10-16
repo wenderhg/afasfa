@@ -14,8 +14,10 @@ namespace AFASFA.Cadastros
             if (!IsPostBack)
             {
                 AFASFA.AfasfaWebService.UFService _ufService = new AFASFA.AfasfaWebService.UFService();
-                (this.FindControl("EstadoOrigemDropDownList") as DropDownList).DataSource = _ufService.RetornaUF();
-                (this.FindControl("EstadoOrigemDropDownList") as DropDownList).DataBind();
+                this.EstadoOrigemDropDownList.DataSource = _ufService.RetornaUF();
+                this.EstadoOrigemDropDownList.DataBind();
+                this.UfDropDownList.DataSource = this.EstadoOrigemDropDownList.DataSource;
+                this.UfDropDownList.DataBind();
             }
         }
         protected void InsertCancelButton_Click(object sender, EventArgs e)
