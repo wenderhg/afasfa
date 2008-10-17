@@ -127,5 +127,7 @@ namespace AFASFA
             FormsAuthentication.SignOut();
             AtualizaPainelLogin(false);
         }
+
+        public ValidationSummary Resumo { get { return ValidationSummary1; } }
     }
 }
