@@ -2,6 +2,69 @@
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://tempuri.org/AFASFA.xsd" />
+      <s:import schemaLocation="http://localhost:51349/UF.asmx?schema=DataSetAFASFA" namespace="http://tempuri.org/AFASFA.xsd" />
+      <s:element name="RetornaCidades">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornaCidadesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornaCidadesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+                <s:attribute fixed="http://tempuri.org/AFASFA.xsd" name="namespace" />
+                <s:attribute fixed="cidadeDataTable" name="tableTypeName" />
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornaCidadesPorEstado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoEstado" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornaCidadesPorEstadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornaCidadesPorEstadoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+                <s:attribute fixed="http://tempuri.org/AFASFA.xsd" name="namespace" />
+                <s:attribute fixed="cidadeDataTable" name="tableTypeName" />
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetornaEstados">
+        <s:complexType />
+      </s:element>
+      <s:element name="RetornaEstadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetornaEstadosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+                <s:attribute fixed="http://tempuri.org/AFASFA.xsd" name="namespace" />
+                <s:attribute fixed="estadoDataTable" name="tableTypeName" />
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="RetornaUF">
         <s:complexType />
       </s:element>
@@ -25,6 +88,24 @@
       </s:complexType>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="RetornaCidadesSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornaCidades" />
+  </wsdl:message>
+  <wsdl:message name="RetornaCidadesSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornaCidadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornaCidadesPorEstadoSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornaCidadesPorEstado" />
+  </wsdl:message>
+  <wsdl:message name="RetornaCidadesPorEstadoSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornaCidadesPorEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetornaEstadosSoapIn">
+    <wsdl:part name="parameters" element="tns:RetornaEstados" />
+  </wsdl:message>
+  <wsdl:message name="RetornaEstadosSoapOut">
+    <wsdl:part name="parameters" element="tns:RetornaEstadosResponse" />
+  </wsdl:message>
   <wsdl:message name="RetornaUFSoapIn">
     <wsdl:part name="parameters" element="tns:RetornaUF" />
   </wsdl:message>
@@ -32,6 +113,18 @@
     <wsdl:part name="parameters" element="tns:RetornaUFResponse" />
   </wsdl:message>
   <wsdl:portType name="UFServiceSoap">
+    <wsdl:operation name="RetornaCidades">
+      <wsdl:input message="tns:RetornaCidadesSoapIn" />
+      <wsdl:output message="tns:RetornaCidadesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornaCidadesPorEstado">
+      <wsdl:input message="tns:RetornaCidadesPorEstadoSoapIn" />
+      <wsdl:output message="tns:RetornaCidadesPorEstadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornaEstados">
+      <wsdl:input message="tns:RetornaEstadosSoapIn" />
+      <wsdl:output message="tns:RetornaEstadosSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="RetornaUF">
       <wsdl:input message="tns:RetornaUFSoapIn" />
       <wsdl:output message="tns:RetornaUFSoapOut" />
@@ -39,6 +132,33 @@
   </wsdl:portType>
   <wsdl:binding name="UFServiceSoap" type="tns:UFServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RetornaCidades">
+      <soap:operation soapAction="http://tempuri.org/RetornaCidades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornaCidadesPorEstado">
+      <soap:operation soapAction="http://tempuri.org/RetornaCidadesPorEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornaEstados">
+      <soap:operation soapAction="http://tempuri.org/RetornaEstados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="RetornaUF">
       <soap:operation soapAction="http://tempuri.org/RetornaUF" style="document" />
       <wsdl:input>
@@ -51,6 +171,33 @@
   </wsdl:binding>
   <wsdl:binding name="UFServiceSoap12" type="tns:UFServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RetornaCidades">
+      <soap12:operation soapAction="http://tempuri.org/RetornaCidades" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornaCidadesPorEstado">
+      <soap12:operation soapAction="http://tempuri.org/RetornaCidadesPorEstado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornaEstados">
+      <soap12:operation soapAction="http://tempuri.org/RetornaEstados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="RetornaUF">
       <soap12:operation soapAction="http://tempuri.org/RetornaUF" style="document" />
       <wsdl:input>
