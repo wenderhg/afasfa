@@ -140,13 +140,13 @@ namespace AFASFA.Cadastros {
         protected global::System.Web.UI.WebControls.DropDownList EstadoOrigemDropDownList;
         
         /// <summary>
-        /// CidadeOrigemCheckBoxList control.
+        /// DropDownListCidadeOrigem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CidadeOrigemCheckBoxList;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListCidadeOrigem;
         
         /// <summary>
         /// CepTextBox control.

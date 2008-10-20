@@ -150,7 +150,9 @@
                                     </td>
                                     <td align="left" width="80%">
                                         <asp:DropDownList ID="EstadoOrigemDropDownList" runat="server" DataTextField="Nome"
-                                            DataValueField="Codigo" />
+                                            DataValueField="Codigo" AppendDataBoundItems="true">
+                                            <asp:ListItem></asp:ListItem>
+                                        </asp:DropDownList>
                                     </td>
                                 </tr>
                                 <tr>
@@ -158,7 +160,8 @@
                                         <strong style="color: Red">*</strong> Cidade Origem:
                                     </td>
                                     <td align="left" width="80%">
-                                        <asp:TextBox ID="CidadeOrigemCheckBoxList" runat="server" class="txtFormulario" Width="200%" />
+                                        <asp:DropDownList ID="DropDownListCidadeOrigem" runat="server" DataTextField="Nome" DataValueField="Codigo">
+                                        </asp:DropDownList>
                                     </td>
                                 </tr>
                                 <tr>
@@ -228,7 +231,10 @@
                                         <strong style="color: Red">*</strong> UF:
                                     </td>
                                     <td align="left" width="80%">
-                                        <asp:DropDownList ID="UfDropDownList" runat="server" DataTextField="Nome" DataValueField="Codigo" />
+                                        <asp:DropDownList ID="UfDropDownList" runat="server" DataTextField="Nome" DataValueField="Sigla"
+                                            AppendDataBoundItems="true">
+                                            <asp:ListItem></asp:ListItem>
+                                        </asp:DropDownList>
                                     </td>
                                 </tr>
                                 <tr>
