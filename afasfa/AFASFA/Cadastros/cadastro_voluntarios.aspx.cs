@@ -14,7 +14,7 @@ namespace AFASFA.Cadastros
             if (!IsPostBack)
             {
                 AFASFA.AfasfaWebService.UFService _ufService = new AFASFA.AfasfaWebService.UFService();
-                this.EstadoOrigemDropDownList.DataSource = _ufService.RetornaUF();
+                this.EstadoOrigemDropDownList.DataSource = _ufService.RetornaEstados();
                 this.EstadoOrigemDropDownList.DataBind();
                 this.UfDropDownList.DataSource = this.EstadoOrigemDropDownList.DataSource;
                 this.UfDropDownList.DataBind();
