@@ -1,3 +1,4 @@
+set names latin1;
 
 CREATE TABLE pais (
     codigo  SMALLINT NOT NULL,
