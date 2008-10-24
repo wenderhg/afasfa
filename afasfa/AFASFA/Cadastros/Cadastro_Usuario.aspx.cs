@@ -180,6 +180,16 @@ namespace AFASFA.Cadastros
             args.IsValid = (!String.IsNullOrEmpty(this.TelefoneCelTextBox.Text) || !String.IsNullOrEmpty(this.TelefoneResTextBox.Text) ||
                 !String.IsNullOrEmpty(this.EMailTextBox.Text));
         }
+        
+        protected void btnOK_Click(object sender, EventArgs e)
+        {
+            this.ModalPopupExtender1.Hide();
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.ModalPopupExtender1.Hide();
+        }
 
     }
 }
