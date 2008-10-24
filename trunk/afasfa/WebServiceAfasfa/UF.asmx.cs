@@ -17,6 +17,55 @@ namespace WebServiceAfasfa
     // [System.Web.Script.Services.ScriptService]
     public class UFService : System.Web.Services.WebService
     {
+        
+        /// <summary>
+        /// Retorna as cidades
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        public acesso_dados.DataSetAFASFA.cidadeDataTable RetornaCidades()
+        {
+            acesso_dados.DataSetAFASFA.cidadeDataTable _cidades;
+            using (acesso_dados.DataSetAFASFATableAdapters.cidadeTableAdapter _cidadeAdapter = new acesso_dados.DataSetAFASFATableAdapters.cidadeTableAdapter())
+            {
+                _cidades = _cidadeAdapter.GetData();
+            }
+            return _cidades;
+        }
+
+        /// <summary>
+        /// Retorna as cidades do estado
+        /// </summary>
+        /// <param name="codigoEstado"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public acesso_dados.DataSetAFASFA.cidadeDataTable RetornaCidadesPorEstado(short codigoEstado)
+        {
+            acesso_dados.DataSetAFASFA.cidadeDataTable _cidades;
+            using (acesso_dados.DataSetAFASFATableAdapters.cidadeTableAdapter _cidadeAdapter = new acesso_dados.DataSetAFASFATableAdapters.cidadeTableAdapter())
+            {
+                _cidades = _cidadeAdapter.RetornaCidadesPorEstado(codigoEstado);
+            }
+            return _cidades;
+        }
+
+        /// <summary>
+        /// Retorna os estados
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        public acesso_dados.DataSetAFASFA.estadoDataTable RetornaEstados()
+        {
+            acesso_dados.DataSetAFASFA.estadoDataTable _estados;
+            using (acesso_dados.DataSetAFASFATableAdapters.estadoTableAdapter _estadoAdapter = new acesso_dados.DataSetAFASFATableAdapters.estadoTableAdapter())
+            {
+                _estados = _estadoAdapter.GetData();
+            }
+            return _estados;
+        }
+
+
+
         /// <summary>
         /// Retorna a lista de UFs do Brasil
         /// </summary>
@@ -26,6 +75,7 @@ namespace WebServiceAfasfa
         {
             List<UF> result = new List<UF>();
 
+            result.Add(new UF());//Item em branco para o bind
             result.Add(new UF("AC", "Acre"));
             result.Add(new UF("AL", "Alagoas"));
             result.Add(new UF("AP", "Amapá"));
@@ -53,8 +103,13 @@ namespace WebServiceAfasfa
             result.Add(new UF("SP", "São Paulo"));
             result.Add(new UF("SE", "Sergipe"));
             result.Add(new UF("TO", "Tocantins"));
+            result.Add(new UF("EX", "Estrangeiro"));
 
             return result;
+        }
+
+        private void InitializeComponent()
+        {
         }
     }
 }
