@@ -150,6 +150,7 @@
                                     </td>
                                     <td align="left" width="80%">
                                         <asp:DropDownList ID="EstadoOrigemDropDownList" runat="server" DataTextField="Nome"
+                                            OnSelectedIndexChanged="EstadoOrigemDropDownList_SelectedIndexChanged" AutoPostBack="true"
                                             DataValueField="Codigo" AppendDataBoundItems="true">
                                             <asp:ListItem></asp:ListItem>
                                         </asp:DropDownList>
@@ -157,11 +158,15 @@
                                 </tr>
                                 <tr>
                                     <td align="right" class="lblFomulario" width="20%">
-                                        <strong style="color: Red">*</strong> Cidade Origem:
+                                        <strong style="color: Red"></strong>Cidade Origem:
                                     </td>
                                     <td align="left" width="80%">
-                                        <asp:DropDownList ID="DropDownListCidadeOrigem" runat="server" DataTextField="Nome" DataValueField="Codigo">
+                                        <asp:DropDownList ID="ddlCidadeOrigem" runat="server" DataTextField="Nome" DataValueField="Codigo"
+                                            AppendDataBoundItems="true">
+                                            <asp:ListItem></asp:ListItem>
                                         </asp:DropDownList>
+                                        <span align="justify" class="TextoPagina">Caso sua cidade não conste na lista, favor
+                                            deixar o campo sem preenchimento.</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -311,8 +316,21 @@
                                         Escolaridade:
                                     </td>
                                     <td align="left">
-                                        <asp:CheckBox ID="EscolaridadeCheckBox" runat="server" Checked='<%# Bind("Escolaridade") %>'
-                                            class="txtFormulario" Width="98%" />
+                                        <asp:DropDownList ID="EscolaridadeDropDown" runat="server" class="txtFormulario"
+                                            Width="98%">
+                                            <asp:ListItem></asp:ListItem>
+                                            <asp:ListItem Value="EB">Ensino básico</asp:ListItem>
+                                            <asp:ListItem Value="EBI">Ensino básico incompleto</asp:ListItem>
+                                            <asp:ListItem Value="EM">Ensino médio</asp:ListItem>
+                                            <asp:ListItem Value="EMI">Ensino médio incompleto</asp:ListItem>
+                                            <asp:ListItem Value="ES">Ensino superior</asp:ListItem>
+                                            <asp:ListItem Value="ESI">Ensino superior incompleto</asp:ListItem>
+                                            <asp:ListItem Value="PG">Pós-Graduação</asp:ListItem>
+                                            <asp:ListItem Value="MT">Mestrado</asp:ListItem>
+                                            <asp:ListItem Value="DT">Doutorado</asp:ListItem>
+                                            <asp:ListItem Value="PD">Pós-Doutorado</asp:ListItem>
+                                            <asp:ListItem Value="SE">Sem escolaridade</asp:ListItem>
+                                        </asp:DropDownList>
                                     </td>
                                 </tr>
                                 <tr>
@@ -356,8 +374,8 @@
                                                     <table cellpadding="0" cellspacing="0" width="100%">
                                                         <tr>
                                                             <td>
-                                                                <asp:RadioButton ID="TipoVoluntarioCheckBox" runat="server" class="txtFormulario"
-                                                                    GroupName="TipoVoluntario" Text="Voluntário Direto" />
+                                                                <asp:RadioButton ID="rbVoluntarioDireto" runat="server" class="txtFormulario" GroupName="TipoVoluntario"
+                                                                    Text="Voluntário Direto" />
                                                             </td>
                                                             <td class="txtFormulario">
                                                                 Trabalho dentro de organização.
@@ -365,11 +383,11 @@
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <asp:RadioButton ID="TipoVoluntarioCheckBox1" runat="server" class="txtFormulario"
-                                                                    GroupName="TipoVoluntario" Text="Voluntário Indireto" />
+                                                                <asp:RadioButton ID="rbVoluntarioIndireto" runat="server" class="txtFormulario" GroupName="TipoVoluntario"
+                                                                    Text="Voluntário Indireto" />
                                                             </td>
                                                             <td class="txtFormulario">
-                                                                Trabalho foda da organização.
+                                                                Trabalho fora da organização.
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -393,7 +411,7 @@
                                         <table cellpadding="5px" cellspacing="0" width="100%">
                                             <tr bgcolor="#495196">
                                                 <td align="center" class="lblCaptionGrid">
-                                                    Qual sua disponibilidade de tempo para estar nos auxiliando voluntariamente.
+                                                    Qual sua disponibilidade de tempo nos auxiliar voluntariamente.
                                                 </td>
                                             </tr>
                                             <tr align="center">
@@ -401,20 +419,16 @@
                                                     <table cellpadding="0" cellspacing="0" width="100%">
                                                         <tr>
                                                             <td>
-                                                                <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Bind("QualDisponibilidade") %>'
-                                                                    class="txtFormulario" Text="02 Horas ao dia" />
+                                                                <asp:CheckBox ID="ckduasHoras" runat="server" class="txtFormulario" Text="02 Horas ao dia" />
                                                             </td>
                                                             <td>
-                                                                <asp:CheckBox ID="CheckBox2" runat="server" Checked='<%# Bind("QualDisponibilidade") %>'
-                                                                    class="txtFormulario" Text="04 Horas ao dia" />
+                                                                <asp:CheckBox ID="ckquatroHoras" runat="server" class="txtFormulario" Text="04 Horas ao dia" />
                                                             </td>
                                                             <td>
-                                                                <asp:CheckBox ID="CheckBox3" runat="server" Checked='<%# Bind("QualDisponibilidade") %>'
-                                                                    class="txtFormulario" Text="06 Horas ao dia" />
+                                                                <asp:CheckBox ID="ckseisHoras" runat="server" class="txtFormulario" Text="06 Horas ao dia" />
                                                             </td>
                                                             <td>
-                                                                <asp:CheckBox ID="CheckBox4" runat="server" Checked='<%# Bind("QualDisponibilidade") %>'
-                                                                    class="txtFormulario" Text="08 Horas ao dia" />
+                                                                <asp:CheckBox ID="ckoitoHoras" runat="server" class="txtFormulario" Text="08 Horas ao dia" />
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -429,7 +443,7 @@
                                         <table cellpadding="5px" cellspacing="0" width="100%">
                                             <tr bgcolor="#495196">
                                                 <td align="center" class="lblCaptionGrid">
-                                                    Qual seria o melhor dia da semana para estar nos auxiliando voluntariamente.
+                                                    Qual seria o melhor dia da semana para nos auxiliar voluntariamente.
                                                 </td>
                                             </tr>
                                             <tr align="center">
@@ -497,8 +511,8 @@
                             <br />
                             <asp:Button ID="InsertButton" runat="server" CausesValidation="True" OnClick="Inserir_Click"
                                 SkinID="btnFormularioCadastro" Text="Enviar Interesse" />
-                            &nbsp;<asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False"
-                                CommandName="Cancel" SkinID="btnFormularioCadastro" Text="Cancelar" />
+                            &nbsp;<asp:Button ID="CancelButton" runat="server" CausesValidation="False"
+                                OnClick="Cancel_Click" SkinID="btnFormularioCadastro" Text="Cancelar" />
                             <br />
                             <br />
                         </td>

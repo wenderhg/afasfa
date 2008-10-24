@@ -53,21 +53,24 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="UF.asmx" />
     <Content Include="Web.config" />
+    <Content Include="wsAfasfa.asmx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UF.asmx.cs">
-      <DependentUpon>UF.asmx</DependentUpon>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="wsAfasfa.asmx.cs">
+      <DependentUpon>wsAfasfa.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\acesso_dados\acesso_dados.csproj">
       <Project>{C499C716-35A6-46CC-A36C-BBAC70A85CF4}</Project>
       <Name>acesso_dados</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
