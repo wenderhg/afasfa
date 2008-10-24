@@ -35,30 +35,42 @@ namespace AFASFA.Cadastros
 
         private void InserirUsuario()
         {
-            if (Conexao.AfasfaManager.usuariosTableAdapter == null)
+            using (Conexao.AfasfaManager.usuariosTableAdapter = new usuariosTableAdapter())
             {
-                Conexao.AfasfaManager.usuariosTableAdapter = new usuariosTableAdapter();
+                Conexao.AfasfaManager.usuariosTableAdapter.Insert(this.LoginTextBox.Text,
+                                                                  AFASFA.Servico.Seguranca.Seguranca.RetornaSenha(this.txtSenha.Text),
+                                                                  this.AdministradorCheckBox.Checked ? "S" : "N",
+                                                                  InserirInformacoesContato()
+                                                                  );
             }
-            string _nomeArquivo = RetornaNomeArquivo();
-            CarregaArquivo(_nomeArquivo);
-            Conexao.AfasfaManager.usuariosTableAdapter.Insert(this.LoginTextBox.Text,
-                                                              this.NomeTextBox.Text,
-                                                              AFASFA.Servico.Seguranca.Seguranca.RetornaSenha(this.txtSenha.Text),
-                                                              _nomeArquivo,
-                                                              string.Empty,
-                                                              string.Empty,
-                                                              null,
-                                                              string.Empty,
-                                                              string.Empty,
-                                                              string.Empty,
-                                                              string.Empty,
-                                                              RetornaTelefone(this.TelefoneCelTextBox.Text),
-                                                              RetornaTelefone(this.TelefoneResTextBox.Text),
-                                                              this.EMailTextBox.Text,
-                                                              ddlSexo.SelectedValue,
-                                                              this.ApelidoTextBox.Text,
-                                                              this.AdministradorCheckBox.Checked ? "S" : "N",
-                                                              Convert.ToByte(this.ReceberInformacoesCheckBox.Checked));
+        }
+
+
+        private int? InserirInformacoesContato()
+        {
+            int? result = null;
+            using (Conexao.AfasfaManager.infocontatoTableAdapter = new infocontatoTableAdapter())
+            {
+                string _nomeArquivo = RetornaNomeArquivo();
+                CarregaArquivo(_nomeArquivo);
+                result = Conexao.AfasfaManager.infocontatoTableAdapter.Insert(
+                            this.NomeTextBox.Text,
+                            _nomeArquivo,
+                            Convert.ToByte(this.ReceberInformacoesCheckBox.Checked),
+                            string.Empty,
+                            string.Empty,
+                            null,
+                            string.Empty,
+                            string.Empty,
+                            string.Empty,
+                            string.Empty,
+                            RetornaTelefone(this.TelefoneCelTextBox.Text),
+                            RetornaTelefone(this.TelefoneResTextBox.Text),
+                            this.EMailTextBox.Text,
+                            ddlSexo.SelectedValue,
+                            this.ApelidoTextBox.Text);
+            }
+            return result;
         }
 
         private string RetornaNomeArquivo()
@@ -168,6 +180,6 @@ namespace AFASFA.Cadastros
             args.IsValid = (!String.IsNullOrEmpty(this.TelefoneCelTextBox.Text) || !String.IsNullOrEmpty(this.TelefoneResTextBox.Text) ||
                 !String.IsNullOrEmpty(this.EMailTextBox.Text));
         }
-        
+
     }
 }

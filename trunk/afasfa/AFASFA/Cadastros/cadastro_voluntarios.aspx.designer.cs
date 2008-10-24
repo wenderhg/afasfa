@@ -140,13 +140,13 @@ namespace AFASFA.Cadastros {
         protected global::System.Web.UI.WebControls.DropDownList EstadoOrigemDropDownList;
         
         /// <summary>
-        /// DropDownListCidadeOrigem control.
+        /// ddlCidadeOrigem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListCidadeOrigem;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCidadeOrigem;
         
         /// <summary>
         /// CepTextBox control.
@@ -320,13 +320,13 @@ namespace AFASFA.Cadastros {
         protected global::System.Web.UI.WebControls.CheckBox TrabalhoCheckBox;
         
         /// <summary>
-        /// EscolaridadeCheckBox control.
+        /// EscolaridadeDropDown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox EscolaridadeCheckBox;
+        protected global::System.Web.UI.WebControls.DropDownList EscolaridadeDropDown;
         
         /// <summary>
         /// ProfissaoTextBox control.
@@ -356,22 +356,22 @@ namespace AFASFA.Cadastros {
         protected global::System.Web.UI.WebControls.TextBox ComoFicouSabendoTextBox;
         
         /// <summary>
-        /// TipoVoluntarioCheckBox control.
+        /// rbVoluntarioDireto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton TipoVoluntarioCheckBox;
+        protected global::System.Web.UI.WebControls.RadioButton rbVoluntarioDireto;
         
         /// <summary>
-        /// TipoVoluntarioCheckBox1 control.
+        /// rbVoluntarioIndireto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton TipoVoluntarioCheckBox1;
+        protected global::System.Web.UI.WebControls.RadioButton rbVoluntarioIndireto;
         
         /// <summary>
         /// QualAtividadeTextBox control.
@@ -383,40 +383,40 @@ namespace AFASFA.Cadastros {
         protected global::System.Web.UI.WebControls.TextBox QualAtividadeTextBox;
         
         /// <summary>
-        /// CheckBox1 control.
+        /// ckduasHoras control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
+        protected global::System.Web.UI.WebControls.CheckBox ckduasHoras;
         
         /// <summary>
-        /// CheckBox2 control.
+        /// ckquatroHoras control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox2;
+        protected global::System.Web.UI.WebControls.CheckBox ckquatroHoras;
         
         /// <summary>
-        /// CheckBox3 control.
+        /// ckseisHoras control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox3;
+        protected global::System.Web.UI.WebControls.CheckBox ckseisHoras;
         
         /// <summary>
-        /// CheckBox4 control.
+        /// ckoitoHoras control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox4;
+        protected global::System.Web.UI.WebControls.CheckBox ckoitoHoras;
         
         /// <summary>
         /// CheckBox5 control.
@@ -509,13 +509,13 @@ namespace AFASFA.Cadastros {
         protected global::System.Web.UI.WebControls.Button InsertButton;
         
         /// <summary>
-        /// InsertCancelButton control.
+        /// CancelButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button InsertCancelButton;
+        protected global::System.Web.UI.WebControls.Button CancelButton;
         
         /// <summary>
         /// pnConfirmacao control.

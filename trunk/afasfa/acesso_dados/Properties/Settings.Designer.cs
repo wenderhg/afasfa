@@ -42,5 +42,15 @@ namespace acesso_dados.Properties {
                 return ((string)(this["AFASFAConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;database=afasfa;user id=root")]
+        public string afasfaConnectionString2 {
+            get {
+                return ((string)(this["afasfaConnectionString2"]));
+            }
+        }
     }
 }

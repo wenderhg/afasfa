@@ -204,8 +204,15 @@
     <Content Include="App_Themes\Default\TextBoxSkin.skin" />
     <Content Include="campanhas.aspx" />
     <Content Include="ComoChegar\ComoChegar.aspx" />
+    <Content Include="Imagens\ajax-loader.gif" />
     <Content Include="mala_direta.aspx" />
     <Content Include="solicitar_senha.aspx" />
+    <None Include="Web References\AfasfaWebService\DataSetAFASFA.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AfasfaWebService\DataSetAFASFA.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web References\br.com.bronzebusiness.www\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
