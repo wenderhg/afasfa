@@ -2,32 +2,11 @@
     CodeBehind="cadastro_eventos.aspx.cs" Inherits="AFASFA.Cadastros.cadastro_eventos" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="CplConteudo" runat="server">
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}"
-        SelectMethod="GetData" InsertMethod="Insert" 
-        TypeName="acesso_dados.DataSetAFASFATableAdapters.eventosTableAdapter" 
-        DeleteMethod="Delete" UpdateMethod="Update">
-        <DeleteParameters>
-            <asp:Parameter Name="Original_EVENTO" Type="UInt32" />
-        </DeleteParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="DESCRICAO" Type="String" />
-            <asp:Parameter Name="DATAEVENTO" Type="DateTime" />
-            <asp:Parameter Name="LOCALEVENTO" Type="String" />
-            <asp:Parameter Name="FOTOINICIAL" Type="String" />
-            <asp:Parameter Name="JAREALIZADO" Type="Byte" />
-            <asp:Parameter Name="APRESENTAR" Type="Byte" />
-            <asp:Parameter Name="RESERVADISPONIVEL" Type="Byte" />
-            <asp:Parameter Name="DATAMAXIMA" Type="DateTime" />
-            <asp:Parameter Name="VALORCONVITEA" Type="String" />
-            <asp:Parameter Name="VALORCONVITEC" Type="String" />
-            <asp:Parameter Name="OBSERVACAO" Type="String" />
-            <asp:Parameter Name="Original_EVENTO" Type="UInt32" />
-        </UpdateParameters>
+        SelectMethod="GetData" InsertMethod="Insert" TypeName="acesso_dados.DataSetAFASFATableAdapters.eventosTableAdapter">
         <InsertParameters>
             <asp:Parameter Name="DESCRICAO" Type="String" />
             <asp:Parameter Name="DATAEVENTO" Type="DateTime" />
@@ -55,7 +34,7 @@
                             <br />
                         </td>
                     </tr>
-                </tr>
+                </tr>                
                 <tr>
                     <td colspan="2" class="TextoPagina" align="justify">
                         Olá !!!! Muito Obrigado pelos serviços prestados....
@@ -83,7 +62,7 @@
                                 </td>
                                 <td width="80%" align="left">
                                     <asp:TextBox ID="DescricaoTextBox" runat="server" Text='<%# Bind("Descricao") %>'
-                                        Width="98%" class="txtFormulario" />
+                                        Width="98%" class="txtFormulario" />                                    
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorDescricaoTextBox" runat="server"
                                         ErrorMessage="Descrição é de preenchimento obrigatório" ControlToValidate="DescricaoTextBox"
                                         Display="None"></asp:RequiredFieldValidator>
@@ -124,6 +103,7 @@
                                         Display="None"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
+                            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                             <tr>
                                 <td class="lblFomulario" align="right">
                                     Foto Inicial:
@@ -131,9 +111,7 @@
                                 <td align="left">
                                     <%--<asp:TextBox ID="FotoInicialTextBox" runat="server" Text='<%# Bind("FotoInicial") %>'
                                         Width="50%" class="txtFormulario" />--%>
-                                    <asp:FileUpload ID="UploadFotoEvento" runat="server" BackColor="#666699" BorderColor="#003366"
-                                        BorderStyle="Double" BorderWidth="2px" CssClass="lblBtnFomularioCadastro" Font-Names="Verdana"
-                                        ForeColor="White" Width="98%" />
+                                    <asp:FileUpload ID="UploadFotoEvento" runat="server" SkinID="upFile" Width="98%" />
                                 </td>
                             </tr>
                             <tr>
@@ -141,7 +119,10 @@
                                     Já Realizado:
                                 </td>
                                 <td class="txtFormulario" align="left">
-                                    <asp:CheckBox ID="JaRealizadoCheckBox" runat="server" Checked='<%# Bind("JaRealizado") %>' />
+                                    <asp:CheckBox ID="chkJaRealizado" runat="server" OnCheckedChanged="chkJaRealizado_OnCheckedChanged"
+                                        AutoPostBack="true" />
+                                    <asp:Label ID="lblJaRealizado" runat="server" CssClass="lblFomulario" Text="Evento já realizado"
+                                        Visible="false"></asp:Label>
                                 </td>
                             </tr>
                             <tr>
@@ -235,7 +216,7 @@
                                 <td colspan="2" align="center">
                                     <br />
                                     <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Salvar Dados"
-                                        SkinID="btnFormularioCadastro" />
+                                        SkinID="btnFormularioCadastro" OnClick="InsertButton_Click" />
                                     <asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False" Text="Cancelar"
                                         SkinID="btnFormularioCadastro" OnClick="InsertCancelButton_Click" />
                                     <br />
@@ -268,7 +249,7 @@
             </table>
         </asp:Panel>
         <br />
-        <table width="100%" heigh="100%">
+        <table width="100%" height="100%">
             <tr>
                 <td align="center" class="lblPerguntaModalPop">
                     Confirma cancelamento ?
