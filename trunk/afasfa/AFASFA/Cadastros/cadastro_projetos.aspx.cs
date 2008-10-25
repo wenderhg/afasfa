@@ -7,12 +7,13 @@ using System.Web.UI.WebControls;
 
 namespace AFASFA.Cadastros
 {
-    public partial class cadastro_tipos_assistencias : System.Web.UI.Page
+    public partial class cadastro_projetos : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
+
         protected void InsertCancelButton_Click(object sender, EventArgs e)
         {
             this.ModalPopupExtender1.Show();

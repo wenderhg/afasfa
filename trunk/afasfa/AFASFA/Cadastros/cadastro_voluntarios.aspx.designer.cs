@@ -419,67 +419,67 @@ namespace AFASFA.Cadastros {
         protected global::System.Web.UI.WebControls.CheckBox ckoitoHoras;
         
         /// <summary>
-        /// CheckBox5 control.
+        /// ckDomingo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox5;
+        protected global::System.Web.UI.WebControls.CheckBox ckDomingo;
         
         /// <summary>
-        /// CheckBox6 control.
+        /// ckSegunda control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox6;
+        protected global::System.Web.UI.WebControls.CheckBox ckSegunda;
         
         /// <summary>
-        /// CheckBox7 control.
+        /// ckTerca control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox7;
+        protected global::System.Web.UI.WebControls.CheckBox ckTerca;
         
         /// <summary>
-        /// CheckBox8 control.
+        /// ckQuarta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox8;
+        protected global::System.Web.UI.WebControls.CheckBox ckQuarta;
         
         /// <summary>
-        /// CheckBox9 control.
+        /// ckQuinta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox9;
+        protected global::System.Web.UI.WebControls.CheckBox ckQuinta;
         
         /// <summary>
-        /// CheckBox10 control.
+        /// ckSexta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox10;
+        protected global::System.Web.UI.WebControls.CheckBox ckSexta;
         
         /// <summary>
-        /// CheckBox11 control.
+        /// ckSabado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox11;
+        protected global::System.Web.UI.WebControls.CheckBox ckSabado;
         
         /// <summary>
         /// AceitaTermoCheckBox control.

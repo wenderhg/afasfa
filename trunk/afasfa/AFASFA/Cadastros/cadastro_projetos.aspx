@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/afasfa.Master" AutoEventWireup="true"
-    CodeBehind="cadastro_projetos.aspx.cs" Inherits="AFASFA.Cadastros.cadastro_tipos_assistencias" %>
+    CodeBehind="cadastro_projetos.aspx.cs" Inherits="AFASFA.Cadastros.cadastro_projetos" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">

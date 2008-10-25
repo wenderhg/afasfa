@@ -11,7 +11,7 @@
 namespace AFASFA.Cadastros {
     
     
-    public partial class cadastro_tipos_assistencias {
+    public partial class cadastro_projetos {
         
         /// <summary>
         /// ObjectDataSource1 control.
