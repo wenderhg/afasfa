@@ -13,26 +13,7 @@
     </script>
 
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" InsertMethod="Insert"
-        OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="acesso_dados.AFASFATableAdapters.usuariosTableAdapter"
-        UpdateMethod="Update">
-        <UpdateParameters>
-            <asp:Parameter Name="NOME" Type="String" />
-            <asp:Parameter Name="SENHA" Type="String" />
-            <asp:Parameter Name="FOTO" Type="String" />
-            <asp:Parameter Name="RECEBERINFORMACOES" Type="Byte" />
-            <asp:Parameter Name="CEP" Type="String" />
-            <asp:Parameter Name="LOGRADOURO" Type="String" />
-            <asp:Parameter Name="NUMERO" Type="UInt32" />
-            <asp:Parameter Name="COMPLEMENTO" Type="String" />
-            <asp:Parameter Name="BAIRRO" Type="String" />
-            <asp:Parameter Name="CIDADE" Type="String" />
-            <asp:Parameter Name="UF" Type="String" />
-            <asp:Parameter Name="TELEFONECEL" Type="String" />
-            <asp:Parameter Name="TELEFONERES" Type="String" />
-            <asp:Parameter Name="EMAIL" Type="String" />
-            <asp:Parameter Name="APELIDO" Type="String" />
-            <asp:Parameter Name="Original_USUARIO" Type="UInt32" />
-        </UpdateParameters>
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="acesso_dados.AFASFATableAdapters.usuariosTableAdapter">
         <InsertParameters>
             <asp:Parameter Name="LOGIN" Type="String" />
             <asp:Parameter Name="NOME" Type="String" />
@@ -57,7 +38,19 @@
         <table cellpadding="0" cellspacing="0" width="100%">
             <tr>
                 <td align="center" class="TextoTitulo" colspan="2">
+                    <br />
                     CADASTRAR USUÁRIOS
+                    <br />
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="TextoPagina" align="justify">
+                    Olá !!!!! Muito Obrigado por sua visita.
+                    <br />
+                    <br />
+                    Agradecemos seu cadastro em nosso sistema, se for de sua vontade iremos lhe enviar
+                    mensagens e notícias relacionadas a nossa instituição.
                     <br />
                     <br />
                 </td>
@@ -70,13 +63,11 @@
                             <table cellpadding="0" cellspacing="0" width="100%">
                                 <tr>
                                     <td align="right" class="lblFomulario" width="20%">
-                                        <br />
                                         <strong style="color: red">*</strong> Login:
                                     </td>
-                                    <td align="left" width="80%">
-                                        <br />
+                                    <td align="left">
                                         <asp:TextBox ID="LoginTextBox" runat="server" CssClass="txtFormulario" onblur="PreencheApelido();"
-                                            Text='<%# Bind("Login") %>' />
+                                            Text='<%# Bind("Login") %>' Width="20%" />
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorLoginTextBox" runat="server"
                                             ControlToValidate="LoginTextBox" Display="None" ErrorMessage="Login é de preenchimento obrigatório"></asp:RequiredFieldValidator>
                                         <asp:Button ID="btnPreencheApelido" runat="server" CausesValidation="false" OnClick="btnPreencheApelido_Click"
@@ -87,94 +78,93 @@
                                 </tr>
                                 <tr>
                                     <td align="right" class="lblFomulario">
-                                        <br />
                                         <strong style="color: red">*</strong> Nome:
                                     </td>
                                     <td align="left">
-                                        <br />
-                                        <asp:TextBox ID="NomeTextBox" runat="server" Text='<%# Bind("Nome") %>' />
+                                        <asp:TextBox ID="NomeTextBox" runat="server" Text='<%# Bind("Nome") %>' Width="98%" />
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorNomeTextBox" runat="server"
                                             ControlToValidate="NomeTextBox" Display="None" ErrorMessage="Nome é de preenchimento obrigatório"></asp:RequiredFieldValidator>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td align="right" class="lblFomulario">
-                                        <br />
                                         <strong style="color: red">*</strong> Como deseja ser chamado:
                                     </td>
                                     <td align="left">
-                                        <br />
-                                        <asp:TextBox ID="ApelidoTextBox" runat="server" Text='<%# Bind("Apelido") %>' />
+                                        <asp:TextBox ID="ApelidoTextBox" runat="server" Text='<%# Bind("Apelido") %>' Width="20%"
+                                            CssClass="txtFormulario" />
                                         <asp:RequiredFieldValidator ID="RequiredFieldApelidoTextBox" runat="server" ControlToValidate="ApelidoTextBox"
                                             Display="None" ErrorMessage="Apelido é de preenchimento obrigatório"></asp:RequiredFieldValidator>
                                     </td>
                                 </tr>
                                 <tr id="trAdministrador" runat="server">
                                     <td align="right" class="lblFomulario" colspan="1">
-                                        <br />
-                                        <br />
                                         <asp:CheckBox ID="AdministradorCheckBox" runat="server" Text="Administrador" TextAlign="Left" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td align="right" class="lblFomulario">
-                                        <br />
                                         <strong style="color: red">*</strong> Digite sua senha:
                                     </td>
                                     <td align="left">
-                                        <br />
-                                        <asp:TextBox ID="txtSenha" runat="server" TextMode="Password" />
+                                        <asp:TextBox ID="txtSenha" runat="server" TextMode="Password" Width="30%" CssClass="txtFormulario" />
                                         <asp:RequiredFieldValidator ID="RequiredFieldtxtSenha" runat="server" ControlToValidate="txtSenha"
                                             Display="None" ErrorMessage="Senha é de preenchimento obrigatório"></asp:RequiredFieldValidator>
+                                        <br />
                                         <cc1:PasswordStrength ID="PasswordStrengthSenha" runat="server" BarBorderCssClass="BarBorder_Senha"
                                             DisplayPosition="RightSide" HelpStatusLabelID="lblHelp" MinimumNumericCharacters="1"
                                             PreferredPasswordLength="6" RequiresUpperAndLowerCaseCharacters="true" StrengthIndicatorType="BarIndicator"
                                             StrengthStyles="BarIndicator_Senha_weak;BarIndicator_Senha_average;BarIndicator_Senha_good"
-                                            TargetControlID="txtSenha" TextStrengthDescriptions="Muito fraco;Fraco;Médio;Forte;Excelente" />
-                                        <br />
-                                        <asp:Label ID="lblHelp" runat="server" Text="A senha deve ter no mínimo 6 caracteres, sendo au menos uma letra Maiúscula, uma minúscula, um numero e um símbolo."></asp:Label>
+                                            TargetControlID="txtSenha" TextStrengthDescriptions="Muito fraco;Fraco;Médio;Forte;Excelente"
+                                            TextCssClass="lblFomulario" />
+                                        <asp:Label ID="lblHelp" runat="server" Text="A senha deve ter no mínimo 6 caracteres, sendo au menos uma letra Maiúscula, uma minúscula, um numero e um símbolo."
+                                            CssClass="lblFomulario"></asp:Label>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td align="right" class="lblFomulario">
-                                        <br />
                                         <strong style="color: red">*</strong> Digite sua senha novamente:
                                     </td>
                                     <td align="left">
-                                        <br />
-                                        <asp:TextBox ID="txtConfirmarSenha" runat="server" TextMode="Password" />
+                                        <asp:TextBox ID="txtConfirmarSenha" runat="server" TextMode="Password" Width="30%"
+                                            CssClass="txtFormulario" />
                                         <asp:CompareValidator ID="CompareValidatortxtConfirmarSenha" runat="server" ControlToCompare="txtSenha"
                                             ControlToValidate="txtConfirmarSenha" Display="None" ErrorMessage="As senhas devem ser idênticas."></asp:CompareValidator>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td align="right" class="lblFomulario">
-                                        <br />
                                         &nbsp;Telefone Fixo:
                                     </td>
                                     <td align="left">
-                                        <br />
-                                        <asp:TextBox ID="TelefoneResTextBox" runat="server" Text='<%# Bind("TELEFONERES") %>' />
+                                        <asp:TextBox ID="TelefoneResTextBox" runat="server" Text='<%# Bind("TELEFONERES") %>'
+                                            Width="25%" v />
+                                        <cc1:MaskedEditExtender ID="MaskedEditExtenderTelefoneResTextBox" runat="server"
+                                            MaskType="Number" AcceptNegative="None" Mask="(99)9999-9999" TargetControlID="TelefoneResTextBox"
+                                            AutoComplete="true">
+                                        </cc1:MaskedEditExtender>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td align="right" class="lblFomulario">
-                                        <br />
                                         &nbsp;Celular:
                                     </td>
                                     <td align="left">
-                                        <br />
-                                        <asp:TextBox ID="TelefoneCelTextBox" runat="server" Text='<%# Bind("TELEFONECEL") %>' />
+                                        <asp:TextBox ID="TelefoneCelTextBox" runat="server" Text='<%# Bind("TELEFONECEL") %>'
+                                            Width="25%" CssClass="txtFormulario" />
+                                        <cc1:MaskedEditExtender ID="MaskedEditExtenderTelefoneCelTextBox" runat="server"
+                                            MaskType="Number" AcceptNegative="None" Mask="(99)9999-9999" TargetControlID="TelefoneCelTextBox"
+                                            AutoComplete="true">
+                                        </cc1:MaskedEditExtender>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td align="right" class="lblFomulario">
-                                        <br />
                                         &nbsp;Email:
                                     </td>
                                     <td align="left">
                                         <br />
-                                        <asp:TextBox ID="EMailTextBox" runat="server" Text='<%# Bind("EMAIL") %>' />
+                                        <asp:TextBox ID="EMailTextBox" runat="server" Text='<%# Bind("EMAIL") %>' Width="98%" />
                                         <asp:CustomValidator ID="CustomValidatorContato" runat="server" Display="None" ErrorMessage="Ao menos um dos telefones ou e-mail deve ser preenchido."
                                             OnServerValidate="CustomValidatorContato_ServerValidate"></asp:CustomValidator>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorEMail" runat="server"
@@ -184,12 +174,10 @@
                                 </tr>
                                 <tr>
                                     <td align="right" class="lblFomulario">
-                                        <br />
                                         <strong style="color: red">*</strong> &nbsp;Sexo:
                                     </td>
                                     <td align="left">
-                                        <br />
-                                        <asp:DropDownList ID="ddlSexo" runat="server">
+                                        <asp:DropDownList ID="ddlSexo" runat="server" CssClass="lblFomulario">
                                             <asp:ListItem></asp:ListItem>
                                             <asp:ListItem Text="Masculino" Value="M"></asp:ListItem>
                                             <asp:ListItem Text="Feminino" Value="F"></asp:ListItem>
@@ -200,7 +188,6 @@
                                 </tr>
                                 <tr>
                                     <td align="left" class="lblFomulario" colspan="2">
-                                        <br />
                                         <asp:CheckBox ID="ReceberInformacoesCheckBox" runat="server" Checked="true" Text="Receber informações da instituição"
                                             TextAlign="Left" />
                                     </td>
@@ -211,27 +198,67 @@
             </tr>
             <tr>
                 <td class="lblFomulario" align="right">
-                    <br />
                     &nbsp;Foto:
                 </td>
                 <td align="left">
-                    <br />
-                    <asp:FileUpload ID="fuFoto" runat="server" SkinID="btnFormularioCadastro" />
+                    <asp:FileUpload ID="fuFoto" runat="server" SkinID="upFile" Width="98%" />
                 </td>
             </tr>
             <tr>
-                <td align="center">
+                <td align="center" colspan="2">
                     <br />
                     <asp:Button ID="InsertButton" runat="server" Text="Salvar Dados" OnClick="InsertButton_Click"
-                        SkinID="btnFormularioCadastro" />
-                </td>
-                <td align="center">
-                    <br />
+                        SkinID="btnFormularioCadastro" CausesValidation="false" />
                     <asp:Button ID="CancelButton" runat="server" Text="Cancelar" CommandName="Cancel"
-                        SkinID="btnFormularioCadastro" />
+                        SkinID="btnFormularioCadastro" CausesValidation="false" />
+                    <br />
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="lblPreenchimentoObrigatorio" align="center">
+                    <br />
+                    (*) campo de preenchimento obrigatório
+                    <br />
+                    <br />
                 </td>
             </tr>
         </table>
         <br />
     </div>
+    <%--ModalPopup para confirmar cancelamento--%>
+    <asp:Panel ID="pnConfirmacao" runat="server" Style="display: none" CssClass="modalPopup">
+        <asp:Panel ID="Panel3" runat="server" Style="cursor: move; background-color: #DDDDDD;
+            border: solid 1px Gray; color: Black">
+            <table>
+                <tr>
+                    <td class="lblCabecalhoModalPop">
+                        Alerta !!!
+                    </td>
+                </tr>
+            </table>
+        </asp:Panel>
+        <br />
+        <table width="100%" heigh="100%">
+            <tr>
+                <td align="center" class="lblPerguntaModalPop">
+                    Confirma cancelamento ?
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <asp:Button ID="btnOK" runat="server" Text="Sim" OnClick="btnOK_Click" UseSubmitBehavior="false"
+                        SkinID="btnFormularioCadastro" CausesValidation="false" />
+                    <asp:Button ID="btnCancelar" runat="server" Text="Não" OnClick="btnCancelar_Click"
+                        CausesValidation="false" SkinID="btnFormularioCadastro" />
+                </td>
+            </tr>
+        </table>
+    </asp:Panel>
+    <asp:Button ID="btnModalPopupCancelar" runat="server" Text="" Style="display: none" />
+    <cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server" PopupControlID="pnConfirmacao"
+        RepositionMode="RepositionOnWindowResize" TargetControlID="CancelButton" BackgroundCssClass="modalBackground"
+        OkControlID="btnOK" CancelControlID="btnCancelar" DropShadow="true" PopupDragHandleControlID="Panel3">
+    </cc1:ModalPopupExtender>
 </asp:Content>
