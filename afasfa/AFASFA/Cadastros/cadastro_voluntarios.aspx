@@ -451,32 +451,25 @@
                                                     <table cellpadding="0" cellspacing="0" width="100%">
                                                         <tr>
                                                             <td>
-                                                                <asp:CheckBox ID="CheckBox5" runat="server" Checked='<%# Bind("QuaisDias") %>' class="txtFormulario"
-                                                                    Text="Segunda" />
+                                                                <asp:CheckBox ID="ckDomingo" runat="server" class="txtFormulario" Text="Domingo" />
                                                             </td>
                                                             <td>
-                                                                <asp:CheckBox ID="CheckBox6" runat="server" Checked='<%# Bind("QuaisDias") %>' class="txtFormulario"
-                                                                    Text="Terça" />
+                                                                <asp:CheckBox ID="ckSegunda" runat="server" class="txtFormulario" Text="Segunda" />
                                                             </td>
                                                             <td>
-                                                                <asp:CheckBox ID="CheckBox7" runat="server" Checked='<%# Bind("QuaisDias") %>' class="txtFormulario"
-                                                                    Text="Quarta" />
+                                                                <asp:CheckBox ID="ckTerca" runat="server" class="txtFormulario" Text="Terça" />
                                                             </td>
                                                             <td>
-                                                                <asp:CheckBox ID="CheckBox8" runat="server" Checked='<%# Bind("QuaisDias") %>' class="txtFormulario"
-                                                                    Text="Quinta" />
+                                                                <asp:CheckBox ID="ckQuarta" runat="server" class="txtFormulario" Text="Quarta" />
                                                             </td>
                                                             <td>
-                                                                <asp:CheckBox ID="CheckBox9" runat="server" Checked='<%# Bind("QuaisDias") %>' class="txtFormulario"
-                                                                    Text="Sexta" />
+                                                                <asp:CheckBox ID="ckQuinta" runat="server" class="txtFormulario" Text="Quinta" />
                                                             </td>
                                                             <td>
-                                                                <asp:CheckBox ID="CheckBox10" runat="server" Checked='<%# Bind("QuaisDias") %>' class="txtFormulario"
-                                                                    Text="Sábado" />
+                                                                <asp:CheckBox ID="ckSexta" runat="server" class="txtFormulario" Text="Sexta" />
                                                             </td>
                                                             <td>
-                                                                <asp:CheckBox ID="CheckBox11" runat="server" Checked='<%# Bind("QuaisDias") %>' class="txtFormulario"
-                                                                    Text="Domingo" />
+                                                                <asp:CheckBox ID="ckSabado" runat="server" class="txtFormulario" Text="Sábado" />
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -511,8 +504,8 @@
                             <br />
                             <asp:Button ID="InsertButton" runat="server" CausesValidation="True" OnClick="Inserir_Click"
                                 SkinID="btnFormularioCadastro" Text="Enviar Interesse" />
-                            &nbsp;<asp:Button ID="CancelButton" runat="server" CausesValidation="False"
-                                OnClick="Cancel_Click" SkinID="btnFormularioCadastro" Text="Cancelar" />
+                            &nbsp;<asp:Button ID="CancelButton" runat="server" CausesValidation="False" OnClick="Cancel_Click"
+                                SkinID="btnFormularioCadastro" Text="Cancelar" />
                             <br />
                             <br />
                         </td>

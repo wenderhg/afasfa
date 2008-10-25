@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using AFASFA.AfasfaWebService;
 using AFASFA.acesso_dados;
 using acesso_dados.DataSetAFASFATableAdapters;
+using AFASFA.afasfaWebService;
 
 namespace AFASFA.Cadastros
 {
@@ -16,9 +16,9 @@ namespace AFASFA.Cadastros
         {
             if (!IsPostBack)
             {
-                using (UFService _ufService = new UFService())
+                using (wsAfasfa _ws = new wsAfasfa())
                 {
-                    this.EstadoOrigemDropDownList.DataSource = _ufService.RetornaEstados();
+                    this.EstadoOrigemDropDownList.DataSource = _ws.RetornaEstados();
                     this.EstadoOrigemDropDownList.DataBind();
                     this.UfDropDownList.DataSource = this.EstadoOrigemDropDownList.DataSource;
                     this.UfDropDownList.DataBind();
@@ -51,7 +51,7 @@ namespace AFASFA.Cadastros
                     this.ApelidoTextBox.Text,
                     this.rblNacionalidade.SelectedIndex == 0 ? "B" : "E",
                     Convert.ToDateTime(this.DataNascimentoTextBox.Text),
-                    this.EstadoOrigemDropDownList.SelectedValue,
+                    Convert.ToInt32(this.EstadoOrigemDropDownList.SelectedValue),
                     this.ddlCidadeOrigem.SelectedValue,
                     Convert.ToByte(this.HabilitadoCheckBox.Checked),
                     this.EstadoCivilDropDownList.SelectedValue,
@@ -60,9 +60,77 @@ namespace AFASFA.Cadastros
                     this.ProfissaoTextBox.Text,
                     this.Local_de_TrabalhoTextBox.Text,
                     this.ComoFicouSabendoTextBox.Text,
-                    this.d
+                    this.rbVoluntarioDireto.Checked ? "D" : "I",
+                    this.QualAtividadeTextBox.Text,
+                    this.RetornaDisponibilidade(),
+                    this.RetornaQualDia(),
+                    Convert.ToByte(this.AceitaTermoCheckBox.Checked),
+                    this.TempoDoVoluntarioTextBox.Text,
+                    "P", //Cadastro de voluntário pendente
+                    this.RetornaIdContato()
                     );
             }
+        }
+
+        private int? RetornaIdContato()
+        {
+            return null;
+        }
+
+        private uint? RetornaQualDia()
+        {
+            uint? result = null;
+            if (ckDomingo.Checked)
+            {
+                result = 1;
+            }
+            else if (ckSegunda.Checked)
+            {
+                result = 2;
+            }
+            else if (ckTerca.Checked)
+            {
+                result = 3;
+            }
+            else if (ckQuarta.Checked)
+            {
+                result = 4;
+            }
+            else if (ckQuinta.Checked)
+            {
+                result = 5;
+            }
+            else if (ckSexta.Checked)
+            {
+                result = 6;
+            }
+            else if (ckSabado.Checked)
+            {
+                result = 7;
+            }
+            return result;
+        }
+
+        private uint? RetornaDisponibilidade()
+        {
+            uint? result = null;
+            if (ckduasHoras.Checked)
+            {
+                result = 2;
+            }
+            else if (ckquatroHoras.Checked)
+            {
+                result = 4;
+            }
+            else if (ckseisHoras.Checked)
+            {
+                result = 6;
+            }
+            else if (ckoitoHoras.Checked)
+            {
+                result = 8;
+            }
+            return result;
         }
 
         protected void Cancel_Click(object sender, EventArgs e)
