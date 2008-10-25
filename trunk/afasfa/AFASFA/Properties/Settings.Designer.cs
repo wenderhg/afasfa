@@ -32,5 +32,15 @@ namespace AFASFA.Properties {
                 return ((string)(this["AFASFA_br_com_bronzebusiness_www_wscep"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:51349/wsAfasfa.asmx")]
+        public string AFASFA_afasfaWebService_wsAfasfa {
+            get {
+                return ((string)(this["AFASFA_afasfaWebService_wsAfasfa"]));
+            }
+        }
     }
 }

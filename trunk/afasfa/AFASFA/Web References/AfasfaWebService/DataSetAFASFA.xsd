@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:mstns="http://tempuri.org/AFASFA.xsd" xmlns="http://tempuri.org/AFASFA.xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://tempuri.org/AFASFA.xsd" id="DataSetAFASFA" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msdata:EnforceConstraints="False" name="DataSetAFASFA">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="doacoes">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element msdata:Caption="DOACAO" name="Doacao" type="xs:unsignedInt" />
+              <xs:element msdata:Caption="NOME" minOccurs="0" name="Nome">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" name="DataDoacao" type="xs:dateTime" />
+              <xs:element name="Itens">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Disponibilidade">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" name="Observacao">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" default="P" name="Estado">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TelefoneRes" type="xs:decimal" />
+              <xs:element minOccurs="0" name="TelefoneCel" type="xs:decimal" />
+              <xs:element minOccurs="0" name="email">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element msdata:Caption="ENDERECO" name="Endereco">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element msdata:Caption="BAIRRO" name="Bairro">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="assistencias">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Assistencia" type="xs:unsignedInt" />
+              <xs:element name="Descricao">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Responsavel">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dados_quantitativos">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element msdata:Caption="MESANO" name="MesAno">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="6" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element msdata:Caption="ASSISTENCIA" name="Assistencia" type="xs:unsignedInt" />
+              <xs:element msdata:Caption="QTDECRIANCASF" minOccurs="0" name="QuantidadeDeCriancasDoSexoFeminino" type="xs:unsignedInt" />
+              <xs:element msdata:Caption="QTDECRIANCASM" minOccurs="0" name="QuantidadeDeCriancasDoSexoMasculino" type="xs:unsignedInt" />
+              <xs:element msdata:Caption="QTDEADOLESCENTESF" minOccurs="0" name="QuantidadeDeAdolescentesDoSexoFeminino" type="xs:unsignedInt" />
+              <xs:element msdata:Caption="QTDEADOLESCENTESM" minOccurs="0" name="QuantidadeDeAdolescentesDoSexoMasculino" type="xs:unsignedInt" />
+              <xs:element msdata:Caption="QTDEADULTOSF" minOccurs="0" name="QuantidadeDeAdultosDoSexoFeminino" type="xs:unsignedInt" />
+              <xs:element msdata:Caption="QTDEADULTOSM" minOccurs="0" name="QuantidadeDeAdultosDoSexoMasculino" type="xs:unsignedInt" />
+              <xs:element msdata:Caption="QTDEFAMILIA" minOccurs="0" name="QuantidadeDeFamilia" type="xs:unsignedInt" />
+              <xs:element msdata:Caption="DESCRICAO" name="Descricao">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element msdata:Caption="RESPONSAVEL" name="Responsavel">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="eventos">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element msdata:Caption="EVENTO" name="Evento" type="xs:unsignedInt" />
+              <xs:element msdata:Caption="DESCRICAO" name="Descricao">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element msdata:Caption="DATAEVENTO" name="DataEvento" type="xs:dateTime" />
+              <xs:element msdata:Caption="LOCALEVENTO" name="LocalEvento">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element msdata:Caption="FOTOINICIAL" minOccurs="0" name="FotoInicial">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element msdata:Caption="JAREALIZADO" minOccurs="0" name="JaRealizado" type="xs:boolean" />
+              <xs:element msdata:Caption="APRESENTAR" minOccurs="0" name="Apresentar" type="xs:boolean" />
+              <xs:element msdata:Caption="RESERVADISPONIVEL" minOccurs="0" name="ReservaDisponivel" type="xs:boolean" />
+              <xs:element msdata:Caption="DATAMAXIMA" minOccurs="0" name="DataMaxima" type="xs:dateTime" />
+              <xs:element msdata:Caption="VALORCONVITEA" name="ValorConviteAdulto" type="xs:decimal" />
+              <xs:element msdata:Caption="VALORCONVITEC" name="ValorConviteCrianca" type="xs:decimal" />
+              <xs:element msdata:Caption="OBSERVACAO" minOccurs="0" name="Observacao">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="projetos">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element msdata:Caption="PROJETO" name="Projeto" type="xs:unsignedInt" />
+              <xs:element msdata:Caption="DESCRICAO" minOccurs="0" name="Descricao">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element msdata:Caption="FOTO" minOccurs="0" name="Foto">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element msdata:Caption="DADOSDOPROJETO" minOccurs="0" name="DadosProjeto">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="65535" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element msdata:Caption="ORDEMAPRESENTACAO" name="OrdemApresentacao" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="usuarios">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" name="usuario" type="xs:int" />
+              <xs:element name="login">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="senha">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="administrador">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" name="IDCONTATO" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="voluntarios">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NOME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="APELIDO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NACIONALIDADE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DATANASCIMENTO" type="xs:dateTime" />
+              <xs:element name="ESTADOORIGEM">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CIDADEORIGEM">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" name="HABILITADO" type="xs:boolean" />
+              <xs:element minOccurs="0" name="ESTADOCIVIL">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" name="TRABALHA" type="xs:boolean" />
+              <xs:element minOccurs="0" name="ESCOLARIDADE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" name="PROFISSAO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" name="LOCALDETRABALHO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" name="COMOFICOUSABENDO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" name="TIPOVOLUNTARIO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" name="QUALATIVIDADE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" name="QUADISPONIBILIDADE" type="xs:unsignedInt" />
+              <xs:element minOccurs="0" name="QUAISDIAS" type="xs:unsignedInt" />
+              <xs:element minOccurs="0" name="ACEITATERMO" type="xs:boolean" />
+              <xs:element minOccurs="0" name="TEMPODOVOLUNTARIO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" name="ESTADO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VOLUNTARIO" type="xs:unsignedInt" />
+              <xs:element msdata:Caption="ESTADOORIGEM" name="ESTADOORIGEM1" type="xs:int" />
+              <xs:element minOccurs="0" name="IDCONTATO" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="estado">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="codigo" type="xs:short" />
+              <xs:element name="codigopais" type="xs:short" />
+              <xs:element name="sigla">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nome">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="cidade">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="codigo" type="xs:int" />
+              <xs:element name="codigoestado" type="xs:short" />
+              <xs:element name="nome">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="infocontato">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IDCONTATO" type="xs:unsignedInt" />
+              <xs:element minOccurs="0" name="NOME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" name="FOTO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" name="RECEBERINFORMACOES" type="xs:boolean" />
+              <xs:element minOccurs="0" name="CEP">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" name="LOGRADOURO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" name="NUMERO" type="xs:unsignedInt" />
+              <xs:element minOccurs="0" name="COMPLEMENTO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" name="BAIRRO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" name="CIDADE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" name="UF">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" name="TELEFONECEL" type="xs:decimal" />
+              <xs:element minOccurs="0" name="TELEFONERES" type="xs:decimal" />
+              <xs:element minOccurs="0" name="EMAIL">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SEXO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="APELIDO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="usuarios_aniversariantes">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="NOME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element minOccurs="0" name="EMAIL">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DATANASCIMENTO" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="usuarios_geral">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="NOME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DATANASCIMENTO" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="EMAIL">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique msdata:PrimaryKey="true" name="Constraint1">
+      <xs:selector xpath=".//mstns:doacoes" />
+      <xs:field xpath="mstns:Doacao" />
+    </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="assistencias_Constraint1">
+      <xs:selector xpath=".//mstns:assistencias" />
+      <xs:field xpath="mstns:Assistencia" />
+    </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="dados_quantitativos_Constraint1">
+      <xs:selector xpath=".//mstns:dados_quantitativos" />
+      <xs:field xpath="mstns:MesAno" />
+      <xs:field xpath="mstns:Assistencia" />
+    </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="eventos_Constraint1">
+      <xs:selector xpath=".//mstns:eventos" />
+      <xs:field xpath="mstns:Evento" />
+    </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="projetos_Constraint1">
+      <xs:selector xpath=".//mstns:projetos" />
+      <xs:field xpath="mstns:Projeto" />
+    </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="usuarios_Constraint1">
+      <xs:selector xpath=".//mstns:usuarios" />
+      <xs:field xpath="mstns:usuario" />
+    </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="voluntarios_Constraint1">
+      <xs:selector xpath=".//mstns:voluntarios" />
+      <xs:field xpath="mstns:VOLUNTARIO" />
+    </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="estado_Constraint1">
+      <xs:selector xpath=".//mstns:estado" />
+      <xs:field xpath="mstns:codigo" />
+    </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="cidade_Constraint1">
+      <xs:selector xpath=".//mstns:cidade" />
+      <xs:field xpath="mstns:codigo" />
+    </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="infocontato_Constraint1">
+      <xs:selector xpath=".//mstns:infocontato" />
+      <xs:field xpath="mstns:IDCONTATO" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
