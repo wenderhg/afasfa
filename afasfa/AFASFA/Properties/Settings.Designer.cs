@@ -26,16 +26,6 @@ namespace AFASFA.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:51349/UF.asmx")]
-        public string AFASFA_AfasfaWebService_UFService {
-            get {
-                return ((string)(this["AFASFA_AfasfaWebService_UFService"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://www.bronzebusiness.com.br/webservices/wscep.asmx")]
         public string AFASFA_br_com_bronzebusiness_www_wscep {
             get {
