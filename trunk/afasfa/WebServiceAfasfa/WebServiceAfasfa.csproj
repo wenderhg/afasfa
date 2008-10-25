@@ -54,12 +54,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
-    <Content Include="wsAfasfa_.asmx" />
+    <Content Include="wsAfasfa.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="wsAfasfa_.asmx.cs">
-      <DependentUpon>wsAfasfa_.asmx</DependentUpon>
+    <Compile Include="wsAfasfa.asmx.cs">
+      <DependentUpon>wsAfasfa.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
