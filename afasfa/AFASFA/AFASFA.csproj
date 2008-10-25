@@ -81,6 +81,13 @@
     <Compile Include="Cadastros\cadastro_eventos.aspx.designer.cs">
       <DependentUpon>cadastro_eventos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cadastros\cadastro_projetos.aspx.cs">
+      <DependentUpon>cadastro_projetos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cadastros\cadastro_projetos.aspx.designer.cs">
+      <DependentUpon>cadastro_projetos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cadastros\cadastro_tipos_assistencias.aspx.cs">
       <DependentUpon>cadastro_tipos_assistencias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -202,6 +209,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\Default\TextBoxSkin.skin" />
+    <Content Include="Cadastros\cadastro_projetos.aspx" />
     <Content Include="campanhas.aspx" />
     <Content Include="ComoChegar\ComoChegar.aspx" />
     <Content Include="Imagens\ajax-loader.gif" />
