@@ -16,6 +16,7 @@ using AFASFA.acesso_dados.Seguranca;
 using acesso_dados.Properties;
 using acesso_dados.DataSetAFASFATableAdapters;
 using Servico.Util;
+using System.IO;
 
 
 namespace AFASFA.Cadastros
@@ -56,36 +57,19 @@ namespace AFASFA.Cadastros
         }
         private void InserirUsuario()
         {
-            if (Conexao.AfasfaManager.eventosTableAdapter == null)
-            {
-                Conexao.AfasfaManager.eventosTableAdapter = new eventosTableAdapter();
-            }
-            string _nomeArquivo = RetornaNomeArquivo();
-            CarregaArquivo(_nomeArquivo);
-            Conexao.AfasfaManager.eventosTableAdapter.Insert(this.LocalEventoTextBox.Text,
-                                                             this.LocalEventoTextBox.Text,
-                                                             this.LocalEventoTextBox.Text,
-                                                             _nomeArquivo,
-                                                             Convert.ToByte(this.chkJaRealizado.Checked),
-                                                             Convert.ToByte(this.ApresentarCheckBox.Checked),
-                                                             Convert.ToByte(this.ReservaDisponivelCheckBox.Checked),
-                                                             this.DataMaximaTextBox.Text,
-                                                             this.ValorConviteAdultoTextBox.Text,
-                                                             this.ValorConviteCriancaTextBox.Text,
-                                                             this.ObservacaoTextBox.Text);
         }
 
         private string RetornaNomeArquivo()
         {
-            return String.Concat(AFASFA.Servico.Seguranca.Seguranca.RetornaSenha(this.UploadFotoEvento.FileName + DateTime.Now.ToString()),
-                System.IO.Path.GetExtension(this.UploadFotoEvento.FileName));
+            return String.Concat(AFASFA.Servico.Seguranca.Seguranca.RetornaSenha((this.FindControl("UploadFotoEvento") as FileUpload).FileName + DateTime.Now.ToString()),
+                System.IO.Path.GetExtension((this.FindControl("UploadFotoEvento") as FileUpload).FileName));
         }
 
         private void CarregaArquivo(string nomeArquivo)
         {
             string _diretorio = String.Concat(Server.MapPath("/"), "foto/");
             //Se tem arquivo informado
-            if (this.UploadFotoEvento.HasFile)
+            if ((this.FindControl("UploadFotoEvento") as FileUpload).HasFile)
             {
                 //Cria o diretorio se nao existir
                 if (!Directory.Exists(_diretorio))
@@ -93,12 +77,19 @@ namespace AFASFA.Cadastros
                     Directory.CreateDirectory(_diretorio);
                 }
                 //Salva o arquivo com o hash gerado a partir do nome e a data atual
-                this.UploadFotoEvento.SaveAs(_diretorio + nomeArquivo);
+                (this.FindControl("UploadFotoEvento") as FileUpload).SaveAs(_diretorio + nomeArquivo);
             }
         }
         protected void chkJaRealizado_OnCheckedChanged(object sender, EventArgs e)
         {
-            this.lblJaRealizado.Visible = this.chkJaRealizado.Checked;
+            (this.FindControl("lblJaRealizado") as Label).Visible = (this.FindControl("chkJaRealizado") as CheckBox).Checked;
+        }
+
+        protected void FormView1_ItemInserting(object sender, FormViewInsertEventArgs e)
+        {
+            string _nomeArquivo = RetornaNomeArquivo();
+            CarregaArquivo(_nomeArquivo);
+            e.Values["FOTOINICIAL"] = _nomeArquivo;
         }
 
     }

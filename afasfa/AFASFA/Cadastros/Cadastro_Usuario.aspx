@@ -138,7 +138,7 @@
                                     </td>
                                     <td align="left">
                                         <asp:TextBox ID="TelefoneResTextBox" runat="server" Text='<%# Bind("TELEFONERES") %>'
-                                            Width="25%" v />
+                                            Width="25%" />
                                         <cc1:MaskedEditExtender ID="MaskedEditExtenderTelefoneResTextBox" runat="server"
                                             MaskType="Number" AcceptNegative="None" Mask="(99)9999-9999" TargetControlID="TelefoneResTextBox"
                                             AutoComplete="true">
@@ -208,7 +208,7 @@
                 <td align="center" colspan="2">
                     <br />
                     <asp:Button ID="InsertButton" runat="server" Text="Salvar Dados" OnClick="InsertButton_Click"
-                        SkinID="btnFormularioCadastro" CausesValidation="false" />
+                        SkinID="btnFormularioCadastro" />
                     <asp:Button ID="CancelButton" runat="server" Text="Cancelar" CommandName="Cancel"
                         SkinID="btnFormularioCadastro" CausesValidation="false" />
                     <br />

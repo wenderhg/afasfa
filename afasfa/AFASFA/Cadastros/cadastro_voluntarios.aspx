@@ -202,6 +202,9 @@
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="NumeroTextbox"
                                             Display="None" ErrorMessage="Número é de preenchimento obrigatório">
                                         </asp:RequiredFieldValidator>
+                                        <asp:RangeValidator ID="rvNumero" runat="server" ErrorMessage="Número deve ser um número entre 0 e 9.999.999."
+                                            ControlToValidate="NumeroTextbox" Display="None" MinimumValue="0" MaximumValue="9999999"
+                                            Type="Integer"></asp:RangeValidator>
                                     </td>
                                 </tr>
                                 <tr>
@@ -236,7 +239,7 @@
                                         <strong style="color: Red">*</strong> UF:
                                     </td>
                                     <td align="left" width="80%">
-                                        <asp:DropDownList ID="UfDropDownList" runat="server" DataTextField="Nome" DataValueField="Sigla"
+                                        <asp:DropDownList ID="UfDropDownList" runat="server" DataTextField="Nome" DataValueField="Codigo"
                                             AppendDataBoundItems="true">
                                             <asp:ListItem></asp:ListItem>
                                         </asp:DropDownList>
@@ -249,6 +252,11 @@
                                     <td align="left" width="80%">
                                         <asp:TextBox ID="EmailTextBox" runat="server" class="txtFormulario" Text='<%# Bind("[Email]") %>'
                                             ToolTip="E-mail será usado como contato principal caso seja informado" Width="98%" />
+                                        <asp:CustomValidator ID="CustomValidator1" runat="server" Display="None" ErrorMessage="Ao menos um dos telefones ou e-mail deve ser preenchido."
+                                            OnServerValidate="CustomValidatorContato_ServerValidate"></asp:CustomValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorEMail" runat="server"
+                                            ControlToValidate="EMailTextBox" Display="None" ErrorMessage="Formato do endereço de e-mail está inválido."
+                                            ValidationExpression="[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"></asp:RegularExpressionValidator>
                                     </td>
                                 </tr>
                                 <tr>
@@ -375,7 +383,7 @@
                                                         <tr>
                                                             <td>
                                                                 <asp:RadioButton ID="rbVoluntarioDireto" runat="server" class="txtFormulario" GroupName="TipoVoluntario"
-                                                                    Text="Voluntário Direto" />
+                                                                    Text="Voluntário Direto" ToolTip="Voluntário direto é aquele que trabalha dentro da organização e indireto o que trabalha fora. Mais informações na página de voluntários."/>
                                                             </td>
                                                             <td class="txtFormulario">
                                                                 Trabalho dentro de organização.
@@ -384,7 +392,7 @@
                                                         <tr>
                                                             <td>
                                                                 <asp:RadioButton ID="rbVoluntarioIndireto" runat="server" class="txtFormulario" GroupName="TipoVoluntario"
-                                                                    Text="Voluntário Indireto" />
+                                                                    Text="Voluntário Indireto" ToolTip="Voluntário direto é aquele que trabalha dentro da organização e indireto o que trabalha fora. Mais informações na página de voluntários."/>
                                                             </td>
                                                             <td class="txtFormulario">
                                                                 Trabalho fora da organização.
@@ -557,4 +565,6 @@
         BackgroundCssClass="modalBackground" OkControlID="btnOK" CancelControlID="btnCancelar"
         DropShadow="true" PopupDragHandleControlID="Panel3">
     </cc1:ModalPopupExtender>
+    <asp:CustomValidator ID="CustomValidatorContato" runat="server" ErrorMessage="CustomValidator" 
+      ></asp:CustomValidator>
 </asp:Content>
