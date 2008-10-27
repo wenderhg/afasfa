@@ -57,18 +57,23 @@ namespace AFASFA.Cadastros
                             this.NomeTextBox.Text,
                             _nomeArquivo,
                             Convert.ToByte(this.ReceberInformacoesCheckBox.Checked),
-                            string.Empty,
-                            string.Empty,
                             null,
-                            string.Empty,
-                            string.Empty,
-                            string.Empty,
-                            string.Empty,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
                             RetornaTelefone(this.TelefoneCelTextBox.Text),
                             RetornaTelefone(this.TelefoneResTextBox.Text),
                             this.EMailTextBox.Text,
                             ddlSexo.SelectedValue,
                             this.ApelidoTextBox.Text);
+                //Se inseriu alguma coisa então busca o ID
+                if (result >= 1)
+                {
+                    result = Convert.ToInt32(Conexao.AfasfaManager.infocontatoTableAdapter.RetornaUltimoID());
+                }
             }
             return result;
         }
@@ -114,33 +119,12 @@ namespace AFASFA.Cadastros
             //Conexao.AfasfaManager.usuariosTableAdapter.Insert(_usuario);
         }
 
-        private void PreencheCampos(DataSetAFASFA.usuariosRow _row)
-        {
-            _row.Login = LoginTextBox.Text;
-            _row.Nome = NomeTextBox.Text;
-            _row.APELIDO = ApelidoTextBox.Text;
-            _row.ADMINISTRADOR = AdministradorCheckBox.Checked ? "S" : "N";
-            //Retorna senha criptografada para ser gravada no banco
-            _row.Senha = Servico.Seguranca.Seguranca.RetornaSenha(txtSenha.Text);
-            Decimal _telefone = decimal.MinValue;
-            if (Decimal.TryParse(TelefoneResTextBox.Text, out _telefone))
-                _row.TELEFONERES = _telefone;
-            _telefone = decimal.MinValue;
-            if (Decimal.TryParse(TelefoneCelTextBox.Text, out _telefone))
-                _row.TELEFONECEL = _telefone;
-
-            _row.EMAIL = EMailTextBox.Text;
-            _row.RECEBERINFORMACOES = ReceberInformacoesCheckBox.Checked;
-            _row.Usuario = 0;
-            _row.SEXO = RetornaSexo();
-        }
-
         private string RetornaSexo()
         {
             CheckBox _ck = (this.FindControl("chkFeminino") as CheckBox);
             if (_ck == null)
             {
-                return string.Empty;
+                return null;
             }
             if (_ck.Checked)
             {
@@ -167,11 +151,10 @@ namespace AFASFA.Cadastros
 
         protected void CustomValidatorLoginRepetido_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            if (Conexao.AfasfaManager.usuariosTableAdapter == null)
+            using (Conexao.AfasfaManager.usuariosTableAdapter = new usuariosTableAdapter())
             {
-                Conexao.AfasfaManager.usuariosTableAdapter = new usuariosTableAdapter();
-            }
-            args.IsValid = Conexao.AfasfaManager.usuariosTableAdapter.RetornaLoginRepetido(this.LoginTextBox.Text) == 0;
+                args.IsValid = Conexao.AfasfaManager.usuariosTableAdapter.RetornaLoginRepetido(this.LoginTextBox.Text) == 0;
+            }            
         }
 
         protected void CustomValidatorContato_ServerValidate(object source, ServerValidateEventArgs args)

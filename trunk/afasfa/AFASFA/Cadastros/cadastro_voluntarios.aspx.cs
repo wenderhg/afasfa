@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using AFASFA.acesso_dados;
 using acesso_dados.DataSetAFASFATableAdapters;
 using AFASFA.afasfaWebService;
+using Servico.Util;
 
 namespace AFASFA.Cadastros
 {
@@ -70,11 +71,75 @@ namespace AFASFA.Cadastros
                     this.RetornaIdContato()
                     );
             }
+            this.EnviarEmails();
+        }
+
+        private void EnviarEmails()
+        {
+            //Envia email para a instituicao
+            this.EnviarEmailInstituicao();
+            //Envia email para o voluntário
+            this.EnviarEmailVoluntário();
+        }
+
+        private void EnviarEmailVoluntário()
+        {
+            if (!String.IsNullOrEmpty(this.EmailTextBox.Text))
+            {
+                MailSender.EnviarEMailHTML(this.EmailTextBox.Text,
+                    "Agradecimento de Associação Filantrópica e Assistencial São Francisco de Assis",
+                    String.Format("{0},<br /><br />&nbsp;A Associação Filantrópica e Assistencial São Francisco de Assis agradece seu interesse em se tornar um voluntário.<br />Aguarde que entraremos em contato.<br />Atenciosamente,<br />A Direção.", this.NomeTextBox.Text));
+            }
+        }
+
+        private void EnviarEmailInstituicao()
+        {
+            MailSender.EnviarEMailHTML("afasaofranciscodeassis@afasaofranciscodeassis.com.br",
+                "Interesse em ser voluntário",
+                String.Format("{0} inseriu cadastro de interesse em ser voluntário.", this.NomeTextBox.Text));
         }
 
         private int? RetornaIdContato()
         {
-            return null;
+            int? result = null;
+            using (Conexao.AfasfaManager.infocontatoTableAdapter = new infocontatoTableAdapter())
+            {
+                result = Conexao.AfasfaManager.infocontatoTableAdapter.Insert(
+                            this.NomeTextBox.Text,
+                            null,
+                            Convert.ToByte(true),
+                            this.CepTextBox.Text,
+                            this.LogradouroTextbox.Text,
+                            Convert.ToUInt32(this.NumeroTextbox.Text),
+                            this.ComplementoTextbox.Text,
+                            this.BairroTextBox.Text,
+                            this.CidadeTextBox.Text,
+                            this.UfDropDownList.SelectedValue,
+                            RetornaTelefone(this.TelefoneCelTextBox.Text),
+                            RetornaTelefone(this.TelefoneResTextBox.Text),
+                            this.EmailTextBox.Text,
+                            null,
+                            this.ApelidoTextBox.Text);
+                //Se inseriu alguma coisa então busca o ID
+                if (result >= 1)
+                {
+                    result = Convert.ToInt32(Conexao.AfasfaManager.infocontatoTableAdapter.RetornaUltimoID());
+                }
+            }
+            return result;
+        }
+
+        private string RetornaTelefone(string telefone)
+        {
+            decimal _fone;
+            if (decimal.TryParse(telefone, out _fone))
+            {
+                return _fone.ToString();
+            }
+            else
+            {
+                return null;
+            }
         }
 
         private uint? RetornaQualDia()
@@ -137,7 +202,7 @@ namespace AFASFA.Cadastros
         {
             this.ModalPopupExtender1.Show();
         }
-        
+
         protected void btnCEP_Click(object sender, EventArgs e)
         {
             //Instancia WebService
@@ -168,7 +233,7 @@ namespace AFASFA.Cadastros
 
         protected void EstadoOrigemDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            using (UFService _ws = new UFService())
+            using (wsAfasfa _ws = new wsAfasfa())
             {
                 short _estado;
                 //Tenta fazer o parser do codigo do estado selecionado
@@ -181,6 +246,13 @@ namespace AFASFA.Cadastros
                 this.ddlCidadeOrigem.DataSource = _ws.RetornaCidadesPorEstado(_estado);
                 this.ddlCidadeOrigem.DataBind();
             }
+        }
+
+        protected void CustomValidatorContato_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            //Se algum não for empty, retorna true
+            args.IsValid = (!String.IsNullOrEmpty(this.TelefoneCelTextBox.Text) || !String.IsNullOrEmpty(this.TelefoneResTextBox.Text) ||
+                !String.IsNullOrEmpty(this.EmailTextBox.Text));
         }
 
     }

@@ -22,7 +22,8 @@
         </InsertParameters>
     </asp:ObjectDataSource>
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="Evento" DataSourceID="ObjectDataSource1"
-        DefaultMode="Insert" BackColor="#E6E7F2" BorderColor="#ECFFFF" BorderStyle="Ridge">
+        DefaultMode="Insert" BackColor="#E6E7F2" BorderColor="#ECFFFF" 
+        BorderStyle="Ridge" oniteminserting="FormView1_ItemInserting">
         <InsertItemTemplate>
             <table cellpadding="0" cellspacing="0" width="100%">
                 <tr>
