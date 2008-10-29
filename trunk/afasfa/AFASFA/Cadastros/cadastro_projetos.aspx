@@ -6,15 +6,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CplConteudo" runat="server">
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" InsertMethod="Insert"
-        OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" 
-        TypeName="acesso_dados.DataSetAFASFATableAdapters.projetosTableAdapter" 
-        UpdateMethod="Update">
-        <UpdateParameters>
-            <asp:Parameter Name="DESCRICAO" Type="String" />
-            <asp:Parameter Name="FOTO" Type="String" />
-            <asp:Parameter Name="DADOSDOPROJETO" Type="String" />
-            <asp:Parameter Name="ORDEMAPRESENTACAO" Type="Int32" />            
-        </UpdateParameters>
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="acesso_dados.DataSetAFASFATableAdapters.projetosTableAdapter">
+        
         <InsertParameters>
             <asp:Parameter Name="DESCRICAO" Type="String" />
             <asp:Parameter Name="FOTO" Type="String" />
@@ -23,76 +16,28 @@
         </InsertParameters>
     </asp:ObjectDataSource>
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="Projeto" DataSourceID="ObjectDataSource1"
-        DefaultMode="Insert" BackColor="#E6E7F2" BorderColor="#ECFFFF" 
-        BorderStyle="Ridge">
-        <EditItemTemplate>            
-            Descricao:
-            <asp:TextBox ID="DescricaoTextBox" runat="server" 
-                Text='<%# Bind("Descricao") %>' />
-            <br />
-            Foto:
-            <asp:TextBox ID="FotoTextBox" runat="server" Text='<%# Bind("Foto") %>' />
-            <br />
-            DadosProjeto:
-            <asp:TextBox ID="DadosProjetoTextBox" runat="server" 
-                Text='<%# Bind("DadosProjeto") %>' />
-            <br />
-            OrdemApresentacao:
-            <asp:TextBox ID="OrdemApresentacaoTextBox" runat="server" 
-                Text='<%# Bind("OrdemApresentacao") %>' />
-            <br />
-            <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" 
-                CommandName="Update" Text="Update" />
-            &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" 
-                CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-        </EditItemTemplate>
+        DefaultMode="Insert" BackColor="#E6E7F2" BorderColor="#ECFFFF" BorderStyle="Ridge">        
         <InsertItemTemplate>
             Projeto:
             <asp:TextBox ID="ProjetoTextBox" runat="server" Text='<%# Bind("Projeto") %>' />
             <br />
             Descricao:
-            <asp:TextBox ID="DescricaoTextBox" runat="server" 
-                Text='<%# Bind("Descricao") %>' />
+            <asp:TextBox ID="DescricaoTextBox" runat="server" Text='<%# Bind("Descricao") %>' />
             <br />
             Foto:
             <asp:TextBox ID="FotoTextBox" runat="server" Text='<%# Bind("Foto") %>' />
             <br />
             DadosProjeto:
-            <asp:TextBox ID="DadosProjetoTextBox" runat="server" 
-                Text='<%# Bind("DadosProjeto") %>' />
+            <asp:TextBox ID="DadosProjetoTextBox" runat="server" Text='<%# Bind("DadosProjeto") %>' />
             <br />
             OrdemApresentacao:
-            <asp:TextBox ID="OrdemApresentacaoTextBox" runat="server" 
-                Text='<%# Bind("OrdemApresentacao") %>' />
+            <asp:TextBox ID="OrdemApresentacaoTextBox" runat="server" Text='<%# Bind("OrdemApresentacao") %>' />
             <br />
-            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" 
-                CommandName="Insert" Text="Insert" />
-            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" 
-                CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-        </InsertItemTemplate>
-        <ItemTemplate>
-            Projeto:
-            <asp:Label ID="ProjetoLabel" runat="server" Text='<%# Eval("Projeto") %>' />
-            <br />
-            Descricao:
-            <asp:Label ID="DescricaoLabel" runat="server" Text='<%# Bind("Descricao") %>' />
-            <br />
-            Foto:
-            <asp:Label ID="FotoLabel" runat="server" Text='<%# Bind("Foto") %>' />
-            <br />
-            DadosProjeto:
-            <asp:Label ID="DadosProjetoLabel" runat="server" 
-                Text='<%# Bind("DadosProjeto") %>' />
-            <br />
-            OrdemApresentacao:
-            <asp:Label ID="OrdemApresentacaoLabel" runat="server" 
-                Text='<%# Bind("OrdemApresentacao") %>' />
-            <br />
-            <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" 
-                CommandName="Edit" Text="Edit" />
-            &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" 
-                CommandName="New" Text="New" />
-        </ItemTemplate>
+            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert"
+                Text="Insert" />
+            &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False"
+                CommandName="Cancel" Text="Cancel" />
+        </InsertItemTemplate>        
     </asp:FormView>
     <asp:Panel ID="pnConfirmacao" runat="server" Style="display: none" CssClass="modalPopup">
         <asp:Panel ID="Panel3" runat="server" Style="cursor: move; background-color: #DDDDDD;

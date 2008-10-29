@@ -239,7 +239,7 @@
                                         <strong style="color: Red">*</strong> UF:
                                     </td>
                                     <td align="left" width="80%">
-                                        <asp:DropDownList ID="UfDropDownList" runat="server" DataTextField="Nome" DataValueField="Codigo"
+                                        <asp:DropDownList ID="UfDropDownList" runat="server" DataTextField="Nome" DataValueField="Sigla"
                                             AppendDataBoundItems="true">
                                             <asp:ListItem></asp:ListItem>
                                         </asp:DropDownList>
