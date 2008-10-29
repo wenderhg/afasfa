@@ -4,6 +4,10 @@
 
     public partial class DataSetAFASFA
     {
+        partial class voluntariosDataTable
+        {
+        }
+    
         partial class eventosDataTable
         {
         }

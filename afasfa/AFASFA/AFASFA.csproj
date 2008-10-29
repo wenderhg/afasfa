@@ -215,6 +215,7 @@
     <Content Include="Imagens\ajax-loader.gif" />
     <Content Include="mala_direta.aspx" />
     <Content Include="solicitar_senha.aspx" />
+    <Content Include="App_Themes\Default\GridSkin.skin" />
     <None Include="Web References\afasfaWebService\DataSetAFASFA.xsd">
       <SubType>Designer</SubType>
     </None>
