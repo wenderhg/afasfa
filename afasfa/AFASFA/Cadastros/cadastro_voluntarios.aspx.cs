@@ -45,33 +45,44 @@ namespace AFASFA.Cadastros
 
         protected void Inserir_Click(object sender, EventArgs e)
         {
-            using (Conexao.AfasfaManager.voluntariosTableAdapter = new voluntariosTableAdapter())
+            if (rblNacionalidade.SelectedIndex == 0)
             {
-                Conexao.AfasfaManager.voluntariosTableAdapter.Insert(
-                    this.NomeTextBox.Text,
-                    this.ApelidoTextBox.Text,
-                    this.rblNacionalidade.SelectedIndex == 0 ? "B" : "E",
-                    Convert.ToDateTime(this.DataNascimentoTextBox.Text),
-                    Convert.ToInt32(this.EstadoOrigemDropDownList.SelectedValue),
-                    this.ddlCidadeOrigem.SelectedValue,
-                    Convert.ToByte(this.HabilitadoCheckBox.Checked),
-                    this.EstadoCivilDropDownList.SelectedValue,
-                    Convert.ToByte(this.TrabalhoCheckBox.Checked),
-                    this.EscolaridadeDropDown.SelectedValue,
-                    this.ProfissaoTextBox.Text,
-                    this.Local_de_TrabalhoTextBox.Text,
-                    this.ComoFicouSabendoTextBox.Text,
-                    this.rbVoluntarioDireto.Checked ? "D" : "I",
-                    this.QualAtividadeTextBox.Text,
-                    this.RetornaDisponibilidade(),
-                    this.RetornaQualDia(),
-                    Convert.ToByte(this.AceitaTermoCheckBox.Checked),
-                    this.TempoDoVoluntarioTextBox.Text,
-                    "P", //Cadastro de voluntário pendente
-                    this.RetornaIdContato()
-                    );
+                Page.Validate("Brasileira");
             }
-            this.EnviarEmails();
+            else
+            {
+                Page.Validate("Estrangeiro");
+            }
+            if (Page.IsValid)
+            {
+                using (Conexao.AfasfaManager.voluntariosTableAdapter = new voluntariosTableAdapter())
+                {
+                    Conexao.AfasfaManager.voluntariosTableAdapter.Insert(
+                        this.ApelidoTextBox.Text,
+                        this.rblNacionalidade.SelectedIndex == 0 ? "B" : "E",
+                        Convert.ToDateTime(this.DataNascimentoTextBox.Text),
+                        this.rblNacionalidade.SelectedIndex == 0 ? Convert.ToInt32(this.EstadoOrigemDropDownList.SelectedValue) : 28 /*Codigo de UF Estrangeiro*/,
+                        this.rblNacionalidade.SelectedIndex == 0 ? this.ddlCidadeOrigem.SelectedValue : this.CidadeOrigemTextBox.Text,
+                        Convert.ToByte(this.HabilitadoCheckBox.Checked),
+                        this.EstadoCivilDropDownList.SelectedValue,
+                        Convert.ToByte(this.TrabalhoCheckBox.Checked),
+                        this.EscolaridadeDropDown.SelectedValue,
+                        this.ProfissaoTextBox.Text,
+                        this.Local_de_TrabalhoTextBox.Text,
+                        this.ComoFicouSabendoTextBox.Text,
+                        this.rbVoluntarioDireto.Checked ? "D" : "I",
+                        this.QualAtividadeTextBox.Text,
+                        this.RetornaDisponibilidade(),
+                        this.RetornaQualDia(),
+                        Convert.ToByte(this.AceitaTermoCheckBox.Checked),
+                        this.TempoDoVoluntarioTextBox.Text,
+                        "P", //Cadastro de voluntário pendente
+                        this.RetornaIdContato(),
+                        this.rblNacionalidade.SelectedIndex == 1 ? this.PaisOrigemTextBox.Text : null
+                        );
+                }
+                this.EnviarEmails();
+            }
         }
 
         private void EnviarEmails()
@@ -118,7 +129,7 @@ namespace AFASFA.Cadastros
                             RetornaTelefone(this.TelefoneCelTextBox.Text),
                             RetornaTelefone(this.TelefoneResTextBox.Text),
                             this.EmailTextBox.Text,
-                            null,
+                            this.ddlSexo.SelectedValue,
                             this.ApelidoTextBox.Text);
                 //Se inseriu alguma coisa então busca o ID
                 if (result >= 1)
@@ -142,38 +153,38 @@ namespace AFASFA.Cadastros
             }
         }
 
-        private uint? RetornaQualDia()
+        private string RetornaQualDia()
         {
-            uint? result = null;
+            System.Text.StringBuilder result = new System.Text.StringBuilder();
             if (ckDomingo.Checked)
             {
-                result = 1;
+                result.Append(1);
             }
             else if (ckSegunda.Checked)
             {
-                result = 2;
+                result.Append(2);
             }
             else if (ckTerca.Checked)
             {
-                result = 3;
+                result.Append(3);
             }
             else if (ckQuarta.Checked)
             {
-                result = 4;
+                result.Append(4);
             }
             else if (ckQuinta.Checked)
             {
-                result = 5;
+                result.Append(5);
             }
             else if (ckSexta.Checked)
             {
-                result = 6;
+                result.Append(6);
             }
             else if (ckSabado.Checked)
             {
-                result = 7;
+                result.Append(7);
             }
-            return result;
+            return result.ToString();
         }
 
         private uint? RetornaDisponibilidade()
@@ -255,6 +266,20 @@ namespace AFASFA.Cadastros
                 !String.IsNullOrEmpty(this.EmailTextBox.Text));
         }
 
+        protected void CustomValidatorEstado_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            //Se algum não for empty, retorna true
+            args.IsValid = (!String.IsNullOrEmpty(this.UfDropDownList.SelectedValue));
+        }
+
+        protected void rblNacionalidade_SelectedIndexChanged(object source, EventArgs e)
+        {
+            //Selecionado a nacionalidade Brasileira
+            this.tr_EstadosBrasileiros.Visible = (rblNacionalidade.SelectedIndex == 0);
+            this.tr_CidadeBrasileira.Visible = (rblNacionalidade.SelectedIndex == 0);
+            this.tr_PaisEstrangeiro.Visible = (rblNacionalidade.SelectedIndex == 1);
+            this.tr_CidadeEstrangeira.Visible = (rblNacionalidade.SelectedIndex == 1);
+        }
+
     }
 }
-

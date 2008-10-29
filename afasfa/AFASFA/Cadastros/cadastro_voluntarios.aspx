@@ -134,17 +134,32 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td align="right" class="lblFomulario">
+                                        <strong style="color: red">*</strong> &nbsp;Sexo:
+                                    </td>
+                                    <td align="left">
+                                        <asp:DropDownList ID="ddlSexo" runat="server" CssClass="lblFomulario">
+                                            <asp:ListItem></asp:ListItem>
+                                            <asp:ListItem Text="Masculino" Value="M"></asp:ListItem>
+                                            <asp:ListItem Text="Feminino" Value="F"></asp:ListItem>
+                                        </asp:DropDownList>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorddlSexo" runat="server" ControlToValidate="ddlSexo"
+                                            Display="None" ErrorMessage="Sexo é de preenchimento obrigatório"></asp:RequiredFieldValidator>
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td align="right" class="lblFomulario" width="20%">
                                         Nacionalidade:
                                     </td>
                                     <td align="left" width="80%">
-                                        <asp:RadioButtonList ID="rblNacionalidade" runat="server" RepeatColumns="2">
+                                        <asp:RadioButtonList ID="rblNacionalidade" runat="server" RepeatColumns="2" AutoPostBack="true"
+                                            OnSelectedIndexChanged="rblNacionalidade_SelectedIndexChanged">
                                             <asp:ListItem Selected="True" Text="Brasileira" Value="B"></asp:ListItem>
                                             <asp:ListItem Text="Estrangeira" Value="E"></asp:ListItem>
                                         </asp:RadioButtonList>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr id="tr_EstadosBrasileiros" runat="server">
                                     <td align="right" class="lblFomulario" width="20%">
                                         <strong style="color: Red">*</strong> Estado de Origem:
                                     </td>
@@ -154,9 +169,11 @@
                                             DataValueField="Codigo" AppendDataBoundItems="true">
                                             <asp:ListItem></asp:ListItem>
                                         </asp:DropDownList>
+                                        <asp:CustomValidator ID="CustomValidatorEstado" runat="server" Display="None" ErrorMessage="Estado de origem é de preenchimento obrigatório."
+                                            OnServerValidate="CustomValidatorEstado_ServerValidate" ControlToValidate="EstadoOrigemDropDownList"></asp:CustomValidator>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr id="tr_CidadeBrasileira" runat="server">
                                     <td align="right" class="lblFomulario" width="20%">
                                         <strong style="color: Red"></strong>Cidade Origem:
                                     </td>
@@ -167,6 +184,31 @@
                                         </asp:DropDownList>
                                         <span align="justify" class="TextoPagina">Caso sua cidade não conste na lista, favor
                                             deixar o campo sem preenchimento.</span>
+                                    </td>
+                                </tr>
+                                <tr id="tr_PaisEstrangeiro" runat="server" visible="false">
+                                    <td align="right" class="lblFomulario" width="20%">
+                                        <strong style="color: Red">*</strong> País de Origem:
+                                    </td>
+                                    <td align="left" width="80%">
+                                        <asp:TextBox ID="PaisOrigemTextBox" runat="server" class="txtFormulario" Text='<%# Bind("PaisOrigem") %>'
+                                            Width="16%" />
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorPaisOrigemTextBox" runat="server"
+                                            ControlToValidate="PaisOrigemTextBox" Display="None" ErrorMessage="País é de preenchimento obrigatório."
+                                            ValidationGroup="Estrangeiro">
+                                        </asp:RequiredFieldValidator>
+                                    </td>
+                                </tr>
+                                <tr id="tr_CidadeEstrangeira" runat="server" visible="false">
+                                    <td align="right" class="lblFomulario" width="20%">
+                                        <strong style="color: Red">*</strong>Cidade Origem:
+                                    </td>
+                                    <td align="left" width="80%">
+                                        <asp:TextBox ID="CidadeOrigemTextBox" runat="server" class="txtFormulario" Text='<%# Bind("Cidade") %>'
+                                            Width="16%" />
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="CidadeOrigemTextBox"
+                                            Display="None" ErrorMessage="Cidade Origem é de preenchimento obrigatório." ValidationGroup="Estrangeiro">
+                                        </asp:RequiredFieldValidator>
                                     </td>
                                 </tr>
                                 <tr>
@@ -383,7 +425,7 @@
                                                         <tr>
                                                             <td>
                                                                 <asp:RadioButton ID="rbVoluntarioDireto" runat="server" class="txtFormulario" GroupName="TipoVoluntario"
-                                                                    Text="Voluntário Direto" ToolTip="Voluntário direto é aquele que trabalha dentro da organização e indireto o que trabalha fora. Mais informações na página de voluntários."/>
+                                                                    Text="Voluntário Direto" ToolTip="Voluntário direto é aquele que trabalha dentro da organização e indireto o que trabalha fora. Mais informações na página de voluntários." />
                                                             </td>
                                                             <td class="txtFormulario">
                                                                 Trabalho dentro de organização.
@@ -392,7 +434,7 @@
                                                         <tr>
                                                             <td>
                                                                 <asp:RadioButton ID="rbVoluntarioIndireto" runat="server" class="txtFormulario" GroupName="TipoVoluntario"
-                                                                    Text="Voluntário Indireto" ToolTip="Voluntário direto é aquele que trabalha dentro da organização e indireto o que trabalha fora. Mais informações na página de voluntários."/>
+                                                                    Text="Voluntário Indireto" ToolTip="Voluntário direto é aquele que trabalha dentro da organização e indireto o que trabalha fora. Mais informações na página de voluntários." />
                                                             </td>
                                                             <td class="txtFormulario">
                                                                 Trabalho fora da organização.
@@ -565,6 +607,5 @@
         BackgroundCssClass="modalBackground" OkControlID="btnOK" CancelControlID="btnCancelar"
         DropShadow="true" PopupDragHandleControlID="Panel3">
     </cc1:ModalPopupExtender>
-    <asp:CustomValidator ID="CustomValidatorContato" runat="server" ErrorMessage="CustomValidator" 
-      ></asp:CustomValidator>
+    <asp:CustomValidator ID="CustomValidatorContato" runat="server" ErrorMessage="CustomValidator"></asp:CustomValidator>
 </asp:Content>

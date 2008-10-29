@@ -16,7 +16,20 @@ namespace AFASFA.Cadastros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Se estiver autenticado traz os dados preenchidos
+            if (this.Request.IsAuthenticated)
+            {
+                PreencheCamposEmTela();
+            }
+        }
 
+        private void PreencheCamposEmTela()
+        {
+            using (Conexao.AfasfaManager.usuariosTableAdapter = new usuariosTableAdapter())
+            {
+                //AFASFA.afasfaWebService.DataSetAFASFA.usuariosDataTable = Conexao.AfasfaManager.usuariosTableAdapter.RetornaUsuarioPorID(1);
+
+            }
         }
 
         protected void btnPreencheApelido_Click(object sender, EventArgs e)
