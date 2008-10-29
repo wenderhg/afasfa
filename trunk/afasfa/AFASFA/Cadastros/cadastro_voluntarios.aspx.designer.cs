@@ -122,6 +122,24 @@ namespace AFASFA.Cadastros {
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
         
         /// <summary>
+        /// ddlSexo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlSexo;
+        
+        /// <summary>
+        /// RequiredFieldValidatorddlSexo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorddlSexo;
+        
+        /// <summary>
         /// rblNacionalidade control.
         /// </summary>
         /// <remarks>
@@ -129,6 +147,15 @@ namespace AFASFA.Cadastros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rblNacionalidade;
+        
+        /// <summary>
+        /// tr_EstadosBrasileiros control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_EstadosBrasileiros;
         
         /// <summary>
         /// EstadoOrigemDropDownList control.
@@ -140,6 +167,24 @@ namespace AFASFA.Cadastros {
         protected global::System.Web.UI.WebControls.DropDownList EstadoOrigemDropDownList;
         
         /// <summary>
+        /// CustomValidatorEstado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidatorEstado;
+        
+        /// <summary>
+        /// tr_CidadeBrasileira control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_CidadeBrasileira;
+        
+        /// <summary>
         /// ddlCidadeOrigem control.
         /// </summary>
         /// <remarks>
@@ -147,6 +192,60 @@ namespace AFASFA.Cadastros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCidadeOrigem;
+        
+        /// <summary>
+        /// tr_PaisEstrangeiro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_PaisEstrangeiro;
+        
+        /// <summary>
+        /// PaisOrigemTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PaisOrigemTextBox;
+        
+        /// <summary>
+        /// RequiredFieldValidatorPaisOrigemTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorPaisOrigemTextBox;
+        
+        /// <summary>
+        /// tr_CidadeEstrangeira control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr_CidadeEstrangeira;
+        
+        /// <summary>
+        /// CidadeOrigemTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox CidadeOrigemTextBox;
+        
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
         /// CepTextBox control.
