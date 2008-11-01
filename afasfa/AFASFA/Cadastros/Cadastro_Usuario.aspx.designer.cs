@@ -23,6 +23,15 @@ namespace AFASFA.Cadastros {
         protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource1;
         
         /// <summary>
+        /// FotoUsuario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image FotoUsuario;
+        
+        /// <summary>
         /// upDadosCadastrais control.
         /// </summary>
         /// <remarks>
@@ -122,6 +131,15 @@ namespace AFASFA.Cadastros {
         protected global::System.Web.UI.WebControls.CheckBox AdministradorCheckBox;
         
         /// <summary>
+        /// stSenha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl stSenha;
+        
+        /// <summary>
         /// txtSenha control.
         /// </summary>
         /// <remarks>
@@ -156,6 +174,15 @@ namespace AFASFA.Cadastros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblHelp;
+        
+        /// <summary>
+        /// stConfirmaSenha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl stConfirmaSenha;
         
         /// <summary>
         /// txtConfirmarSenha control.
@@ -282,6 +309,15 @@ namespace AFASFA.Cadastros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button InsertButton;
+        
+        /// <summary>
+        /// UpdateButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button UpdateButton;
         
         /// <summary>
         /// CancelButton control.

@@ -58,7 +58,7 @@ namespace AFASFA.Cadastros
                 using (Conexao.AfasfaManager.voluntariosTableAdapter = new voluntariosTableAdapter())
                 {
                     Conexao.AfasfaManager.voluntariosTableAdapter.Insert(
-                        this.ApelidoTextBox.Text,
+                        this.ApelidoTextBox.Text, 
                         this.rblNacionalidade.SelectedIndex == 0 ? "B" : "E",
                         Convert.ToDateTime(this.DataNascimentoTextBox.Text),
                         this.rblNacionalidade.SelectedIndex == 0 ? Convert.ToInt32(this.EstadoOrigemDropDownList.SelectedValue) : 28 /*Codigo de UF Estrangeiro*/,

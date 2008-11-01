@@ -30,7 +30,7 @@ namespace AFASFA
             pnLogout.Visible = autenticado;
             if (autenticado)
             {
-                lbSaudacao.Text = FormsAuthentication.Decrypt(Request.Cookies[FormsAuthentication.FormsCookieName].Value).UserData;
+                lbSaudacao.Text = (Session[Constantes.UsuarioLogado] as Usuario).Saudacao;
             }
         }
 
@@ -52,15 +52,16 @@ namespace AFASFA
             Usuario _usuario = Seguranca.RetornaUsuarioValido(Server.HtmlEncode(txtUsuario.Text), Server.HtmlEncode(txtSenha.Text));
             if (_usuario != null)
             {
+                AtualizaSaudacao(_usuario);
                 FormsAuthenticationTicket _ticket = new FormsAuthenticationTicket(1,
                                                                                   txtUsuario.Text,
                                                                                   DateTime.Now,
                                                                                   DateTime.Now.AddMinutes(30),
                                                                                   false,
-                                                                                  RetornaSaudacaoCompleta(_usuario));
+                                                                                  RetornaUserData(_usuario));
                 Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(_ticket)));
-                lbSaudacao.Text = _ticket.UserData;
-                AtualizaPainelLogin(true);
+                Session[Constantes.UsuarioLogado] = _usuario;
+                AtualizaPainelLogin(true);                
             }
             else
             {
@@ -68,6 +69,20 @@ namespace AFASFA
                 AtualizaPainelLogin(false);
             }
 
+        }
+
+        public void AtualizaSaudacao(Usuario _usuario)
+        {
+            _usuario.Saudacao = RetornaSaudacaoCompleta(_usuario);
+            lbSaudacao.Text = _usuario.Saudacao;
+        }
+
+        private string RetornaUserData(Usuario _usuario)
+        {
+            
+            return _usuario.Saudacao;
+                //String.Format("<Saudacao>{0}</Saudacao><Login>{1}</Login><Administrador>{2}</Administrador><IdUsuario>{3}</IdUsuario><Apelido>{4}</Apelido>", 
+                //RetornaSaudacaoCompleta(_usuario), _usuario.Login, _usuario.Administrador.ToString(), _usuario.IdUsuario.ToString(), _usuario.Apelido);
         }
 
         protected void btnSolicitarSenha_Click(object sender, EventArgs e)
@@ -82,6 +97,7 @@ namespace AFASFA
                 usuario.Apelido,
                 usuario.Sexo.Equals("M") ? "o" : "a" //tipo iif, expressao ? true : false
                 );
+
         }
 
         private string RetornaSaudacao()
