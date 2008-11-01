@@ -38,7 +38,9 @@ namespace AFASFA.acesso_dados.Seguranca
         {
             Usuario _result = null;
             //Cria objeto que faz Select no banco
-            using (MySqlCommand _command = new MySqlCommand("Select usuario, nome, login, sexo, apelido from usuarios u inner join infocontato i on i.idcontato = u.idcontato where login = @usuario and senha = @senha", Conexao.Instance))
+            using (MySqlCommand _command = new MySqlCommand("Select usuario, nome, login, sexo, apelido, administrador " +
+                  "from usuarios u inner join infocontato i on i.idcontato = u.idcontato " + 
+                  "where login = @usuario and senha = @senha", Conexao.Instance))
             {
                 //Define os parametros
                 _command.Parameters.Add("usuario", MySqlDbType.VarChar, 20);
@@ -72,7 +74,11 @@ namespace AFASFA.acesso_dados.Seguranca
                         }
                         if (reader["usuario"] != DBNull.Value)
                         {
-                            _result.IdUsuario = Convert.ToInt64(reader["usuario"]);
+                            _result.IdUsuario = Convert.ToInt32(reader["usuario"]);
+                        }
+                        if (reader["administrador"] != DBNull.Value)
+                        {
+                            _result.Administrador = Convert.ToString(reader["administrador"]).Equals("S");
                         }
                     }
                 }

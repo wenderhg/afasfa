@@ -38,10 +38,15 @@
         <table cellpadding="0" cellspacing="0" width="100%">
             <tr>
                 <td align="center" class="TextoTitulo" colspan="2">
-                    <br />
-                    CADASTRAR USUÁRIOS
-                    <br />
-                    <br />
+                    <div>
+                        <br />
+                        CADASTRAR USUÁRIOS
+                        <br />
+                        <br />
+                    </div>
+                    <div style="float: right; z-index: 100px">
+                        <asp:Image ID="FotoUsuario" runat="server" Width="90px" Height="90px" AlternateText="Imagem do usuario" />
+                    </div>
                 </td>
             </tr>
             <tr>
@@ -104,7 +109,7 @@
                                 </tr>
                                 <tr>
                                     <td align="right" class="lblFomulario">
-                                        <strong style="color: red">*</strong> Digite sua senha:
+                                        <strong style="color: red" id="stSenha" runat="server">*</strong> Digite sua senha:
                                     </td>
                                     <td align="left">
                                         <asp:TextBox ID="txtSenha" runat="server" TextMode="Password" Width="30%" CssClass="txtFormulario" />
@@ -112,7 +117,7 @@
                                             Display="None" ErrorMessage="Senha é de preenchimento obrigatório"></asp:RequiredFieldValidator>
                                         <br />
                                         <cc1:PasswordStrength ID="PasswordStrengthSenha" runat="server" BarBorderCssClass="BarBorder_Senha"
-                                            DisplayPosition="RightSide" HelpStatusLabelID="lblHelp" MinimumNumericCharacters="1"
+                                            DisplayPosition="RightSide" HelpStatusLabelID="lblHelp" MinimumNumericCharacters="2"
                                             PreferredPasswordLength="6" RequiresUpperAndLowerCaseCharacters="true" StrengthIndicatorType="BarIndicator"
                                             StrengthStyles="BarIndicator_Senha_weak;BarIndicator_Senha_average;BarIndicator_Senha_good"
                                             TargetControlID="txtSenha" TextStrengthDescriptions="Muito fraco;Fraco;Médio;Forte;Excelente"
@@ -123,7 +128,7 @@
                                 </tr>
                                 <tr>
                                     <td align="right" class="lblFomulario">
-                                        <strong style="color: red">*</strong> Digite sua senha novamente:
+                                        <strong style="color: red" id="stConfirmaSenha" runat="server">*</strong> Digite sua senha novamente:
                                     </td>
                                     <td align="left">
                                         <asp:TextBox ID="txtConfirmarSenha" runat="server" TextMode="Password" Width="30%"
@@ -164,7 +169,7 @@
                                     </td>
                                     <td align="left">
                                         <br />
-                                        <asp:TextBox ID="EMailTextBox" runat="server" Text='<%# Bind("EMAIL") %>' Width="98%" />
+                                        <asp:TextBox ID="EMailTextBox" runat="server" Text='<%# Bind("EMAIL") %>' Width="95%" />
                                         <asp:CustomValidator ID="CustomValidatorContato" runat="server" Display="None" ErrorMessage="Ao menos um dos telefones ou e-mail deve ser preenchido."
                                             OnServerValidate="CustomValidatorContato_ServerValidate"></asp:CustomValidator>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorEMail" runat="server"
@@ -208,6 +213,8 @@
                 <td align="center" colspan="2">
                     <br />
                     <asp:Button ID="InsertButton" runat="server" Text="Salvar Dados" OnClick="InsertButton_Click"
+                        SkinID="btnFormularioCadastro" />
+                    <asp:Button ID="UpdateButton" runat="server" Text="Salvar Dados" OnClick="UpdateButton_Click"
                         SkinID="btnFormularioCadastro" />
                     <asp:Button ID="CancelButton" runat="server" Text="Cancelar" CommandName="Cancel"
                         SkinID="btnFormularioCadastro" CausesValidation="false" />

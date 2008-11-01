@@ -8,6 +8,8 @@ using acesso_dados;
 using acesso_dados.DataSetAFASFATableAdapters;
 using AFASFA.acesso_dados;
 using System.IO;
+using Servico.Util;
+using AFASFA.acesso_dados.Seguranca;
 
 
 namespace AFASFA.Cadastros
@@ -17,19 +19,116 @@ namespace AFASFA.Cadastros
         protected void Page_Load(object sender, EventArgs e)
         {
             //Se estiver autenticado traz os dados preenchidos
-            if (this.Request.IsAuthenticated)
+            if ((!this.IsPostBack) && this.Request.IsAuthenticated)
             {
                 PreencheCamposEmTela();
             }
+            AjustaControles();
+        }
+
+        private void AjustaControles()
+        {
+            trAdministrador.Visible = (this.Request.IsAuthenticated && (Session[Constantes.UsuarioLogado] as Usuario).Administrador);
+            //Exibe se for alteracao
+            UpdateButton.Visible = this.Request.IsAuthenticated;
+            //Exibe se for inclusao
+            InsertButton.Visible = !this.Request.IsAuthenticated;
+            //Exibe se for alteracao
+            FotoUsuario.Visible = this.Request.IsAuthenticated;
+            RequiredFieldtxtSenha.Visible = !this.Request.IsAuthenticated;
+            RequiredFieldtxtSenha.Enabled = RequiredFieldtxtSenha.Visible;
+            RequiredFieldtxtSenha.ValidationGroup = "NaoValidar";
+            //CompareValidatortxtConfirmarSenha.Visible = RequiredFieldtxtSenha.Visible;
+            //CompareValidatortxtConfirmarSenha.Enabled = RequiredFieldtxtSenha.Visible;
+            //CompareValidatortxtConfirmarSenha.ValidationGroup = "NaoValidar";
+            stSenha.Visible = RequiredFieldtxtSenha.Visible;
+            stConfirmaSenha.Visible = RequiredFieldtxtSenha.Visible;
         }
 
         private void PreencheCamposEmTela()
         {
             using (Conexao.AfasfaManager.usuariosTableAdapter = new usuariosTableAdapter())
             {
-                //AFASFA.afasfaWebService.DataSetAFASFA.usuariosDataTable = Conexao.AfasfaManager.usuariosTableAdapter.RetornaUsuarioPorID(1);
-
+                DataSetAFASFA.usuariosDataTable _usuario = Conexao.AfasfaManager.usuariosTableAdapter.BuscaPorID((Session[Constantes.UsuarioLogado] as Usuario).IdUsuario);
+                DataSetAFASFA.infocontatoDataTable _infoContato = null;
+                int _idContato = int.MinValue;
+                //Verifica se tem valor na coluna de IDContato
+                if (_usuario.Rows[0]["IDCONTATO"] != DBNull.Value)
+                {
+                    _idContato = Convert.ToInt32(_usuario.Rows[0]["IDCONTATO"]);
+                }
+                if (_idContato != int.MinValue)//Se carregou id busca as info de contato
+                {
+                    using (Conexao.AfasfaManager.infocontatoTableAdapter = new infocontatoTableAdapter())
+                    {
+                        _infoContato = Conexao.AfasfaManager.infocontatoTableAdapter.BuscaPorID(_idContato);
+                    }
+                }
+                PreencheCamposEmTela(_usuario, _infoContato);
             }
+        }
+
+        private string viewStateLogin = "viewStateLogin";
+        private string viewStateIdUsuario = "viewStateIdUsuario";
+        private string viewStateIdContato = "viewStateIdContato";
+        private string viewStateNomeArquivo = "viewStateNomeArquivo";
+
+        private void PreencheValoresParaUpdate(int idUsuario, int idContato, string nomeArquivo)
+        {
+            this.ViewState[viewStateLogin] = LoginTextBox.Text;
+            this.ViewState[viewStateIdUsuario] = idUsuario;
+            this.ViewState[viewStateIdContato] = idContato;
+            this.ViewState[viewStateNomeArquivo] = nomeArquivo;
+        }
+
+        private void PreencheCamposEmTela(DataSetAFASFA.usuariosDataTable _usuario, DataSetAFASFA.infocontatoDataTable _infoContato)
+        {
+            if (_usuario.Rows[0]["Login"] != DBNull.Value)
+            {
+                LoginTextBox.Text = Convert.ToString(_usuario.Rows[0]["Login"]);
+            }
+            if (_infoContato.Rows[0]["Nome"] != DBNull.Value)
+            {
+                NomeTextBox.Text = Convert.ToString(_infoContato.Rows[0]["Nome"]);
+            }
+            if (_infoContato.Rows[0]["Apelido"] != DBNull.Value)
+            {
+                ApelidoTextBox.Text = Convert.ToString(_infoContato.Rows[0]["Apelido"]);
+            }
+            if (_usuario.Rows[0]["administrador"] != DBNull.Value)
+            {
+                AdministradorCheckBox.Checked = Convert.ToString(_usuario.Rows[0]["administrador"]) == Constantes.FlagSim;
+            }
+            if (_infoContato.Rows[0]["TelefoneRes"] != DBNull.Value)
+            {
+                TelefoneResTextBox.Text = Convert.ToString(_infoContato.Rows[0]["TelefoneRes"]);
+            }
+            if (_infoContato.Rows[0]["TelefoneCel"] != DBNull.Value)
+            {
+                TelefoneCelTextBox.Text = Convert.ToString(_infoContato.Rows[0]["TelefoneCel"]);
+            }
+            if (_infoContato.Rows[0]["EMail"] != DBNull.Value)
+            {
+                EMailTextBox.Text = Convert.ToString(_infoContato.Rows[0]["EMail"]);
+            }
+            if (_infoContato.Rows[0]["Sexo"] != DBNull.Value)
+            {
+                ddlSexo.SelectedValue = Convert.ToString(_infoContato.Rows[0]["Sexo"]);
+            }
+            if (_infoContato.Rows[0]["RECEBERINFORMACOES"] != DBNull.Value)
+            {
+                ReceberInformacoesCheckBox.Checked = Convert.ToString(_infoContato.Rows[0]["RECEBERINFORMACOES"]) == Constantes.FlagSim;
+            }
+            string nomeArquivo = String.Empty;
+            if (_infoContato.Rows[0]["FOTO"] != DBNull.Value)
+            {
+                nomeArquivo = Convert.ToString(_infoContato.Rows[0]["FOTO"]);
+                FotoUsuario.ImageUrl = String.Format("/foto/{0}", nomeArquivo);
+            }
+
+
+            PreencheValoresParaUpdate(Convert.ToInt32(_usuario.Rows[0]["usuario"]), Convert.ToInt32(_usuario.Rows[0]["idcontato"]),
+                nomeArquivo);
         }
 
         protected void btnPreencheApelido_Click(object sender, EventArgs e)
@@ -43,6 +142,70 @@ namespace AFASFA.Cadastros
             if (Page.IsValid)
             {
                 InserirUsuario();
+            }
+        }
+
+        protected void UpdateButton_Click(object sender, EventArgs e)
+        {
+            AtualizarUsuario();
+        }
+
+        private void AtualizarUsuario()
+        {
+            using (Conexao.AfasfaManager.usuariosTableAdapter = new usuariosTableAdapter())
+            {
+                Conexao.AfasfaManager.usuariosTableAdapter.Update(this.LoginTextBox.Text,
+                                                                  RetornaSenhaAtualizada(),
+                                                                  this.AdministradorCheckBox.Checked ? "S" : "N",
+                                                                  Convert.ToInt32(ViewState[viewStateIdContato]),
+                                                                  Convert.ToInt32(ViewState[viewStateIdUsuario]),
+                                                                  Convert.ToString(ViewState[viewStateLogin])
+                                                                  );
+            }
+            using (Conexao.AfasfaManager.infocontatoTableAdapter = new infocontatoTableAdapter())
+            {
+                string _nomeArquivo = RetornaNomeArquivo();
+                CarregaArquivo(_nomeArquivo);
+                Conexao.AfasfaManager.infocontatoTableAdapter.Update(
+                            this.NomeTextBox.Text,
+                            _nomeArquivo,
+                            Convert.ToByte(this.ReceberInformacoesCheckBox.Checked),
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            RetornaTelefone(this.TelefoneCelTextBox.Text),
+                            RetornaTelefone(this.TelefoneResTextBox.Text),
+                            this.EMailTextBox.Text,
+                            ddlSexo.SelectedValue,
+                            this.ApelidoTextBox.Text,
+                            Convert.ToUInt32(ViewState[viewStateIdContato]));
+            }
+            AtualizaSessionUsuario();
+        }
+
+        private void AtualizaSessionUsuario()
+        {
+            (Session[Constantes.UsuarioLogado] as Usuario).Login = this.LoginTextBox.Text;
+            (Session[Constantes.UsuarioLogado] as Usuario).NomeUsuario = this.NomeTextBox.Text;
+            (Session[Constantes.UsuarioLogado] as Usuario).Sexo = this.ddlSexo.SelectedValue;
+            (Session[Constantes.UsuarioLogado] as Usuario).Apelido = this.ApelidoTextBox.Text;
+            (this.Master as afasfa).AtualizaSaudacao((Session[Constantes.UsuarioLogado] as Usuario));
+        }
+
+        private string RetornaSenhaAtualizada()
+        {
+            if (String.IsNullOrEmpty(this.txtSenha.Text))
+            {
+                DataSetAFASFA.usuariosDataTable _usuario = Conexao.AfasfaManager.usuariosTableAdapter.BuscaPorID(Convert.ToInt32(ViewState[viewStateIdUsuario]));
+                return Convert.ToString(_usuario.Rows[0]["Senha"]);
+            }
+            else
+            {
+                return AFASFA.Servico.Seguranca.Seguranca.RetornaSenha(this.txtSenha.Text);
             }
         }
 
@@ -93,8 +256,15 @@ namespace AFASFA.Cadastros
 
         private string RetornaNomeArquivo()
         {
-            return String.Concat(AFASFA.Servico.Seguranca.Seguranca.RetornaSenha(this.fuFoto.FileName + DateTime.Now.ToString()),
-                System.IO.Path.GetExtension(this.fuFoto.FileName));
+            if (this.fuFoto.HasFile)
+            {
+                return String.Concat(AFASFA.Servico.Seguranca.Seguranca.RetornaSenha(this.fuFoto.FileName + DateTime.Now.ToString()),
+                    System.IO.Path.GetExtension(this.fuFoto.FileName));
+            }
+            else
+            {
+                return this.ViewState[viewStateNomeArquivo] == null ? null : Convert.ToString(this.ViewState[viewStateNomeArquivo]);
+            }
         }
 
         private void CarregaArquivo(string nomeArquivo)
@@ -167,7 +337,7 @@ namespace AFASFA.Cadastros
             using (Conexao.AfasfaManager.usuariosTableAdapter = new usuariosTableAdapter())
             {
                 args.IsValid = Conexao.AfasfaManager.usuariosTableAdapter.RetornaLoginRepetido(this.LoginTextBox.Text) == 0;
-            }            
+            }
         }
 
         protected void CustomValidatorContato_ServerValidate(object source, ServerValidateEventArgs args)
@@ -176,7 +346,7 @@ namespace AFASFA.Cadastros
             args.IsValid = (!String.IsNullOrEmpty(this.TelefoneCelTextBox.Text) || !String.IsNullOrEmpty(this.TelefoneResTextBox.Text) ||
                 !String.IsNullOrEmpty(this.EMailTextBox.Text));
         }
-        
+
         protected void btnOK_Click(object sender, EventArgs e)
         {
             this.ModalPopupExtender1.Hide();

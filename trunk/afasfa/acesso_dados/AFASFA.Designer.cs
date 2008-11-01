@@ -4167,6 +4167,8 @@ namespace acesso_dados {
             
             private global::System.Data.DataColumn columnPAISORIGEM;
             
+            private global::System.Data.DataColumn columnQUAISDIAS1;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public voluntariosDataTable() {
                 this.TableName = "voluntarios";
@@ -4352,6 +4354,13 @@ namespace acesso_dados {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn QUAISDIAS1Column {
+                get {
+                    return this.columnQUAISDIAS1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4402,7 +4411,8 @@ namespace acesso_dados {
                         string TEMPODOVOLUNTARIO, 
                         string ESTADO, 
                         int IDCONTATO, 
-                        string PAISORIGEM) {
+                        string PAISORIGEM, 
+                        string QUAISDIAS1) {
                 voluntariosRow rowvoluntariosRow = ((voluntariosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         APELIDO,
@@ -4426,7 +4436,8 @@ namespace acesso_dados {
                         TEMPODOVOLUNTARIO,
                         ESTADO,
                         IDCONTATO,
-                        PAISORIGEM};
+                        PAISORIGEM,
+                        QUAISDIAS1};
                 rowvoluntariosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowvoluntariosRow);
                 return rowvoluntariosRow;
@@ -4474,6 +4485,7 @@ namespace acesso_dados {
                 this.columnESTADO = base.Columns["ESTADO"];
                 this.columnIDCONTATO = base.Columns["IDCONTATO"];
                 this.columnPAISORIGEM = base.Columns["PAISORIGEM"];
+                this.columnQUAISDIAS1 = base.Columns["QUAISDIAS1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4522,6 +4534,8 @@ namespace acesso_dados {
                 base.Columns.Add(this.columnIDCONTATO);
                 this.columnPAISORIGEM = new global::System.Data.DataColumn("PAISORIGEM", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPAISORIGEM);
+                this.columnQUAISDIAS1 = new global::System.Data.DataColumn("QUAISDIAS1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQUAISDIAS1);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnVOLUNTARIO}, true));
                 this.columnAPELIDO.AllowDBNull = false;
@@ -4544,6 +4558,8 @@ namespace acesso_dados {
                 this.columnTEMPODOVOLUNTARIO.MaxLength = 100;
                 this.columnESTADO.MaxLength = 1;
                 this.columnPAISORIGEM.MaxLength = 30;
+                this.columnQUAISDIAS1.Caption = "QUAISDIAS";
+                this.columnQUAISDIAS1.MaxLength = 7;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6508,6 +6524,21 @@ namespace acesso_dados {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string QUAISDIAS1 {
+                get {
+                    try {
+                        return ((string)(this[this.tablevoluntarios.QUAISDIAS1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'QUAISDIAS1\' in table \'voluntarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevoluntarios.QUAISDIAS1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public bool IsHABILITADONull() {
                 return this.IsNull(this.tablevoluntarios.HABILITADOColumn);
             }
@@ -6665,6 +6696,16 @@ namespace acesso_dados {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetPAISORIGEMNull() {
                 this[this.tablevoluntarios.PAISORIGEMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsQUAISDIAS1Null() {
+                return this.IsNull(this.tablevoluntarios.QUAISDIAS1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetQUAISDIAS1Null() {
+                this[this.tablevoluntarios.QUAISDIAS1Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -10326,7 +10367,7 @@ WHERE     (DOACAO = @Original_DOACAO)";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        usuario, login, senha, administrador, IDCONTATO\r\nFROM            us" +
@@ -10334,16 +10375,28 @@ WHERE     (DOACAO = @Original_DOACAO)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT COUNT(*) FROM usuarios u\r\nwhere u.login = @login";
+            this._commandCollection[1].CommandText = "SELECT        u.usuario, u.login, u.senha, u.administrador, u.IDCONTATO\r\nFROM    " +
+                "        usuarios u\r\nwhere u.usuario = @usuario";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@usuario";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "usuario";
+            this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT COUNT(*) FROM usuarios u\r\nwhere u.login = @login";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@login";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.Size = 20;
             param.IsNullable = true;
             param.SourceColumn = "login";
-            this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10363,6 +10416,30 @@ WHERE     (DOACAO = @Original_DOACAO)";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSetAFASFA.usuariosDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSetAFASFA.usuariosDataTable dataTable = new DataSetAFASFA.usuariosDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int PreenchePorId(DataSetAFASFA.usuariosDataTable dataTable, int usuario) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(usuario));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetAFASFA.usuariosDataTable BuscaPorID(int usuario) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(usuario));
             DataSetAFASFA.usuariosDataTable dataTable = new DataSetAFASFA.usuariosDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -10518,7 +10595,7 @@ WHERE     (DOACAO = @Original_DOACAO)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual global::System.Nullable<long> RetornaLoginRepetido(string login) {
-            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[1];
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[2];
             if ((login == null)) {
                 throw new global::System.ArgumentNullException("login");
             }
@@ -11796,7 +11873,7 @@ WHERE     (DOACAO = @Original_DOACAO)";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `IDCONTATO`, `NOME`, `FOTO`, `RECEBERINFORMACOES`, `CEP`, `LOGRADOURO`, `N" +
@@ -11805,8 +11882,22 @@ WHERE     (DOACAO = @Original_DOACAO)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT LAST_INSERT_ID()";
+            this._commandCollection[1].CommandText = "SELECT `IDCONTATO`, `NOME`, `FOTO`, `RECEBERINFORMACOES`, `CEP`, `LOGRADOURO`, `N" +
+                "UMERO`, `COMPLEMENTO`, `BAIRRO`, `CIDADE`, `UF`, `TELEFONECEL`, `TELEFONERES`, `" +
+                "EMAIL`, `SEXO`, `APELIDO` FROM `afasfa`.`infocontato` i\r\nwhere i.idcontato = @id" +
+                "contato";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@idcontato";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "IDCONTATO";
+            this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT LAST_INSERT_ID()";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11826,6 +11917,30 @@ WHERE     (DOACAO = @Original_DOACAO)";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSetAFASFA.infocontatoDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSetAFASFA.infocontatoDataTable dataTable = new DataSetAFASFA.infocontatoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int PreenchePorID(DataSetAFASFA.infocontatoDataTable dataTable, int idcontato) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(idcontato));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetAFASFA.infocontatoDataTable BuscaPorID(int idcontato) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(idcontato));
             DataSetAFASFA.infocontatoDataTable dataTable = new DataSetAFASFA.infocontatoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -12117,7 +12232,7 @@ WHERE     (DOACAO = @Original_DOACAO)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual object RetornaUltimoID() {
-            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[1];
+            global::MySql.Data.MySqlClient.MySqlCommand command = this.CommandCollection[2];
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12600,12 +12715,12 @@ WHERE     (DOACAO = @Original_DOACAO)";
             tableMapping.ColumnMappings.Add("TIPOVOLUNTARIO", "TIPOVOLUNTARIO");
             tableMapping.ColumnMappings.Add("QUALATIVIDADE", "QUALATIVIDADE");
             tableMapping.ColumnMappings.Add("QUADISPONIBILIDADE", "QUADISPONIBILIDADE");
-            tableMapping.ColumnMappings.Add("QUAISDIAS", "QUAISDIAS");
             tableMapping.ColumnMappings.Add("ACEITATERMO", "ACEITATERMO");
             tableMapping.ColumnMappings.Add("TEMPODOVOLUNTARIO", "TEMPODOVOLUNTARIO");
             tableMapping.ColumnMappings.Add("ESTADO", "ESTADO");
             tableMapping.ColumnMappings.Add("IDCONTATO", "IDCONTATO");
             tableMapping.ColumnMappings.Add("PAISORIGEM", "PAISORIGEM");
+            tableMapping.ColumnMappings.Add("QUAISDIAS", "QUAISDIAS1");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -12730,8 +12845,8 @@ WHERE     (DOACAO = @Original_DOACAO)";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@QUAISDIAS";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "QUAISDIAS";
             this._adapter.InsertCommand.Parameters.Add(param);
@@ -12881,8 +12996,8 @@ WHERE     (DOACAO = @Original_DOACAO)";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@QUAISDIAS";
-            param.DbType = global::System.Data.DbType.UInt32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.UInt32;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "QUAISDIAS";
             this._adapter.UpdateCommand.Parameters.Add(param);
@@ -13033,7 +13148,7 @@ WHERE     (DOACAO = @Original_DOACAO)";
                     string TIPOVOLUNTARIO, 
                     string QUALATIVIDADE, 
                     global::System.Nullable<uint> QUADISPONIBILIDADE, 
-                    global::System.Nullable<uint> QUAISDIAS, 
+                    string QUAISDIAS, 
                     global::System.Nullable<byte> ACEITATERMO, 
                     string TEMPODOVOLUNTARIO, 
                     string ESTADO, 
@@ -13119,11 +13234,11 @@ WHERE     (DOACAO = @Original_DOACAO)";
             else {
                 this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((QUAISDIAS.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((uint)(QUAISDIAS.Value));
+            if ((QUAISDIAS == null)) {
+                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(QUAISDIAS));
             }
             if ((ACEITATERMO.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[16].Value = ((byte)(ACEITATERMO.Value));
@@ -13190,7 +13305,7 @@ WHERE     (DOACAO = @Original_DOACAO)";
                     string TIPOVOLUNTARIO, 
                     string QUALATIVIDADE, 
                     global::System.Nullable<uint> QUADISPONIBILIDADE, 
-                    global::System.Nullable<uint> QUAISDIAS, 
+                    string QUAISDIAS, 
                     global::System.Nullable<byte> ACEITATERMO, 
                     string TEMPODOVOLUNTARIO, 
                     string ESTADO, 
@@ -13277,11 +13392,11 @@ WHERE     (DOACAO = @Original_DOACAO)";
             else {
                 this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((QUAISDIAS.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((uint)(QUAISDIAS.Value));
+            if ((QUAISDIAS == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(QUAISDIAS));
             }
             if ((ACEITATERMO.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((byte)(ACEITATERMO.Value));
