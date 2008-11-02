@@ -4,6 +4,10 @@
 
     public partial class DataSetAFASFA
     {
+        partial class doacoesDataTable
+        {
+        }
+    
         partial class voluntariosDataTable
         {
         }
