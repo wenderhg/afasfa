@@ -61,7 +61,8 @@ namespace AFASFA
                                                                                   RetornaUserData(_usuario));
                 Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(_ticket)));
                 Session[Constantes.UsuarioLogado] = _usuario;
-                AtualizaPainelLogin(true);                
+                AtualizaPainelLogin(true);
+                Response.Redirect(Request.Url.PathAndQuery);
             }
             else
             {
@@ -79,10 +80,10 @@ namespace AFASFA
 
         private string RetornaUserData(Usuario _usuario)
         {
-            
+
             return _usuario.Saudacao;
-                //String.Format("<Saudacao>{0}</Saudacao><Login>{1}</Login><Administrador>{2}</Administrador><IdUsuario>{3}</IdUsuario><Apelido>{4}</Apelido>", 
-                //RetornaSaudacaoCompleta(_usuario), _usuario.Login, _usuario.Administrador.ToString(), _usuario.IdUsuario.ToString(), _usuario.Apelido);
+            //String.Format("<Saudacao>{0}</Saudacao><Login>{1}</Login><Administrador>{2}</Administrador><IdUsuario>{3}</IdUsuario><Apelido>{4}</Apelido>", 
+            //RetornaSaudacaoCompleta(_usuario), _usuario.Login, _usuario.Administrador.ToString(), _usuario.IdUsuario.ToString(), _usuario.Apelido);
         }
 
         protected void btnSolicitarSenha_Click(object sender, EventArgs e)
@@ -142,8 +143,19 @@ namespace AFASFA
             Response.Cookies.Remove(FormsAuthentication.FormsCookieName);
             FormsAuthentication.SignOut();
             AtualizaPainelLogin(false);
+            Response.Redirect("/index.aspx");
         }
 
         public ValidationSummary Resumo { get { return ValidationSummary1; } }
+
+        /// <summary>
+        /// Adiciona a mensagem de sucesso
+        /// </summary>
+        /// <param name="mensagem">mensagem</param>
+        public void AdicionaMensagemSucesso(string mensagem)
+        {
+            this.dvMensagemOK.Visible = true;
+            this.ltMensagem.Text += "<br>" + mensagem + "<br>";
+        }
     }
 }

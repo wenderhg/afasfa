@@ -23,7 +23,7 @@
             <asp:Parameter Name="CEP" Type="String" />
             <asp:Parameter Name="LOGRADOURO" Type="String" />
             <asp:Parameter Name="NUMERO" Type="UInt32" />
-            <asp:Parameter Name="COMPLEMENTO" Type="String" />
+            <asp:Parameter Name="COMPLEMENTO" Type="String" />d
             <asp:Parameter Name="BAIRRO" Type="String" />
             <asp:Parameter Name="CIDADE" Type="String" />
             <asp:Parameter Name="UF" Type="String" />
@@ -64,6 +64,10 @@
                 <td colspan="2">
                     <asp:UpdatePanel ID="upDadosCadastrais" runat="server" ChildrenAsTriggers="true"
                         RenderMode="Inline">
+                        <Triggers>
+                            <asp:PostBackTrigger ControlID="UpdateButton" />
+                            <asp:PostBackTrigger ControlID="InsertButton" />
+                        </Triggers>
                         <ContentTemplate>
                             <table cellpadding="0" cellspacing="0" width="100%">
                                 <tr>
@@ -128,7 +132,8 @@
                                 </tr>
                                 <tr>
                                     <td align="right" class="lblFomulario">
-                                        <strong style="color: red" id="stConfirmaSenha" runat="server">*</strong> Digite sua senha novamente:
+                                        <strong style="color: red" id="stConfirmaSenha" runat="server">*</strong> Digite
+                                        sua senha novamente:
                                     </td>
                                     <td align="left">
                                         <asp:TextBox ID="txtConfirmarSenha" runat="server" TextMode="Password" Width="30%"
@@ -168,8 +173,7 @@
                                         &nbsp;Email:
                                     </td>
                                     <td align="left">
-                                        <br />
-                                        <asp:TextBox ID="EMailTextBox" runat="server" Text='<%# Bind("EMAIL") %>' Width="95%" />
+                                        <asp:TextBox ID="EMailTextBox" runat="server" Text='<%# Bind("EMAIL") %>' Width="98%" />
                                         <asp:CustomValidator ID="CustomValidatorContato" runat="server" Display="None" ErrorMessage="Ao menos um dos telefones ou e-mail deve ser preenchido."
                                             OnServerValidate="CustomValidatorContato_ServerValidate"></asp:CustomValidator>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorEMail" runat="server"
@@ -216,8 +220,8 @@
                         SkinID="btnFormularioCadastro" />
                     <asp:Button ID="UpdateButton" runat="server" Text="Salvar Dados" OnClick="UpdateButton_Click"
                         SkinID="btnFormularioCadastro" />
-                    <asp:Button ID="CancelButton" runat="server" Text="Cancelar" CommandName="Cancel"
-                        SkinID="btnFormularioCadastro" CausesValidation="false" />
+                    <asp:Button ID="CancelButton" runat="server" Text="Cancelar" SkinID="btnFormularioCadastro"
+                        CausesValidation="false" />
                     <br />
                     <br />
                 </td>
