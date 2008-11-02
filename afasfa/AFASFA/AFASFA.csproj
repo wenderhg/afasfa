@@ -34,6 +34,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\biblioteca\AjaxControlToolkit.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.WebForms\9.0.0.0__b03f5f7f11d50a3a\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core">
@@ -143,6 +147,13 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Relatorios\FrmReportViewer.aspx.cs">
+      <DependentUpon>FrmReportViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\FrmReportViewer.aspx.designer.cs">
+      <DependentUpon>FrmReportViewer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="solicitar_senha.aspx.cs">
       <DependentUpon>solicitar_senha.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -214,6 +225,7 @@
     <Content Include="ComoChegar\ComoChegar.aspx" />
     <Content Include="Imagens\ajax-loader.gif" />
     <Content Include="mala_direta.aspx" />
+    <Content Include="Relatorios\FrmReportViewer.aspx" />
     <Content Include="solicitar_senha.aspx" />
     <Content Include="App_Themes\Default\GridSkin.skin" />
     <None Include="Web References\afasfaWebService\DataSetAFASFA.xsd">
@@ -271,6 +283,9 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>AFASFA_br_com_bronzebusiness_www_wscep</CachedSettingsPropName>
     </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Relatorios\Doacoes.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
