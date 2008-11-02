@@ -46,7 +46,7 @@
         </asp:Panel>
         <asp:Panel runat="server" ID="pnLogout" CssClass="Login">
             <span class="lblSaudacao">
-                <asp:Label ID="lbSaudacao" runat="server"></asp:Label>                
+                <asp:Label ID="lbSaudacao" runat="server"></asp:Label>
             </span>&nbsp;
             <asp:LinkButton runat="server" ID="lnkLogoff" BackColor="#666699" BorderColor="#003366"
                 BorderStyle="Double" BorderWidth="2px" CssClass="lblBtnFomularioCadastro" Font-Names="Verdana"
@@ -86,9 +86,9 @@
                         <a href="/ComoChegar/ComoChegar.aspx" class="LinkMenu">Como Chegar ao Lar</a></div>
                 </li>
                 <li>
-                        <div align="left">
-                            <a href="/Cadastros/Cadastro_Usuario.aspx" class="LinkMenu">Cadastro de Usuários</a></div>
-                    </li>
+                    <div align="left">
+                        <a href="/Cadastros/Cadastro_Usuario.aspx" class="LinkMenu">Cadastro de Usuários</a></div>
+                </li>
                 <li>
                     <div align="left">
                         <a href="/faleconosco.aspx" class="LinkMenu" onclick="navega('faleconosco.aspx'); return false">
@@ -132,7 +132,7 @@
                     <li>
                         <div align="left">
                             <a href="/mala_direta.aspx" class="LinkMenu">Mala Direta</a></div>
-                    </li>                    
+                    </li>
                 </ul>
             </asp:Panel>
             <br>
@@ -140,6 +140,12 @@
         <div id="conteudo">
             <asp:ValidationSummary ID="ValidationSummary1" runat="server" BorderWidth="2px" BorderColor="Red"
                 Width="99%" BackColor="#E6E7F2" CssClass="TextoPagina" />
+            <div style="width: 99%; color: Green; background-color: #E6E7F2; border-color: Green;
+                border-width: 2px; border-style: solid; font-size: large; text-align: center"
+                class="TextoPagina" id="dvMensagemOK" runat="server" enableviewstate="false"
+                visible="false">
+                <asp:Literal ID="ltMensagem" runat="server" EnableViewState="false"></asp:Literal>
+            </div>
             <asp:ContentPlaceHolder ID="CplConteudo" runat="server">
             </asp:ContentPlaceHolder>
         </div>

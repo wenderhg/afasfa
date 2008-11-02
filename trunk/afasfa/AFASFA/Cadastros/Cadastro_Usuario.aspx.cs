@@ -34,7 +34,8 @@ namespace AFASFA.Cadastros
             //Exibe se for inclusao
             InsertButton.Visible = !this.Request.IsAuthenticated;
             //Exibe se for alteracao
-            FotoUsuario.Visible = this.Request.IsAuthenticated;
+            FotoUsuario.Visible = this.Request.IsAuthenticated && this.ViewState[viewStateNomeArquivo] != null;
+            FotoUsuario.ImageUrl = String.Format("/foto/{0}", Convert.ToString(this.ViewState[viewStateNomeArquivo]));
             RequiredFieldtxtSenha.Visible = !this.Request.IsAuthenticated;
             RequiredFieldtxtSenha.Enabled = RequiredFieldtxtSenha.Visible;
             RequiredFieldtxtSenha.ValidationGroup = "NaoValidar";
@@ -123,9 +124,7 @@ namespace AFASFA.Cadastros
             if (_infoContato.Rows[0]["FOTO"] != DBNull.Value)
             {
                 nomeArquivo = Convert.ToString(_infoContato.Rows[0]["FOTO"]);
-                FotoUsuario.ImageUrl = String.Format("/foto/{0}", nomeArquivo);
             }
-
 
             PreencheValoresParaUpdate(Convert.ToInt32(_usuario.Rows[0]["usuario"]), Convert.ToInt32(_usuario.Rows[0]["idcontato"]),
                 nomeArquivo);
@@ -148,6 +147,7 @@ namespace AFASFA.Cadastros
         protected void UpdateButton_Click(object sender, EventArgs e)
         {
             AtualizarUsuario();
+            AjustaControles();
         }
 
         private void AtualizarUsuario()
@@ -183,8 +183,11 @@ namespace AFASFA.Cadastros
                             ddlSexo.SelectedValue,
                             this.ApelidoTextBox.Text,
                             Convert.ToUInt32(ViewState[viewStateIdContato]));
+                this.ViewState[viewStateNomeArquivo] = _nomeArquivo;
             }
             AtualizaSessionUsuario();
+
+            (this.Master as afasfa).AdicionaMensagemSucesso("Dados de usuário atualizados com sucesso.");
         }
 
         private void AtualizaSessionUsuario()
@@ -194,6 +197,7 @@ namespace AFASFA.Cadastros
             (Session[Constantes.UsuarioLogado] as Usuario).Sexo = this.ddlSexo.SelectedValue;
             (Session[Constantes.UsuarioLogado] as Usuario).Apelido = this.ApelidoTextBox.Text;
             (this.Master as afasfa).AtualizaSaudacao((Session[Constantes.UsuarioLogado] as Usuario));
+
         }
 
         private string RetornaSenhaAtualizada()
@@ -258,8 +262,7 @@ namespace AFASFA.Cadastros
         {
             if (this.fuFoto.HasFile)
             {
-                return String.Concat(AFASFA.Servico.Seguranca.Seguranca.RetornaSenha(this.fuFoto.FileName + DateTime.Now.ToString()),
-                    System.IO.Path.GetExtension(this.fuFoto.FileName));
+                return String.Concat(System.IO.Path.GetRandomFileName(), System.IO.Path.GetExtension(this.fuFoto.FileName));
             }
             else
             {
@@ -336,7 +339,14 @@ namespace AFASFA.Cadastros
         {
             using (Conexao.AfasfaManager.usuariosTableAdapter = new usuariosTableAdapter())
             {
-                args.IsValid = Conexao.AfasfaManager.usuariosTableAdapter.RetornaLoginRepetido(this.LoginTextBox.Text) == 0;
+                if ((Session[Constantes.UsuarioLogado] as Usuario) != null)
+                {
+                    args.IsValid = Convert.ToInt32(Conexao.AfasfaManager.usuariosTableAdapter.RetornaLoginRepetidoComID(this.LoginTextBox.Text, (Session[Constantes.UsuarioLogado] as Usuario).IdUsuario)) == 0;
+                }
+                else
+                {
+                    args.IsValid = Conexao.AfasfaManager.usuariosTableAdapter.RetornaLoginRepetido(this.LoginTextBox.Text) == 0;
+                }
             }
         }
 
@@ -350,6 +360,30 @@ namespace AFASFA.Cadastros
         protected void btnOK_Click(object sender, EventArgs e)
         {
             this.ModalPopupExtender1.Hide();
+            Response.Redirect(Request.Url.PathAndQuery);
+        }
+
+        private void LimparCampos()
+        {
+            LoginTextBox.Text = string.Empty;
+
+            NomeTextBox.Text = string.Empty;
+
+            ApelidoTextBox.Text = string.Empty;
+
+            AdministradorCheckBox.Checked = false;
+
+            TelefoneResTextBox.Text = string.Empty;
+
+            TelefoneCelTextBox.Text = string.Empty;
+
+            EMailTextBox.Text = string.Empty;
+
+            ddlSexo.ClearSelection();
+
+            ReceberInformacoesCheckBox.Checked = true;
+
+            
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
