@@ -32,6 +32,42 @@ namespace AFASFA.Relatorios {
         protected global::System.Web.UI.WebControls.DropDownList ddlRelatorios;
         
         /// <summary>
+        /// pnDoacoes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnDoacoes;
+        
+        /// <summary>
+        /// txtDataDoacaoIni control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDataDoacaoIni;
+        
+        /// <summary>
+        /// txtDataDoacaoFim control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDataDoacaoFim;
+        
+        /// <summary>
+        /// txtItens control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtItens;
+        
+        /// <summary>
         /// btGerar control.
         /// </summary>
         /// <remarks>

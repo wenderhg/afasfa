@@ -11,14 +11,27 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <div id="dvRelatorio" style=""><!-- Colocar um texto indicando que aqui estao os filtros, apos executar o relatorio esconder o div com display:none-->
-            <asp:DropDownList ID="ddlRelatorios" runat="server">
+        <div id="dvRelatorio" style="">
+            <!-- Colocar um texto indicando que aqui estao os filtros, apos executar o relatorio esconder o div com display:none-->
+            <asp:DropDownList ID="ddlRelatorios" runat="server" AutoPostBack="True" 
+                onselectedindexchanged="ddlRelatorios_SelectedIndexChanged">
                 <asp:ListItem Selected="True"></asp:ListItem>
                 <asp:ListItem Text="Doacoes" Value="Relatorios\Doacoes.rdlc"></asp:ListItem>
-                <asp:ListItem Text="Teste" Value="Teste.rdlc"></asp:ListItem>
+                <asp:ListItem Text="Voluntário" Value="Relatorios\Voluntarios.rdlc"></asp:ListItem>
                 <asp:ListItem Text="Report1" Value="Report1.rdlc"></asp:ListItem>
             </asp:DropDownList>
+            <asp:Panel ID="pnDoacoes" runat="server" Visible="false">
+                <br/>
+                Data Inicial:
+                <asp:TextBox ID="txtDataDoacaoIni" runat="server"></asp:TextBox>
+                Data Final:
+                <asp:TextBox ID="txtDataDoacaoFim" runat="server"></asp:TextBox>
+                Itens:
+                <asp:TextBox ID="txtItens" runat="server"></asp:TextBox>
+                <br/>
+            </asp:Panel>
             <asp:Button ID="btGerar" runat="server" Text="Gerar Relatorio" OnClick="btGerar_Click" />
+            <br/>
         </div>
         <rsweb:ReportViewer ID="ReportViewer1" runat="server" DocumentMapWidth="90%" Height="90%"
             Width="90%" Font-Names="Verdana" Font-Size="8pt" ProcessingMode="Local" Visible="false">
