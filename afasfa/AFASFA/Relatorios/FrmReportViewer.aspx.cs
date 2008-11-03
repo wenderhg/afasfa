@@ -27,7 +27,7 @@ namespace AFASFA.Relatorios
                     CarregaDoacoes(ddlRelatorios.SelectedValue);
                     break;
                 case Relatorio.Voluntarios:
-                    //CarregaDoacoes(ddlRelatorios.SelectedValue);
+                    CarregaVoluntario(ddlRelatorios.SelectedValue);
                     break;
                 default:
                     break;
@@ -36,12 +36,29 @@ namespace AFASFA.Relatorios
             ReportViewer1.LocalReport.Refresh();
         }
 
+        private void CarregaVoluntario(string report)
+        {
+            using (Conexao.AfasfaManager.voluntariosTableAdapter = new voluntariosTableAdapter())
+            {
+
+                DataSetAFASFA.voluntariosDataTable voluntario = new DataSetAFASFA.voluntariosDataTable();
+                Conexao.AfasfaManager.voluntariosTableAdapter.Fill(voluntario);
+                ReportDataSource datasource = new ReportDataSource("DataSetAFASFA_voluntarios", voluntario);
+
+                ReportViewer1.LocalReport.ReportPath = report;
+                ReportViewer1.LocalReport.DataSources.Clear();
+                ReportViewer1.LocalReport.DataSources.Add(datasource);
+
+            }
+        }
+
         private void CarregaDoacoes(string report)
         {
             using (Conexao.AfasfaManager.doacoesTableAdapter = new doacoesTableAdapter())
             {
+
                 DataSetAFASFA.doacoesDataTable doacoes = new DataSetAFASFA.doacoesDataTable();
-                Conexao.AfasfaManager.doacoesTableAdapter.Fill(doacoes);
+                Conexao.AfasfaManager.doacoesTableAdapter.PreenchePorDataItens(doacoes, Convert.ToDateTime(txtDataDoacaoIni.Text), Convert.ToDateTime(txtDataDoacaoFim.Text), this.txtItens.Text);
                 ReportDataSource datasource = new ReportDataSource("DataSetAFASFA_doacoes", doacoes);
 
                 ReportViewer1.LocalReport.ReportPath = report;
@@ -49,6 +66,25 @@ namespace AFASFA.Relatorios
                 ReportViewer1.LocalReport.DataSources.Add(datasource);
 
             }
+        }
+
+        protected void ddlRelatorios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Adicionar paineis para esconder
+            EscondePaineis();
+
+            switch (ddlRelatorios.SelectedIndex)
+            {
+                case 1: this.pnDoacoes.Visible = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void EscondePaineis()
+        {
+            this.pnDoacoes.Visible = false;
         }
     }
 }

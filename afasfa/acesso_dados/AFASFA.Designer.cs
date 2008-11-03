@@ -7412,7 +7412,7 @@ WHERE     (DOACAO = @Original_DOACAO)";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `DOACAO`, `NOME`, `DATADOACAO`, `ENDERECO`,`BAIRRO`,`ITENS`, `DISPONIBILID" +
@@ -7425,6 +7425,34 @@ WHERE     (DOACAO = @Original_DOACAO)";
                 "SERVACAO, ESTADO, TELEFONERES, TELEFONECEL, \r\n                      EMAIL\r\nFROM " +
                 "        doacoes\r\nWHERE     (ESTADO = \'P\')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT `DOACAO`, `NOME`, `DATADOACAO`, `ENDERECO`,`BAIRRO`,`ITENS`, `DISPONIBILIDADE`, `OBSERVACAO`, `ESTADO`, `TELEFONERES`, `TELEFONECEL`, `EMAIL` FROM `afasfa`.`doacoes`
+where DATADOACAO between @DATADOACAOINI and @DATADOACAOFIM
+  and (ITENS like @ITENS or @ITENS is null)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@DATADOACAOINI";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "DATADOACAO";
+            this._commandCollection[2].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@DATADOACAOFIM";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "DATADOACAO";
+            this._commandCollection[2].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@ITENS";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.Size = 2147483647;
+            param.IsNullable = true;
+            param.SourceColumn = "ITENS";
+            this._commandCollection[2].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7466,6 +7494,64 @@ WHERE     (DOACAO = @Original_DOACAO)";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DataSetAFASFA.doacoesDataTable RetornaDoacoesPendentes() {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            DataSetAFASFA.doacoesDataTable dataTable = new DataSetAFASFA.doacoesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int PreenchePorDataItens(DataSetAFASFA.doacoesDataTable dataTable, global::System.Nullable<global::System.DateTime> DATADOACAOINI, global::System.Nullable<global::System.DateTime> DATADOACAOFIM, string ITENS) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((DATADOACAOINI.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(DATADOACAOINI.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((DATADOACAOFIM.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(DATADOACAOFIM.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((ITENS == null)) {
+                throw new global::System.ArgumentNullException("ITENS");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(ITENS));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetAFASFA.doacoesDataTable RetornaPorDataItens(global::System.Nullable<global::System.DateTime> DATADOACAOINI, global::System.Nullable<global::System.DateTime> DATADOACAOFIM, string ITENS) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((DATADOACAOINI.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(DATADOACAOINI.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((DATADOACAOFIM.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(DATADOACAOFIM.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((ITENS == null)) {
+                throw new global::System.ArgumentNullException("ITENS");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(ITENS));
+            }
             DataSetAFASFA.doacoesDataTable dataTable = new DataSetAFASFA.doacoesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
