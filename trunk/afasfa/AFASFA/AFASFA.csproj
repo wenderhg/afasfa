@@ -141,6 +141,13 @@
     <Compile Include="mala_direta.aspx.designer.cs">
       <DependentUpon>mala_direta.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pesquisa\FrmPesquisaVoluntario.aspx.cs">
+      <DependentUpon>FrmPesquisaVoluntario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pesquisa\FrmPesquisaVoluntario.aspx.designer.cs">
+      <DependentUpon>FrmPesquisaVoluntario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -167,6 +174,13 @@
     </Compile>
     <Compile Include="TesteGridFormView.aspx.designer.cs">
       <DependentUpon>TesteGridFormView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Visualizar\FrmVisualizarEvento.aspx.cs">
+      <DependentUpon>FrmVisualizarEvento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visualizar\FrmVisualizarEvento.aspx.designer.cs">
+      <DependentUpon>FrmVisualizarEvento.aspx</DependentUpon>
     </Compile>
     <Compile Include="Web References\afasfaWebService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -225,9 +239,11 @@
     <Content Include="ComoChegar\ComoChegar.aspx" />
     <Content Include="Imagens\ajax-loader.gif" />
     <Content Include="mala_direta.aspx" />
+    <Content Include="Pesquisa\FrmPesquisaVoluntario.aspx" />
     <Content Include="Relatorios\FrmReportViewer.aspx" />
     <Content Include="solicitar_senha.aspx" />
     <Content Include="App_Themes\Default\GridSkin.skin" />
+    <Content Include="Visualizar\FrmVisualizarEvento.aspx" />
     <None Include="Web References\afasfaWebService\DataSetAFASFA.xsd">
       <SubType>Designer</SubType>
     </None>

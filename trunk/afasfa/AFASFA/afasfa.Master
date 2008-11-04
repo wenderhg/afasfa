@@ -74,8 +74,7 @@
                 </li>
                 <li>
                     <div align="left">
-                        <a href="/eventos.aspx" class="LinkMenu" onclick="navega('eventos.aspx'); return false">
-                            Eventos</a></div>
+                        <a href="/Visualizar/FrmVisualizarEvento.aspx" class="LinkMenu">Eventos</a></div>
                 </li>
                 <li>
                     <div align="left">
@@ -127,7 +126,7 @@
                     </li>
                     <li>
                         <div align="left">
-                            <a href="#" class="LinkMenu">Relatórios</a></div>
+                            <a href="/Relatorios/FrmReportViewer.aspx" class="LinkMenu" target="_blank">Relatórios</a></div>
                     </li>
                     <li>
                         <div align="left">
