@@ -28,7 +28,7 @@ namespace AFASFA
             pnLogin.Visible = !autenticado;
             pnMenuCadastro.Visible = autenticado;
             pnLogout.Visible = autenticado;
-            if (autenticado)
+            if (autenticado && (Session[Constantes.UsuarioLogado] as Usuario) != null)
             {
                 lbSaudacao.Text = (Session[Constantes.UsuarioLogado] as Usuario).Saudacao;
             }
