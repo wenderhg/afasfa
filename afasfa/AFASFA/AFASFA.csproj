@@ -216,7 +216,6 @@
     <Content Include="Cadastros\cadastro_eventos.aspx" />
     <Content Include="Cadastros\cadastro_tipos_assistencias.aspx" />
     <Content Include="Cadastros\Cadastro_Usuario.aspx" />
-    <Content Include="Cadastros\cadastro_voluntarios.aspx" />
     <Content Include="Imagens\Calendar.bmp" />
     <Content Include="PaginaErro.htm" />
     <Content Include="TesteGridFormView.aspx" />
@@ -235,6 +234,7 @@
   <ItemGroup>
     <Content Include="App_Themes\Default\TextBoxSkin.skin" />
     <Content Include="Cadastros\cadastro_projetos.aspx" />
+    <Content Include="Cadastros\cadastro_voluntarios.aspx" />
     <Content Include="campanhas.aspx" />
     <Content Include="ComoChegar\ComoChegar.aspx" />
     <Content Include="Imagens\ajax-loader.gif" />
