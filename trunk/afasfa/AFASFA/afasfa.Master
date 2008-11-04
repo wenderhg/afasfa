@@ -102,10 +102,16 @@
                         <a href="/campanhas.aspx" class="LinkMenu" onclick="navega('campanhas.aspx'); return false">
                             Campanhas</a></div>
                 </li>
-                <li>
-                    <div align="left">
-                        <a href="#" class="LinkMenu">Recursos Humanos</a></div>
-                </li>
+                <asp:Panel runat="server" ID="pnLoginNormal" Visible="false">
+                    <li>
+                        <div align="left">
+                            <a href="#" class="LinkMenu">Recursos Humanos</a></div>
+                    </li>
+                    <li>
+                        <div align="left">
+                            <a href="#" class="LinkMenu">Apresentar Dados Quantitatvios</a></div>
+                    </li>
+                </asp:Panel>
             </ul>
             <asp:Panel runat="server" Visible="false" ID="pnMenuCadastro">
                 <p class="lblMenuPrincipal">
