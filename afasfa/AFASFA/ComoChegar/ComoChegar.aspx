@@ -38,10 +38,10 @@
                 });
                 map.addOverlay(_larMarker);
 
-                GEvent.addListener(map, "click", function(overlay, latlng) {
-                    if (latlng != null)
-                        alert("Aqui é:" + latlng.lat() + " " + latlng.lng() + " " + map.getZoom());
-                });
+//                GEvent.addListener(map, "click", function(overlay, latlng) {
+//                    if (latlng != null)
+//                        alert("Aqui é:" + latlng.lat() + " " + latlng.lng() + " " + map.getZoom());
+//                });
             }
         }
 
