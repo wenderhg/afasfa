@@ -114,10 +114,9 @@ namespace AFASFA.Relatorios
             }
             using (Conexao.AfasfaManager.doacoesTableAdapter = new doacoesTableAdapter())
             {
-                //DataSetAFASFA.doacoesDataTable DoacoesPorData = new DataSetAFASFA.doacoesDataTable();
-                //Conexao.AfasfaManager.doacoesTableAdapter.Preenche(DoacoesPorData, _DataDoacaoIni, _DataDoacaoFim);
-                //DoacoesPorData = ;
-                ReportDataSource datasource = new ReportDataSource("DataSetAFASFA_doacoes", Conexao.AfasfaManager.doacoesTableAdapter.RetornaDoacoesPorData(_DataDoacaoIni, _DataDoacaoFim));
+                DataSetAFASFA.doacoesDataTable DoacoesPorData = new DataSetAFASFA.doacoesDataTable();
+                Conexao.AfasfaManager.doacoesTableAdapter.Preenche(DoacoesPorData, _DataDoacaoIni, _DataDoacaoFim);
+                ReportDataSource datasource = new ReportDataSource("DataSetAFASFA_doacoes", DoacoesPorData);
 
                 ReportViewer1.LocalReport.ReportPath = report;
                 ReportViewer1.LocalReport.DataSources.Clear();
