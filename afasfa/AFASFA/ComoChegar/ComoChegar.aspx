@@ -58,14 +58,6 @@
             var _marker = _busca.getMarker(1);
             _marker.setLatLng(portaoLarLatLng);
 
-            //#0000ff
-            //0.45
-
-            //            _linha = new GPolyline([new GLatLng(-23.09772, -47.19804),
-            //                                    new GLatLng(-23.099154720759593, -47.19932556152344)],
-            //                                   gp.color, gp.weight, gp.opacity);
-
-            //   map.addOverlay(_linha);
         }
 
         function adicionaCamadas() {
@@ -99,10 +91,7 @@
 
         function procuraEndereco() {
             var txtEndereco = document.getElementById("<% =txtEndereco.ClientID %>");
-            //_busca.load("from: " + txtEndereco.value + ", SP, Brazil to: Rua Padre Bento Pacheco 3150, Indaiatuba, SP, Brazil");
             _busca.load("from: " + txtEndereco.value + ", Brasil to: Estrada Municipal Pedro Vila 230, Indaiatuba, SP, Brasil", { "locale": "pt_BR" });
-
-
         }
 
         function resultadoBusca(latlng) {
