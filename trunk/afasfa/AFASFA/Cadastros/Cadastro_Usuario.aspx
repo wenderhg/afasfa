@@ -23,7 +23,7 @@
             <asp:Parameter Name="CEP" Type="String" />
             <asp:Parameter Name="LOGRADOURO" Type="String" />
             <asp:Parameter Name="NUMERO" Type="UInt32" />
-            <asp:Parameter Name="COMPLEMENTO" Type="String" />d
+            <asp:Parameter Name="COMPLEMENTO" Type="String" />
             <asp:Parameter Name="BAIRRO" Type="String" />
             <asp:Parameter Name="CIDADE" Type="String" />
             <asp:Parameter Name="UF" Type="String" />

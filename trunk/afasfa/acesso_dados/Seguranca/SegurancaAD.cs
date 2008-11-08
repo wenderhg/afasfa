@@ -38,7 +38,7 @@ namespace AFASFA.acesso_dados.Seguranca
         {
             Usuario _result = null;
             //Cria objeto que faz Select no banco
-            using (MySqlCommand _command = new MySqlCommand("Select usuario, nome, login, sexo, apelido, administrador " +
+            using (MySqlCommand _command = new MySqlCommand("Select usuario, i.nome, login, sexo, i.apelido, administrador " +
                   "from usuarios u inner join infocontato i on i.idcontato = u.idcontato " + 
                   "where login = @usuario and senha = @senha", Conexao.Instance))
             {

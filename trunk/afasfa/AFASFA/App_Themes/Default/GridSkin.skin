@@ -1,0 +1,15 @@
+﻿<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+<asp:GridView runat="server" SkinId="grdPesquisa" CssClass="lblGridPesquisa" border="Ridge"  
+            EmptyDataText="Nenhum dado foi encontrado"
+            EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataRowStyle-CssClass="lblFomulario"
+            EmptyDataRowStyle-VerticalAlign="Middle" EmptyDataRowStyle-Width="100%">
+   <AlternatingRowStyle BackColor="#FFFFCC" CssClass="lblFormLogin" BorderStyle="Ridge"
+        BorderWidth="1"/>   
+  
+   <HeaderStyle BackColor="#666699" ForeColor="White" HorizontalAlign="Center" 
+   VerticalAlign="Middle" CssClass="lblBtnFomularioCadastro"  />
+</asp:GridView>
+
