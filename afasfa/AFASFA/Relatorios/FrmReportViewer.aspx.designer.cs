@@ -77,13 +77,13 @@ namespace AFASFA.Relatorios {
         protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtendertxtDataDoacaoIni;
         
         /// <summary>
-        /// Image1 control.
+        /// imgCalendariotxtDataDoacaoIni control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Image imgCalendariotxtDataDoacaoIni;
         
         /// <summary>
         /// CalendarExtender1txtDataDoacaoIni control.

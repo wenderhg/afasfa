@@ -71,7 +71,7 @@
                                 AcceptNegative="None" Mask="99/99/9999" TargetControlID="txtDataDoacaoIni" UserDateFormat="DayMonthYear"
                                 AutoComplete="true">
                             </cc1:MaskedEditExtender>
-                            <asp:Image runat="server" ID="Image1" ImageUrl="../Imagens/Calendar.bmp" />
+                            <asp:Image runat="server" ID="imgCalendariotxtDataDoacaoIni" ImageUrl="../Imagens/Calendar.bmp" />
                             <cc1:CalendarExtender ID="CalendarExtender1txtDataDoacaoIni" runat="server" Animated="true"
                                 Format="dd/MM/yyyy" TargetControlID="txtDataDoacaoIni" PopupButtonID="imgCalendariotxtDataDoacaoIni">
                             </cc1:CalendarExtender>
