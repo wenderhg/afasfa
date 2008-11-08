@@ -301,8 +301,12 @@
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Relatorios\Doacoes.rdlc" />
-    <EmbeddedResource Include="Relatorios\Voluntarios.rdlc" />
+    <EmbeddedResource Include="Relatorios\listagem_eventos.rdlc" />
+    <EmbeddedResource Include="Relatorios\listagem_assistencias.rdlc" />
+    <EmbeddedResource Include="Relatorios\listagem_projetos.rdlc" />
+    <EmbeddedResource Include="Relatorios\listagem_Voluntarios.rdlc" />
+    <EmbeddedResource Include="Relatorios\relatorio_Doacoes_old.rdlc" />
+    <EmbeddedResource Include="Relatorios\relatorio_doacoes_por_data.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

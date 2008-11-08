@@ -23,6 +23,24 @@ namespace AFASFA.Relatorios {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// ToolkitScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ToolkitScriptManager ToolkitScriptManager1;
+        
+        /// <summary>
+        /// pnInformacoes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnInformacoes;
+        
+        /// <summary>
         /// ddlRelatorios control.
         /// </summary>
         /// <remarks>
@@ -50,6 +68,42 @@ namespace AFASFA.Relatorios {
         protected global::System.Web.UI.WebControls.TextBox txtDataDoacaoIni;
         
         /// <summary>
+        /// MaskedEditExtendertxtDataDoacaoIni control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtendertxtDataDoacaoIni;
+        
+        /// <summary>
+        /// Image1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image1;
+        
+        /// <summary>
+        /// CalendarExtender1txtDataDoacaoIni control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1txtDataDoacaoIni;
+        
+        /// <summary>
+        /// CompareValidatortxtDataDoacaoIni control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidatortxtDataDoacaoIni;
+        
+        /// <summary>
         /// txtDataDoacaoFim control.
         /// </summary>
         /// <remarks>
@@ -59,13 +113,40 @@ namespace AFASFA.Relatorios {
         protected global::System.Web.UI.WebControls.TextBox txtDataDoacaoFim;
         
         /// <summary>
-        /// txtItens control.
+        /// MaskedEditExtendertxtDataDoacaoFim control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtItens;
+        protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtendertxtDataDoacaoFim;
+        
+        /// <summary>
+        /// imgCalendariotxtDataDoacaoFim control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgCalendariotxtDataDoacaoFim;
+        
+        /// <summary>
+        /// CalendarExtendertxtDataDoacaoFim control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CalendarExtendertxtDataDoacaoFim;
+        
+        /// <summary>
+        /// CompareValidatortxtDataDoacaoFim control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidatortxtDataDoacaoFim;
         
         /// <summary>
         /// btGerar control.
@@ -84,5 +165,14 @@ namespace AFASFA.Relatorios {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer1;
+        
+        /// <summary>
+        /// ObjectDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource1;
     }
 }

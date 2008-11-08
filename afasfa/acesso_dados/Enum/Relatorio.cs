@@ -6,9 +6,21 @@ public enum Relatorio
     /// <summary>
     /// Doacoes
     /// </summary>
-    Doacoes = 1,
+    relatorio_Doacoes = 1,
     /// <summary>
     /// Relatorios
     /// </summary>
-    Voluntarios = 2
+    listagem_Voluntarios = 2,
+    /// <summary>
+    /// Relatorios
+    /// </summary>
+    listagem_assistencias = 3,
+    /// <summary>
+    /// Relatorios
+    /// </summary>
+    listagem_projetos = 4,
+    /// <summary>
+    /// Relatorios
+    /// </summary>
+    listagem_eventos = 5
 }

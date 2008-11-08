@@ -90,7 +90,7 @@
                 </li>
                 <li>
                     <div align="left">
-                        <a href="/faleconosco.aspx" class="LinkMenu" onclick="navega('faleconosco.aspx'); return false">
+                        <a href="/faleconosco.aspx" class="LinkMenu" >
                             Fale Conosco</a></div>
                 </li>
                 <li>
@@ -99,7 +99,7 @@
                 </li>
                 <li>
                     <div align="left">
-                        <a href="/campanhas.aspx" class="LinkMenu" onclick="navega('campanhas.aspx'); return false">
+                        <a href="/campanhas.aspx" class="LinkMenu" >
                             Campanhas</a></div>
                 </li>
                 <asp:Panel runat="server" ID="pnLoginNormal" Visible="false">
@@ -120,6 +120,10 @@
                     <li>
                         <div align="left">
                             <a href="/cadastros/cadastro_eventos.aspx" class="LinkMenu">Cadastro de Eventos</a></div>
+                    </li>
+                    <li>
+                        <div align="left">
+                            <a href="/cadastros/cadastro_projetos.aspx" class="LinkMenu">Cadastro de Projetos</a></div>
                     </li>
                     <li>
                         <div align="left">

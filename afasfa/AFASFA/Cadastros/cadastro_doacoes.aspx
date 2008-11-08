@@ -3,26 +3,9 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="CplConteudo" runat="server">
-    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" DeleteMethod="Delete"
+    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server"
         InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData"
-        TypeName="acesso_dados.AFASFATableAdapters.doacoesTableAdapter" UpdateMethod="Update">
-        <DeleteParameters>
-            <asp:Parameter Name="Original_DOACAO" Type="Int32" />
-        </DeleteParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="NOME" Type="String" />
-            <asp:Parameter Name="DATADOACAO" Type="DateTime" />
-            <asp:Parameter Name="ITENS" Type="String" />
-            <asp:Parameter Name="ENDERECO" Type="String" />
-            <asp:Parameter Name="BAIRRO" Type="String" />
-            <asp:Parameter Name="DISPONIBILIDADE" Type="String" />
-            <asp:Parameter Name="OBSERVACAO" Type="String" />
-            <asp:Parameter Name="ESTADO" Type="String" DefaultValue="P" />
-            <asp:Parameter Name="TELEFONERES" Type="Decimal" />
-            <asp:Parameter Name="TELEFONECEL" Type="Decimal" />
-            <asp:Parameter Name="EMAIL" Type="String" />
-            <asp:Parameter Name="Original_DOACAO" Type="Int32" />
-        </UpdateParameters>
+        TypeName="acesso_dados.DataSetAFASFATableAdapters.doacoesTableAdapter">
         <InsertParameters>
             <asp:Parameter Name="NOME" Type="String" />
             <asp:Parameter Name="DATADOACAO" Type="DateTime" />
@@ -96,7 +79,7 @@
                                             TargetControlID="DataDoacaoTextBox" PopupButtonID="imgCalendarioDataDoacao">
                                         </cc1:CalendarExtender>
                                         <asp:CompareValidator ID="CompareValidatorDataEventoTextBox" runat="server" Display="None"
-                                            ControlToValidate="DataDoacaoTextBox" ErrorMessage="Data do evento inválida."
+                                            ControlToValidate="DataDoacaoTextBox" ErrorMessage="Data da doação inválida."
                                             Type="Date" Operator="DataTypeCheck"></asp:CompareValidator>
                                     </td>
                                 </tr>
