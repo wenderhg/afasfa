@@ -119,7 +119,7 @@ namespace AFASFA {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnLoginNormal;
+        protected global::System.Web.UI.WebControls.PlaceHolder pnLoginNormal;
         
         /// <summary>
         /// pnMenuCadastro control.
@@ -128,7 +128,7 @@ namespace AFASFA {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnMenuCadastro;
+        protected global::System.Web.UI.WebControls.PlaceHolder pnMenuCadastro;
         
         /// <summary>
         /// ValidationSummary1 control.
@@ -156,6 +156,15 @@ namespace AFASFA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal ltMensagem;
+        
+        /// <summary>
+        /// ltAcessoNegado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltAcessoNegado;
         
         /// <summary>
         /// CplConteudo control.

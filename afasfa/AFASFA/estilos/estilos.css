@@ -26,7 +26,7 @@ body
 	background-color: #E6E7F2;
 }
 
-#menu
+#menu, .Menu
 {
 	float: left;
 	width: 166px;
