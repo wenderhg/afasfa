@@ -25,6 +25,11 @@ namespace AFASFA
 
         private void AtualizaPainelLogin(bool autenticado)
         {
+            if ((Session[Constantes.UsuarioLogado] as Usuario) == null)
+            {
+                FormsAuthentication.SignOut();
+                autenticado = false;
+            }
             pnLogin.Visible = !autenticado;
             pnLoginNormal.Visible = autenticado;
             pnMenuCadastro.Visible = autenticado;
@@ -157,6 +162,23 @@ namespace AFASFA
         {
             this.dvMensagemOK.Visible = true;
             this.ltMensagem.Text += "<br>" + mensagem + "<br>";
+        }
+
+        /// <summary>
+        /// Retorna se possui acesso, e exibe mensagem caso não tenha
+        /// </summary>
+        /// <param name="administrador">Indica se acesso é somente para administrador</param>
+        /// <returns>bool</returns>
+        public bool VerificaAcessoNegado(bool administrador)
+        {
+            bool result = !Request.IsAuthenticated;
+            if ((!result) && (administrador))
+            {
+                result = ((Session[Constantes.UsuarioLogado] as Usuario) == null) || 
+                    (!(Session[Constantes.UsuarioLogado] as Usuario).Administrador);
+            }
+            ltAcessoNegado.Visible = result;
+            return result;
         }
     }
 }

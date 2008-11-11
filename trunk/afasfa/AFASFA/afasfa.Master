@@ -90,8 +90,7 @@
                 </li>
                 <li>
                     <div align="left">
-                        <a href="/faleconosco.aspx" class="LinkMenu" >
-                            Fale Conosco</a></div>
+                        <a href="/faleconosco.aspx" class="LinkMenu">Fale Conosco</a></div>
                 </li>
                 <li>
                     <div align="left">
@@ -99,10 +98,9 @@
                 </li>
                 <li>
                     <div align="left">
-                        <a href="/campanhas.aspx" class="LinkMenu" >
-                            Campanhas</a></div>
+                        <a href="/campanhas.aspx" class="LinkMenu">Campanhas</a></div>
                 </li>
-                <asp:Panel runat="server" ID="pnLoginNormal" Visible="false">
+                <asp:PlaceHolder runat="server" ID="pnLoginNormal" Visible="false">
                     <li>
                         <div align="left">
                             <a href="#" class="LinkMenu">Recursos Humanos</a></div>
@@ -111,9 +109,9 @@
                         <div align="left">
                             <a href="#" class="LinkMenu">Apresentar Dados Quantitatvios</a></div>
                     </li>
-                </asp:Panel>
+                </asp:PlaceHolder>
             </ul>
-            <asp:Panel runat="server" Visible="false" ID="pnMenuCadastro">
+            <asp:PlaceHolder runat="server" Visible="false" ID="pnMenuCadastro">
                 <p class="lblMenuPrincipal">
                     Menu Administrativo</p>
                 <ul>
@@ -142,8 +140,12 @@
                         <div align="left">
                             <a href="/mala_direta.aspx" class="LinkMenu">Mala Direta</a></div>
                     </li>
+                    <li>
+                        <div align="left">
+                            <a href="/Pesquisa/FrmPesquisaVoluntario.aspx" class="LinkMenu">Pesquisa Voluntários</a></div>
+                    </li>
                 </ul>
-            </asp:Panel>
+            </asp:PlaceHolder>
             <br>
         </div>
         <div id="conteudo">
@@ -155,6 +157,8 @@
                 visible="false">
                 <asp:Literal ID="ltMensagem" runat="server" EnableViewState="false"></asp:Literal>
             </div>
+            <asp:Literal ID="ltAcessoNegado" runat="server" Text='<b><h2>Acesso negado.</h2></b>'
+                EnableViewState="false" Visible="false"></asp:Literal>
             <asp:ContentPlaceHolder ID="CplConteudo" runat="server">
             </asp:ContentPlaceHolder>
         </div>
