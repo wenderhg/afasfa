@@ -156,7 +156,7 @@
                 visible="false">
                 <asp:Literal ID="ltMensagem" runat="server" EnableViewState="false"></asp:Literal>
             </div>
-            <asp:Literal ID="ltAcessoNegado" runat="server" Text='<b><h2>Acesso negado.</h2></b>'
+            <asp:Literal ID="ltAcessoNegado" runat="server" Text="<span style='text-align:center;color: Red'><b><h2>Acesso negado.</h2></b></span>"
                 EnableViewState="false" Visible="false"></asp:Literal>
             <asp:ContentPlaceHolder ID="CplConteudo" runat="server">
             </asp:ContentPlaceHolder>

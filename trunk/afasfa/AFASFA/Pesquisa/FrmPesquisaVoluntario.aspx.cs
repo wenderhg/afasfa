@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using acesso_dados;
+using AFASFA.acesso_dados;
 
 namespace AFASFA.Pesquisa
 {
@@ -20,6 +21,13 @@ namespace AFASFA.Pesquisa
             if (!IsPostBack)
             {
                 this.Filtros = new FiltroCollection();
+
+                using (DataSetAFASFA.voluntariosDataTable _table = new DataSetAFASFA.voluntariosDataTable())
+                {
+                    this.ddlCampos.DataSource = _table.Columns;
+                    this.ddlCampos.DataBind();
+                }
+
             }
         }
 
@@ -30,6 +38,21 @@ namespace AFASFA.Pesquisa
             {
                 this.Filtros.Clear();
             }
+        }
+
+        protected void btnAdicionarFiltro_Click(object sender, EventArgs e)
+        {
+            this.Filtros.Add(RetornaFiltroAtual());
+            this.gdFiltros.DataSource = this.Filtros;
+            this.gdFiltros.DataBind();
+        }
+
+        private Filtro RetornaFiltroAtual()
+        {
+            Filtro _filtro = new Filtro();
+            _filtro.NomeCampo = this.ddlCampos.SelectedItem.Text;
+            _filtro.TipoFiltro = ((TipoFiltro)Enum.Parse(typeof(TipoFiltro), this.ddlTipoFiltro.SelectedValue));
+            return _filtro;
         }
 
         public FiltroCollection Filtros { get; set; }
