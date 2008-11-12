@@ -24,8 +24,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onload="load()"
-    onunload="GUnload()">
+<body onload="load()"   onunload="GUnload()" >
     <div id="container">
         <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true"

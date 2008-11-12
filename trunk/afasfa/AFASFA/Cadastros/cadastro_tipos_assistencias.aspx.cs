@@ -15,12 +15,13 @@ namespace AFASFA.Cadastros
         }
         protected void InsertCancelButton_Click(object sender, EventArgs e)
         {
-            this.ModalPopupExtender1.Show();
+            this.ModalPopupExtender1.Show();            
         }
 
         protected void btnOK_Click(object sender, EventArgs e)
         {
             this.ModalPopupExtender1.Hide();
+            this.ModalPopupExtender2.Show();
             this.FormView1.ChangeMode(FormViewMode.ReadOnly);
             this.FormView1.ChangeMode(FormViewMode.Insert);
         }
