@@ -25,18 +25,29 @@ namespace AFASFA
 
         private void AtualizaPainelLogin(bool autenticado)
         {
-            if ((Session[Constantes.UsuarioLogado] as Usuario) == null)
+            bool administrador = false;
+            Usuario _usuario = (Session[Constantes.UsuarioLogado] as Usuario);
+            if (_usuario == null)
             {
                 FormsAuthentication.SignOut();
                 autenticado = false;
+                administrador = false;
+            }
+            else
+            {
+                administrador = _usuario.Administrador;
             }
             pnLogin.Visible = !autenticado;
             pnLoginNormal.Visible = autenticado;
-            pnMenuCadastro.Visible = autenticado;
+            pnMenuCadastro.Visible = autenticado && administrador;
             pnLogout.Visible = autenticado;
-            if (autenticado && (Session[Constantes.UsuarioLogado] as Usuario) != null)
+            if (autenticado && _usuario != null)
             {
-                lbSaudacao.Text = (Session[Constantes.UsuarioLogado] as Usuario).Saudacao;
+                lbSaudacao.Text = _usuario.Saudacao;
+            }
+            else
+            {
+                lbSaudacao.Text = string.Empty;
             }
         }
 
@@ -178,6 +189,7 @@ namespace AFASFA
                     (!(Session[Constantes.UsuarioLogado] as Usuario).Administrador);
             }
             ltAcessoNegado.Visible = result;
+            this.CplConteudo.Visible = !result;//Esconde o conteudo
             return result;
         }
     }

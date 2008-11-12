@@ -175,9 +175,6 @@
                                         MaskType="Number" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus"
                                         TargetControlID="ValorConviteAdultoTextBox" CultureName="pt-BR" InputDirection="RightToLeft">
                                     </cc1:MaskedEditExtender>
-                                    <%--<cc1:MaskedEditValidator ID="MaskedEditValidator2" runat="server" ControlExtender="MaskedEditExtender3"
-                                        ControlToValidate="ValorConviteAdultoTextBox" Display="Dynamic" IsValidEmpty="False">
-                                    </cc1:MaskedEditValidator>--%>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorValorConviteAdultoTextBox"
                                         runat="server" ErrorMessage="Valor do convite para adulto é de preenchimento obrigatório"
                                         ControlToValidate="ValorConviteAdultoTextBox" Display="None">
