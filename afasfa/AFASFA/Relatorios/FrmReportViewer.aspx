@@ -63,7 +63,7 @@
                 <table>
                     <tr>
                         <td class="lblFomulario" align="right">
-                            <strong style="color: Red">*</strong> Data Inicial:
+                            Data da Doação Inicial:
                         </td>
                         <td>
                             <asp:TextBox ID="txtDataDoacaoIni" runat="server" CssClass="txtFomulario" Width="65"></asp:TextBox>
@@ -83,7 +83,7 @@
                     </tr>
                     <tr>
                         <td class="lblFomulario" align="right">
-                            <strong style="color: Red">*</strong> Data Final:
+                            Data da Doação Final:
                         </td>
                         <td>
                             <asp:TextBox ID="txtDataDoacaoFim" runat="server" CssClass="txtFomulario" Width="65"></asp:TextBox>
@@ -101,9 +101,27 @@
                         </td>
                     </tr>
                     <tr>
+                        <td class="lblFomulario" align="right">
+                            Status da Doação:
+                        </td>
+                        <td>
+                            <asp:DropDownList ID="DropStatusDoacao" runat="server" AutoPostBack="True" CssClass="lblFomulario"
+                                align="left">
+                                <asp:ListItem Selected="True"></asp:ListItem>
+                                <asp:ListItem Text="Todas" Value="Todas"></asp:ListItem>
+                                <asp:ListItem Text="Pendentes" Value="Pendentes"></asp:ListItem>
+                                <asp:ListItem Text="Rejeitadas" Value="Rejeitadas"></asp:ListItem>
+                                <asp:ListItem Text="Aprovadas" Value="Aprovadas"></asp:ListItem>
+                            </asp:DropDownList>
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
                         <td colspan="2" class="lblPreenchimentoObrigatorio" align="center">
                             <br />
-                            (*) campo de preenchimento obrigatório
+                            Deixe os campos sem preenchimento que o sistema irá listar todas as doações independente
+                            da data ou status.
                             <br />
                             <br />
                         </td>
@@ -120,7 +138,9 @@
         <br />
         <br />
         <rsweb:ReportViewer ID="ReportViewer1" runat="server" DocumentMapWidth="90%" Height="31cm"
-            Width="20cm" Font-Names="Verdana" Font-Size="8pt" Visible="False" ToolBarItemPressedHoverBackColor="">
+            Width="20cm" Font-Names="Verdana" Font-Size="8pt" Visible="False" 
+            ToolBarItemPressedHoverBackColor="" onload="ReportViewer1_Load" 
+            onprerender="ReportViewer1_PreRender">
             <LocalReport ReportPath="Relatorios\listagem_assistencias.rdlc">
                 <DataSources>
                     <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="DataSetAFASFA_assistencias" />

@@ -149,6 +149,15 @@ namespace AFASFA.Relatorios {
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidatortxtDataDoacaoFim;
         
         /// <summary>
+        /// DropStatusDoacao control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropStatusDoacao;
+        
+        /// <summary>
         /// btGerar control.
         /// </summary>
         /// <remarks>

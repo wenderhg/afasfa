@@ -121,7 +121,14 @@ namespace AFASFA.Relatorios
                 ReportViewer1.LocalReport.ReportPath = report;
                 ReportViewer1.LocalReport.DataSources.Clear();
                 ReportViewer1.LocalReport.DataSources.Add(datasource);
+                ReportViewer1.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("DataDoacaoInicial", txtDataDoacaoIni.Text) });                
+                ReportViewer1.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("DataDoacaoFinal", txtDataDoacaoFim.Text) });
             }
+        }
+
+        private IEnumerable<ReportParameter> IEnumerable(string report)
+        {
+            throw new NotImplementedException();
         }
 
         private void CarregaListagemAssistencia(string report)
@@ -155,6 +162,18 @@ namespace AFASFA.Relatorios
         {
             this.pnDoacoes.Visible = false;
             this.ReportViewer1.Visible = false;
+        }
+
+        protected void ReportViewer1_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void ReportViewer1_PreRender(object sender, EventArgs e)
+        {
+            //ReportViewer1.LocalReport.GetParameters();
+            
+            //_params[0].Values.Add(this.txtDataDoacaoIni.Text);
         }
     }
 }

@@ -6,13 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CplConteudo" runat="server">
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" InsertMethod="Insert"
-        OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="acesso_dados.AFASFATableAdapters.assistenciasTableAdapter"
-        DeleteMethod="Delete">
-        <DeleteParameters>
-            <asp:Parameter Name="Original_ASSISTENCIA" Type="UInt32" />
-            <asp:Parameter Name="Original_DESCRICAO" Type="String" />
-            <asp:Parameter Name="Original_RESPONSAVEL" Type="String" />
-        </DeleteParameters>
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="acesso_dados.DataSetAFASFATableAdapters.assistenciasTableAdapter">
         <InsertParameters>
             <asp:Parameter Name="DESCRICAO" Type="String" />
             <asp:Parameter Name="RESPONSAVEL" Type="String" />
@@ -135,6 +129,39 @@
     <cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server" PopupControlID="pnConfirmacao"
         RepositionMode="RepositionOnWindowResize" TargetControlID="btnModalPopupCancelar"
         BackgroundCssClass="modalBackground" OkControlID="btnOK" CancelControlID="btnCancelar"
+        DropShadow="true" PopupDragHandleControlID="Panel3">
+    </cc1:ModalPopupExtender>
+    <%--ModalPopup para dados inseridos com sucesso--%>
+    <asp:Panel ID="pnObrigado" runat="server" Style="display: none" CssClass="modalPopup">
+        <asp:Panel ID="Panel2" runat="server" Style="cursor: move; background-color: #DDDDDD;
+            border: solid 1px Gray; color: Black">
+            <table>
+                <tr>
+                    <td class="lblCabecalhoModalPop">
+                        Agradecimento !!!
+                    </td>
+                </tr>
+            </table>
+        </asp:Panel>
+        <br />
+        <table width="100%" heigh="100%">
+            <tr>
+                <td align="center" class="lblPerguntaModalPop">
+                    Dados inseridos com sucesso.
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <asp:Button ID="btnVoltar" runat="server" Text="Voltar" UseSubmitBehavior="false"
+                        SkinID="btnFormularioCadastro" CausesValidation="false" />                    
+                </td>
+            </tr>
+        </table>
+    </asp:Panel>    
+    <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server" PopupControlID="pnObrigado"
+        RepositionMode="RepositionOnWindowResize" TargetControlID="btnCancelar_Click"
+        BackgroundCssClass="modalBackground" OkControlID="btnVoltar" 
         DropShadow="true" PopupDragHandleControlID="Panel3">
     </cc1:ModalPopupExtender>
 </asp:Content>

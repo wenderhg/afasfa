@@ -436,7 +436,7 @@
                   </ReportItems>
                 </TableCell>
               </TableCells>
-              <Height>0.97826cm</Height>
+              <Height>0.9cm</Height>
             </TableRow>
           </TableRows>
           <RepeatOnNewPage>true</RepeatOnNewPage>
@@ -461,7 +461,7 @@
             <Width>3.75cm</Width>
           </TableColumn>
         </TableColumns>
-        <Height>1.5cm</Height>
+        <Height>1.42174cm</Height>
         <Left>0.5cm</Left>
       </Table>
     </ReportItems>
