@@ -3,7 +3,7 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    </asp:Content>
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CplConteudo" runat="server">
     <table>
         <tr>
@@ -75,7 +75,7 @@
                     <asp:TextBox ID="txtValor" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidatortxtValor" runat="server" ErrorMessage="Dado para filtro é de preenchimento obrigatório."
                         ControlToValidate="txtValor" SetFocusOnError="true" Display="None"></asp:RequiredFieldValidator>
-                    <asp:PlaceHolder ID="phControlesData" runat="server">
+                    <asp:PlaceHolder ID="phControlesData" runat="server" Visible="false">
                         <cc1:MaskedEditExtender ID="MaskedEditExtendertxtValor" runat="server" MaskType="Date"
                             AcceptNegative="None" Mask="99/99/9999" TargetControlID="txtValor" UserDateFormat="DayMonthYear"
                             AutoComplete="true" AutoCompleteValue="09/08/2008">
@@ -88,7 +88,7 @@
                             ControlToValidate="txtValor" ErrorMessage="Data de filtro inválida." Type="Date"
                             Operator="DataTypeCheck"></asp:CompareValidator>
                     </asp:PlaceHolder>
-                    <asp:PlaceHolder ID="phControlesNumero" runat="server">
+                    <asp:PlaceHolder ID="phControlesNumero" runat="server" Visible="false">
                         <cc1:MaskedEditExtender ID="MaskedEditExtendertxtValorNumero" runat="server" Mask="999,999.99"
                             MaskType="Number" MessageValidatorTip="true" OnFocusCssClass="MaskedEditFocus"
                             TargetControlID="txtValor" CultureName="pt-BR" InputDirection="RightToLeft">
@@ -105,24 +105,19 @@
                     </asp:DropDownList>
                 </td>
                 <td>
-                    <asp:Button ID="btnAdicionarFiltro" runat="server" Text="Adicionar filtro" OnClick="btnAdicionarFiltro_Click"/>
+                    <asp:Button ID="btnAdicionarFiltro" runat="server" Text="Adicionar filtro" OnClick="btnAdicionarFiltro_Click" />
                 </td>
             </tr>
         </table>
     </asp:PlaceHolder>
-        <asp:GridView ID="gdFiltros" runat="server" AutoGenerateColumns="False">
-            <Columns>
-                <asp:BoundField DataField="NomeCampo" HeaderText="Nome campo" 
-                    SortExpression="NomeCampo" />
-                <asp:BoundField DataField="TipoFiltro" HeaderText="Tipo filtro" ReadOnly="True" 
-                    SortExpression="TipoFiltro" />
-                <asp:BoundField DataField="ValorFiltro" HeaderText="Valor filtro" 
-                    SortExpression="ValorFiltro" />
-                <asp:BoundField DataField="OperadorAND" HeaderText="Operador" 
-                    SortExpression="OperadorAND" />
-                <asp:CommandField DeleteText="Excluir" EditText="Alterar" InsertVisible="False" 
-                    ShowCancelButton="False" ShowDeleteButton="True" ShowEditButton="True" 
-                    UpdateText="Alterar" />
-            </Columns>
-        </asp:GridView>
+    <asp:GridView ID="gdFiltros" runat="server" AutoGenerateColumns="False">
+        <Columns>
+            <asp:BoundField DataField="NomeCampo" HeaderText="Nome campo" SortExpression="NomeCampo" />
+            <asp:BoundField DataField="TipoFiltro" HeaderText="Tipo filtro" ReadOnly="True" SortExpression="TipoFiltro" />
+            <asp:BoundField DataField="ValorFiltro" HeaderText="Valor filtro" SortExpression="ValorFiltro" />
+            <asp:BoundField DataField="OperadorAND" HeaderText="Operador" SortExpression="OperadorAND" />
+            <asp:CommandField DeleteText="Excluir" EditText="Alterar" InsertVisible="False" ShowCancelButton="False"
+                ShowDeleteButton="True" ShowEditButton="True" UpdateText="Alterar" />
+        </Columns>
+    </asp:GridView>
 </asp:Content>
