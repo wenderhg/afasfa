@@ -174,7 +174,7 @@
                                     </td>
                                     <td align="left">
                                         <asp:TextBox ID="EMailTextBox" runat="server" Text='<%# Bind("EMAIL") %>' Width="98%" />
-                                        <asp:CustomValidator ID="CustomValidatorContato" runat="server" Display="None" ErrorMessage="Ao menos um dos telefones ou e-mail deve ser preenchido."
+                                        <asp:CustomValidator ID="CustomValidatorContato" runat="server" Display="None" ErrorMessage="É necessário pelo menos um contato sendo ele e-mail ou telefone."
                                             OnServerValidate="CustomValidatorContato_ServerValidate"></asp:CustomValidator>
                                         <asp:RegularExpressionValidator ID="RegularExpressionValidatorEMail" runat="server"
                                             ControlToValidate="EMailTextBox" Display="None" ErrorMessage="Formato do endereço de e-mail está inválido."
