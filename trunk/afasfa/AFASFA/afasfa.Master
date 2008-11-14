@@ -24,13 +24,13 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body onload="load()"   onunload="GUnload()" >
+<body onload="load()" onunload="GUnload()">
     <div id="container">
         <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true"
             EnableScriptLocalization="true">
         </asp:ScriptManager>
-        <asp:Image ID="Image1" ImageUrl="/Imagens/LOGOTIPO.jpg" runat="server" />
+        <asp:Image ID="Image1" ImageUrl="/Imagens/LOGOTIPO.jpg" runat="server"  />
         <asp:Panel runat="server" ID="pnLogin" CssClass="Login">
             <span class="lblFormLogin">Login:
                 <asp:TextBox ID="txtUsuario" runat="server" MaxLength="20" CssClass="txtFormLogin"
@@ -56,94 +56,58 @@
             <br>
             <p class="lblMenuPrincipal">
                 Menu Principal</p>
-            <ul>
-                <li>
-                    <div align="left">
-                        <a href="/index.aspx" class="LinkMenu">In&iacute;cio</a></div>
-                </li>
-                <li>
-                    <div align="left">
-                        <a href="/projetos.aspx" class="LinkMenu" onclick="navega('projetos.aspx'); return false">
-                            Projetos AFASFA</a></div>
-                </li>
-                <li>
-                    <div align="left">
-                        <a href="/projeto_vivaarte.aspx" class="LinkMenu" onclick="navega('projeto_vivaarte.aspx'); return false">
-                            Projetos Viva-Arte</a></div>
-                </li>
-                <li>
-                    <div align="left">
-                        <a href="/Visualizar/FrmVisualizarEvento.aspx" class="LinkMenu">Eventos</a></div>
-                </li>
-                <li>
-                    <div align="left">
-                        <a href="/cadastros/cadastro_doacoes.aspx" class="LinkMenu">Doações</a></div>
-                </li>
-                <li>
-                    <div align="left">
-                        <a href="/ComoChegar/ComoChegar.aspx" class="LinkMenu">Como Chegar ao Lar</a></div>
-                </li>
-                <li>
-                    <div align="left">
-                        <a href="/Cadastros/Cadastro_Usuario.aspx" class="LinkMenu">Cadastro de Usuários</a></div>
-                </li>
-                <li>
-                    <div align="left">
-                        <a href="/faleconosco.aspx" class="LinkMenu">Fale Conosco</a></div>
-                </li>
-                <li>
-                    <div align="left">
-                        <a href="/cadastros/cadastro_voluntarios.aspx" class="LinkMenu">Seja Voluntário</a></div>
-                </li>
-                <li>
-                    <div align="left">
-                        <a href="/campanhas.aspx" class="LinkMenu">Campanhas</a></div>
-                </li>
-                <asp:PlaceHolder runat="server" ID="pnLoginNormal" Visible="false">
-                    <li>
-                        <div align="left">
-                            <a href="#" class="LinkMenu">Recursos Humanos</a></div>
-                    </li>
-                    <li>
-                        <div align="left">
-                            <a href="#" class="LinkMenu">Apresentar Dados Quantitatvios</a></div>
-                    </li>
-                </asp:PlaceHolder>
-            </ul>
+            <div align="center">
+                <a href="/index.aspx" class="LinkMenuPrincipal">In&iacute;cio</a></div>
+            <div align="center">
+                <a href="/projetos.aspx" class="LinkMenuPrincipal" onclick="navega('projetos.aspx'); return false">
+                    Projetos AFASFA</a></div>
+            <div align="center">
+                <a href="/projeto_vivaarte.aspx" class="LinkMenuPrincipal" onclick="navega('projeto_vivaarte.aspx'); return false">
+                    Projetos Viva-Arte</a></div>
+            <div align="center">
+                <a href="/Visualizar/FrmVisualizarEvento.aspx" class="LinkMenuPrincipal">Apresentar
+                    Eventos</a></div>
+            <div align="center">
+                <a href="/cadastros/cadastro_doacoes.aspx" class="LinkMenuPrincipal">Doações</a></div>
+            <div align="center">
+                <a href="/ComoChegar/ComoChegar.aspx" class="LinkMenuPrincipal">Como Chegar ao Lar</a></div>
+            <div align="center">
+                <a href="/Cadastros/Cadastro_Usuario.aspx" class="LinkMenuPrincipal">Cadastro de Usuários</a></div>
+            <div align="center">
+                <a href="/faleconosco.aspx" class="LinkMenuPrincipal">Fale Conosco</a></div>
+            <div align="center">
+                <a href="/cadastros/cadastro_voluntarios.aspx" class="LinkMenuPrincipal">Seja Voluntário</a></div>
+            <div align="center">
+                <a href="/campanhas.aspx" class="LinkMenuPrincipal">Campanhas</a></div>
+            <asp:PlaceHolder runat="server" ID="pnLoginNormal" Visible="false">
+                <div align="center">
+                    <a href="#" class="LinkMenuUsuarioNormal">Recursos Humanos</a>
+                </div>
+                <div align="center">
+                    <a href="#" class="LinkMenuUsuarioNormal">Apresentar Dados Quantitatvios</a></div>
+            </asp:PlaceHolder>
             <asp:PlaceHolder runat="server" Visible="false" ID="pnMenuCadastro">
                 <p class="lblMenuPrincipal">
                     Menu Administrativo</p>
-                <ul>
-                    <li>
-                        <div align="left">
-                            <a href="/cadastros/cadastro_eventos.aspx" class="LinkMenu">Cadastro de Eventos</a></div>
-                    </li>
-                    <li>
-                        <div align="left">
-                            <a href="/cadastros/cadastro_projetos.aspx" class="LinkMenu">Cadastro de Projetos</a></div>
-                    </li>
-                    <li>
-                        <div align="left">
-                            <a href="/cadastros/cadastro_tipos_assistencias.aspx" class="LinkMenu">Cadastrar Tipos
-                                de Assistência</a></div>
-                    </li>
-                    <li>
-                        <div align="left">
-                            <a href="#" class="LinkMenu">Dados Quantitativos</a></div>
-                    </li>
-                    <li>
-                        <div align="left">
-                            <a href="/Relatorios/FrmReportViewer.aspx" class="LinkMenu" target="_blank">Relatórios</a></div>
-                    </li>
-                    <li>
-                        <div align="left">
-                            <a href="/mala_direta.aspx" class="LinkMenu">Mala Direta</a></div>
-                    </li>
-                    <li>
-                        <div align="left">
-                            <a href="/Pesquisa/FrmPesquisaVoluntario.aspx" class="LinkMenu">Pesquisa Voluntários</a></div>
-                    </li>
-                </ul>
+                <div align="center">
+                    <a href="/cadastros/cadastro_eventos.aspx" class="LinkMenuAdministrador">Cadastro de
+                        Eventos</a></div>
+                <div align="center">
+                    <a href="/cadastros/cadastro_projetos.aspx" class="LinkMenuAdministrador">Cadastro de
+                        Projetos</a></div>
+                <div align="center">
+                    <a href="/cadastros/cadastro_tipos_assistencias.aspx" class="LinkMenuAdministrador">
+                        Cadastrar Tipos de Assistência</a></div>
+                <div align="center">
+                    <a href="#" class="LinkMenuAdministrador">Dados Quantitativos</a></div>
+                <div align="center">
+                    <a href="/Relatorios/FrmReportViewer.aspx" class="LinkMenuAdministrador" target="_blank">
+                        Relatórios</a></div>
+                <div align="center">
+                    <a href="/mala_direta.aspx" class="LinkMenuAdministrador">Mala Direta</a></div>
+                <div align="center">
+                    <a href="/Pesquisa/FrmPesquisaVoluntario.aspx" class="LinkMenuAdministrador">Pesquisa
+                        Voluntários</a></div>
             </asp:PlaceHolder>
             <br>
         </div>
