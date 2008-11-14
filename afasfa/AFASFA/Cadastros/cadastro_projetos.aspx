@@ -49,20 +49,24 @@
                         <table cellpadding="0" cellspacing="0" width="100%">
                             <tr>
                                 <td width="20%" align="right" class="lblFomulario">
-                                    <strong style="color: Red">*</strong> Descrição do Projeto:
+                                    <strong style="color: Red">*</strong> Descrição do Projeto ( Título da página de
+                                    divulgação do projeto ):
                                 </td>
                                 <td width="80%" align="left">
                                     <asp:TextBox ID="ProjetoTextBox" runat="server" Text='<%# Bind("Projeto") %>' Width="98%"
                                         class="txtFormulario" />
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorProjetoTextBox" runat="server"
+                                        ErrorMessage="Descrição - Título do projeto de preenchimento obrigatório." ControlToValidate="ProjetoTextBox"
+                                        SetFocusOnError="true" Display="None"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
                                 <td width="20%" align="right" class="lblFomulario">
-                                    <strong style="color: Red">*</strong> Foto para ser apresentada:
+                                    Foto para ser apresentada:
                                 </td>
                                 <td width="80%" align="left">
-                                    <asp:TextBox ID="FotoTextBox" runat="server" Text='<%# Bind("Foto") %>' Width="98%"
-                                        class="txtFormulario" />
+                                    <asp:FileUpload ID="UploadFotoEvento" runat="server" SkinID="upFile" Width="98%"
+                                        CssClass="txtFormulario" />
                                 </td>
                             </tr>
                             <tr>
@@ -71,7 +75,10 @@
                                 </td>
                                 <td width="80%" align="left">
                                     <asp:TextBox ID="DadosProjetoTextBox" runat="server" Text='<%# Bind("DadosProjeto") %>'
-                                        Width="98%" class="txtFormulario" />
+                                        Columns="45" Rows="3" TextMode="MultiLine"  class="txtFormulario" />
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorDadosProjetoTextBox" runat="server"
+                                        ErrorMessage="Informações do projeto de preenchimento obrigatório." ControlToValidate="DadosProjetoTextBox"
+                                        SetFocusOnError="true" Display="None"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -81,19 +88,19 @@
                                 </td>
                                 <td width="80%" align="left">
                                     <asp:TextBox ID="OrdemApresentacaoTextBox" runat="server" Text='<%# Bind("OrdemApresentacao") %>'
-                                    Width="98%" class="txtFormulario" />
+                                        Width="98%" class="txtFormulario" />
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2" align="center">
                                     <br />
                                     <asp:Button ID="Button1" runat="server" CommandName="Insert" Text="Salvar Dados"
-                                        SkinID="btnFormularioCadastro"  />
-                                        <%--OnClick="InsertButton_Click"--%>
+                                        SkinID="btnFormularioCadastro" />
+                                    <%--OnClick="InsertButton_Click"--%>
                                     <asp:Button ID="Button2" runat="server" CausesValidation="False" Text="Cancelar"
-                                        SkinID="btnFormularioCadastro"  />
-                                        <%--SkinID="btnFormularioCadastro"  />
---%>                                        
+                                        SkinID="btnFormularioCadastro" />
+                                    <%--SkinID="btnFormularioCadastro"  />
+--%>
                                     <br />
                                     <br />
                                 </td>
@@ -110,7 +117,7 @@
                     </td>
                 </tr>
             </table>
-            <br />            
+            <br />
         </InsertItemTemplate>
     </asp:FormView>
     <asp:Panel ID="pnConfirmacao" runat="server" Style="display: none" CssClass="modalPopup">

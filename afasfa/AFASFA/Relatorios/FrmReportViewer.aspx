@@ -109,7 +109,7 @@
                                 align="left">
                                 <asp:ListItem Selected="True"></asp:ListItem>
                                 <asp:ListItem Text="Todas" Value="Todas"></asp:ListItem>
-                                <asp:ListItem Text="Pendentes" Value="Pendentes"></asp:ListItem>
+                                <asp:ListItem Text="Pendentes de aprovação" Value="Pendentes"></asp:ListItem>
                                 <asp:ListItem Text="Rejeitadas" Value="Rejeitadas"></asp:ListItem>
                                 <asp:ListItem Text="Aprovadas" Value="Aprovadas"></asp:ListItem>
                             </asp:DropDownList>

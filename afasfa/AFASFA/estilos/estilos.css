@@ -3,7 +3,8 @@ body
 	margin: 0;
 	padding: 0;
 	font: 85% arial, hevetica, sans-serif;
-	width: 600px;	
+	width: 100%;	
+	margin-bottom:auto;
 	color: #000000;
 	background-color: #E6E7F2;
 }
@@ -68,14 +69,46 @@ body
 	border-left-style: solid;
 }
 
-.LinkMenu
+.LinkMenuUsuarioNormal
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: x-small;
+	color: Red ;
+	text-decoration: none;
+}
+.LinkMenuUsuarioNormal:hover
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: x-small;
+	color: White;
+	text-decoration: none;
+	background-color: #666699;
+}
+
+.LinkMenuAdministrador
 {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: x-small;
 	color: #666699;
 	text-decoration: none;
 }
-.LinkMenu:hover
+.LinkMenuAdministrador:hover
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: x-small;
+	color: White;
+	text-decoration: none;
+	background-color: #666699;
+}
+
+.LinkMenuPrincipal
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: x-small;
+	color: #666699;
+	text-decoration: none;
+}
+.LinkMenuPrincipal:hover
 {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: x-small;
@@ -92,6 +125,17 @@ body
 	font-weight: bold;
 	text-decoration: none;
 }
+
+.lblCaptionGrid
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	font-style: normal;
+	color: White;
+	font-weight: bold;
+	text-decoration: none;
+}
+
 .txtFormulario
 {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
