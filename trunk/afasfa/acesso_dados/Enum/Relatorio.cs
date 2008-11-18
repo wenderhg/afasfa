@@ -22,5 +22,9 @@ public enum Relatorio
     /// <summary>
     /// Relatorios
     /// </summary>
-    listagem_eventos = 5
+    listagem_eventos = 5,
+    /// <summary>
+    /// Relatorios
+    /// </summary>
+    listagem_usuarios = 6
 }

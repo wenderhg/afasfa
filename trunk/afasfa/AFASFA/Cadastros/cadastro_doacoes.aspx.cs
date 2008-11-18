@@ -11,7 +11,7 @@ namespace AFASFA.cadastros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            (this.FormView1.FindControl("DataDoacaoTextBox") as TextBox).Text = DateTime.Today.ToString();
         }
 
         protected void InsertCancelButton_Click(object sender, EventArgs e)

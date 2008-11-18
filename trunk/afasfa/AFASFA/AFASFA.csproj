@@ -182,6 +182,13 @@
     <Compile Include="Visualizar\FrmVisualizarEvento.aspx.designer.cs">
       <DependentUpon>FrmVisualizarEvento.aspx</DependentUpon>
     </Compile>
+    <Compile Include="voluntarios.aspx.cs">
+      <DependentUpon>voluntarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="voluntarios.aspx.designer.cs">
+      <DependentUpon>voluntarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web References\afasfaWebService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -244,6 +251,7 @@
     <Content Include="solicitar_senha.aspx" />
     <Content Include="App_Themes\Default\GridSkin.skin" />
     <Content Include="Visualizar\FrmVisualizarEvento.aspx" />
+    <Content Include="voluntarios.aspx" />
     <None Include="Web References\afasfaWebService\DataSetAFASFA.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -301,6 +309,7 @@
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Relatorios\listagem_usuarios.rdlc" />
     <EmbeddedResource Include="Relatorios\listagem_eventos.rdlc" />
     <EmbeddedResource Include="Relatorios\listagem_assistencias.rdlc" />
     <EmbeddedResource Include="Relatorios\listagem_projetos.rdlc" />

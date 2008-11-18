@@ -8,9 +8,9 @@
         <p>
             Campanhas de preven&ccedil;&atilde;o realizada pela AFASFA em conjunto com os colaboradores,
             a fonte dessas informa&ccedil;&otilde;es s&atilde;o do <strong>Laborat&oacute;rio ROCHE</strong>.
-            <br>
-            <br>
-            Serviço Gratuito do DISQUE AIDS - 0800 61 1997 ou 0800 16 2550<br>
+            <br />
+            <br />
+            Serviço Gratuito do DISQUE AIDS - 0800 61 1997 ou 0800 16 2550<br />
             ou visite o site <a href="http://www.aids.gov.br" target="_blank" class="LinkLojas">
                 www.aids.gov.br</a>.
             <br>

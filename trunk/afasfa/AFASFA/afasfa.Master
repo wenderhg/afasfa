@@ -76,7 +76,7 @@
             <div align="center">
                 <a href="/faleconosco.aspx" class="LinkMenuPrincipal">Fale Conosco</a></div>
             <div align="center">
-                <a href="/cadastros/cadastro_voluntarios.aspx" class="LinkMenuPrincipal">Seja Voluntário</a></div>
+                <a href="/voluntarios.aspx" class="LinkMenuPrincipal">Seja Voluntário</a></div>
             <div align="center">
                 <a href="/campanhas.aspx" class="LinkMenuPrincipal">Campanhas</a></div>
             <asp:PlaceHolder runat="server" ID="pnLoginNormal" Visible="false">

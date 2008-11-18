@@ -30,8 +30,14 @@ namespace AFASFA.Cadastros
             //{
             //    _txtDataEvento.Text = DateTime.Today.ToShortDateString();
             //}
+            if (!IsPostBack)
+            {
+                (this.FormView1.FindControl("DataEventoTextBox") as TextBox).Text = DateTime.Today.ToString();
+                (this.FormView1.FindControl("DataMaximaTextBox") as TextBox).Text = DateTime.Today.AddYears(1).ToString();    
+            }
+            
         }
-        
+
         protected void InsertCancelButton_Click(object sender, EventArgs e)
         {
             this.ModalPopupExtender1.Show();
@@ -50,13 +56,14 @@ namespace AFASFA.Cadastros
         }
         protected void InsertButton_Click(object sender, EventArgs e)
         {
-            if (Page.IsValid)
-            {
-                InserirUsuario();
-            }
+            //if (Page.IsValid)
+            //{
+            InserirUsuario();
+            //}
         }
         private void InserirUsuario()
         {
+            this.ModalPopupExtender2.Show();
         }
 
         private string RetornaNomeArquivo()
@@ -85,7 +92,24 @@ namespace AFASFA.Cadastros
         protected void chkJaRealizado_OnCheckedChanged(object sender, EventArgs e)
         {
             (this.FormView1.FindControl("lblJaRealizado") as Label).Visible = (this.FormView1.FindControl("chkJaRealizado") as CheckBox).Checked;
+            (this.FormView1.FindControl("lblNaoRealizado") as Label).Visible = !(this.FormView1.FindControl("chkJaRealizado") as CheckBox).Checked;
+
         }
+
+        protected void ApresentarCheckBox_OnCheckedChanged(object sender, EventArgs e)
+        {
+            (this.FormView1.FindControl("lblNaoApresentarEvento") as Label).Visible = !(this.FormView1.FindControl("ApresentarCheckBox") as CheckBox).Checked;
+            (this.FormView1.FindControl("lblApresentarEvento") as Label).Visible = (this.FormView1.FindControl("ApresentarCheckBox") as CheckBox).Checked;
+
+        }
+
+        protected void ReservaDisponivelCheckBox_OnCheckedChanged(object sender, EventArgs e)
+        {
+            (this.FormView1.FindControl("ReservaDisponivel") as Label).Visible = (this.FormView1.FindControl("ReservaDisponivelCheckBox") as CheckBox).Checked;
+            (this.FormView1.FindControl("ReservaNaoDisponivel") as Label).Visible = !(this.FormView1.FindControl("ReservaDisponivelCheckBox") as CheckBox).Checked;
+
+        }
+
 
         protected void FormView1_ItemInserting(object sender, FormViewInsertEventArgs e)
         {

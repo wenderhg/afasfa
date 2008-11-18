@@ -21,7 +21,6 @@ namespace AFASFA.Cadastros
         protected void btnOK_Click(object sender, EventArgs e)
         {
             this.ModalPopupExtender1.Hide();
-            this.ModalPopupExtender2.Show();
             this.FormView1.ChangeMode(FormViewMode.ReadOnly);
             this.FormView1.ChangeMode(FormViewMode.Insert);
         }
@@ -30,6 +29,6 @@ namespace AFASFA.Cadastros
         {
             this.ModalPopupExtender1.Hide();
         }
-
+        
     }
 }
