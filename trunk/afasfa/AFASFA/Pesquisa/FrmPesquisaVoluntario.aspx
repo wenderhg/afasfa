@@ -54,7 +54,7 @@
             <tr>
                 <td style="margin-left: 40px">
                     <asp:DropDownList ID="ddlCampos" runat="server" DataTextField="ColumnName" DataValueField="DataType"
-                        AppendDataBoundItems="true">
+                        AppendDataBoundItems="true" AutoPostBack="true" OnSelectedIndexChanged="ddlCampos_SelectedIndexChanged">
                         <asp:ListItem></asp:ListItem>
                     </asp:DropDownList>
                 </td>

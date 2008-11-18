@@ -47,6 +47,11 @@ namespace AFASFA.Pesquisa
             this.gdFiltros.DataBind();
         }
 
+        protected void ddlCampos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Ver o tipo do campo e habilitar o placeholder que precisar
+        }
+
         private Filtro RetornaFiltroAtual()
         {
             Filtro _filtro = new Filtro();
