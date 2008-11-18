@@ -142,7 +142,7 @@ namespace AFASFA.Cadastros
         {
             if (Page.IsValid)
             {
-                InserirUsuario();
+                InserirUsuario();                
             }
         }
 
@@ -224,6 +224,7 @@ namespace AFASFA.Cadastros
                                                                   this.AdministradorCheckBox.Checked ? "S" : "N",
                                                                   InserirInformacoesContato()
                                                                   );
+                this.ModalPopupExtender2.Show();
             }
         }
 
@@ -385,12 +386,17 @@ namespace AFASFA.Cadastros
 
             ReceberInformacoesCheckBox.Checked = true;
 
-            
+
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             this.ModalPopupExtender1.Hide();
+        }
+
+        protected void ReceberInformacoesCheckBox_OnCheckedChanged(object sender, EventArgs e)
+        {
+            (this.FindControl("lblReceberInformaoes") as Label).Visible = !(this.FindControl("ReceberInformacoesCheckBox") as CheckBox).Checked;
         }
 
     }

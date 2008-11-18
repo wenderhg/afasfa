@@ -20,7 +20,7 @@
         </InsertParameters>
     </asp:ObjectDataSource>
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="Doacao" DefaultMode="Insert"
-        DataSourceID="ObjectDataSource1">
+        DataSourceID="ObjectDataSource1" >
         <InsertItemTemplate>
             <table cellpadding="0" cellspacing="0" width="100%" style="" border="Ridge">
                 <tr>
@@ -46,6 +46,10 @@
                                             0041 - Conta Corrente: 63.555-8.
                                             <br />
                                             <br />
+                                            Caso tenha dúvidas sobre as informações que devem ser preenchidas pare com o mouse
+                                            sobre o campo que o sistema lhe informará oque deve ser preenchido.
+                                            <br />
+                                            <br />
                                         </td>
                                     </tr>
                                     <tr>
@@ -57,7 +61,7 @@
                                                     </td>
                                                     <td width="80%" align="left">
                                                         <asp:TextBox ID="NomeTextBox" runat="server" Text='<%# Bind("Nome") %>' Width="98%"
-                                                            class="txtFormulario" />
+                                                            class="txtFormulario" ToolTip="Informe seu nome." />
                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorNomeTextBox" runat="server"
                                                             ErrorMessage="Nome é de preenchimento obrigatório." ControlToValidate="NomeTextBox"
                                                             SetFocusOnError="true" Display="None"></asp:RequiredFieldValidator>
@@ -68,8 +72,8 @@
                                                         <strong style="color: Red">*</strong> Data da Doação:
                                                     </td>
                                                     <td align="left">
-                                                        <asp:TextBox ID="DataDoacaoTextBox" runat="server" Text='<%# Bind("DataDoacao") %>'
-                                                            Width="16%" class="txtFormulario" />
+                                                        <asp:TextBox ID="DataDoacaoTextBox" runat="server" 
+                                                            Width="20%" class="txtFormulario" ToolTip="Informe a data da doação."  />
                                                         <cc1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" MaskType="Date" AcceptNegative="None"
                                                             Mask="99/99/9999" TargetControlID="DataDoacaoTextBox" UserDateFormat="DayMonthYear"
                                                             AutoComplete="true" AutoCompleteValue="09/08/2008">
@@ -92,7 +96,7 @@
                                                     </td>
                                                     <td align="left">
                                                         <asp:TextBox ID="EnderecoTextBox" runat="server" Text='<%# Bind("Endereco") %>' Width="98%"
-                                                            class="txtFormulario" />
+                                                            class="txtFormulario" ToolTip="Informe o endereço de retirada dos itens pertencentes a doação." />
                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorEnderecoTextBox" runat="server"
                                                             ErrorMessage="Endereço é de preenchimento obrigatório" ControlToValidate="EnderecoTextBox"
                                                             Display="None"></asp:RequiredFieldValidator>
@@ -104,7 +108,7 @@
                                                     </td>
                                                     <td align="left">
                                                         <asp:TextBox ID="BairroTextBox" runat="server" Text='<%# Bind("Bairro") %>' Width="70%"
-                                                            class="txtFormulario" />
+                                                            class="txtFormulario" ToolTip="Informe o bairro de retirada dos itens pertencentes a doação." />
                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorBairroTextBox" runat="server"
                                                             ErrorMessage="Bairro é de preenchimento obrigatório" ControlToValidate="BairroTextBox"
                                                             Display="None"></asp:RequiredFieldValidator>
@@ -116,7 +120,7 @@
                                                     </td>
                                                     <td align="left">
                                                         <asp:TextBox ID="TelefoneResTextBox" runat="server" Text='<%# Bind("TelefoneRes") %>'
-                                                            Width="25%" class="txtFormulario" />
+                                                            Width="25%" class="txtFormulario" ToolTip="Informe seu número de telefone residencial ou de contato." />
                                                         <cc1:MaskedEditExtender ID="MaskedEditExtender2" runat="server" MaskType="Number"
                                                             AcceptNegative="None" Mask="(99)9999-9999" TargetControlID="TelefoneResTextBox"
                                                             UserDateFormat="DayMonthYear" AutoComplete="true">
@@ -132,7 +136,7 @@
                                                     </td>
                                                     <td align="left">
                                                         <asp:TextBox ID="TelefoneCelTextBox" runat="server" Text='<%# Bind("TelefoneCel") %>'
-                                                            Width="25%" class="txtFormulario" />
+                                                            Width="25%" class="txtFormulario" ToolTip="Informe seu número do telefone celular." />
                                                         <cc1:MaskedEditExtender ID="MaskedEditExtender3" runat="server" MaskType="Number"
                                                             AcceptNegative="None" Mask="(99)9999-9999" TargetControlID="TelefoneCelTextBox"
                                                             AutoComplete="true">
@@ -141,11 +145,11 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="lblFomulario" align="right">
-                                                        email:
+                                                        E-mail:
                                                     </td>
                                                     <td align="left">
                                                         <asp:TextBox ID="emailTextBox" runat="server" Text='<%# Bind("email") %>' Width="70%"
-                                                            class="txtFormulario" />
+                                                            class="txtFormulario" ToolTip="Informe seu e-mail de contato." />
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -153,8 +157,8 @@
                                                         <strong style="color: Red">*</strong> Itens de Doação:
                                                     </td>
                                                     <td align="left">
-                                                        <asp:TextBox ID="ItensTextBox" runat="server" Text='<%# Bind("Itens") %>' Columns="45"
-                                                            Rows="3" TextMode="MultiLine" class="txtFormulario" />
+                                                        <asp:TextBox ID="ItensTextBox" runat="server" Text='<%# Bind("Itens") %>' Columns="60"
+                                                            Rows="3" TextMode="MultiLine" class="txtFormulario" ToolTip="Informe aqui todos os itens pertencentes a doação." />
                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorItensTextBox" runat="server"
                                                             ErrorMessage="Itens é de preenchimento obrigatório" ControlToValidate="ItensTextBox"
                                                             Display="None"></asp:RequiredFieldValidator>
@@ -166,7 +170,7 @@
                                                     </td>
                                                     <td align="left">
                                                         <asp:TextBox ID="DisponibilidadeTextBox" runat="server" Text='<%# Bind("Disponibilidade") %>'
-                                                            Columns="45" Rows="3" TextMode="MultiLine" class="txtFormulario" />
+                                                            Columns="60" Rows="3" TextMode="MultiLine" class="txtFormulario" ToolTip="Informe aqui qual a sua disponibilidade para que possamos retirar a doação." />
                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorDisponibilidadeTextBox" runat="server"
                                                             ErrorMessage="Disponibilidade é de preenchimento obrigatório" ControlToValidate="DisponibilidadeTextBox"
                                                             Display="None"></asp:RequiredFieldValidator>
@@ -176,9 +180,9 @@
                                                     <td colspan="2" class="txtFormLogin" align="center">
                                                         <br />
                                                         <asp:Button ID="InsertButton" runat="server" CausesValidation="True" Text="Enviar Dados"
-                                                            CommandName="Insert" OnClick="InsertButton_Click" SkinID="btnFormularioCadastro" />
+                                                            CommandName="Insert" OnClick="InsertButton_Click" SkinID="btnFormularioCadastro" ToolTip="Click neste botão enviar os dados referente a doação." />
                                                         &nbsp;<asp:Button ID="btnInsertCancelButton" runat="server" CausesValidation="False"
-                                                            OnClick="InsertCancelButton_Click" Text="Cancelar" SkinID="btnFormularioCadastro" />
+                                                            OnClick="InsertCancelButton_Click" Text="Cancelar" SkinID="btnFormularioCadastro" ToolTip="Click neste botão para cancelar os dados referente a doação." />
                                                         <br />
                                                         <br />
                                                     </td>

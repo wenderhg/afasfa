@@ -12,7 +12,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <div align="center">
         <cc1:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
         </cc1:ToolkitScriptManager>
         <div id="dvRelatorio" style="">
@@ -56,6 +56,7 @@
                 <asp:ListItem Text="Listagem de Assistências" Value="Relatorios\listagem_assistencias.rdlc"></asp:ListItem>
                 <asp:ListItem Text="Listagem de Projetos" Value="Relatorios\listagem_projetos.rdlc"></asp:ListItem>
                 <asp:ListItem Text="Listagem de Eventos" Value="Relatorios\listagem_eventos.rdlc"></asp:ListItem>
+                <asp:ListItem Text="Listagem de Usuários" Value="Relatorios\listagem_usuarios.rdlc"></asp:ListItem>
             </asp:DropDownList>
             <br />
             <br />
@@ -138,9 +139,8 @@
         <br />
         <br />
         <rsweb:ReportViewer ID="ReportViewer1" runat="server" DocumentMapWidth="90%" Height="31cm"
-            Width="20cm" Font-Names="Verdana" Font-Size="8pt" Visible="False" 
-            ToolBarItemPressedHoverBackColor="" onload="ReportViewer1_Load" 
-            onprerender="ReportViewer1_PreRender">
+            Width="20cm" Font-Names="Verdana" Font-Size="8pt" Visible="False" ToolBarItemPressedHoverBackColor=""
+            OnLoad="ReportViewer1_Load" OnPreRender="ReportViewer1_PreRender">
             <LocalReport ReportPath="Relatorios\listagem_assistencias.rdlc">
                 <DataSources>
                     <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="DataSetAFASFA_assistencias" />

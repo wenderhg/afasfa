@@ -38,6 +38,9 @@ namespace AFASFA.Relatorios
                 case Relatorio.listagem_eventos:
                     CarregaListagemEventos(ddlRelatorios.SelectedValue);
                     break;
+                case Relatorio.listagem_usuarios:
+                    CarregaListagemUsuarios(ddlRelatorios.SelectedValue);
+                    break;
                 default:
                     break;
             }
@@ -52,6 +55,20 @@ namespace AFASFA.Relatorios
                 DataSetAFASFA.voluntariosDataTable voluntario = new DataSetAFASFA.voluntariosDataTable();
                 Conexao.AfasfaManager.voluntariosTableAdapter.Fill(voluntario);
                 ReportDataSource datasource = new ReportDataSource("DataSetAFASFA_voluntarios", voluntario);
+
+                ReportViewer1.LocalReport.ReportPath = report;
+                ReportViewer1.LocalReport.DataSources.Clear();
+                ReportViewer1.LocalReport.DataSources.Add(datasource);
+            }
+        }
+
+        private void CarregaListagemUsuarios(string report)
+        {
+            using (Conexao.AfasfaManager.usuariosTableAdapter = new usuariosTableAdapter())
+            {
+                DataSetAFASFA.usuariosDataTable usuarios = new DataSetAFASFA.usuariosDataTable();
+                Conexao.AfasfaManager.usuariosTableAdapter.Fill(usuarios);
+                ReportDataSource datasource = new ReportDataSource("DataSetAFASFA_usuarios", usuarios);
 
                 ReportViewer1.LocalReport.ReportPath = report;
                 ReportViewer1.LocalReport.DataSources.Clear();

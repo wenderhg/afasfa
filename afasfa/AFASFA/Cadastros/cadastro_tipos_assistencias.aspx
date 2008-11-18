@@ -13,81 +13,90 @@
         </InsertParameters>
     </asp:ObjectDataSource>
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="Assistencia" DataSourceID="ObjectDataSource1"
-        DefaultMode="Insert" BackColor="#E6E7F2" BorderColor="#ecffff" BorderStyle="Ridge">
+        DefaultMode="Insert">
         <InsertItemTemplate>
-            <table cellpadding="0" cellspacing="0">
+            <table cellpadding="0" cellspacing="0" width="100%" style="" border="Ridge">
                 <tr>
-                    <tr>
-                        <br />
-                        <td colspan="2" class="TextoTitulo" align="center">
-                            CADASTRAR TIPOS DE ASSISTÊNCIAS
-                            <br />
-                            <br />
-                        </td>
-                    </tr>
-                </tr>
-                <tr>
-                    <td colspan="2" class="TextoPagina" align="justify">
-                        Olá !!!! Muito Obrigado pelos serviços prestados....
-                        <br />
-                        <br />
-                        Saiba que as informações aqui inseridas serão utilizadas e apresentadas na página
-                        aberta ao que mostra a quantidade de pessoas assistidas pelos projetos o Lar , por
-                        isso os dados devem conter informações corretas.
-                        <br />
-                        <br />
-                        Bom Trabalho.
-                        <br />
-                        <br />
-                        Caso Necessite de Ajuda click aqui !!!!
-                        <br />
-                        <br />
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center">
-                        <table>
+                    <td>
+                        <table border="0">
                             <tr>
-                                <td class="lblFomulario" align="right">
-                                    <strong style="color: red">*</strong> Descrição:
-                                </td>
-                                <td align="left">
-                                    <asp:TextBox ID="DescricaoTextBox" runat="server" Text='<%# Bind("Descricao") %>'
-                                        Width="390" class="txtFormulario" />
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorDescricaoTextBox" runat="server"
-                                        ErrorMessage="Descrição é de preenchimento obrigatório" ControlToValidate="DescricaoTextBox"
-                                        Display="None"></asp:RequiredFieldValidator>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="lblFomulario" align="right">
-                                    <strong style="color: red">*</strong> Responsavel:
-                                </td>
-                                <td align="left">
-                                    <asp:TextBox ID="ResponsavelTextBox" runat="server" Text='<%# Bind("Responsavel") %>'
-                                        Width="250" class="txtFormulario" />
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorResponsavelTextBox" runat="server"
-                                        ErrorMessage="Responsável é de preenchimento obrigatório" ControlToValidate="ResponsavelTextBox"
-                                        Display="None"></asp:RequiredFieldValidator>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" align="center">
-                                    <br />
-                                    <asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert"
-                                        Text="Salvar Dados" SkinID="btnFormularioCadastro" />
-                                    &nbsp;<asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False"
-                                        CommandName="Cancel" Text="Cancelar" SkinID="btnFormularioCadastro" OnClick="InsertCancelButton_Click" />
-                                    <br />
-                                    <br />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" class="lblPreenchimentoObrigatorio" align="center">
-                                    <br />
-                                    (*) campo de preenchimento obrigatório
-                                    <br />
-                                    <br />
+                                <td>
+                                    <tr>
+                                        <br />
+                                        <td colspan="2" class="TextoTitulo" align="center">
+                                            CADASTRAR TIPOS DE ASSISTÊNCIAS
+                                            <br />
+                                            <br />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" class="TextoPagina" align="justify">
+                                            Olá !!!! Muito Obrigado pelos serviços prestados....
+                                            <br />
+                                            <br />
+                                            Saiba que as informações aqui inseridas serão utilizadas e apresentadas na página
+                                            aberta ao que mostra a quantidade de pessoas assistidas pelos projetos o Lar , por
+                                            isso os dados devem conter informações corretas.
+                                            <br />
+                                            <br />
+                                            Bom Trabalho.
+                                            <br />
+                                            <br />
+                                            Caso tenha dúvidas sobre as informações que devem ser preenchidas pare com o mouse
+                                            sobre o campo que o sistema lhe informará oque deve ser preenchido.
+                                            <br />
+                                            <br />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" align="center">
+                                            <table>
+                                                <tr>
+                                                    <td width="20%" class="lblFomulario" align="right">
+                                                        <strong style="color: red">*</strong> Descrição:
+                                                    </td>
+                                                    <td align="left">
+                                                        <asp:TextBox ID="DescricaoTextBox" runat="server" Text='<%# Bind("Descricao") %>'
+                                                            Width="98%" class="txtFormulario" ToolTip="Informe a descrição ou nome da assistência." />
+                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorDescricaoTextBox" runat="server"
+                                                            ErrorMessage="Descrição é de preenchimento obrigatório" ControlToValidate="DescricaoTextBox"
+                                                            Display="None"></asp:RequiredFieldValidator>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="lblFomulario" align="right">
+                                                        <strong style="color: red">*</strong> Responsável:
+                                                    </td>
+                                                    <td align="left">
+                                                        <asp:TextBox ID="ResponsavelTextBox" runat="server" Text='<%# Bind("Responsavel") %>'
+                                                            Width="250" class="txtFormulario" ToolTip="Informe o nome do responsável pela assitência." />
+                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorResponsavelTextBox" runat="server"
+                                                            ErrorMessage="Responsável é de preenchimento obrigatório" ControlToValidate="ResponsavelTextBox"
+                                                            Display="None"></asp:RequiredFieldValidator>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" align="center">
+                                                        <br />
+                                                        <asp:Button ID="InsertButton" runat="server" CausesValidation="false" CommandName="Insert"
+                                                            Text="Salvar Dados" SkinID="btnFormularioCadastro" />
+                                                        &nbsp;<asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False"
+                                                            CommandName="Cancel" Text="Cancelar" SkinID="btnFormularioCadastro" OnClick="InsertCancelButton_Click" />
+                                                        <br />
+                                                        <br />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" class="lblPreenchimentoObrigatorio" align="center">
+                                                        <br />
+                                                        (*) campo de preenchimento obrigatório
+                                                        <br />
+                                                        <br />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
                                 </td>
                             </tr>
                         </table>
@@ -147,21 +156,21 @@
         <table width="100%" heigh="100%">
             <tr>
                 <td align="center" class="lblPerguntaModalPop">
-                    Dados inseridos com sucesso.
+                    Cadastro efetuado com sucesso. Esta assistência já estará disponível para ser utilizada
+                    na página para lançar os dados quantitativos. Muito Obrigado.
                     <br />
                 </td>
             </tr>
             <tr>
                 <td align="center">
                     <asp:Button ID="btnVoltar" runat="server" Text="Voltar" UseSubmitBehavior="false"
-                        SkinID="btnFormularioCadastro" CausesValidation="false" />                    
+                        SkinID="btnFormularioCadastro" CausesValidation="false" />
                 </td>
             </tr>
         </table>
     </asp:Panel>    
     <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server" PopupControlID="pnObrigado"
-        RepositionMode="RepositionOnWindowResize" TargetControlID="btnCancelar_Click"
-        BackgroundCssClass="modalBackground" OkControlID="btnVoltar" 
-        DropShadow="true" PopupDragHandleControlID="Panel3">
+        RepositionMode="RepositionOnWindowResize" TargetControlID="btnModalPopupCancelar" BackgroundCssClass="modalBackground"
+        OkControlID="btnVoltar" DropShadow="true" PopupDragHandleControlID="Panel3">
     </cc1:ModalPopupExtender>
 </asp:Content>
