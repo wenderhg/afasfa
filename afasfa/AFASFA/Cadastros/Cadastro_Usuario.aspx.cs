@@ -34,8 +34,10 @@ namespace AFASFA.Cadastros
             //Exibe se for inclusao
             InsertButton.Visible = !this.Request.IsAuthenticated;
             //Exibe se for alteracao
-            FotoUsuario.Visible = this.Request.IsAuthenticated && this.ViewState[viewStateNomeArquivo] != null;
-            FotoUsuario.ImageUrl = String.Format("/foto/{0}", Convert.ToString(this.ViewState[viewStateNomeArquivo]));
+            FotoUsuario.Visible = this.Request.IsAuthenticated && //Se autenticado
+                this.Session[viewStateNomeArquivo] != null && //se tiver o nome no viewstate
+                (!String.IsNullOrEmpty(Convert.ToString(this.Session[viewStateNomeArquivo])));
+            FotoUsuario.ImageUrl = String.Format("/foto/{0}", Convert.ToString(this.Session[viewStateNomeArquivo]));
             RequiredFieldtxtSenha.Visible = !this.Request.IsAuthenticated;
             RequiredFieldtxtSenha.Enabled = RequiredFieldtxtSenha.Visible;
             RequiredFieldtxtSenha.ValidationGroup = "NaoValidar";
@@ -76,10 +78,10 @@ namespace AFASFA.Cadastros
 
         private void PreencheValoresParaUpdate(int idUsuario, int idContato, string nomeArquivo)
         {
-            this.ViewState[viewStateLogin] = LoginTextBox.Text;
-            this.ViewState[viewStateIdUsuario] = idUsuario;
-            this.ViewState[viewStateIdContato] = idContato;
-            this.ViewState[viewStateNomeArquivo] = nomeArquivo;
+            this.Session[viewStateLogin] = LoginTextBox.Text;
+            this.Session[viewStateIdUsuario] = idUsuario;
+            this.Session[viewStateIdContato] = idContato;
+            this.Session[viewStateNomeArquivo] = nomeArquivo;
         }
 
         private void PreencheCamposEmTela(DataSetAFASFA.usuariosDataTable _usuario, DataSetAFASFA.infocontatoDataTable _infoContato)
@@ -157,9 +159,9 @@ namespace AFASFA.Cadastros
                 Conexao.AfasfaManager.usuariosTableAdapter.Update(this.LoginTextBox.Text,
                                                                   RetornaSenhaAtualizada(),
                                                                   this.AdministradorCheckBox.Checked ? "S" : "N",
-                                                                  Convert.ToInt32(ViewState[viewStateIdContato]),
-                                                                  Convert.ToInt32(ViewState[viewStateIdUsuario]),
-                                                                  Convert.ToString(ViewState[viewStateLogin])
+                                                                  Convert.ToInt32(Session[viewStateIdContato]),
+                                                                  Convert.ToInt32(Session[viewStateIdUsuario]),
+                                                                  Convert.ToString(Session[viewStateLogin])
                                                                   );
             }
             using (Conexao.AfasfaManager.infocontatoTableAdapter = new infocontatoTableAdapter())
@@ -182,8 +184,8 @@ namespace AFASFA.Cadastros
                             this.EMailTextBox.Text,
                             ddlSexo.SelectedValue,
                             this.ApelidoTextBox.Text,
-                            Convert.ToUInt32(ViewState[viewStateIdContato]));
-                this.ViewState[viewStateNomeArquivo] = _nomeArquivo;
+                            Convert.ToUInt32(Session[viewStateIdContato]));
+                this.Session[viewStateNomeArquivo] = _nomeArquivo;
             }
             AtualizaSessionUsuario();
 
@@ -204,7 +206,7 @@ namespace AFASFA.Cadastros
         {
             if (String.IsNullOrEmpty(this.txtSenha.Text))
             {
-                DataSetAFASFA.usuariosDataTable _usuario = Conexao.AfasfaManager.usuariosTableAdapter.BuscaPorID(Convert.ToInt32(ViewState[viewStateIdUsuario]));
+                DataSetAFASFA.usuariosDataTable _usuario = Conexao.AfasfaManager.usuariosTableAdapter.BuscaPorID(Convert.ToInt32(Session[viewStateIdUsuario]));
                 return Convert.ToString(_usuario.Rows[0]["Senha"]);
             }
             else
@@ -266,7 +268,7 @@ namespace AFASFA.Cadastros
             }
             else
             {
-                return this.ViewState[viewStateNomeArquivo] == null ? null : Convert.ToString(this.ViewState[viewStateNomeArquivo]);
+                return this.Session[viewStateNomeArquivo] == null ? null : Convert.ToString(this.Session[viewStateNomeArquivo]);
             }
         }
 
