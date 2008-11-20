@@ -122,8 +122,27 @@ body
 	font-size: xx-small;
 	font-style: normal;
 	color: black;
+	font-weight: bold;	
+	text-decoration: none;
+}
+
+.lblTituloApresentacaoEvento
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 110%;
+	font-style: normal;
+	color: white;
+	background-color: #666699;
 	font-weight: bold;
 	text-decoration: none;
+}
+
+.lblDescricaoApresentacaoEvento
+{
+	font-size: x-large;
+	color: red;
+	font-family: Monotype Corsiva;
+	background-color: White;
 }
 
 .lblCaptionGrid
