@@ -107,7 +107,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td align="right" class="lblFomulario" width="20%">
-                                                            <strong style="color: Red">*</strong> Apelido:
+                                                            <strong style="color: Red">*</strong> Como Deseja ser Chamado:
                                                         </td>
                                                         <td align="left" width="80%">
                                                             <asp:TextBox ID="ApelidoTextBox" runat="server" class="txtFormulario" Text='<%# Bind("Apelido") %>'
@@ -218,10 +218,12 @@
                                                             </asp:RequiredFieldValidator>
                                                         </td>
                                                     </tr>
+                                                    <%--http://www.correios.com.br/servicos/cep/cep_loc_log.cfm/--%>
                                                     <tr>
                                                         <td align="right" class="lblFomulario" width="20%">
                                                             <strong style="color: Red">*</strong> CEP:
                                                         </td>
+                                                        
                                                         <td align="left" width="80%">
                                                             <asp:TextBox ID="CepTextBox" runat="server" class="txtFormulario" onblur="ExecutabtnCEPClick();"
                                                                 Text='<%# Bind("[Cep]") %>' Width="16%" ToolTip="Informe o CEP. Ao sair do campo as informações do endereço referentes ao CEP serão completadas automaticamente." />
