@@ -20,7 +20,6 @@ namespace AFASFA.Pesquisa
             }
             if (!IsPostBack)
             {
-                this.Filtros = new FiltroCollection();
 
                 using (DataSetAFASFA.voluntariosDataTable _table = new DataSetAFASFA.voluntariosDataTable())
                 {
@@ -38,6 +37,10 @@ namespace AFASFA.Pesquisa
             {
                 this.Filtros.Clear();
             }
+            else
+            {
+                this.ddlCampos.Focus();
+            }
         }
 
         protected void btnAdicionarFiltro_Click(object sender, EventArgs e)
@@ -50,6 +53,22 @@ namespace AFASFA.Pesquisa
         protected void ddlCampos_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Ver o tipo do campo e habilitar o placeholder que precisar
+            int index = ddlCampos.SelectedIndex;
+            this.phControlesData.Visible = false;
+            this.phControlesNumero.Visible = false;
+            using (DataSetAFASFA.voluntariosDataTable _table = new DataSetAFASFA.voluntariosDataTable())
+            {
+                if (_table.Columns[index].DataType.Equals(typeof(DateTime))) //Se for tipo data
+                {
+                    this.phControlesData.Visible = true;
+                }
+                else if ((_table.Columns[index].DataType.Equals(typeof(UInt32))) ||
+                         (_table.Columns[index].DataType.Equals(typeof(Decimal)))) //Se for tipo numerico
+                {
+                    this.phControlesNumero.Visible = true;
+                }
+            }
+
         }
 
         private Filtro RetornaFiltroAtual()
@@ -57,9 +76,22 @@ namespace AFASFA.Pesquisa
             Filtro _filtro = new Filtro();
             _filtro.NomeCampo = this.ddlCampos.SelectedItem.Text;
             _filtro.TipoFiltro = ((TipoFiltro)Enum.Parse(typeof(TipoFiltro), this.ddlTipoFiltro.SelectedValue));
+            _filtro.ValorFiltro = this.txtValor.Text;
+            _filtro.OperadorAND = (this.ddlOperador.SelectedIndex == 0);//Se for AND selecionado
             return _filtro;
         }
 
-        public FiltroCollection Filtros { get; set; }
+        private FiltroCollection _filtros = null;
+        public FiltroCollection Filtros
+        {
+            get
+            {
+                if (_filtros == null)
+                {
+                    _filtros = new FiltroCollection();
+                }
+                return _filtros;
+            }
+        }
     }
 }
