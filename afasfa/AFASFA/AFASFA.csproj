@@ -285,10 +285,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:51349/wsAfasfa.asmx">
+    <WebReferenceUrl Include="http://localhost:2705/wsAfasfa.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\afasfaWebService\</RelPath>
-      <UpdateFromURL>http://localhost:51349/wsAfasfa.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:2705/wsAfasfa.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -309,7 +309,6 @@
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Relatorios\listagem_usuarios.rdlc" />
     <EmbeddedResource Include="Relatorios\listagem_eventos.rdlc" />
     <EmbeddedResource Include="Relatorios\listagem_assistencias.rdlc" />
     <EmbeddedResource Include="Relatorios\listagem_projetos.rdlc" />

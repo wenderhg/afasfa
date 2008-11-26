@@ -273,8 +273,6 @@ namespace AFASFA.afasfaWebService {
         
         private usuariosDataTable tableusuarios;
         
-        private voluntariosDataTable tablevoluntarios;
-        
         private estadoDataTable tableestado;
         
         private cidadeDataTable tablecidade;
@@ -284,6 +282,8 @@ namespace AFASFA.afasfaWebService {
         private usuarios_aniversariantesDataTable tableusuarios_aniversariantes;
         
         private usuarios_geralDataTable tableusuarios_geral;
+        
+        private voluntariosDataTable tablevoluntarios;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -329,9 +329,6 @@ namespace AFASFA.afasfaWebService {
                 if ((ds.Tables["usuarios"] != null)) {
                     base.Tables.Add(new usuariosDataTable(ds.Tables["usuarios"]));
                 }
-                if ((ds.Tables["voluntarios"] != null)) {
-                    base.Tables.Add(new voluntariosDataTable(ds.Tables["voluntarios"]));
-                }
                 if ((ds.Tables["estado"] != null)) {
                     base.Tables.Add(new estadoDataTable(ds.Tables["estado"]));
                 }
@@ -346,6 +343,9 @@ namespace AFASFA.afasfaWebService {
                 }
                 if ((ds.Tables["usuarios_geral"] != null)) {
                     base.Tables.Add(new usuarios_geralDataTable(ds.Tables["usuarios_geral"]));
+                }
+                if ((ds.Tables["voluntarios"] != null)) {
+                    base.Tables.Add(new voluntariosDataTable(ds.Tables["voluntarios"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -422,15 +422,6 @@ namespace AFASFA.afasfaWebService {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public voluntariosDataTable voluntarios {
-            get {
-                return this.tablevoluntarios;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public estadoDataTable estado {
             get {
                 return this.tableestado;
@@ -470,6 +461,15 @@ namespace AFASFA.afasfaWebService {
         public usuarios_geralDataTable usuarios_geral {
             get {
                 return this.tableusuarios_geral;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public voluntariosDataTable voluntarios {
+            get {
+                return this.tablevoluntarios;
             }
         }
         
@@ -550,9 +550,6 @@ namespace AFASFA.afasfaWebService {
                 if ((ds.Tables["usuarios"] != null)) {
                     base.Tables.Add(new usuariosDataTable(ds.Tables["usuarios"]));
                 }
-                if ((ds.Tables["voluntarios"] != null)) {
-                    base.Tables.Add(new voluntariosDataTable(ds.Tables["voluntarios"]));
-                }
                 if ((ds.Tables["estado"] != null)) {
                     base.Tables.Add(new estadoDataTable(ds.Tables["estado"]));
                 }
@@ -567,6 +564,9 @@ namespace AFASFA.afasfaWebService {
                 }
                 if ((ds.Tables["usuarios_geral"] != null)) {
                     base.Tables.Add(new usuarios_geralDataTable(ds.Tables["usuarios_geral"]));
+                }
+                if ((ds.Tables["voluntarios"] != null)) {
+                    base.Tables.Add(new voluntariosDataTable(ds.Tables["voluntarios"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -634,12 +634,6 @@ namespace AFASFA.afasfaWebService {
                     this.tableusuarios.InitVars();
                 }
             }
-            this.tablevoluntarios = ((voluntariosDataTable)(base.Tables["voluntarios"]));
-            if ((initTable == true)) {
-                if ((this.tablevoluntarios != null)) {
-                    this.tablevoluntarios.InitVars();
-                }
-            }
             this.tableestado = ((estadoDataTable)(base.Tables["estado"]));
             if ((initTable == true)) {
                 if ((this.tableestado != null)) {
@@ -670,6 +664,12 @@ namespace AFASFA.afasfaWebService {
                     this.tableusuarios_geral.InitVars();
                 }
             }
+            this.tablevoluntarios = ((voluntariosDataTable)(base.Tables["voluntarios"]));
+            if ((initTable == true)) {
+                if ((this.tablevoluntarios != null)) {
+                    this.tablevoluntarios.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -691,8 +691,6 @@ namespace AFASFA.afasfaWebService {
             base.Tables.Add(this.tableprojetos);
             this.tableusuarios = new usuariosDataTable();
             base.Tables.Add(this.tableusuarios);
-            this.tablevoluntarios = new voluntariosDataTable();
-            base.Tables.Add(this.tablevoluntarios);
             this.tableestado = new estadoDataTable();
             base.Tables.Add(this.tableestado);
             this.tablecidade = new cidadeDataTable();
@@ -703,6 +701,8 @@ namespace AFASFA.afasfaWebService {
             base.Tables.Add(this.tableusuarios_aniversariantes);
             this.tableusuarios_geral = new usuarios_geralDataTable();
             base.Tables.Add(this.tableusuarios_geral);
+            this.tablevoluntarios = new voluntariosDataTable();
+            base.Tables.Add(this.tablevoluntarios);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -736,11 +736,6 @@ namespace AFASFA.afasfaWebService {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private bool ShouldSerializevoluntarios() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializeestado() {
             return false;
         }
@@ -762,6 +757,11 @@ namespace AFASFA.afasfaWebService {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializeusuarios_geral() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializevoluntarios() {
             return false;
         }
         
@@ -830,8 +830,6 @@ namespace AFASFA.afasfaWebService {
         
         public delegate void usuariosRowChangeEventHandler(object sender, usuariosRowChangeEvent e);
         
-        public delegate void voluntariosRowChangeEventHandler(object sender, voluntariosRowChangeEvent e);
-        
         public delegate void estadoRowChangeEventHandler(object sender, estadoRowChangeEvent e);
         
         public delegate void cidadeRowChangeEventHandler(object sender, cidadeRowChangeEvent e);
@@ -841,6 +839,8 @@ namespace AFASFA.afasfaWebService {
         public delegate void usuarios_aniversariantesRowChangeEventHandler(object sender, usuarios_aniversariantesRowChangeEvent e);
         
         public delegate void usuarios_geralRowChangeEventHandler(object sender, usuarios_geralRowChangeEvent e);
+        
+        public delegate void voluntariosRowChangeEventHandler(object sender, voluntariosRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2901,575 +2901,6 @@ namespace AFASFA.afasfaWebService {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class voluntariosDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
-            
-            private global::System.Data.DataColumn columnNOME;
-            
-            private global::System.Data.DataColumn columnAPELIDO;
-            
-            private global::System.Data.DataColumn columnNACIONALIDADE;
-            
-            private global::System.Data.DataColumn columnDATANASCIMENTO;
-            
-            private global::System.Data.DataColumn columnESTADOORIGEM;
-            
-            private global::System.Data.DataColumn columnCIDADEORIGEM;
-            
-            private global::System.Data.DataColumn columnHABILITADO;
-            
-            private global::System.Data.DataColumn columnESTADOCIVIL;
-            
-            private global::System.Data.DataColumn columnTRABALHA;
-            
-            private global::System.Data.DataColumn columnESCOLARIDADE;
-            
-            private global::System.Data.DataColumn columnPROFISSAO;
-            
-            private global::System.Data.DataColumn columnLOCALDETRABALHO;
-            
-            private global::System.Data.DataColumn columnCOMOFICOUSABENDO;
-            
-            private global::System.Data.DataColumn columnTIPOVOLUNTARIO;
-            
-            private global::System.Data.DataColumn columnQUALATIVIDADE;
-            
-            private global::System.Data.DataColumn columnQUADISPONIBILIDADE;
-            
-            private global::System.Data.DataColumn columnQUAISDIAS;
-            
-            private global::System.Data.DataColumn columnACEITATERMO;
-            
-            private global::System.Data.DataColumn columnTEMPODOVOLUNTARIO;
-            
-            private global::System.Data.DataColumn columnESTADO;
-            
-            private global::System.Data.DataColumn columnVOLUNTARIO;
-            
-            private global::System.Data.DataColumn columnESTADOORIGEM1;
-            
-            private global::System.Data.DataColumn columnIDCONTATO;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public voluntariosDataTable() {
-                this.TableName = "voluntarios";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal voluntariosDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected voluntariosDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn NOMEColumn {
-                get {
-                    return this.columnNOME;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn APELIDOColumn {
-                get {
-                    return this.columnAPELIDO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn NACIONALIDADEColumn {
-                get {
-                    return this.columnNACIONALIDADE;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn DATANASCIMENTOColumn {
-                get {
-                    return this.columnDATANASCIMENTO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn ESTADOORIGEMColumn {
-                get {
-                    return this.columnESTADOORIGEM;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn CIDADEORIGEMColumn {
-                get {
-                    return this.columnCIDADEORIGEM;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn HABILITADOColumn {
-                get {
-                    return this.columnHABILITADO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn ESTADOCIVILColumn {
-                get {
-                    return this.columnESTADOCIVIL;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn TRABALHAColumn {
-                get {
-                    return this.columnTRABALHA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn ESCOLARIDADEColumn {
-                get {
-                    return this.columnESCOLARIDADE;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn PROFISSAOColumn {
-                get {
-                    return this.columnPROFISSAO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn LOCALDETRABALHOColumn {
-                get {
-                    return this.columnLOCALDETRABALHO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn COMOFICOUSABENDOColumn {
-                get {
-                    return this.columnCOMOFICOUSABENDO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn TIPOVOLUNTARIOColumn {
-                get {
-                    return this.columnTIPOVOLUNTARIO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn QUALATIVIDADEColumn {
-                get {
-                    return this.columnQUALATIVIDADE;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn QUADISPONIBILIDADEColumn {
-                get {
-                    return this.columnQUADISPONIBILIDADE;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn QUAISDIASColumn {
-                get {
-                    return this.columnQUAISDIAS;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn ACEITATERMOColumn {
-                get {
-                    return this.columnACEITATERMO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn TEMPODOVOLUNTARIOColumn {
-                get {
-                    return this.columnTEMPODOVOLUNTARIO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn ESTADOColumn {
-                get {
-                    return this.columnESTADO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn VOLUNTARIOColumn {
-                get {
-                    return this.columnVOLUNTARIO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn ESTADOORIGEM1Column {
-                get {
-                    return this.columnESTADOORIGEM1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn IDCONTATOColumn {
-                get {
-                    return this.columnIDCONTATO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public voluntariosRow this[int index] {
-                get {
-                    return ((voluntariosRow)(this.Rows[index]));
-                }
-            }
-            
-            public event voluntariosRowChangeEventHandler voluntariosRowChanging;
-            
-            public event voluntariosRowChangeEventHandler voluntariosRowChanged;
-            
-            public event voluntariosRowChangeEventHandler voluntariosRowDeleting;
-            
-            public event voluntariosRowChangeEventHandler voluntariosRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void AddvoluntariosRow(voluntariosRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public voluntariosRow AddvoluntariosRow(
-                        string NOME, 
-                        string APELIDO, 
-                        string NACIONALIDADE, 
-                        System.DateTime DATANASCIMENTO, 
-                        string ESTADOORIGEM, 
-                        string CIDADEORIGEM, 
-                        bool HABILITADO, 
-                        string ESTADOCIVIL, 
-                        bool TRABALHA, 
-                        string ESCOLARIDADE, 
-                        string PROFISSAO, 
-                        string LOCALDETRABALHO, 
-                        string COMOFICOUSABENDO, 
-                        string TIPOVOLUNTARIO, 
-                        string QUALATIVIDADE, 
-                        uint QUADISPONIBILIDADE, 
-                        uint QUAISDIAS, 
-                        bool ACEITATERMO, 
-                        string TEMPODOVOLUNTARIO, 
-                        string ESTADO, 
-                        uint VOLUNTARIO, 
-                        int ESTADOORIGEM1, 
-                        int IDCONTATO) {
-                voluntariosRow rowvoluntariosRow = ((voluntariosRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        NOME,
-                        APELIDO,
-                        NACIONALIDADE,
-                        DATANASCIMENTO,
-                        ESTADOORIGEM,
-                        CIDADEORIGEM,
-                        HABILITADO,
-                        ESTADOCIVIL,
-                        TRABALHA,
-                        ESCOLARIDADE,
-                        PROFISSAO,
-                        LOCALDETRABALHO,
-                        COMOFICOUSABENDO,
-                        TIPOVOLUNTARIO,
-                        QUALATIVIDADE,
-                        QUADISPONIBILIDADE,
-                        QUAISDIAS,
-                        ACEITATERMO,
-                        TEMPODOVOLUNTARIO,
-                        ESTADO,
-                        VOLUNTARIO,
-                        ESTADOORIGEM1,
-                        IDCONTATO};
-                rowvoluntariosRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowvoluntariosRow);
-                return rowvoluntariosRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public voluntariosRow FindByVOLUNTARIO(uint VOLUNTARIO) {
-                return ((voluntariosRow)(this.Rows.Find(new object[] {
-                            VOLUNTARIO})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public virtual global::System.Collections.IEnumerator GetEnumerator() {
-                return this.Rows.GetEnumerator();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public override global::System.Data.DataTable Clone() {
-                voluntariosDataTable cln = ((voluntariosDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new voluntariosDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal void InitVars() {
-                this.columnNOME = base.Columns["NOME"];
-                this.columnAPELIDO = base.Columns["APELIDO"];
-                this.columnNACIONALIDADE = base.Columns["NACIONALIDADE"];
-                this.columnDATANASCIMENTO = base.Columns["DATANASCIMENTO"];
-                this.columnESTADOORIGEM = base.Columns["ESTADOORIGEM"];
-                this.columnCIDADEORIGEM = base.Columns["CIDADEORIGEM"];
-                this.columnHABILITADO = base.Columns["HABILITADO"];
-                this.columnESTADOCIVIL = base.Columns["ESTADOCIVIL"];
-                this.columnTRABALHA = base.Columns["TRABALHA"];
-                this.columnESCOLARIDADE = base.Columns["ESCOLARIDADE"];
-                this.columnPROFISSAO = base.Columns["PROFISSAO"];
-                this.columnLOCALDETRABALHO = base.Columns["LOCALDETRABALHO"];
-                this.columnCOMOFICOUSABENDO = base.Columns["COMOFICOUSABENDO"];
-                this.columnTIPOVOLUNTARIO = base.Columns["TIPOVOLUNTARIO"];
-                this.columnQUALATIVIDADE = base.Columns["QUALATIVIDADE"];
-                this.columnQUADISPONIBILIDADE = base.Columns["QUADISPONIBILIDADE"];
-                this.columnQUAISDIAS = base.Columns["QUAISDIAS"];
-                this.columnACEITATERMO = base.Columns["ACEITATERMO"];
-                this.columnTEMPODOVOLUNTARIO = base.Columns["TEMPODOVOLUNTARIO"];
-                this.columnESTADO = base.Columns["ESTADO"];
-                this.columnVOLUNTARIO = base.Columns["VOLUNTARIO"];
-                this.columnESTADOORIGEM1 = base.Columns["ESTADOORIGEM1"];
-                this.columnIDCONTATO = base.Columns["IDCONTATO"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            private void InitClass() {
-                this.columnNOME = new global::System.Data.DataColumn("NOME", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNOME);
-                this.columnAPELIDO = new global::System.Data.DataColumn("APELIDO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAPELIDO);
-                this.columnNACIONALIDADE = new global::System.Data.DataColumn("NACIONALIDADE", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNACIONALIDADE);
-                this.columnDATANASCIMENTO = new global::System.Data.DataColumn("DATANASCIMENTO", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDATANASCIMENTO);
-                this.columnESTADOORIGEM = new global::System.Data.DataColumn("ESTADOORIGEM", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnESTADOORIGEM);
-                this.columnCIDADEORIGEM = new global::System.Data.DataColumn("CIDADEORIGEM", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCIDADEORIGEM);
-                this.columnHABILITADO = new global::System.Data.DataColumn("HABILITADO", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHABILITADO);
-                this.columnESTADOCIVIL = new global::System.Data.DataColumn("ESTADOCIVIL", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnESTADOCIVIL);
-                this.columnTRABALHA = new global::System.Data.DataColumn("TRABALHA", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTRABALHA);
-                this.columnESCOLARIDADE = new global::System.Data.DataColumn("ESCOLARIDADE", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnESCOLARIDADE);
-                this.columnPROFISSAO = new global::System.Data.DataColumn("PROFISSAO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPROFISSAO);
-                this.columnLOCALDETRABALHO = new global::System.Data.DataColumn("LOCALDETRABALHO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLOCALDETRABALHO);
-                this.columnCOMOFICOUSABENDO = new global::System.Data.DataColumn("COMOFICOUSABENDO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCOMOFICOUSABENDO);
-                this.columnTIPOVOLUNTARIO = new global::System.Data.DataColumn("TIPOVOLUNTARIO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTIPOVOLUNTARIO);
-                this.columnQUALATIVIDADE = new global::System.Data.DataColumn("QUALATIVIDADE", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnQUALATIVIDADE);
-                this.columnQUADISPONIBILIDADE = new global::System.Data.DataColumn("QUADISPONIBILIDADE", typeof(uint), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnQUADISPONIBILIDADE);
-                this.columnQUAISDIAS = new global::System.Data.DataColumn("QUAISDIAS", typeof(uint), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnQUAISDIAS);
-                this.columnACEITATERMO = new global::System.Data.DataColumn("ACEITATERMO", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnACEITATERMO);
-                this.columnTEMPODOVOLUNTARIO = new global::System.Data.DataColumn("TEMPODOVOLUNTARIO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTEMPODOVOLUNTARIO);
-                this.columnESTADO = new global::System.Data.DataColumn("ESTADO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnESTADO);
-                this.columnVOLUNTARIO = new global::System.Data.DataColumn("VOLUNTARIO", typeof(uint), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnVOLUNTARIO);
-                this.columnESTADOORIGEM1 = new global::System.Data.DataColumn("ESTADOORIGEM1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnESTADOORIGEM1);
-                this.columnIDCONTATO = new global::System.Data.DataColumn("IDCONTATO", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIDCONTATO);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnVOLUNTARIO}, true));
-                this.columnNOME.AllowDBNull = false;
-                this.columnNOME.MaxLength = 60;
-                this.columnAPELIDO.AllowDBNull = false;
-                this.columnAPELIDO.MaxLength = 20;
-                this.columnNACIONALIDADE.AllowDBNull = false;
-                this.columnNACIONALIDADE.MaxLength = 1;
-                this.columnDATANASCIMENTO.AllowDBNull = false;
-                this.columnESTADOORIGEM.AllowDBNull = false;
-                this.columnESTADOORIGEM.MaxLength = 2;
-                this.columnCIDADEORIGEM.AllowDBNull = false;
-                this.columnCIDADEORIGEM.MaxLength = 40;
-                this.columnESTADOCIVIL.MaxLength = 1;
-                this.columnESCOLARIDADE.MaxLength = 30;
-                this.columnPROFISSAO.MaxLength = 40;
-                this.columnLOCALDETRABALHO.MaxLength = 40;
-                this.columnCOMOFICOUSABENDO.MaxLength = 60;
-                this.columnTIPOVOLUNTARIO.MaxLength = 1;
-                this.columnQUALATIVIDADE.MaxLength = 100;
-                this.columnTEMPODOVOLUNTARIO.MaxLength = 100;
-                this.columnESTADO.MaxLength = 1;
-                this.columnVOLUNTARIO.AllowDBNull = false;
-                this.columnVOLUNTARIO.Unique = true;
-                this.columnESTADOORIGEM1.AllowDBNull = false;
-                this.columnESTADOORIGEM1.Caption = "ESTADOORIGEM";
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public voluntariosRow NewvoluntariosRow() {
-                return ((voluntariosRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new voluntariosRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Type GetRowType() {
-                return typeof(voluntariosRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.voluntariosRowChanged != null)) {
-                    this.voluntariosRowChanged(this, new voluntariosRowChangeEvent(((voluntariosRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.voluntariosRowChanging != null)) {
-                    this.voluntariosRowChanging(this, new voluntariosRowChangeEvent(((voluntariosRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.voluntariosRowDeleted != null)) {
-                    this.voluntariosRowDeleted(this, new voluntariosRowChangeEvent(((voluntariosRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.voluntariosRowDeleting != null)) {
-                    this.voluntariosRowDeleting(this, new voluntariosRowChangeEvent(((voluntariosRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void RemovevoluntariosRow(voluntariosRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DataSetAFASFA ds = new DataSetAFASFA();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "voluntariosDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class estadoDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
             
             private global::System.Data.DataColumn columncodigo;
@@ -4742,8 +4173,6 @@ namespace AFASFA.afasfaWebService {
             
             private global::System.Data.DataColumn columnNOME;
             
-            private global::System.Data.DataColumn columnDATANASCIMENTO;
-            
             private global::System.Data.DataColumn columnEMAIL;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4784,13 +4213,6 @@ namespace AFASFA.afasfaWebService {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn DATANASCIMENTOColumn {
-                get {
-                    return this.columnDATANASCIMENTO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public global::System.Data.DataColumn EMAILColumn {
                 get {
                     return this.columnEMAIL;
@@ -4826,11 +4248,10 @@ namespace AFASFA.afasfaWebService {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public usuarios_geralRow Addusuarios_geralRow(string NOME, System.DateTime DATANASCIMENTO, string EMAIL) {
+            public usuarios_geralRow Addusuarios_geralRow(string NOME, string EMAIL) {
                 usuarios_geralRow rowusuarios_geralRow = ((usuarios_geralRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         NOME,
-                        DATANASCIMENTO,
                         EMAIL};
                 rowusuarios_geralRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowusuarios_geralRow);
@@ -4857,7 +4278,6 @@ namespace AFASFA.afasfaWebService {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             internal void InitVars() {
                 this.columnNOME = base.Columns["NOME"];
-                this.columnDATANASCIMENTO = base.Columns["DATANASCIMENTO"];
                 this.columnEMAIL = base.Columns["EMAIL"];
             }
             
@@ -4865,12 +4285,9 @@ namespace AFASFA.afasfaWebService {
             private void InitClass() {
                 this.columnNOME = new global::System.Data.DataColumn("NOME", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNOME);
-                this.columnDATANASCIMENTO = new global::System.Data.DataColumn("DATANASCIMENTO", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDATANASCIMENTO);
                 this.columnEMAIL = new global::System.Data.DataColumn("EMAIL", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEMAIL);
                 this.columnNOME.MaxLength = 60;
-                this.columnDATANASCIMENTO.AllowDBNull = false;
                 this.columnEMAIL.MaxLength = 100;
             }
             
@@ -4949,6 +4366,573 @@ namespace AFASFA.afasfaWebService {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "usuarios_geralDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class voluntariosDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
+            
+            private global::System.Data.DataColumn columnAPELIDO;
+            
+            private global::System.Data.DataColumn columnVOLUNTARIO;
+            
+            private global::System.Data.DataColumn columnNACIONALIDADE;
+            
+            private global::System.Data.DataColumn columnDATANASCIMENTO;
+            
+            private global::System.Data.DataColumn columnESTADOORIGEM;
+            
+            private global::System.Data.DataColumn columnCIDADEORIGEM;
+            
+            private global::System.Data.DataColumn columnHABILITADO;
+            
+            private global::System.Data.DataColumn columnESTADOCIVIL;
+            
+            private global::System.Data.DataColumn columnTRABALHA;
+            
+            private global::System.Data.DataColumn columnESCOLARIDADE;
+            
+            private global::System.Data.DataColumn columnPROFISSAO;
+            
+            private global::System.Data.DataColumn columnLOCALDETRABALHO;
+            
+            private global::System.Data.DataColumn columnCOMOFICOUSABENDO;
+            
+            private global::System.Data.DataColumn columnTIPOVOLUNTARIO;
+            
+            private global::System.Data.DataColumn columnQUALATIVIDADE;
+            
+            private global::System.Data.DataColumn columnQUADISPONIBILIDADE;
+            
+            private global::System.Data.DataColumn columnQUAISDIAS;
+            
+            private global::System.Data.DataColumn columnACEITATERMO;
+            
+            private global::System.Data.DataColumn columnTEMPODOVOLUNTARIO;
+            
+            private global::System.Data.DataColumn columnESTADO;
+            
+            private global::System.Data.DataColumn columnIDCONTATO;
+            
+            private global::System.Data.DataColumn columnPAISORIGEM;
+            
+            private global::System.Data.DataColumn columnQUAISDIAS1;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public voluntariosDataTable() {
+                this.TableName = "voluntarios";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal voluntariosDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected voluntariosDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn APELIDOColumn {
+                get {
+                    return this.columnAPELIDO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn VOLUNTARIOColumn {
+                get {
+                    return this.columnVOLUNTARIO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn NACIONALIDADEColumn {
+                get {
+                    return this.columnNACIONALIDADE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DATANASCIMENTOColumn {
+                get {
+                    return this.columnDATANASCIMENTO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ESTADOORIGEMColumn {
+                get {
+                    return this.columnESTADOORIGEM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn CIDADEORIGEMColumn {
+                get {
+                    return this.columnCIDADEORIGEM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn HABILITADOColumn {
+                get {
+                    return this.columnHABILITADO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ESTADOCIVILColumn {
+                get {
+                    return this.columnESTADOCIVIL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn TRABALHAColumn {
+                get {
+                    return this.columnTRABALHA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ESCOLARIDADEColumn {
+                get {
+                    return this.columnESCOLARIDADE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn PROFISSAOColumn {
+                get {
+                    return this.columnPROFISSAO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn LOCALDETRABALHOColumn {
+                get {
+                    return this.columnLOCALDETRABALHO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn COMOFICOUSABENDOColumn {
+                get {
+                    return this.columnCOMOFICOUSABENDO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn TIPOVOLUNTARIOColumn {
+                get {
+                    return this.columnTIPOVOLUNTARIO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn QUALATIVIDADEColumn {
+                get {
+                    return this.columnQUALATIVIDADE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn QUADISPONIBILIDADEColumn {
+                get {
+                    return this.columnQUADISPONIBILIDADE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn QUAISDIASColumn {
+                get {
+                    return this.columnQUAISDIAS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ACEITATERMOColumn {
+                get {
+                    return this.columnACEITATERMO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn TEMPODOVOLUNTARIOColumn {
+                get {
+                    return this.columnTEMPODOVOLUNTARIO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn ESTADOColumn {
+                get {
+                    return this.columnESTADO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn IDCONTATOColumn {
+                get {
+                    return this.columnIDCONTATO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn PAISORIGEMColumn {
+                get {
+                    return this.columnPAISORIGEM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn QUAISDIAS1Column {
+                get {
+                    return this.columnQUAISDIAS1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public voluntariosRow this[int index] {
+                get {
+                    return ((voluntariosRow)(this.Rows[index]));
+                }
+            }
+            
+            public event voluntariosRowChangeEventHandler voluntariosRowChanging;
+            
+            public event voluntariosRowChangeEventHandler voluntariosRowChanged;
+            
+            public event voluntariosRowChangeEventHandler voluntariosRowDeleting;
+            
+            public event voluntariosRowChangeEventHandler voluntariosRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddvoluntariosRow(voluntariosRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public voluntariosRow AddvoluntariosRow(
+                        string APELIDO, 
+                        uint VOLUNTARIO, 
+                        string NACIONALIDADE, 
+                        System.DateTime DATANASCIMENTO, 
+                        int ESTADOORIGEM, 
+                        string CIDADEORIGEM, 
+                        bool HABILITADO, 
+                        string ESTADOCIVIL, 
+                        bool TRABALHA, 
+                        string ESCOLARIDADE, 
+                        string PROFISSAO, 
+                        string LOCALDETRABALHO, 
+                        string COMOFICOUSABENDO, 
+                        string TIPOVOLUNTARIO, 
+                        string QUALATIVIDADE, 
+                        uint QUADISPONIBILIDADE, 
+                        uint QUAISDIAS, 
+                        bool ACEITATERMO, 
+                        string TEMPODOVOLUNTARIO, 
+                        string ESTADO, 
+                        int IDCONTATO, 
+                        string PAISORIGEM, 
+                        string QUAISDIAS1) {
+                voluntariosRow rowvoluntariosRow = ((voluntariosRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        APELIDO,
+                        VOLUNTARIO,
+                        NACIONALIDADE,
+                        DATANASCIMENTO,
+                        ESTADOORIGEM,
+                        CIDADEORIGEM,
+                        HABILITADO,
+                        ESTADOCIVIL,
+                        TRABALHA,
+                        ESCOLARIDADE,
+                        PROFISSAO,
+                        LOCALDETRABALHO,
+                        COMOFICOUSABENDO,
+                        TIPOVOLUNTARIO,
+                        QUALATIVIDADE,
+                        QUADISPONIBILIDADE,
+                        QUAISDIAS,
+                        ACEITATERMO,
+                        TEMPODOVOLUNTARIO,
+                        ESTADO,
+                        IDCONTATO,
+                        PAISORIGEM,
+                        QUAISDIAS1};
+                rowvoluntariosRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowvoluntariosRow);
+                return rowvoluntariosRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public voluntariosRow FindByVOLUNTARIO(uint VOLUNTARIO) {
+                return ((voluntariosRow)(this.Rows.Find(new object[] {
+                            VOLUNTARIO})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public virtual global::System.Collections.IEnumerator GetEnumerator() {
+                return this.Rows.GetEnumerator();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                voluntariosDataTable cln = ((voluntariosDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new voluntariosDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnAPELIDO = base.Columns["APELIDO"];
+                this.columnVOLUNTARIO = base.Columns["VOLUNTARIO"];
+                this.columnNACIONALIDADE = base.Columns["NACIONALIDADE"];
+                this.columnDATANASCIMENTO = base.Columns["DATANASCIMENTO"];
+                this.columnESTADOORIGEM = base.Columns["ESTADOORIGEM"];
+                this.columnCIDADEORIGEM = base.Columns["CIDADEORIGEM"];
+                this.columnHABILITADO = base.Columns["HABILITADO"];
+                this.columnESTADOCIVIL = base.Columns["ESTADOCIVIL"];
+                this.columnTRABALHA = base.Columns["TRABALHA"];
+                this.columnESCOLARIDADE = base.Columns["ESCOLARIDADE"];
+                this.columnPROFISSAO = base.Columns["PROFISSAO"];
+                this.columnLOCALDETRABALHO = base.Columns["LOCALDETRABALHO"];
+                this.columnCOMOFICOUSABENDO = base.Columns["COMOFICOUSABENDO"];
+                this.columnTIPOVOLUNTARIO = base.Columns["TIPOVOLUNTARIO"];
+                this.columnQUALATIVIDADE = base.Columns["QUALATIVIDADE"];
+                this.columnQUADISPONIBILIDADE = base.Columns["QUADISPONIBILIDADE"];
+                this.columnQUAISDIAS = base.Columns["QUAISDIAS"];
+                this.columnACEITATERMO = base.Columns["ACEITATERMO"];
+                this.columnTEMPODOVOLUNTARIO = base.Columns["TEMPODOVOLUNTARIO"];
+                this.columnESTADO = base.Columns["ESTADO"];
+                this.columnIDCONTATO = base.Columns["IDCONTATO"];
+                this.columnPAISORIGEM = base.Columns["PAISORIGEM"];
+                this.columnQUAISDIAS1 = base.Columns["QUAISDIAS1"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnAPELIDO = new global::System.Data.DataColumn("APELIDO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAPELIDO);
+                this.columnVOLUNTARIO = new global::System.Data.DataColumn("VOLUNTARIO", typeof(uint), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVOLUNTARIO);
+                this.columnNACIONALIDADE = new global::System.Data.DataColumn("NACIONALIDADE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNACIONALIDADE);
+                this.columnDATANASCIMENTO = new global::System.Data.DataColumn("DATANASCIMENTO", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDATANASCIMENTO);
+                this.columnESTADOORIGEM = new global::System.Data.DataColumn("ESTADOORIGEM", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnESTADOORIGEM);
+                this.columnCIDADEORIGEM = new global::System.Data.DataColumn("CIDADEORIGEM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCIDADEORIGEM);
+                this.columnHABILITADO = new global::System.Data.DataColumn("HABILITADO", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHABILITADO);
+                this.columnESTADOCIVIL = new global::System.Data.DataColumn("ESTADOCIVIL", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnESTADOCIVIL);
+                this.columnTRABALHA = new global::System.Data.DataColumn("TRABALHA", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTRABALHA);
+                this.columnESCOLARIDADE = new global::System.Data.DataColumn("ESCOLARIDADE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnESCOLARIDADE);
+                this.columnPROFISSAO = new global::System.Data.DataColumn("PROFISSAO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPROFISSAO);
+                this.columnLOCALDETRABALHO = new global::System.Data.DataColumn("LOCALDETRABALHO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLOCALDETRABALHO);
+                this.columnCOMOFICOUSABENDO = new global::System.Data.DataColumn("COMOFICOUSABENDO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCOMOFICOUSABENDO);
+                this.columnTIPOVOLUNTARIO = new global::System.Data.DataColumn("TIPOVOLUNTARIO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTIPOVOLUNTARIO);
+                this.columnQUALATIVIDADE = new global::System.Data.DataColumn("QUALATIVIDADE", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQUALATIVIDADE);
+                this.columnQUADISPONIBILIDADE = new global::System.Data.DataColumn("QUADISPONIBILIDADE", typeof(uint), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQUADISPONIBILIDADE);
+                this.columnQUAISDIAS = new global::System.Data.DataColumn("QUAISDIAS", typeof(uint), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQUAISDIAS);
+                this.columnACEITATERMO = new global::System.Data.DataColumn("ACEITATERMO", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnACEITATERMO);
+                this.columnTEMPODOVOLUNTARIO = new global::System.Data.DataColumn("TEMPODOVOLUNTARIO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTEMPODOVOLUNTARIO);
+                this.columnESTADO = new global::System.Data.DataColumn("ESTADO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnESTADO);
+                this.columnIDCONTATO = new global::System.Data.DataColumn("IDCONTATO", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIDCONTATO);
+                this.columnPAISORIGEM = new global::System.Data.DataColumn("PAISORIGEM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPAISORIGEM);
+                this.columnQUAISDIAS1 = new global::System.Data.DataColumn("QUAISDIAS1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQUAISDIAS1);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnVOLUNTARIO}, true));
+                this.columnAPELIDO.AllowDBNull = false;
+                this.columnAPELIDO.MaxLength = 20;
+                this.columnVOLUNTARIO.AllowDBNull = false;
+                this.columnVOLUNTARIO.Unique = true;
+                this.columnNACIONALIDADE.AllowDBNull = false;
+                this.columnNACIONALIDADE.MaxLength = 1;
+                this.columnDATANASCIMENTO.AllowDBNull = false;
+                this.columnESTADOORIGEM.AllowDBNull = false;
+                this.columnCIDADEORIGEM.AllowDBNull = false;
+                this.columnCIDADEORIGEM.MaxLength = 40;
+                this.columnESTADOCIVIL.MaxLength = 1;
+                this.columnESCOLARIDADE.MaxLength = 30;
+                this.columnPROFISSAO.MaxLength = 40;
+                this.columnLOCALDETRABALHO.MaxLength = 40;
+                this.columnCOMOFICOUSABENDO.MaxLength = 60;
+                this.columnTIPOVOLUNTARIO.MaxLength = 1;
+                this.columnQUALATIVIDADE.MaxLength = 100;
+                this.columnTEMPODOVOLUNTARIO.MaxLength = 100;
+                this.columnESTADO.MaxLength = 1;
+                this.columnPAISORIGEM.MaxLength = 30;
+                this.columnQUAISDIAS1.Caption = "QUAISDIAS";
+                this.columnQUAISDIAS1.MaxLength = 7;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public voluntariosRow NewvoluntariosRow() {
+                return ((voluntariosRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new voluntariosRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(voluntariosRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.voluntariosRowChanged != null)) {
+                    this.voluntariosRowChanged(this, new voluntariosRowChangeEvent(((voluntariosRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.voluntariosRowChanging != null)) {
+                    this.voluntariosRowChanging(this, new voluntariosRowChangeEvent(((voluntariosRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.voluntariosRowDeleted != null)) {
+                    this.voluntariosRowDeleted(this, new voluntariosRowChangeEvent(((voluntariosRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.voluntariosRowDeleting != null)) {
+                    this.voluntariosRowDeleting(this, new voluntariosRowChangeEvent(((voluntariosRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemovevoluntariosRow(voluntariosRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DataSetAFASFA ds = new DataSetAFASFA();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "voluntariosDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -5915,476 +5899,6 @@ namespace AFASFA.afasfaWebService {
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public partial class voluntariosRow : global::System.Data.DataRow {
-            
-            private voluntariosDataTable tablevoluntarios;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal voluntariosRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablevoluntarios = ((voluntariosDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string NOME {
-                get {
-                    return ((string)(this[this.tablevoluntarios.NOMEColumn]));
-                }
-                set {
-                    this[this.tablevoluntarios.NOMEColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string APELIDO {
-                get {
-                    return ((string)(this[this.tablevoluntarios.APELIDOColumn]));
-                }
-                set {
-                    this[this.tablevoluntarios.APELIDOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string NACIONALIDADE {
-                get {
-                    return ((string)(this[this.tablevoluntarios.NACIONALIDADEColumn]));
-                }
-                set {
-                    this[this.tablevoluntarios.NACIONALIDADEColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public System.DateTime DATANASCIMENTO {
-                get {
-                    return ((global::System.DateTime)(this[this.tablevoluntarios.DATANASCIMENTOColumn]));
-                }
-                set {
-                    this[this.tablevoluntarios.DATANASCIMENTOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string ESTADOORIGEM {
-                get {
-                    return ((string)(this[this.tablevoluntarios.ESTADOORIGEMColumn]));
-                }
-                set {
-                    this[this.tablevoluntarios.ESTADOORIGEMColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string CIDADEORIGEM {
-                get {
-                    return ((string)(this[this.tablevoluntarios.CIDADEORIGEMColumn]));
-                }
-                set {
-                    this[this.tablevoluntarios.CIDADEORIGEMColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool HABILITADO {
-                get {
-                    try {
-                        return ((bool)(this[this.tablevoluntarios.HABILITADOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'HABILITADO\' in table \'voluntarios\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevoluntarios.HABILITADOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string ESTADOCIVIL {
-                get {
-                    try {
-                        return ((string)(this[this.tablevoluntarios.ESTADOCIVILColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ESTADOCIVIL\' in table \'voluntarios\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevoluntarios.ESTADOCIVILColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool TRABALHA {
-                get {
-                    try {
-                        return ((bool)(this[this.tablevoluntarios.TRABALHAColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TRABALHA\' in table \'voluntarios\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevoluntarios.TRABALHAColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string ESCOLARIDADE {
-                get {
-                    try {
-                        return ((string)(this[this.tablevoluntarios.ESCOLARIDADEColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ESCOLARIDADE\' in table \'voluntarios\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevoluntarios.ESCOLARIDADEColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string PROFISSAO {
-                get {
-                    try {
-                        return ((string)(this[this.tablevoluntarios.PROFISSAOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PROFISSAO\' in table \'voluntarios\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevoluntarios.PROFISSAOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string LOCALDETRABALHO {
-                get {
-                    try {
-                        return ((string)(this[this.tablevoluntarios.LOCALDETRABALHOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LOCALDETRABALHO\' in table \'voluntarios\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevoluntarios.LOCALDETRABALHOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string COMOFICOUSABENDO {
-                get {
-                    try {
-                        return ((string)(this[this.tablevoluntarios.COMOFICOUSABENDOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'COMOFICOUSABENDO\' in table \'voluntarios\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevoluntarios.COMOFICOUSABENDOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string TIPOVOLUNTARIO {
-                get {
-                    try {
-                        return ((string)(this[this.tablevoluntarios.TIPOVOLUNTARIOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TIPOVOLUNTARIO\' in table \'voluntarios\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevoluntarios.TIPOVOLUNTARIOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string QUALATIVIDADE {
-                get {
-                    try {
-                        return ((string)(this[this.tablevoluntarios.QUALATIVIDADEColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'QUALATIVIDADE\' in table \'voluntarios\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevoluntarios.QUALATIVIDADEColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public uint QUADISPONIBILIDADE {
-                get {
-                    try {
-                        return ((uint)(this[this.tablevoluntarios.QUADISPONIBILIDADEColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'QUADISPONIBILIDADE\' in table \'voluntarios\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevoluntarios.QUADISPONIBILIDADEColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public uint QUAISDIAS {
-                get {
-                    try {
-                        return ((uint)(this[this.tablevoluntarios.QUAISDIASColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'QUAISDIAS\' in table \'voluntarios\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevoluntarios.QUAISDIASColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool ACEITATERMO {
-                get {
-                    try {
-                        return ((bool)(this[this.tablevoluntarios.ACEITATERMOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ACEITATERMO\' in table \'voluntarios\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevoluntarios.ACEITATERMOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string TEMPODOVOLUNTARIO {
-                get {
-                    try {
-                        return ((string)(this[this.tablevoluntarios.TEMPODOVOLUNTARIOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TEMPODOVOLUNTARIO\' in table \'voluntarios\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevoluntarios.TEMPODOVOLUNTARIOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string ESTADO {
-                get {
-                    try {
-                        return ((string)(this[this.tablevoluntarios.ESTADOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ESTADO\' in table \'voluntarios\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevoluntarios.ESTADOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public uint VOLUNTARIO {
-                get {
-                    return ((uint)(this[this.tablevoluntarios.VOLUNTARIOColumn]));
-                }
-                set {
-                    this[this.tablevoluntarios.VOLUNTARIOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public int ESTADOORIGEM1 {
-                get {
-                    return ((int)(this[this.tablevoluntarios.ESTADOORIGEM1Column]));
-                }
-                set {
-                    this[this.tablevoluntarios.ESTADOORIGEM1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public int IDCONTATO {
-                get {
-                    try {
-                        return ((int)(this[this.tablevoluntarios.IDCONTATOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'IDCONTATO\' in table \'voluntarios\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablevoluntarios.IDCONTATOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsHABILITADONull() {
-                return this.IsNull(this.tablevoluntarios.HABILITADOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetHABILITADONull() {
-                this[this.tablevoluntarios.HABILITADOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsESTADOCIVILNull() {
-                return this.IsNull(this.tablevoluntarios.ESTADOCIVILColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetESTADOCIVILNull() {
-                this[this.tablevoluntarios.ESTADOCIVILColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsTRABALHANull() {
-                return this.IsNull(this.tablevoluntarios.TRABALHAColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetTRABALHANull() {
-                this[this.tablevoluntarios.TRABALHAColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsESCOLARIDADENull() {
-                return this.IsNull(this.tablevoluntarios.ESCOLARIDADEColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetESCOLARIDADENull() {
-                this[this.tablevoluntarios.ESCOLARIDADEColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsPROFISSAONull() {
-                return this.IsNull(this.tablevoluntarios.PROFISSAOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetPROFISSAONull() {
-                this[this.tablevoluntarios.PROFISSAOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsLOCALDETRABALHONull() {
-                return this.IsNull(this.tablevoluntarios.LOCALDETRABALHOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetLOCALDETRABALHONull() {
-                this[this.tablevoluntarios.LOCALDETRABALHOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsCOMOFICOUSABENDONull() {
-                return this.IsNull(this.tablevoluntarios.COMOFICOUSABENDOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetCOMOFICOUSABENDONull() {
-                this[this.tablevoluntarios.COMOFICOUSABENDOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsTIPOVOLUNTARIONull() {
-                return this.IsNull(this.tablevoluntarios.TIPOVOLUNTARIOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetTIPOVOLUNTARIONull() {
-                this[this.tablevoluntarios.TIPOVOLUNTARIOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsQUALATIVIDADENull() {
-                return this.IsNull(this.tablevoluntarios.QUALATIVIDADEColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetQUALATIVIDADENull() {
-                this[this.tablevoluntarios.QUALATIVIDADEColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsQUADISPONIBILIDADENull() {
-                return this.IsNull(this.tablevoluntarios.QUADISPONIBILIDADEColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetQUADISPONIBILIDADENull() {
-                this[this.tablevoluntarios.QUADISPONIBILIDADEColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsQUAISDIASNull() {
-                return this.IsNull(this.tablevoluntarios.QUAISDIASColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetQUAISDIASNull() {
-                this[this.tablevoluntarios.QUAISDIASColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsACEITATERMONull() {
-                return this.IsNull(this.tablevoluntarios.ACEITATERMOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetACEITATERMONull() {
-                this[this.tablevoluntarios.ACEITATERMOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsTEMPODOVOLUNTARIONull() {
-                return this.IsNull(this.tablevoluntarios.TEMPODOVOLUNTARIOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetTEMPODOVOLUNTARIONull() {
-                this[this.tablevoluntarios.TEMPODOVOLUNTARIOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsESTADONull() {
-                return this.IsNull(this.tablevoluntarios.ESTADOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetESTADONull() {
-                this[this.tablevoluntarios.ESTADOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsIDCONTATONull() {
-                return this.IsNull(this.tablevoluntarios.IDCONTATOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetIDCONTATONull() {
-                this[this.tablevoluntarios.IDCONTATOColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
         public partial class estadoRow : global::System.Data.DataRow {
             
             private estadoDataTable tableestado;
@@ -6956,16 +6470,6 @@ namespace AFASFA.afasfaWebService {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public System.DateTime DATANASCIMENTO {
-                get {
-                    return ((global::System.DateTime)(this[this.tableusuarios_geral.DATANASCIMENTOColumn]));
-                }
-                set {
-                    this[this.tableusuarios_geral.DATANASCIMENTOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public string EMAIL {
                 get {
                     try {
@@ -6998,6 +6502,506 @@ namespace AFASFA.afasfaWebService {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public void SetEMAILNull() {
                 this[this.tableusuarios_geral.EMAILColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class voluntariosRow : global::System.Data.DataRow {
+            
+            private voluntariosDataTable tablevoluntarios;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal voluntariosRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablevoluntarios = ((voluntariosDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string APELIDO {
+                get {
+                    return ((string)(this[this.tablevoluntarios.APELIDOColumn]));
+                }
+                set {
+                    this[this.tablevoluntarios.APELIDOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public uint VOLUNTARIO {
+                get {
+                    return ((uint)(this[this.tablevoluntarios.VOLUNTARIOColumn]));
+                }
+                set {
+                    this[this.tablevoluntarios.VOLUNTARIOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string NACIONALIDADE {
+                get {
+                    return ((string)(this[this.tablevoluntarios.NACIONALIDADEColumn]));
+                }
+                set {
+                    this[this.tablevoluntarios.NACIONALIDADEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public System.DateTime DATANASCIMENTO {
+                get {
+                    return ((global::System.DateTime)(this[this.tablevoluntarios.DATANASCIMENTOColumn]));
+                }
+                set {
+                    this[this.tablevoluntarios.DATANASCIMENTOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int ESTADOORIGEM {
+                get {
+                    return ((int)(this[this.tablevoluntarios.ESTADOORIGEMColumn]));
+                }
+                set {
+                    this[this.tablevoluntarios.ESTADOORIGEMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string CIDADEORIGEM {
+                get {
+                    return ((string)(this[this.tablevoluntarios.CIDADEORIGEMColumn]));
+                }
+                set {
+                    this[this.tablevoluntarios.CIDADEORIGEMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool HABILITADO {
+                get {
+                    try {
+                        return ((bool)(this[this.tablevoluntarios.HABILITADOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HABILITADO\' in table \'voluntarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevoluntarios.HABILITADOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string ESTADOCIVIL {
+                get {
+                    try {
+                        return ((string)(this[this.tablevoluntarios.ESTADOCIVILColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ESTADOCIVIL\' in table \'voluntarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevoluntarios.ESTADOCIVILColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool TRABALHA {
+                get {
+                    try {
+                        return ((bool)(this[this.tablevoluntarios.TRABALHAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TRABALHA\' in table \'voluntarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevoluntarios.TRABALHAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string ESCOLARIDADE {
+                get {
+                    try {
+                        return ((string)(this[this.tablevoluntarios.ESCOLARIDADEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ESCOLARIDADE\' in table \'voluntarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevoluntarios.ESCOLARIDADEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string PROFISSAO {
+                get {
+                    try {
+                        return ((string)(this[this.tablevoluntarios.PROFISSAOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PROFISSAO\' in table \'voluntarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevoluntarios.PROFISSAOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string LOCALDETRABALHO {
+                get {
+                    try {
+                        return ((string)(this[this.tablevoluntarios.LOCALDETRABALHOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LOCALDETRABALHO\' in table \'voluntarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevoluntarios.LOCALDETRABALHOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string COMOFICOUSABENDO {
+                get {
+                    try {
+                        return ((string)(this[this.tablevoluntarios.COMOFICOUSABENDOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'COMOFICOUSABENDO\' in table \'voluntarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevoluntarios.COMOFICOUSABENDOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string TIPOVOLUNTARIO {
+                get {
+                    try {
+                        return ((string)(this[this.tablevoluntarios.TIPOVOLUNTARIOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TIPOVOLUNTARIO\' in table \'voluntarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevoluntarios.TIPOVOLUNTARIOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string QUALATIVIDADE {
+                get {
+                    try {
+                        return ((string)(this[this.tablevoluntarios.QUALATIVIDADEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'QUALATIVIDADE\' in table \'voluntarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevoluntarios.QUALATIVIDADEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public uint QUADISPONIBILIDADE {
+                get {
+                    try {
+                        return ((uint)(this[this.tablevoluntarios.QUADISPONIBILIDADEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'QUADISPONIBILIDADE\' in table \'voluntarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevoluntarios.QUADISPONIBILIDADEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public uint QUAISDIAS {
+                get {
+                    try {
+                        return ((uint)(this[this.tablevoluntarios.QUAISDIASColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'QUAISDIAS\' in table \'voluntarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevoluntarios.QUAISDIASColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool ACEITATERMO {
+                get {
+                    try {
+                        return ((bool)(this[this.tablevoluntarios.ACEITATERMOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ACEITATERMO\' in table \'voluntarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevoluntarios.ACEITATERMOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string TEMPODOVOLUNTARIO {
+                get {
+                    try {
+                        return ((string)(this[this.tablevoluntarios.TEMPODOVOLUNTARIOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TEMPODOVOLUNTARIO\' in table \'voluntarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevoluntarios.TEMPODOVOLUNTARIOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string ESTADO {
+                get {
+                    try {
+                        return ((string)(this[this.tablevoluntarios.ESTADOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ESTADO\' in table \'voluntarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevoluntarios.ESTADOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int IDCONTATO {
+                get {
+                    try {
+                        return ((int)(this[this.tablevoluntarios.IDCONTATOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IDCONTATO\' in table \'voluntarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevoluntarios.IDCONTATOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string PAISORIGEM {
+                get {
+                    try {
+                        return ((string)(this[this.tablevoluntarios.PAISORIGEMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PAISORIGEM\' in table \'voluntarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevoluntarios.PAISORIGEMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string QUAISDIAS1 {
+                get {
+                    try {
+                        return ((string)(this[this.tablevoluntarios.QUAISDIAS1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'QUAISDIAS1\' in table \'voluntarios\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevoluntarios.QUAISDIAS1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsHABILITADONull() {
+                return this.IsNull(this.tablevoluntarios.HABILITADOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetHABILITADONull() {
+                this[this.tablevoluntarios.HABILITADOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsESTADOCIVILNull() {
+                return this.IsNull(this.tablevoluntarios.ESTADOCIVILColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetESTADOCIVILNull() {
+                this[this.tablevoluntarios.ESTADOCIVILColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsTRABALHANull() {
+                return this.IsNull(this.tablevoluntarios.TRABALHAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetTRABALHANull() {
+                this[this.tablevoluntarios.TRABALHAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsESCOLARIDADENull() {
+                return this.IsNull(this.tablevoluntarios.ESCOLARIDADEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetESCOLARIDADENull() {
+                this[this.tablevoluntarios.ESCOLARIDADEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsPROFISSAONull() {
+                return this.IsNull(this.tablevoluntarios.PROFISSAOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetPROFISSAONull() {
+                this[this.tablevoluntarios.PROFISSAOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsLOCALDETRABALHONull() {
+                return this.IsNull(this.tablevoluntarios.LOCALDETRABALHOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetLOCALDETRABALHONull() {
+                this[this.tablevoluntarios.LOCALDETRABALHOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsCOMOFICOUSABENDONull() {
+                return this.IsNull(this.tablevoluntarios.COMOFICOUSABENDOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetCOMOFICOUSABENDONull() {
+                this[this.tablevoluntarios.COMOFICOUSABENDOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsTIPOVOLUNTARIONull() {
+                return this.IsNull(this.tablevoluntarios.TIPOVOLUNTARIOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetTIPOVOLUNTARIONull() {
+                this[this.tablevoluntarios.TIPOVOLUNTARIOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsQUALATIVIDADENull() {
+                return this.IsNull(this.tablevoluntarios.QUALATIVIDADEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetQUALATIVIDADENull() {
+                this[this.tablevoluntarios.QUALATIVIDADEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsQUADISPONIBILIDADENull() {
+                return this.IsNull(this.tablevoluntarios.QUADISPONIBILIDADEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetQUADISPONIBILIDADENull() {
+                this[this.tablevoluntarios.QUADISPONIBILIDADEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsQUAISDIASNull() {
+                return this.IsNull(this.tablevoluntarios.QUAISDIASColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetQUAISDIASNull() {
+                this[this.tablevoluntarios.QUAISDIASColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsACEITATERMONull() {
+                return this.IsNull(this.tablevoluntarios.ACEITATERMOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetACEITATERMONull() {
+                this[this.tablevoluntarios.ACEITATERMOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsTEMPODOVOLUNTARIONull() {
+                return this.IsNull(this.tablevoluntarios.TEMPODOVOLUNTARIOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetTEMPODOVOLUNTARIONull() {
+                this[this.tablevoluntarios.TEMPODOVOLUNTARIOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsESTADONull() {
+                return this.IsNull(this.tablevoluntarios.ESTADOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetESTADONull() {
+                this[this.tablevoluntarios.ESTADOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsIDCONTATONull() {
+                return this.IsNull(this.tablevoluntarios.IDCONTATOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetIDCONTATONull() {
+                this[this.tablevoluntarios.IDCONTATOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsPAISORIGEMNull() {
+                return this.IsNull(this.tablevoluntarios.PAISORIGEMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetPAISORIGEMNull() {
+                this[this.tablevoluntarios.PAISORIGEMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsQUAISDIAS1Null() {
+                return this.IsNull(this.tablevoluntarios.QUAISDIAS1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetQUAISDIAS1Null() {
+                this[this.tablevoluntarios.QUAISDIAS1Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -7191,37 +7195,6 @@ namespace AFASFA.afasfaWebService {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public class voluntariosRowChangeEvent : global::System.EventArgs {
-            
-            private voluntariosRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public voluntariosRowChangeEvent(voluntariosRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public voluntariosRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
         public class estadoRowChangeEvent : global::System.EventArgs {
             
             private estadoRow eventRow;
@@ -7360,6 +7333,37 @@ namespace AFASFA.afasfaWebService {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public usuarios_geralRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class voluntariosRowChangeEvent : global::System.EventArgs {
+            
+            private voluntariosRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public voluntariosRowChangeEvent(voluntariosRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public voluntariosRow Row {
                 get {
                     return this.eventRow;
                 }

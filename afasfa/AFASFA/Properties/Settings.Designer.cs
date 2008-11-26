@@ -36,7 +36,7 @@ namespace AFASFA.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:51349/wsAfasfa.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:2705/wsAfasfa.asmx")]
         public string AFASFA_afasfaWebService_wsAfasfa {
             get {
                 return ((string)(this["AFASFA_afasfaWebService_wsAfasfa"]));

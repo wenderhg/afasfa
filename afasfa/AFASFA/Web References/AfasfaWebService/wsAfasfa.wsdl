@@ -3,7 +3,7 @@
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
       <s:import namespace="http://tempuri.org/AFASFA.xsd" />
-      <s:import schemaLocation="http://localhost:51349/wsAfasfa.asmx?schema=DataSetAFASFA" namespace="http://tempuri.org/AFASFA.xsd" />
+      <s:import schemaLocation="http://localhost:2705/wsAfasfa.asmx?schema=DataSetAFASFA" namespace="http://tempuri.org/AFASFA.xsd" />
       <s:element name="RetornaCidades">
         <s:complexType />
       </s:element>
@@ -259,10 +259,10 @@
   </wsdl:binding>
   <wsdl:service name="wsAfasfa">
     <wsdl:port name="wsAfasfaSoap" binding="tns:wsAfasfaSoap">
-      <soap:address location="http://localhost:51349/wsAfasfa.asmx" />
+      <soap:address location="http://localhost:2705/wsAfasfa.asmx" />
     </wsdl:port>
     <wsdl:port name="wsAfasfaSoap12" binding="tns:wsAfasfaSoap12">
-      <soap12:address location="http://localhost:51349/wsAfasfa.asmx" />
+      <soap12:address location="http://localhost:2705/wsAfasfa.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
