@@ -8,6 +8,7 @@ using acesso_dados;
 using AFASFA.acesso_dados;
 using Servico.Util;
 using System.Data;
+using acesso_dados.DataSetAFASFATableAdapters;
 
 namespace AFASFA.Pesquisa
 {
@@ -158,6 +159,13 @@ namespace AFASFA.Pesquisa
             this.LimpaCampos();
             ExibeAlterar(false);
             AtualizaGrid(); //Atualiza grid
+        }
+
+        protected void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            gvResultado.DataSource = FiltroVoluntario.RetornaResultado(Filtros.RetornaFiltroFormatado());
+            gvResultado.DataBind();
+            this.phResultado.Visible = true;
         }
 
     }

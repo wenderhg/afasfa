@@ -146,6 +146,25 @@
                         </td>
                     </tr>
                 </asp:PlaceHolder>
+                <tr>
+                    <td>
+                        <asp:Button ID="btnPesquisar" runat="server" Text="Pesquisar" SkinID="btnFormularioCadastro"
+                            OnClick="btnPesquisar_Click" />
+                    </td>
+                </tr>
+                <asp:PlaceHolder ID="phResultado" runat="server" Visible="false">
+                    <tr>
+                        <td>
+                            <br />
+                            <asp:GridView ID="gvResultado" runat="server" AutoGenerateColumns="False" Width="100%"
+                                SkinID="grdPesquisa">
+                                <Columns>
+                                </Columns>
+                            </asp:GridView>
+                            <br />
+                        </td>
+                    </tr>
+                </asp:PlaceHolder>
             </table>
         </ContentTemplate>
     </asp:UpdatePanel>
