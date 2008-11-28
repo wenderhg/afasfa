@@ -185,6 +185,24 @@ namespace AFASFA.Pesquisa {
         protected global::System.Web.UI.WebControls.Button btnAdicionarFiltro;
         
         /// <summary>
+        /// btnAtualizarFiltro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAtualizarFiltro;
+        
+        /// <summary>
+        /// phGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder phGrid;
+        
+        /// <summary>
         /// gdFiltros control.
         /// </summary>
         /// <remarks>
