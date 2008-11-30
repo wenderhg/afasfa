@@ -76,7 +76,7 @@ namespace AFASFA.Pesquisa
         }
 
         protected void ddlCampos_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            {
             AjustarControle();
         }
 
@@ -163,9 +163,109 @@ namespace AFASFA.Pesquisa
 
         protected void btnPesquisar_Click(object sender, EventArgs e)
         {
-            gvResultado.DataSource = FiltroVoluntario.RetornaResultado(Filtros.RetornaFiltroFormatado());
+            gvResultado.DataSource = FiltroVoluntario.RetornaResultado(RetornaFiltro());
             gvResultado.DataBind();
             this.phResultado.Visible = true;
+        }
+
+        private string RetornaFiltro()
+        {
+            string _result = string.Empty;
+
+            if (!String.IsNullOrEmpty(txtNome.Text))
+            {
+                _result = String.Format(" NomeContato like '%{0}%' ", txtNome.Text);
+            }
+
+            if (ddlStatus.SelectedIndex != 0) //se nao for todos
+            {
+                _result += String.IsNullOrEmpty(_result) ? string.Empty : " AND " + String.Format("estado = '{0}'", ddlStatus.SelectedValue);
+            }
+
+            return _result + (!String.IsNullOrEmpty(_result) ? " AND " : string.Empty) + Filtros.RetornaFiltroFormatado();
+        }
+
+        protected void gvResultado_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                DataSetAFASFA.vwvoluntariosRow _row = (e.Row.DataItem as DataRowView).Row as DataSetAFASFA.vwvoluntariosRow;
+                //Trata status
+                if (e.Row.Cells[5].Text.Equals("P"))
+                {
+                    e.Row.Cells[5].Text = "Pendente de aprovação";
+                    Button _btn = (e.Row.FindControl("btnAprovar") as Button);
+                    _btn.CommandArgument = _row.VOLUNTARIO.ToString();
+                    _btn.Visible = true;
+                    _btn = (e.Row.FindControl("btnRejeitar") as Button);
+                    _btn.CommandArgument = _row.VOLUNTARIO.ToString();
+                    _btn.Visible = true;
+                }
+                else if (e.Row.Cells[5].Text.Equals("A"))
+                {
+                    e.Row.Cells[5].Text = "Aprovado";
+                    Button _btn = (e.Row.FindControl("btnInativar") as Button);
+                    _btn.CommandArgument = _row.VOLUNTARIO.ToString();
+                    _btn.Visible = true;
+                }
+                else if (e.Row.Cells[5].Text.Equals("R"))
+                {
+                    e.Row.Cells[5].Text = "Rejeitado";
+                    Button _btn = (e.Row.FindControl("btnReativar") as Button);
+                    _btn.CommandArgument = _row.VOLUNTARIO.ToString();
+                    _btn.Visible = true;
+                }
+                else if (e.Row.Cells[5].Text.Equals("I"))
+                {
+                    e.Row.Cells[5].Text = "Inativo";
+                    Button _btn = (e.Row.FindControl("btnReativar") as Button);
+                    _btn.CommandArgument = _row.VOLUNTARIO.ToString();
+                    _btn.Visible = true;
+                }
+
+                //Trata direto ou indireto
+                if (e.Row.Cells[6].Text.Equals("D"))
+                {
+                    e.Row.Cells[6].Text = "Direto";
+                }
+                else if (e.Row.Cells[6].Text.Equals("I"))
+                {
+                    e.Row.Cells[6].Text = "Indireto";
+                }
+
+            }
+        }
+
+        protected void gvResultado_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName.Equals("Aprovar"))
+            {
+                using (Conexao.AfasfaManager.voluntariosTableAdapter = new voluntariosTableAdapter())
+                {
+                    Conexao.AfasfaManager.voluntariosTableAdapter.AtualizaEstado("A", Convert.ToInt32(e.CommandArgument));
+                }
+            }
+            else if (e.CommandName.Equals("Rejeitar"))
+            {
+                using (Conexao.AfasfaManager.voluntariosTableAdapter = new voluntariosTableAdapter())
+                {
+                    Conexao.AfasfaManager.voluntariosTableAdapter.AtualizaEstado("R", Convert.ToInt32(e.CommandArgument));
+                }
+            }
+            else if (e.CommandName.Equals("Inativar"))
+            {
+                using (Conexao.AfasfaManager.voluntariosTableAdapter = new voluntariosTableAdapter())
+                {
+                    Conexao.AfasfaManager.voluntariosTableAdapter.AtualizaEstado("I", Convert.ToInt32(e.CommandArgument));
+                }
+            }
+            else if (e.CommandName.Equals("Reativar"))
+            {
+                using (Conexao.AfasfaManager.voluntariosTableAdapter = new voluntariosTableAdapter())
+                {
+                    Conexao.AfasfaManager.voluntariosTableAdapter.AtualizaEstado("A", Convert.ToInt32(e.CommandArgument));
+                }
+            }
         }
 
     }

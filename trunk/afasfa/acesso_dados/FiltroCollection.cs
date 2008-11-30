@@ -15,7 +15,7 @@ namespace acesso_dados
                 return string.Empty;
             }
             _result.AppendLine(this[0].RetornaFiltro());
-            for (int cont = 1; cont < this.Count; cont++)
+            for (int cont = 1; cont < this.Count; cont++) //Passa por todos os filtros menos o ultimo
             {
                 _result.AppendLine(this[cont].OperadorAND ? " AND " : " OR " + this[cont].RetornaFiltro());
             }

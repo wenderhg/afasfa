@@ -187,9 +187,9 @@ namespace AFASFA.Cadastros
             return result.ToString();
         }
 
-        private uint? RetornaDisponibilidade()
+        private int? RetornaDisponibilidade()
         {
-            uint? result = null;
+            int? result = null;
             if (ckduasHoras.Checked)
             {
                 result = 2;
