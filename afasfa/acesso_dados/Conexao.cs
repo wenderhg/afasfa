@@ -5,6 +5,7 @@ using System.Text;
 using MySql.Data.MySqlClient;
 using acesso_dados.Properties;
 using acesso_dados.DataSetAFASFATableAdapters;
+using acesso_dados.WebServices;
 
 namespace AFASFA.acesso_dados
 {
@@ -43,6 +44,19 @@ namespace AFASFA.acesso_dados
                     _afasfaManager.Connection = Instance;
                 }
                 return _afasfaManager;
+            }
+        }
+
+        private static wsAfasfa _afasfaWebService = null;
+        public static wsAfasfa afasfaWebService
+        {
+            get
+            {
+                if (_afasfaWebService == null)
+                {
+                    _afasfaWebService = new wsAfasfa();
+                }
+                return _afasfaWebService;
             }
         }
     }

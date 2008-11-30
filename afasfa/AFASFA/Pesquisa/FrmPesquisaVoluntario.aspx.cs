@@ -233,6 +233,9 @@ namespace AFASFA.Pesquisa
                     e.Row.Cells[6].Text = "Indireto";
                 }
 
+                //ajusta os links
+                HyperLink _hl = e.Row.FindControl("hlNomeContato") as HyperLink;
+                _hl.NavigateUrl = String.Format(_hl.NavigateUrl, _row.VOLUNTARIO);
             }
         }
 
