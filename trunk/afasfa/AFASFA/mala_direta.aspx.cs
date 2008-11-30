@@ -6,7 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using AFASFA.acesso_dados;
 using acesso_dados.DataSetAFASFATableAdapters;
-using AFASFA.afasfaWebService;
 using Servico.Util;
 
 namespace AFASFA
@@ -17,9 +16,7 @@ namespace AFASFA
         {
             if (!IsPostBack)
             {
-
-                afasfaWebService.wsAfasfa result = new AFASFA.afasfaWebService.wsAfasfa();
-                this.drMeses.DataSource = result.RetornaMeses();
+                this.drMeses.DataSource = Conexao.afasfaWebService.RetornaMeses();
                 this.drMeses.DataBind();
             }
         }

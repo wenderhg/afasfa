@@ -6,7 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using AFASFA.acesso_dados;
 using acesso_dados.DataSetAFASFATableAdapters;
-using AFASFA.afasfaWebService;
 using Servico.Util;
 
 namespace AFASFA.Cadastros
@@ -17,13 +16,10 @@ namespace AFASFA.Cadastros
         {
             if (!IsPostBack)
             {
-                using (wsAfasfa _ws = new wsAfasfa())
-                {
-                    this.EstadoOrigemDropDownList.DataSource = _ws.RetornaEstados();
-                    this.EstadoOrigemDropDownList.DataBind();
-                    this.UfDropDownList.DataSource = this.EstadoOrigemDropDownList.DataSource;
-                    this.UfDropDownList.DataBind();
-                }
+                this.EstadoOrigemDropDownList.DataSource = Conexao.afasfaWebService.RetornaEstados();
+                this.EstadoOrigemDropDownList.DataBind();
+                this.UfDropDownList.DataSource = this.EstadoOrigemDropDownList.DataSource;
+                this.UfDropDownList.DataBind();
             }
         }
         protected void InsertCancelButton_Click(object sender, EventArgs e)
@@ -58,7 +54,7 @@ namespace AFASFA.Cadastros
                 using (Conexao.AfasfaManager.voluntariosTableAdapter = new voluntariosTableAdapter())
                 {
                     Conexao.AfasfaManager.voluntariosTableAdapter.Insert(
-                        this.ApelidoTextBox.Text, 
+                        this.ApelidoTextBox.Text,
                         this.rblNacionalidade.SelectedIndex == 0 ? "B" : "E",
                         Convert.ToDateTime(this.DataNascimentoTextBox.Text),
                         this.rblNacionalidade.SelectedIndex == 0 ? Convert.ToInt32(this.EstadoOrigemDropDownList.SelectedValue) : 28 /*Codigo de UF Estrangeiro*/,
@@ -244,8 +240,6 @@ namespace AFASFA.Cadastros
 
         protected void EstadoOrigemDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            using (wsAfasfa _ws = new wsAfasfa())
-            {
                 short _estado;
                 //Tenta fazer o parser do codigo do estado selecionado
                 if (!short.TryParse(this.EstadoOrigemDropDownList.SelectedValue, out _estado))
@@ -254,9 +248,8 @@ namespace AFASFA.Cadastros
                 }
                 this.ddlCidadeOrigem.Items.Clear();
                 this.ddlCidadeOrigem.Items.Add(new ListItem());
-                this.ddlCidadeOrigem.DataSource = _ws.RetornaCidadesPorEstado(_estado);
+                this.ddlCidadeOrigem.DataSource = Conexao.afasfaWebService.RetornaCidadesPorEstado(_estado);
                 this.ddlCidadeOrigem.DataBind();
-            }
         }
 
         protected void CustomValidatorContato_ServerValidate(object source, ServerValidateEventArgs args)

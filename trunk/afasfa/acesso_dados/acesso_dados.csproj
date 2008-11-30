@@ -71,6 +71,7 @@
     <Compile Include="TipoFiltro.cs" />
     <Compile Include="WebServices\Mes.cs" />
     <Compile Include="WebServices\UF.cs" />
+    <Compile Include="WebServices\wsAfasfa.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AFASFA.xsc">

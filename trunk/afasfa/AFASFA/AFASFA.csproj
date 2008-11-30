@@ -189,11 +189,6 @@
     <Compile Include="voluntarios.aspx.designer.cs">
       <DependentUpon>voluntarios.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web References\afasfaWebService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
     <Compile Include="Web References\br.com.bronzebusiness.www\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -252,24 +247,6 @@
     <Content Include="App_Themes\Default\GridSkin.skin" />
     <Content Include="Visualizar\FrmVisualizarEvento.aspx" />
     <Content Include="voluntarios.aspx" />
-    <None Include="Web References\afasfaWebService\DataSetAFASFA.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Web References\afasfaWebService\DataSetAFASFA2.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\afasfaWebService\Mes2.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\afasfaWebService\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\afasfaWebService\UF2.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\afasfaWebService\wsAfasfa.disco" />
-    <None Include="Web References\afasfaWebService\wsAfasfa.wsdl" />
     <None Include="Web References\br.com.bronzebusiness.www\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -285,17 +262,6 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:2705/wsAfasfa.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\afasfaWebService\</RelPath>
-      <UpdateFromURL>http://localhost:2705/wsAfasfa.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>AFASFA_afasfaWebService_wsAfasfa</CachedSettingsPropName>
-    </WebReferenceUrl>
     <WebReferenceUrl Include="http://www.bronzebusiness.com.br/webservices/wscep.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\br.com.bronzebusiness.www\</RelPath>
