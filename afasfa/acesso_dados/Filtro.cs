@@ -7,6 +7,12 @@ namespace acesso_dados
 {
     public class Filtro
     {
+
+        public Filtro()
+        {
+            OperadorAND = true;
+        }
+
         private string nomeCampo = string.Empty;
         public string NomeCampo
         {
