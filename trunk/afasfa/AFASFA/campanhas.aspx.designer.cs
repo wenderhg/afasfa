@@ -11,6 +11,6 @@
 namespace AFASFA {
     
     
-    public partial class voluntarios {
+    public partial class campanhas {
     }
 }

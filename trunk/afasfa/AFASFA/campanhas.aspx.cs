@@ -13,7 +13,7 @@ using System.Xml.Linq;
 
 namespace AFASFA
 {
-    public partial class voluntarios : System.Web.UI.Page
+    public partial class campanhas : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

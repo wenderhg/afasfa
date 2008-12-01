@@ -25,17 +25,17 @@ namespace AFASFA.Cadastros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //TextBox _txtDataEvento = (this.FormView1.FindControl("DataEventoTextBox") as TextBox);
-            //if (_txtDataEvento != null)
-            //{
-            //    _txtDataEvento.Text = DateTime.Today.ToShortDateString();
-            //}
+            if ((this.Master as afasfa).VerificaAcessoNegado(true))
+            {
+                return;
+            }
+            
             if (!IsPostBack)
             {
                 (this.FormView1.FindControl("DataEventoTextBox") as TextBox).Text = DateTime.Today.ToString();
-                (this.FormView1.FindControl("DataMaximaTextBox") as TextBox).Text = DateTime.Today.AddYears(1).ToString();    
+                (this.FormView1.FindControl("DataMaximaTextBox") as TextBox).Text = DateTime.Today.AddYears(1).ToString();
             }
-            
+
         }
 
         protected void InsertCancelButton_Click(object sender, EventArgs e)
@@ -54,18 +54,7 @@ namespace AFASFA.Cadastros
         {
             this.ModalPopupExtender1.Hide();
         }
-        protected void InsertButton_Click(object sender, EventArgs e)
-        {
-            //if (Page.IsValid)
-            //{
-            InserirUsuario();
-            //}
-        }
-        private void InserirUsuario()
-        {
-            this.ModalPopupExtender2.Show();
-        }
-
+        
         private string RetornaNomeArquivo()
         {
             //if ((this.FormView1.FindControl("UploadFotoEvento") as FileUpload).HasFile)
@@ -109,13 +98,21 @@ namespace AFASFA.Cadastros
             (this.FormView1.FindControl("ReservaNaoDisponivel") as Label).Visible = !(this.FormView1.FindControl("ReservaDisponivelCheckBox") as CheckBox).Checked;
 
         }
-
-
+        
         protected void FormView1_ItemInserting(object sender, FormViewInsertEventArgs e)
         {
             string _nomeArquivo = RetornaNomeArquivo();
             CarregaArquivo(_nomeArquivo);
             e.Values["FOTOINICIAL"] = _nomeArquivo;
+            e.Values["Apresentar"] = (this.FormView1.FindControl("ApresentarCheckBox") as CheckBox).Checked;
+            e.Values["JaRealizado"] = (this.FormView1.FindControl("chkJaRealizado") as CheckBox).Checked;
+            e.Values["ReservaDisponivel"] = (this.FormView1.FindControl("ReservaDisponivelCheckBox") as CheckBox).Checked;
+            e.Values["DataEvento"] = (this.FormView1.FindControl("DataEventoTextBox") as TextBox).Text;
+        }
+
+        protected void FormView1_ItemInserted(object sender, FormViewInsertedEventArgs e)
+        {
+            this.ModalPopupExtender2.Show();
         }
 
     }

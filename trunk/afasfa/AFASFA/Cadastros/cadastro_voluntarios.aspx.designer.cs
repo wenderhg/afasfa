@@ -617,13 +617,13 @@ namespace AFASFA.Cadastros {
         protected global::System.Web.UI.WebControls.CheckBox AceitaTermoCheckBox;
         
         /// <summary>
-        /// btnVerTermoVoluntario control.
+        /// hlTermo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVerTermoVoluntario;
+        protected global::System.Web.UI.WebControls.HyperLink hlTermo;
         
         /// <summary>
         /// TempoDoVoluntarioTextBox control.
@@ -642,6 +642,15 @@ namespace AFASFA.Cadastros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button InsertButton;
+        
+        /// <summary>
+        /// UpdateButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button UpdateButton;
         
         /// <summary>
         /// CancelButton control.

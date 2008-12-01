@@ -22,7 +22,8 @@
         </InsertParameters>
     </asp:ObjectDataSource>
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="Evento" DataSourceID="ObjectDataSource1"
-        DefaultMode="Insert" OnItemInserting="FormView1_ItemInserting">
+        DefaultMode="Insert" OnItemInserting="FormView1_ItemInserting" 
+        oniteminserted="FormView1_ItemInserted">
         <InsertItemTemplate>
             <table cellpadding="0" cellspacing="0" width="100%" style="" border="Ridge">
                 <tr>
@@ -77,8 +78,8 @@
                                                         <strong style="color: Red">*</strong> Data de Realização:
                                                     </td>
                                                     <td align="left">
-                                                        <asp:TextBox ID="DataEventoTextBox" runat="server" 
-                                                            Width="20%" class="txtFormulario" ToolTip="Informe a data de realização do evento." />
+                                                        <asp:TextBox ID="DataEventoTextBox" runat="server" Width="20%" class="txtFormulario"
+                                                            ToolTip="Informe a data de realização do evento."/>
                                                         <cc1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" MaskType="Date" AcceptNegative="None"
                                                             Mask="99/99/9999" TargetControlID="DataEventoTextBox" UserDateFormat="DayMonthYear"
                                                             AutoComplete="true" AutoCompleteValue="09/08/2008">
@@ -229,8 +230,8 @@
                                                 <tr>
                                                     <td colspan="2" align="center">
                                                         <br />
-                                                        <asp:Button ID="InsertButton" runat="server" Text="Salvar Dados" CausesValidation="false"
-                                                            SkinID="btnFormularioCadastro" OnClick="InsertButton_Click" ToolTip="Click neste botão para salvar os dados" />
+                                                        <asp:Button ID="InsertButton" runat="server" Text="Salvar Dados" CausesValidation="true"
+                                                            CommandName="Insert" SkinID="btnFormularioCadastro" ToolTip="Click neste botão para salvar os dados" />
                                                         <asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False" Text="Cancelar"
                                                             SkinID="btnFormularioCadastro" OnClick="InsertCancelButton_Click" ToolTip="Click neste botão para cancelar os dados" />
                                                         <br />
