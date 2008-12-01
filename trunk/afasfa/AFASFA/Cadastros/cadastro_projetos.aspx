@@ -15,7 +15,7 @@
         </InsertParameters>
     </asp:ObjectDataSource>
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="Projeto" DefaultMode="Insert"
-        DataSourceID="ObjectDataSource1">
+        DataSourceID="ObjectDataSource1" OnItemInserted="FormView1_ItemInserted" OnItemInserting="FormView1_ItemInserting">
         <InsertItemTemplate>
             <table cellpadding="0" cellspacing="0" width="100%" style="" border="Ridge">
                 <tr>
@@ -73,7 +73,6 @@
                                                     <td width="80%" align="left">
                                                         <asp:FileUpload ID="UploadFotoProjeto" runat="server" SkinID="upFile" Width="98%"
                                                             CssClass="txtFormulario" ToolTip="Selecione a foto que será exibida na página de apresentação de projetos" />
-                                                           
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -105,7 +104,7 @@
                                                             SkinID="btnFormularioCadastro" ToolTip="Click neste botão para salvar os dados" />
                                                         <%--OnClick="InsertButton_Click"--%>
                                                         <asp:Button ID="Button2" runat="server" CausesValidation="False" Text="Cancelar"
-                                                            SkinID="btnFormularioCadastro" ToolTip="Click neste botão para cancelar os dados" />
+                                                            OnClick="InsertCancelButton_Click" SkinID="btnFormularioCadastro" ToolTip="Click neste botão para cancelar os dados" />
                                                         <%--SkinID="btnFormularioCadastro"  />
 --%>
                                                         <br />
