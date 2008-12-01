@@ -163,43 +163,44 @@
                     <tr>
                         <td>
                             <br />
+                            <asp:GridView ID="gvResultado" runat="server" AutoGenerateColumns="False" Width="400px"
+                                SkinID="grdPesquisa" DataKeyNames="VOLUNTARIO" OnRowDataBound="gvResultado_RowDataBound"
+                                OnRowCommand="gvResultado_RowCommand" RowStyle-Wrap="true" RowStyle-Width="400px">
+                                <Columns>
+                                    <asp:BoundField DataField="NomeContato" HeaderText="NomeContato" SortExpression="NomeContato" />
+                                    <asp:BoundField DataField="DataEnvio" HeaderText="Data Envio" SortExpression="DataEnvio"
+                                        DataFormatString="{0:dd/MM/yyyy}" />
+                                    <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                                    <asp:BoundField DataField="TELEFONERES" HeaderText="Telefone" SortExpression="TELEFONERES" />
+                                    <asp:BoundField DataField="TELEFONECEL" HeaderText="Celular" SortExpression="TELEFONECEL" />
+                                    <asp:BoundField DataField="ESTADO" HeaderText="Status" SortExpression="ESTADO" />
+                                    <asp:BoundField DataField="TIPOVOLUNTARIO" HeaderText="Tipo Voluntário" SortExpression="TIPOVOLUNTARIO" />
+                                    <asp:TemplateField>
+                                        <ItemTemplate>
+                                            <asp:Button ID="btnAprovar" runat="server" Visible="false" CommandName="Aprovar"
+                                                Text="Aprovar interesse" SkinID="btnFormularioCadastro" />
+                                            <asp:Button ID="btnRejeitar" runat="server" Visible="false" CommandName="Rejeitar"
+                                                Text="Rejeitar interesse" SkinID="btnFormularioCadastro" />
+                                            <asp:Button ID="btnInativar" runat="server" Visible="false" CommandName="Inativar"
+                                                Text="Inativar voluntário" SkinID="btnFormularioCadastro" />
+                                            <asp:Button ID="btnReativar" runat="server" Visible="false" CommandName="Reativar"
+                                                Text="Reativar voluntário" SkinID="btnFormularioCadastro" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField>
+                                        <ItemTemplate>
+                                            <asp:HyperLink runat="server" ID="hlEditar" ImageUrl="~/Imagens/b_edit.png" NavigateUrl="~/Cadastros/cadastro_voluntarios.aspx?id={0}"></asp:HyperLink>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                                <EmptyDataTemplate>
+                                    Nenhum dado foi encontrado</EmptyDataTemplate>
+                            </asp:GridView>
                             <br />
                         </td>
                     </tr>
                 </asp:PlaceHolder>
             </table>
-            <asp:GridView ID="gvResultado" runat="server" AutoGenerateColumns="False" Width="400px"
-                SkinID="grdPesquisa" DataKeyNames="VOLUNTARIO" OnRowDataBound="gvResultado_RowDataBound"
-                OnRowCommand="gvResultado_RowCommand" RowStyle-Wrap="true" RowStyle-Width="400px">
-                <Columns>
-                    <asp:TemplateField HeaderText="NomeContato" SortExpression="NomeContato">
-                        <ItemTemplate>
-                            <asp:HyperLink ID="hlNomeContato" runat="server" Target="_blank" NavigateUrl="~/Cadastros/cadastro_voluntarios.aspx?id={0}"><%# Eval("NomeContato") %></asp:HyperLink>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:BoundField DataField="DataEnvio" HeaderText="Data Envio" SortExpression="DataEnvio"
-                        DataFormatString="{0:dd/MM/yyyy}" />
-                    <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-                    <asp:BoundField DataField="TELEFONERES" HeaderText="Telefone" SortExpression="TELEFONERES" />
-                    <asp:BoundField DataField="TELEFONECEL" HeaderText="Celular" SortExpression="TELEFONECEL" />
-                    <asp:BoundField DataField="ESTADO" HeaderText="Status" SortExpression="ESTADO" />
-                    <asp:BoundField DataField="TIPOVOLUNTARIO" HeaderText="Tipo Voluntário" SortExpression="TIPOVOLUNTARIO" />
-                    <asp:TemplateField>
-                        <ItemTemplate>
-                            <asp:Button ID="btnAprovar" runat="server" Visible="false" CommandName="Aprovar"
-                                Text="Aprovar interesse" SkinID="btnFormularioCadastro" />
-                            <asp:Button ID="btnRejeitar" runat="server" Visible="false" CommandName="Rejeitar"
-                                Text="Rejeitar interesse" SkinID="btnFormularioCadastro" />
-                            <asp:Button ID="btnInativar" runat="server" Visible="false" CommandName="Inativar"
-                                Text="Inativar voluntário" SkinID="btnFormularioCadastro" />
-                            <asp:Button ID="btnReativar" runat="server" Visible="false" CommandName="Reativar"
-                                Text="Reativar voluntário" SkinID="btnFormularioCadastro" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-                <EmptyDataTemplate>
-                    Nenhum dado foi encontrado</EmptyDataTemplate>
-            </asp:GridView>
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>

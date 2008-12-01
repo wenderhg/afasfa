@@ -240,11 +240,13 @@
     <Content Include="campanhas.aspx" />
     <Content Include="ComoChegar\ComoChegar.aspx" />
     <Content Include="Imagens\ajax-loader.gif" />
+    <Content Include="Imagens\b_edit.png" />
     <Content Include="mala_direta.aspx" />
     <Content Include="Pesquisa\FrmPesquisaVoluntario.aspx" />
     <Content Include="Relatorios\FrmReportViewer.aspx" />
     <Content Include="solicitar_senha.aspx" />
     <Content Include="App_Themes\Default\GridSkin.skin" />
+    <Content Include="TermoVoluntario.htm" />
     <Content Include="Visualizar\FrmVisualizarEvento.aspx" />
     <Content Include="voluntarios.aspx" />
     <None Include="Web References\br.com.bronzebusiness.www\Reference.map">

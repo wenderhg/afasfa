@@ -23,7 +23,7 @@
                         <tr>
                             <td align="left" class="lblFomulario">
                                 Data do Evento:
-                                <asp:Literal ID="Literal4" runat="server" Text="<%# Bind('DataEvento') %>"></asp:Literal>
+                                <asp:Literal ID="Literal4" runat="server" Text="<%# Bind('DataEvento', '{0:dd/MM/yyyy}') %>"></asp:Literal>
                             </td>
                         </tr>
                         <tr>
@@ -87,7 +87,7 @@
                         <tr>
                             <td align="left" class="lblFomulario">
                                 Data do Evento:
-                                <asp:Literal ID="Literal4" runat="server" Text="<%# Bind('DataEvento') %>"></asp:Literal>
+                                <asp:Literal ID="Literal4" runat="server" Text="<%# Bind('DataEvento', '{0:dd/MM/yyyy}') %>"></asp:Literal>
                             </td>
                         </tr>
                         <tr>
@@ -106,6 +106,11 @@
                             <td align="left" class="lblFomulario">
                                 Valor do Convite para Criança R$:
                                 <asp:Literal ID="Literal5" runat="server" Text="<%# Bind('ValorConviteAdulto') %>"></asp:Literal>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Literal ID="litJarealizado" Text="" runat="server" Visible="true"></asp:Literal>
                             </td>
                         </tr>
                         <tr>

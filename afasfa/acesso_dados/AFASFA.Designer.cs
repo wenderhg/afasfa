@@ -7831,11 +7831,11 @@ namespace acesso_dados {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public string ESTADO {
                 get {
-                    try {
-                        return ((string)(this[this.tablevwvoluntarios.ESTADOColumn]));
+                    if (this.IsESTADONull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ESTADO\' in table \'vwvoluntarios\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tablevwvoluntarios.ESTADOColumn]));
                     }
                 }
                 set {
@@ -7861,11 +7861,11 @@ namespace acesso_dados {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public string PAISORIGEM {
                 get {
-                    try {
-                        return ((string)(this[this.tablevwvoluntarios.PAISORIGEMColumn]));
+                    if (this.IsPAISORIGEMNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PAISORIGEM\' in table \'vwvoluntarios\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tablevwvoluntarios.PAISORIGEMColumn]));
                     }
                 }
                 set {
@@ -11497,13 +11497,22 @@ namespace acesso_dados.DataSetAFASFATableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        EVENTO, DESCRICAO, DATAEVENTO, LOCALEVENTO, FOTOINICIAL, JAREALIZAD" +
                 "O, APRESENTAR, RESERVADISPONIVEL, DATAMAXIMA, VALORCONVITEA, \r\n                 " +
                 "        VALORCONVITEC, OBSERVACAO\r\nFROM            eventos";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT        EVENTO, DESCRICAO, DATAEVENTO, LOCALEVENTO, FOTOINICIAL, JAREALIZADO, APRESENTAR, RESERVADISPONIVEL, DATAMAXIMA, VALORCONVITEA, 
+                         VALORCONVITEC, OBSERVACAO
+FROM            eventos
+WHERE        (APRESENTAR = 1)
+ORDER BY datediff(DATAEVENTO, sysdate())
+LIMIT 0, 5";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11523,6 +11532,28 @@ namespace acesso_dados.DataSetAFASFATableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSetAFASFA.eventosDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSetAFASFA.eventosDataTable dataTable = new DataSetAFASFA.eventosDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int PreenchePorData(DataSetAFASFA.eventosDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetAFASFA.eventosDataTable BuscaPorData() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             DataSetAFASFA.eventosDataTable dataTable = new DataSetAFASFA.eventosDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -15225,7 +15256,7 @@ VALUES        (@APELIDO, @NACIONALIDADE, @DATANASCIMENTO, @ESTADOORIGEM, @CIDADE
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT `APELIDO`, `VOLUNTARIO`, `NACIONALIDADE`, `DATANASCIMENTO`, `ESTADOORIGEM`, `CIDADEORIGEM`, `HABILITADO`, `ESTADOCIVIL`, `TRABALHA`, `ESCOLARIDADE`, `PROFISSAO`, `LOCALDETRABALHO`, `COMOFICOUSABENDO`, `TIPOVOLUNTARIO`, `QUALATIVIDADE`, `QUADISPONIBILIDADE`, `QUAISDIAS`, `ACEITATERMO`, `TEMPODOVOLUNTARIO`, `ESTADO`, `IDCONTATO`, `PAISORIGEM` FROM `afasfa`.`voluntarios`";
@@ -15251,6 +15282,18 @@ VALUES        (@APELIDO, @NACIONALIDADE, @DATANASCIMENTO, @ESTADOORIGEM, @CIDADE
             param.SourceColumn = "VOLUNTARIO";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT `APELIDO`, `VOLUNTARIO`, `NACIONALIDADE`, `DATANASCIMENTO`, `ESTADOORIGEM`, `CIDADEORIGEM`, `HABILITADO`, `ESTADOCIVIL`, `TRABALHA`, `ESCOLARIDADE`, `PROFISSAO`, `LOCALDETRABALHO`, `COMOFICOUSABENDO`, `TIPOVOLUNTARIO`, `QUALATIVIDADE`, `QUADISPONIBILIDADE`, `QUAISDIAS`, `ACEITATERMO`, `TEMPODOVOLUNTARIO`, `ESTADO`, `IDCONTATO`, `PAISORIGEM` FROM `afasfa`.`voluntarios`
+where VOLUNTARIO = @VOLUNTARIO";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@VOLUNTARIO";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "VOLUNTARIO";
+            this._commandCollection[2].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15270,6 +15313,30 @@ VALUES        (@APELIDO, @NACIONALIDADE, @DATANASCIMENTO, @ESTADOORIGEM, @CIDADE
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual DataSetAFASFA.voluntariosDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataSetAFASFA.voluntariosDataTable dataTable = new DataSetAFASFA.voluntariosDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int PreenchePorCodigo(DataSetAFASFA.voluntariosDataTable dataTable, int VOLUNTARIO) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(VOLUNTARIO));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSetAFASFA.voluntariosDataTable BuscaPorCodigo(int VOLUNTARIO) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(VOLUNTARIO));
             DataSetAFASFA.voluntariosDataTable dataTable = new DataSetAFASFA.voluntariosDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

@@ -17,7 +17,7 @@ namespace AFASFA.Visualizar
         {
             using (Conexao.AfasfaManager.eventosTableAdapter = new eventosTableAdapter())
             {
-                rptEvento.DataSource = Conexao.AfasfaManager.eventosTableAdapter.GetData();
+                rptEvento.DataSource = Conexao.AfasfaManager.eventosTableAdapter.BuscaPorData();
             }
             rptEvento.DataBind();
 
@@ -36,12 +36,12 @@ namespace AFASFA.Visualizar
                     if (_eventos.JaRealizado)
                     {
                         _btnReservarConvite.Visible = true;
-                        _litJarealizado.Text = "tetse";
+                        _litJarealizado.Text = "Já realizado";
                     }
                     else
                     {
                         _btnReservarConvite.Visible = false;
-                        _litJarealizado.Text = "tetse teste";
+                        //_litJarealizado.Text = "tetse teste";
                     }
                 }
                 //(e.Item.FindControl("img") as Image).ImageUrl = (e.Item.DataItem as DataRow

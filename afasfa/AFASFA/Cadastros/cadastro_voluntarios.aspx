@@ -99,7 +99,7 @@
                                                         </td>
                                                         <td align="left" width="80%">
                                                             <asp:TextBox ID="NomeTextBox" runat="server" class="txtFormulario" onblur="PreencheApelido(this);"
-                                                                Text='<%# Bind("Nome") %>' Width="98%" ToolTip="Informe seu nome." />
+                                                                Text='<%# DataBinder.Eval(Voluntario, "NomeContato") %>' Width="98%" ToolTip="Informe seu nome." />
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidatorNomeTextBox" runat="server"
                                                                 ControlToValidate="NomeTextBox" Display="None" ErrorMessage="Nomde é de preenchimento obrigatório">
                                                             </asp:RequiredFieldValidator>
@@ -110,7 +110,7 @@
                                                             <strong style="color: Red">*</strong> Como Deseja ser Chamado:
                                                         </td>
                                                         <td align="left" width="80%">
-                                                            <asp:TextBox ID="ApelidoTextBox" runat="server" class="txtFormulario" Text='<%# Bind("Apelido") %>'
+                                                            <asp:TextBox ID="ApelidoTextBox" runat="server" class="txtFormulario" Text='<%# DataBinder.Eval(Voluntario, "Apelido") %>'
                                                                 Width="30%" ToolTip="Informe como deseja ser chamado." />
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidatorApelidoTextBox" runat="server"
                                                                 ControlToValidate="ApelidoTextBox" Display="None" ErrorMessage="Apelido é de preenchimento obrigatório">
@@ -122,7 +122,7 @@
                                                             <strong style="color: Red">*</strong> Data de Nascimento:
                                                         </td>
                                                         <td align="left" width="80%">
-                                                            <asp:TextBox ID="DataNascimentoTextBox" runat="server" class="txtFormulario" Text='<%# Bind("DataNascimento") %>'
+                                                            <asp:TextBox ID="DataNascimentoTextBox" runat="server" class="txtFormulario" Text='<%# DataBinder.Eval(Voluntario, "DataNascimento") %>'
                                                                 Width="16%" ToolTip="Informe a data de nascimento." />
                                                             <cc1:MaskedEditExtender ID="MaskedEditExtender2" runat="server" AcceptNegative="None"
                                                                 AutoComplete="true" AutoCompleteValue="09/08/2008" Mask="99/99/9999" MaskType="Date"
@@ -198,7 +198,7 @@
                                                             <strong style="color: Red">*</strong> País de Origem:
                                                         </td>
                                                         <td align="left" width="80%">
-                                                            <asp:TextBox ID="PaisOrigemTextBox" runat="server" class="txtFormulario" Text='<%# Bind("PaisOrigem") %>'
+                                                            <asp:TextBox ID="PaisOrigemTextBox" runat="server" class="txtFormulario" Text='<%# DataBinder.Eval(Voluntario, "PaisOrigem") %>'
                                                                 Width="16%" ToolTip="Informe o país de origem." />
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidatorPaisOrigemTextBox" runat="server"
                                                                 ControlToValidate="PaisOrigemTextBox" Display="None" ErrorMessage="País é de preenchimento obrigatório."
@@ -211,7 +211,7 @@
                                                             <strong style="color: Red">*</strong>Cidade Origem:
                                                         </td>
                                                         <td align="left" width="80%">
-                                                            <asp:TextBox ID="CidadeOrigemTextBox" runat="server" class="txtFormulario" Text='<%# Bind("Cidade") %>'
+                                                            <asp:TextBox ID="CidadeOrigemTextBox" runat="server" class="txtFormulario" Text='<%# DataBinder.Eval(Voluntario, "Cidade") %>'
                                                                 Width="16%" ToolTip="Informe a cidade de origem." />
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="CidadeOrigemTextBox"
                                                                 Display="None" ErrorMessage="Cidade Origem é de preenchimento obrigatório." ValidationGroup="Estrangeiro">
@@ -223,10 +223,9 @@
                                                         <td align="right" class="lblFomulario" width="20%">
                                                             <strong style="color: Red">*</strong> CEP:
                                                         </td>
-                                                        
                                                         <td align="left" width="80%">
                                                             <asp:TextBox ID="CepTextBox" runat="server" class="txtFormulario" onblur="ExecutabtnCEPClick();"
-                                                                Text='<%# Bind("[Cep]") %>' Width="16%" ToolTip="Informe o CEP. Ao sair do campo as informações do endereço referentes ao CEP serão completadas automaticamente." />
+                                                                Text='<%# DataBinder.Eval(Voluntario, "[Cep]") %>' Width="16%" ToolTip="Informe o CEP. Ao sair do campo as informações do endereço referentes ao CEP serão completadas automaticamente." />
                                                             <asp:Button ID="btnCEP" runat="server" CausesValidation="false" OnClick="btnCEP_Click"
                                                                 Style="display: none" Text="_" />
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="CepTextBox"
@@ -240,7 +239,7 @@
                                                         </td>
                                                         <td align="left" width="80%">
                                                             <asp:TextBox ID="LogradouroTextbox" runat="server" class="txtFormulario" Enabled="false"
-                                                                Text='<%# Bind("[Logradouro]") %>' Width="98%" ToolTip="Informar nome da rua do endereço." />
+                                                                Text='<%# DataBinder.Eval(Voluntario, "[Logradouro]") %>' Width="98%" ToolTip="Informar nome da rua do endereço." />
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -248,7 +247,7 @@
                                                             <strong style="color: Red">*</strong> Número:
                                                         </td>
                                                         <td align="left" width="80%">
-                                                            <asp:TextBox ID="NumeroTextbox" runat="server" class="txtFormulario" Text='<%# Bind("[Numero]") %>'
+                                                            <asp:TextBox ID="NumeroTextbox" runat="server" class="txtFormulario" Text='<%# DataBinder.Eval(Voluntario, "[Numero]") %>'
                                                                 Width="10%" ToolTip="Informar número do endereço." />
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="NumeroTextbox"
                                                                 Display="None" ErrorMessage="Número é de preenchimento obrigatório">
@@ -263,7 +262,7 @@
                                                             Complemento:
                                                         </td>
                                                         <td align="left" width="80%">
-                                                            <asp:TextBox ID="ComplementoTextbox" runat="server" class="txtFormulario" Text='<%# Bind("[Complemento]") %>'
+                                                            <asp:TextBox ID="ComplementoTextbox" runat="server" class="txtFormulario" Text='<%# DataBinder.Eval(Voluntario, "[Complemento]") %>'
                                                                 Width="30%" ToolTip="Informar complemento do endereço." />
                                                         </td>
                                                     </tr>
@@ -273,7 +272,7 @@
                                                         </td>
                                                         <td align="left" width="80%">
                                                             <asp:TextBox ID="BairroTextBox" runat="server" class="txtFormulario" Enabled="false"
-                                                                Text='<%# Bind("[Bairro]") %>' Width="40%" ToolTip="Informar bairro em que reside." />
+                                                                Text='<%# DataBinder.Eval(Voluntario, "[Bairro]") %>' Width="40%" ToolTip="Informar bairro em que reside." />
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -282,7 +281,7 @@
                                                         </td>
                                                         <td align="left" width="80%">
                                                             <asp:TextBox ID="CidadeTextBox" runat="server" class="txtFormulario" Enabled="false"
-                                                                Text='<%# Bind("[Cidade]") %>' Width="40%" ToolTip="Informar cidade em que reside." />
+                                                                Text='<%# DataBinder.Eval(Voluntario, "[Cidade]") %>' Width="40%" ToolTip="Informar cidade em que reside." />
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -301,7 +300,7 @@
                                                             E-mail:
                                                         </td>
                                                         <td align="left" width="80%">
-                                                            <asp:TextBox ID="EmailTextBox" runat="server" class="txtFormulario" Text='<%# Bind("[Email]") %>'
+                                                            <asp:TextBox ID="EmailTextBox" runat="server" class="txtFormulario" Text='<%# DataBinder.Eval(Voluntario, "[Email]") %>'
                                                                 ToolTip="E-mail será usado como contato principal caso seja informado" Width="98%" />
                                                             <asp:CustomValidator ID="CustomValidator1" runat="server" Display="None" ErrorMessage="É necessário pelo menos um contato sendo ele e-mail ou telefone."
                                                                 OnServerValidate="CustomValidatorContato_ServerValidate"></asp:CustomValidator>
@@ -315,7 +314,7 @@
                                                             <strong style="color: Red">*</strong> Telefone Residencial/Contato:
                                                         </td>
                                                         <td align="left">
-                                                            <asp:TextBox ID="TelefoneResTextBox" runat="server" class="txtFormulario" Text='<%# Bind("TelefoneRes") %>'
+                                                            <asp:TextBox ID="TelefoneResTextBox" runat="server" class="txtFormulario" Text='<%# DataBinder.Eval(Voluntario, "TelefoneRes") %>'
                                                                 Width="25%" ToolTip="Informe seu telefone residencial." />
                                                             <cc1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" AcceptNegative="None"
                                                                 AutoComplete="true" Mask="(99)9999-9999" MaskType="Number" TargetControlID="TelefoneResTextBox">
@@ -330,7 +329,7 @@
                                                             Telefone Celular:
                                                         </td>
                                                         <td align="left">
-                                                            <asp:TextBox ID="TelefoneCelTextBox" runat="server" class="txtFormulario" Text='<%# Bind("TelefoneCel") %>'
+                                                            <asp:TextBox ID="TelefoneCelTextBox" runat="server" class="txtFormulario" Text='<%# DataBinder.Eval(Voluntario, "TelefoneCel") %>'
                                                                 Width="25%" ToolTip="Informe seu telefone celular." />
                                                             <cc1:MaskedEditExtender ID="MaskedEditExtender3" runat="server" AcceptNegative="None"
                                                                 AutoComplete="true" Mask="(99)9999-9999" MaskType="Number" TargetControlID="TelefoneCelTextBox">
@@ -342,7 +341,7 @@
                                                             Possui Habilitação:
                                                         </td>
                                                         <td align="left">
-                                                            <asp:CheckBox ID="HabilitadoCheckBox" runat="server" Checked='<%# Bind("Habilitado") %>'
+                                                            <asp:CheckBox ID="HabilitadoCheckBox" runat="server" Checked='<%# DataBinder.Eval(Voluntario, "Habilitado") %>'
                                                                 class="txtFormulario" Width="10%" ToolTip="Marque caso possua a carteira nacional de habilitação." />
                                                         </td>
                                                     </tr>
@@ -367,7 +366,7 @@
                                                             Esta Trabalhando:
                                                         </td>
                                                         <td align="left">
-                                                            <asp:CheckBox ID="TrabalhoCheckBox" runat="server" Checked='<%# Bind("Trabalho") %>'
+                                                            <asp:CheckBox ID="TrabalhoCheckBox" runat="server" Checked='<%# DataBinder.Eval(Voluntario, "TRABALHA") %>'
                                                                 class="txtFormulario" Width="98%" ToolTip="Marque caso estaja trabalhando." />
                                                         </td>
                                                     </tr>
@@ -398,7 +397,7 @@
                                                             Profissão:
                                                         </td>
                                                         <td align="left">
-                                                            <asp:TextBox ID="ProfissaoTextBox" runat="server" class="txtFormulario" Text='<%# Bind("Profissao") %>'
+                                                            <asp:TextBox ID="ProfissaoTextBox" runat="server" class="txtFormulario" Text='<%# DataBinder.Eval(Voluntario, "Profissao") %>'
                                                                 Width="98%" ToolTip="Informe sua profissão." />
                                                         </td>
                                                     </tr>
@@ -407,7 +406,7 @@
                                                             Local de Trabalho:
                                                         </td>
                                                         <td align="left">
-                                                            <asp:TextBox ID="Local_de_TrabalhoTextBox" runat="server" class="txtFormulario" Text='<%# Bind("[Local de Trabalho]") %>'
+                                                            <asp:TextBox ID="Local_de_TrabalhoTextBox" runat="server" class="txtFormulario" Text='<%# DataBinder.Eval(Voluntario, "LOCALDETRABALHO") %>'
                                                                 Width="98%" ToolTip="Informe seu local de trabalho." />
                                                         </td>
                                                     </tr>
@@ -416,7 +415,7 @@
                                                             Como ficou sabendo de nossa instituição:
                                                         </td>
                                                         <td align="left">
-                                                            <asp:TextBox ID="ComoFicouSabendoTextBox" runat="server" class="txtFormulario" Text='<%# Bind("ComoFicouSabendo") %>'
+                                                            <asp:TextBox ID="ComoFicouSabendoTextBox" runat="server" class="txtFormulario" Text='<%# DataBinder.Eval(Voluntario, "ComoFicouSabendo") %>'
                                                                 Width="98%" ToolTip="Informe como ficou sabendo da existência da instituição." />
                                                         </td>
                                                     </tr>
@@ -461,7 +460,7 @@
                                                             Qual atividade gostaria de desempenhar:
                                                         </td>
                                                         <td align="left">
-                                                            <asp:TextBox ID="QualAtividadeTextBox" runat="server" class="txtFormulario" Text='<%# Bind("QualAtividade") %>'
+                                                            <asp:TextBox ID="QualAtividadeTextBox" runat="server" class="txtFormulario" Text='<%# DataBinder.Eval(Voluntario, "QualAtividade") %>'
                                                                 Width="98%" ToolTip="Informe qual atividade gostaria de desempenhar na instituição." />
                                                         </td>
                                                     </tr>
@@ -550,10 +549,10 @@
                                                 Aceita Termo:
                                             </td>
                                             <td align="left" width="80%">
-                                                <asp:CheckBox ID="AceitaTermoCheckBox" runat="server" Checked='<%# Bind("AceitaTermo") %>'
+                                                <asp:CheckBox ID="AceitaTermoCheckBox" runat="server" Checked='<%# DataBinder.Eval(Voluntario, "AceitaTermo") %>'
                                                     class="txtFormulario" ToolTip="Aceita termo de voluntariado." />
-                                                <asp:Button runat="server" ID="btnVerTermoVoluntario" SkinID="btnFormularioCadastro"
-                                                    Text="Ver Termo de Voluntário" ToolTip="Click neste botão para ler o termo de voluntário." />
+                                                <asp:HyperLink runat="server" ID="hlTermo" Text="Ver Termo de Voluntário" ToolTip="Click aqui para ler o termo de voluntário."
+                                                    NavigateUrl="~/TermoVoluntario.htm" Target="_blank" />
                                             </td>
                                         </tr>
                                         <tr>
@@ -561,7 +560,7 @@
                                                 Tempo de Voluntário:
                                             </td>
                                             <td align="left" width="80%">
-                                                <asp:TextBox ID="TempoDoVoluntarioTextBox" runat="server" class="txtFormulario" Text='<%# Bind("TempoDoVoluntario") %>'
+                                                <asp:TextBox ID="TempoDoVoluntarioTextBox" runat="server" class="txtFormulario" Text='<%# DataBinder.Eval(Voluntario, "TempoDoVoluntario") %>'
                                                     Width="98%" ToolTip="Quanto tempo você já presta serviços voluntarios." />
                                             </td>
                                         </tr>
@@ -570,7 +569,11 @@
                                                 <br />
                                                 <asp:Button ID="InsertButton" runat="server" CausesValidation="True" OnClick="Inserir_Click"
                                                     SkinID="btnFormularioCadastro" Text="Enviar Interesse" ToolTip="Click neste botão para enviar seu interesse." />
-                                                &nbsp;<asp:Button ID="CancelButton" runat="server" CausesValidation="False" OnClick="Cancel_Click"
+                                                &nbsp;
+                                                <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" OnClick="Atualizar_Click"
+                                                    Visible="false" SkinID="btnFormularioCadastro" Text="Salvar alterações" ToolTip="Click neste botão para atualizar seus dados." />
+                                                &nbsp;
+                                                <asp:Button ID="CancelButton" runat="server" CausesValidation="False" OnClick="Cancel_Click"
                                                     SkinID="btnFormularioCadastro" Text="Cancelar" ToolTip="Click neste botão para cancelar seu interesse." />
                                                 <br />
                                                 <br />
@@ -645,7 +648,8 @@
         <table width="100%" heigh="100%">
             <tr>
                 <td align="center" class="lblPerguntaModalPop">
-                    Muito Obrigado por seu interesse em ser voluntário. Logo entraremos em contato com você.
+                    Muito Obrigado por seu interesse em ser voluntário. Logo entraremos em contato com
+                    você.
                     <br />
                 </td>
             </tr>
@@ -656,9 +660,10 @@
                 </td>
             </tr>
         </table>
-    </asp:Panel>    
+    </asp:Panel>
     <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server" PopupControlID="pnObrigado"
-        RepositionMode="RepositionOnWindowResize" TargetControlID="btnModalPopupCancelar" BackgroundCssClass="modalBackground"
-        OkControlID="btnVoltar" DropShadow="true" PopupDragHandleControlID="Panel3">
+        RepositionMode="RepositionOnWindowResize" TargetControlID="btnModalPopupCancelar"
+        BackgroundCssClass="modalBackground" OkControlID="btnVoltar" DropShadow="true"
+        PopupDragHandleControlID="Panel3">
     </cc1:ModalPopupExtender>
 </asp:Content>

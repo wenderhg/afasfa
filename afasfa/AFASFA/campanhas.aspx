@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/afasfa.Master" AutoEventWireup="true" CodeBehind="campanhas.aspx.cs"
-    Inherits="AFASFA.campanhas" Title="Untitled Page" %>
+    Inherits="AFASFA.campanhas" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="CplConteudo" runat="server">
     <img align="right" src="file:///C|/Rodrigo_C/Rodrigo/Web/Imagens/folheto_leque_lar.gif"

@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using AFASFA.acesso_dados;
 using acesso_dados.DataSetAFASFATableAdapters;
 using Servico.Util;
+using acesso_dados;
 
 namespace AFASFA.Cadastros
 {
@@ -16,12 +17,72 @@ namespace AFASFA.Cadastros
         {
             if (!IsPostBack)
             {
+                //Verifica se é edicao
+                if (this.Request.QueryString["id"] != null)
+                {
+                    uint _id;
+                    if (uint.TryParse(this.Request.QueryString["id"], out _id))
+                        idvoluntario = _id;
+                }
+
+                if (idvoluntario != uint.MinValue) //Se tem id verifica se pode acessar
+                {
+                    if ((this.Master as afasfa).VerificaAcessoNegado(true))
+                    {
+                        return;
+                    }
+                }
+
                 this.EstadoOrigemDropDownList.DataSource = Conexao.afasfaWebService.RetornaEstados();
                 this.EstadoOrigemDropDownList.DataBind();
                 this.UfDropDownList.DataSource = this.EstadoOrigemDropDownList.DataSource;
                 this.UfDropDownList.DataBind();
+
+                if (idvoluntario != uint.MinValue) //Se tem id verifica se pode acessar
+                    CarregaVoluntario();
+            }
+            //if (Voluntario == null)
+            //{
+            //    Voluntario = new DataSetAFASFA.voluntariosDataTable();
+            //}
+        }
+
+        private void CarregaVoluntario()
+        {
+            //Trazer o voluntario
+            DataSetAFASFA.vwvoluntariosDataTable _dataTable = FiltroVoluntario.RetornaResultado(" voluntario = " + this.Request.QueryString["id"]);
+            if (_dataTable != null && _dataTable.Rows.Count > 0)
+            {
+                Voluntario = _dataTable[0];
+            }
+            //Carregar os campos
+            this.Page.DataBind();
+            this.InsertButton.Visible = false;
+            this.UpdateButton.Visible = true;
+
+            //Carregar os dados de combos
+        }
+
+        public DataSetAFASFA.vwvoluntariosRow Voluntario { get; set; }
+
+        private uint _idvoluntario = uint.MinValue;
+        public uint idvoluntario
+        {
+            get
+            {
+                if (_idvoluntario == uint.MinValue)
+                {
+                    _idvoluntario = ViewState["_idvoluntario"] != null ? (uint)ViewState["_idvoluntario"] : uint.MinValue;
+                }
+                return _idvoluntario;
+            }
+            set
+            {
+                _idvoluntario = value;
+                ViewState["_idvoluntario"] = value;
             }
         }
+
         protected void InsertCancelButton_Click(object sender, EventArgs e)
         {
             this.ModalPopupExtender1.Show();
@@ -37,6 +98,48 @@ namespace AFASFA.Cadastros
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             this.ModalPopupExtender1.Hide();
+        }
+
+        protected void Atualizar_Click(object sender, EventArgs e)
+        {
+            if (rblNacionalidade.SelectedIndex == 0)
+            {
+                Page.Validate("Brasileira");
+            }
+            else
+            {
+                Page.Validate("Estrangeiro");
+            }
+            if (Page.IsValid)
+            {
+                using (Conexao.AfasfaManager.voluntariosTableAdapter = new voluntariosTableAdapter())
+                {
+                    Conexao.AfasfaManager.voluntariosTableAdapter.Update(
+                        this.ApelidoTextBox.Text,
+                        this.rblNacionalidade.SelectedIndex == 0 ? "B" : "E",
+                        Convert.ToDateTime(this.DataNascimentoTextBox.Text),
+                        this.rblNacionalidade.SelectedIndex == 0 ? Convert.ToInt32(this.EstadoOrigemDropDownList.SelectedValue) : 28 /*Codigo de UF Estrangeiro*/,
+                        this.rblNacionalidade.SelectedIndex == 0 ? this.ddlCidadeOrigem.SelectedValue : this.CidadeOrigemTextBox.Text,
+                        Convert.ToByte(this.HabilitadoCheckBox.Checked),
+                        this.EstadoCivilDropDownList.SelectedValue,
+                        Convert.ToByte(this.TrabalhoCheckBox.Checked),
+                        this.EscolaridadeDropDown.SelectedValue,
+                        this.ProfissaoTextBox.Text,
+                        this.Local_de_TrabalhoTextBox.Text,
+                        this.ComoFicouSabendoTextBox.Text,
+                        this.rbVoluntarioDireto.Checked ? "D" : "I",
+                        this.QualAtividadeTextBox.Text,
+                        this.RetornaDisponibilidade(),
+                        this.RetornaQualDia(),
+                        Convert.ToByte(this.AceitaTermoCheckBox.Checked),
+                        this.TempoDoVoluntarioTextBox.Text,
+                        "P", //Cadastro de voluntário pendente
+                        this.RetornaIdContato(),
+                        this.rblNacionalidade.SelectedIndex == 1 ? this.PaisOrigemTextBox.Text : null
+                        , idvoluntario
+                        );
+                }
+            }
         }
 
         protected void Inserir_Click(object sender, EventArgs e)
@@ -68,7 +171,7 @@ namespace AFASFA.Cadastros
                         this.ComoFicouSabendoTextBox.Text,
                         this.rbVoluntarioDireto.Checked ? "D" : "I",
                         this.QualAtividadeTextBox.Text,
-                        this.RetornaDisponibilidade(),
+                        (int)this.RetornaDisponibilidade(),
                         this.RetornaQualDia(),
                         Convert.ToByte(this.AceitaTermoCheckBox.Checked),
                         this.TempoDoVoluntarioTextBox.Text,
@@ -183,9 +286,9 @@ namespace AFASFA.Cadastros
             return result.ToString();
         }
 
-        private int? RetornaDisponibilidade()
+        private uint? RetornaDisponibilidade()
         {
-            int? result = null;
+            uint? result = null;
             if (ckduasHoras.Checked)
             {
                 result = 2;
@@ -240,16 +343,16 @@ namespace AFASFA.Cadastros
 
         protected void EstadoOrigemDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
-                short _estado;
-                //Tenta fazer o parser do codigo do estado selecionado
-                if (!short.TryParse(this.EstadoOrigemDropDownList.SelectedValue, out _estado))
-                {
-                    return;
-                }
-                this.ddlCidadeOrigem.Items.Clear();
-                this.ddlCidadeOrigem.Items.Add(new ListItem());
-                this.ddlCidadeOrigem.DataSource = Conexao.afasfaWebService.RetornaCidadesPorEstado(_estado);
-                this.ddlCidadeOrigem.DataBind();
+            short _estado;
+            //Tenta fazer o parser do codigo do estado selecionado
+            if (!short.TryParse(this.EstadoOrigemDropDownList.SelectedValue, out _estado))
+            {
+                return;
+            }
+            this.ddlCidadeOrigem.Items.Clear();
+            this.ddlCidadeOrigem.Items.Add(new ListItem());
+            this.ddlCidadeOrigem.DataSource = Conexao.afasfaWebService.RetornaCidadesPorEstado(_estado);
+            this.ddlCidadeOrigem.DataBind();
         }
 
         protected void CustomValidatorContato_ServerValidate(object source, ServerValidateEventArgs args)

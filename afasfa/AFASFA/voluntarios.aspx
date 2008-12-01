@@ -19,7 +19,7 @@
         <p align="center">
             <asp:LinkButton ID="btnExporInteresse" runat="server" Text="Expor Interesse" PostBackUrl="~/Cadastros/cadastro_voluntarios.aspx"
                 BackColor="#666699" BorderColor="#003366" BorderStyle="Double" BorderWidth="2px"
-                Font-Names="Verdana" ForeColor="White" /> </asp:LinkButton>
+                Font-Names="Verdana" ForeColor="White" />
         </p>
     </div>
 </asp:Content>

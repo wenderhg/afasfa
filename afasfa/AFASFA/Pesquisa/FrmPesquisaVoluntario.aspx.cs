@@ -19,7 +19,7 @@ namespace AFASFA.Pesquisa
         {
             if ((this.Master as afasfa).VerificaAcessoNegado(true))
             {
-                return;
+                return; 
             }
             if (!IsPostBack)
             {
@@ -234,7 +234,7 @@ namespace AFASFA.Pesquisa
                 }
 
                 //ajusta os links
-                HyperLink _hl = e.Row.FindControl("hlNomeContato") as HyperLink;
+                HyperLink _hl = e.Row.FindControl("hlEditar") as HyperLink;
                 _hl.NavigateUrl = String.Format(_hl.NavigateUrl, _row.VOLUNTARIO);
             }
         }
