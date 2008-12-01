@@ -25,6 +25,10 @@ namespace AFASFA.Cadastros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ((this.Master as afasfa).VerificaAcessoNegado(true))
+            {
+                return;
+            }
 
         }
 
@@ -67,6 +71,16 @@ namespace AFASFA.Cadastros
                 //Salva o arquivo com o hash gerado a partir do nome e a data atual
                 (this.FormView1.FindControl("UploadFotoProjeto") as FileUpload).SaveAs(_diretorio + nomeArquivo);
             }
+        }
+
+        protected void FormView1_ItemInserting(object sender, FormViewInsertEventArgs e)
+        {
+            //Carregar os dados para inserir, olhar Eventos
+        }
+
+        protected void FormView1_ItemInserted(object sender, FormViewInsertedEventArgs e)
+        {
+            //Chamar modal de insercao, olhar Eventos
         }
 
     }
