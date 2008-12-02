@@ -142,7 +142,8 @@ namespace AFASFA.Cadastros
         {
             if (Page.IsValid)
             {
-                InserirUsuario();                
+                InserirUsuario();
+                ModalPopupExtender2.Show();
             }
         }
 
