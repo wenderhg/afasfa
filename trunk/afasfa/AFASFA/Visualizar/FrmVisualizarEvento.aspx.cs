@@ -5,9 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AFASFA.acesso_dados;
-using acesso_dados.DataSetAFASFATableAdapters;
-using acesso_dados;
 using System.Data;
+using AFASFA.acesso_dados.DataSetAfasfaTableAdapters;
 
 namespace AFASFA.Visualizar
 {
@@ -30,7 +29,7 @@ namespace AFASFA.Visualizar
                 //e.Item.FindControl("btnReservarConvite").ToString();
                 var _btnReservarConvite = (e.Item.FindControl("btnReservarConvite") as Button);
                 var _litJarealizado = (e.Item.FindControl("litJarealizado") as Literal);
-                var _eventos = ((e.Item.DataItem as DataRowView).Row as DataSetAFASFA.eventosRow);
+                var _eventos = ((e.Item.DataItem as DataRowView).Row as DataSetAfasfa.eventosRow);
                 if (!_eventos.IsNull("JaRealizado"))
                 {
                     if (_eventos.JaRealizado)

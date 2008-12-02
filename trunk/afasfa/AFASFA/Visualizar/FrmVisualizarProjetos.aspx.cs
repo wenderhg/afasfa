@@ -5,9 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AFASFA.acesso_dados;
-using acesso_dados.DataSetAFASFATableAdapters;
-using acesso_dados;
 using System.Data;
+using AFASFA.acesso_dados.DataSetAfasfaTableAdapters;
 
 
 namespace AFASFA.Visualizar

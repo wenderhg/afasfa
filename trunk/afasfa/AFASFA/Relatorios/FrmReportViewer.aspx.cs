@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using acesso_dados;
-using acesso_dados.DataSetAFASFATableAdapters;
 using AFASFA.acesso_dados;
 using Microsoft.Reporting.WebForms;
+using AFASFA.acesso_dados.DataSetAfasfaTableAdapters;
 
 namespace AFASFA.Relatorios
 {
@@ -52,7 +52,7 @@ namespace AFASFA.Relatorios
         {
             using (Conexao.AfasfaManager.voluntariosTableAdapter = new voluntariosTableAdapter())
             {
-                DataSetAFASFA.voluntariosDataTable voluntario = new DataSetAFASFA.voluntariosDataTable();
+                DataSetAfasfa.voluntariosDataTable voluntario = new DataSetAfasfa.voluntariosDataTable();
                 Conexao.AfasfaManager.voluntariosTableAdapter.Fill(voluntario);
                 ReportDataSource datasource = new ReportDataSource("DataSetAFASFA_voluntarios", voluntario);
 
@@ -66,7 +66,7 @@ namespace AFASFA.Relatorios
         {
             using (Conexao.AfasfaManager.usuariosTableAdapter = new usuariosTableAdapter())
             {
-                DataSetAFASFA.usuariosDataTable usuarios = new DataSetAFASFA.usuariosDataTable();
+                DataSetAfasfa.usuariosDataTable usuarios = new DataSetAfasfa.usuariosDataTable();
                 Conexao.AfasfaManager.usuariosTableAdapter.Fill(usuarios);
                 ReportDataSource datasource = new ReportDataSource("DataSetAFASFA_usuarios", usuarios);
 
@@ -80,7 +80,7 @@ namespace AFASFA.Relatorios
         {
             using (Conexao.AfasfaManager.projetosTableAdapter = new projetosTableAdapter())
             {
-                DataSetAFASFA.projetosDataTable projetos = new DataSetAFASFA.projetosDataTable();
+                DataSetAfasfa.projetosDataTable projetos = new DataSetAfasfa.projetosDataTable();
                 Conexao.AfasfaManager.projetosTableAdapter.Fill(projetos);
                 ReportDataSource datasource = new ReportDataSource("DataSetAFASFA_projetos", projetos);
 
@@ -94,7 +94,7 @@ namespace AFASFA.Relatorios
         {
             using (Conexao.AfasfaManager.eventosTableAdapter = new eventosTableAdapter())
             {
-                DataSetAFASFA.eventosDataTable eventos = new DataSetAFASFA.eventosDataTable();
+                DataSetAfasfa.eventosDataTable eventos = new DataSetAfasfa.eventosDataTable();
                 Conexao.AfasfaManager.eventosTableAdapter.Fill(eventos);
                 ReportDataSource datasource = new ReportDataSource("DataSetAFASFA_eventos", eventos);
 
@@ -131,7 +131,7 @@ namespace AFASFA.Relatorios
             }
             using (Conexao.AfasfaManager.doacoesTableAdapter = new doacoesTableAdapter())
             {
-                DataSetAFASFA.doacoesDataTable DoacoesPorData = new DataSetAFASFA.doacoesDataTable();
+                DataSetAfasfa.doacoesDataTable DoacoesPorData = new DataSetAfasfa.doacoesDataTable();
                 Conexao.AfasfaManager.doacoesTableAdapter.Preenche(DoacoesPorData, _DataDoacaoIni, _DataDoacaoFim);
                 ReportDataSource datasource = new ReportDataSource("DataSetAFASFA_doacoes", DoacoesPorData);
 
@@ -152,7 +152,7 @@ namespace AFASFA.Relatorios
         {
             using (Conexao.AfasfaManager.assistenciasTableAdapter = new assistenciasTableAdapter())
             {
-                DataSetAFASFA.assistenciasDataTable assistencias = new DataSetAFASFA.assistenciasDataTable();
+                DataSetAfasfa.assistenciasDataTable assistencias = new DataSetAfasfa.assistenciasDataTable();
                 Conexao.AfasfaManager.assistenciasTableAdapter.Fill(assistencias);
                 ReportDataSource datasource = new ReportDataSource("DataSetAFASFA_assistencias", assistencias);
 

@@ -38,6 +38,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.WebForms\9.0.0.0__b03f5f7f11d50a3a\Microsoft.ReportViewer.WebForms.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data, Version=5.2.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\biblioteca\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core">
@@ -64,6 +69,21 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="acesso_dados\DataSetAfasfa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetAfasfa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="acesso_dados\Enum\Relatorio.cs" />
+    <Compile Include="acesso_dados\Filtro.cs" />
+    <Compile Include="acesso_dados\FiltroCollection.cs" />
+    <Compile Include="acesso_dados\FiltroVoluntario.cs" />
+    <Compile Include="acesso_dados\Seguranca\SegurancaAD.cs" />
+    <Compile Include="acesso_dados\Seguranca\Usuario.cs" />
+    <Compile Include="acesso_dados\TipoFiltro.cs" />
+    <Compile Include="acesso_dados\WebServices\Mes.cs" />
+    <Compile Include="acesso_dados\WebServices\UF.cs" />
+    <Compile Include="acesso_dados\WebServices\wsAfasfa.cs" />
     <Compile Include="afasfa.Master.cs">
       <DependentUpon>afasfa.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -127,6 +147,7 @@
     <Compile Include="ComoChegar\ComoChegar.aspx.designer.cs">
       <DependentUpon>ComoChegar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="acesso_dados\Conexao.cs" />
     <Compile Include="fotos_projetos_vivaarte.aspx.cs">
       <DependentUpon>fotos_projetos_vivaarte.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -182,6 +203,9 @@
     <Compile Include="Relatorios\FrmReportViewer.aspx.designer.cs">
       <DependentUpon>FrmReportViewer.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Servico\Seguranca\Seguranca.cs" />
+    <Compile Include="Servico\Util\Constantes.cs" />
+    <Compile Include="Servico\Util\MailSender.cs" />
     <Compile Include="solicitar_senha.aspx.cs">
       <DependentUpon>solicitar_senha.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -252,16 +276,6 @@
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\acesso_dados\acesso_dados.csproj">
-      <Project>{C499C716-35A6-46CC-A36C-BBAC70A85CF4}</Project>
-      <Name>acesso_dados</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Servico\Servico.csproj">
-      <Project>{03BFA8D5-DBB5-4DD8-B199-2F3B3DAE6448}</Project>
-      <Name>Servico</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="App_Themes\Default\TextBoxSkin.skin" />
     <Content Include="Cadastros\cadastro_projetos.aspx" />
     <Content Include="Cadastros\cadastro_voluntarios.aspx" />
@@ -289,6 +303,18 @@
     <Content Include="Visualizar\FrmVisualizarEvento.aspx" />
     <Content Include="Visualizar\FrmVisualizarProjetos.aspx" />
     <Content Include="voluntarios.aspx" />
+    <None Include="acesso_dados\DataSetAfasfa.xsc">
+      <DependentUpon>DataSetAfasfa.xsd</DependentUpon>
+    </None>
+    <None Include="acesso_dados\DataSetAfasfa.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetAfasfa.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="acesso_dados\DataSetAfasfa.xss">
+      <DependentUpon>DataSetAfasfa.xsd</DependentUpon>
+    </None>
+    <None Include="acesso_dados\Filtro\Filtro.cd" />
     <None Include="Web References\br.com.bronzebusiness.www\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AFASFA.acesso_dados;
-using acesso_dados.DataSetAFASFATableAdapters;
 using Servico.Util;
 using acesso_dados;
+using AFASFA.acesso_dados.DataSetAfasfaTableAdapters;
 
 namespace AFASFA.Cadastros
 {
@@ -46,7 +46,7 @@ namespace AFASFA.Cadastros
         private void CarregaVoluntario()
         {
             //Trazer o voluntario
-            DataSetAFASFA.vwvoluntariosDataTable _dataTable = FiltroVoluntario.RetornaResultado(" voluntario = " + this.Request.QueryString["id"]);
+            DataSetAfasfa.vwvoluntariosDataTable _dataTable = FiltroVoluntario.RetornaResultado(" voluntario = " + this.Request.QueryString["id"]);
             if (_dataTable != null && _dataTable.Rows.Count > 0)
             {
                 Voluntario = _dataTable[0];
@@ -107,7 +107,7 @@ namespace AFASFA.Cadastros
             ckSabado.Checked = dia.Contains("7");
         }
 
-        public DataSetAFASFA.vwvoluntariosRow Voluntario { get; set; }
+        public DataSetAfasfa.vwvoluntariosRow Voluntario { get; set; }
 
         private uint _idvoluntario = uint.MinValue;
         public uint idvoluntario
@@ -377,7 +377,7 @@ namespace AFASFA.Cadastros
             {
                 //Chama Metodo que retorna o endereco
                 System.Data.DataSet _dsCEP = _cep.cep(this.CepTextBox.Text);
-                if ((_dsCEP == null) && (_dsCEP.Tables.Count > 0) && (_dsCEP.Tables[0].Rows.Count > 0))
+                if ((_dsCEP == null) || (_dsCEP.Tables.Count > 0) || (_dsCEP.Tables[0].Rows.Count > 0))
                 {
                     return;
                 }
