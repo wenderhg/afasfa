@@ -19,19 +19,29 @@ namespace AFASFA.Pesquisa
         {
             if ((this.Master as afasfa).VerificaAcessoNegado(true))
             {
-                return; 
+                return;
             }
             if (!IsPostBack)
             {
-                using (DataSetAFASFA.voluntariosDataTable _table = new DataSetAFASFA.voluntariosDataTable())
+                using (DataSetAFASFA.vwvoluntariosDataTable _table = new DataSetAFASFA.vwvoluntariosDataTable())
                 {
                     foreach (DataColumn _column in _table.Columns)
                     {
+                        if ((RetornaCampoExcluidos().IndexOf(_column.ColumnName)) != -1)
+                        {
+                            continue;
+                        }
                         ddlCampos.Items.Add(new ListItem(_column.ColumnName, String.Format("{0}{1}", _column.Ordinal, _column.DataType)));
                     }
                 }
                 this.Filtros.Clear();
             }
+        }
+
+        private string RetornaCampoExcluidos()
+        {
+            return "IDContato, EstadoOrigem, CidadeOrigem, PaisOrigem, Habilitado, EstadoCivil, Trabalha, AceitaTermo, " +
+                   "QuaisDias, AceitaTermo, TempodoVoluntario, Escolaridade, Sigla, NomeContato";
         }
 
         protected void ckFiltroPersonalizado_CheckedChanged(object sender, EventArgs e)
@@ -76,7 +86,7 @@ namespace AFASFA.Pesquisa
         }
 
         protected void ddlCampos_SelectedIndexChanged(object sender, EventArgs e)
-            {
+        {
             AjustarControle();
         }
 
@@ -179,10 +189,10 @@ namespace AFASFA.Pesquisa
 
             if (ddlStatus.SelectedIndex != 0) //se nao for todos
             {
-                _result += String.IsNullOrEmpty(_result) ? string.Empty : " AND " + String.Format("estado = '{0}'", ddlStatus.SelectedValue);
+                _result += (String.IsNullOrEmpty(_result) ? string.Empty : " AND ") + String.Format("estado = '{0}'", ddlStatus.SelectedValue);
             }
 
-            return _result + (!String.IsNullOrEmpty(_result) ? " AND " : string.Empty) + Filtros.RetornaFiltroFormatado();
+            return _result + ((Filtros.Count > 0) && !(String.IsNullOrEmpty(_result)) ? " AND " : string.Empty) + Filtros.RetornaFiltroFormatado();
         }
 
         protected void gvResultado_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -195,31 +205,31 @@ namespace AFASFA.Pesquisa
                 {
                     e.Row.Cells[5].Text = "Pendente de aprovação";
                     Button _btn = (e.Row.FindControl("btnAprovar") as Button);
-                    _btn.CommandArgument = _row.VOLUNTARIO.ToString();
+                    _btn.CommandArgument = _row.Voluntario.ToString();
                     _btn.Visible = true;
                     _btn = (e.Row.FindControl("btnRejeitar") as Button);
-                    _btn.CommandArgument = _row.VOLUNTARIO.ToString();
+                    _btn.CommandArgument = _row.Voluntario.ToString();
                     _btn.Visible = true;
                 }
                 else if (e.Row.Cells[5].Text.Equals("A"))
                 {
                     e.Row.Cells[5].Text = "Aprovado";
                     Button _btn = (e.Row.FindControl("btnInativar") as Button);
-                    _btn.CommandArgument = _row.VOLUNTARIO.ToString();
+                    _btn.CommandArgument = _row.Voluntario.ToString();
                     _btn.Visible = true;
                 }
                 else if (e.Row.Cells[5].Text.Equals("R"))
                 {
                     e.Row.Cells[5].Text = "Rejeitado";
                     Button _btn = (e.Row.FindControl("btnReativar") as Button);
-                    _btn.CommandArgument = _row.VOLUNTARIO.ToString();
+                    _btn.CommandArgument = _row.Voluntario.ToString();
                     _btn.Visible = true;
                 }
                 else if (e.Row.Cells[5].Text.Equals("I"))
                 {
                     e.Row.Cells[5].Text = "Inativo";
                     Button _btn = (e.Row.FindControl("btnReativar") as Button);
-                    _btn.CommandArgument = _row.VOLUNTARIO.ToString();
+                    _btn.CommandArgument = _row.Voluntario.ToString();
                     _btn.Visible = true;
                 }
 
@@ -235,7 +245,7 @@ namespace AFASFA.Pesquisa
 
                 //ajusta os links
                 HyperLink _hl = e.Row.FindControl("hlEditar") as HyperLink;
-                _hl.NavigateUrl = String.Format(_hl.NavigateUrl, _row.VOLUNTARIO);
+                _hl.NavigateUrl = String.Format(_hl.NavigateUrl, _row.Voluntario);
             }
         }
 
@@ -269,6 +279,7 @@ namespace AFASFA.Pesquisa
                     Conexao.AfasfaManager.voluntariosTableAdapter.AtualizaEstado("A", Convert.ToInt32(e.CommandArgument));
                 }
             }
+            btnPesquisar_Click(null, null);
         }
 
     }

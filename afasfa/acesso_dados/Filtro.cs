@@ -74,13 +74,13 @@ namespace acesso_dados
                 case TipoFiltro.Diferente:
                     return "<>";
                 case TipoFiltro.ComecandoCom:
-                    this.valorFiltro = "%" + this.valorFiltro;
+                    this.valorFiltro = this.valorFiltro + "%";
                     return "like";
                 case TipoFiltro.Contenha:
                     this.valorFiltro = "%" + this.valorFiltro + "%";
                     return "like";
                 case TipoFiltro.TerminandoCom:
-                    this.valorFiltro = this.valorFiltro + "%";
+                    this.valorFiltro = "%" + this.valorFiltro;
                     return "like";
                 case TipoFiltro.Igual:
                 default:

@@ -41,6 +41,15 @@ namespace AFASFA.Cadastros {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
+        /// ltCloseWindow control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltCloseWindow;
+        
+        /// <summary>
         /// NomeTextBox control.
         /// </summary>
         /// <remarks>
@@ -518,40 +527,40 @@ namespace AFASFA.Cadastros {
         protected global::System.Web.UI.WebControls.TextBox QualAtividadeTextBox;
         
         /// <summary>
-        /// ckduasHoras control.
+        /// rbduasHoras control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ckduasHoras;
+        protected global::System.Web.UI.WebControls.RadioButton rbduasHoras;
         
         /// <summary>
-        /// ckquatroHoras control.
+        /// rbquatroHoras control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ckquatroHoras;
+        protected global::System.Web.UI.WebControls.RadioButton rbquatroHoras;
         
         /// <summary>
-        /// ckseisHoras control.
+        /// rbseisHoras control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ckseisHoras;
+        protected global::System.Web.UI.WebControls.RadioButton rbseisHoras;
         
         /// <summary>
-        /// ckoitoHoras control.
+        /// rboitoHoras control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ckoitoHoras;
+        protected global::System.Web.UI.WebControls.RadioButton rboitoHoras;
         
         /// <summary>
         /// ckDomingo control.
@@ -761,13 +770,13 @@ namespace AFASFA.Cadastros {
         protected global::System.Web.UI.WebControls.Button btnVoltar;
         
         /// <summary>
-        /// ModalPopupExtender2 control.
+        /// modalObrigado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender ModalPopupExtender2;
+        protected global::AjaxControlToolkit.ModalPopupExtender modalObrigado;
         
         /// <summary>
         /// pnTermo control.

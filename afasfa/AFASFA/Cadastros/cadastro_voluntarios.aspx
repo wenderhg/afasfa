@@ -58,7 +58,11 @@
     </asp:UpdateProgress>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional"
         RenderMode="Inline">
+        <Triggers>
+            <asp:PostBackTrigger ControlID="UpdateButton" />
+        </Triggers>
         <ContentTemplate>
+            <asp:Literal ID="ltCloseWindow" runat="server" EnableViewState="false" Visible="false" Text="<script type='text/javascript'>window.opener = window; window.close('#');</script>"></asp:Literal>
             <table cellpadding="0" cellspacing="0" width="100%" style="" background="#E6E7F2"
                 border="Ridge">
                 <tr>
@@ -480,20 +484,20 @@
                                                                         <table cellpadding="0" cellspacing="0" width="100%">
                                                                             <tr>
                                                                                 <td>
-                                                                                    <asp:CheckBox ID="ckduasHoras" runat="server" CssClass="lblFomulario" Text="02 Horas ao dia"
-                                                                                        ToolTip="Informe quantas horas você pode colaborar com a instituição." />
+                                                                                    <asp:RadioButton ID="rbduasHoras" runat="server" CssClass="lblFomulario" Text="02 Horas ao dia"
+                                                                                        ToolTip="Informe quantas horas você pode colaborar com a instituição." GroupName="Disponibilidade" />
                                                                                 </td>
                                                                                 <td>
-                                                                                    <asp:CheckBox ID="ckquatroHoras" runat="server" class="lblFomulario" Text="04 Horas ao dia"
-                                                                                        ToolTip="Informe quantas horas você pode colaborar com a instituição." />
+                                                                                    <asp:RadioButton ID="rbquatroHoras" runat="server" class="lblFomulario" Text="04 Horas ao dia"
+                                                                                        ToolTip="Informe quantas horas você pode colaborar com a instituição." GroupName="Disponibilidade" />
                                                                                 </td>
                                                                                 <td>
-                                                                                    <asp:CheckBox ID="ckseisHoras" runat="server" class="lblFomulario" Text="06 Horas ao dia"
-                                                                                        ToolTip="Informe quantas horas você pode colaborar com a instituição." />
+                                                                                    <asp:RadioButton ID="rbseisHoras" runat="server" class="lblFomulario" Text="06 Horas ao dia"
+                                                                                        ToolTip="Informe quantas horas você pode colaborar com a instituição." GroupName="Disponibilidade" />
                                                                                 </td>
                                                                                 <td>
-                                                                                    <asp:CheckBox ID="ckoitoHoras" runat="server" class="lblFomulario" Text="08 Horas ao dia"
-                                                                                        ToolTip="Informe quantas horas você pode colaborar com a instituição." />
+                                                                                    <asp:RadioButton ID="rboitoHoras" runat="server" class="lblFomulario" Text="08 Horas ao dia"
+                                                                                        ToolTip="Informe quantas horas você pode colaborar com a instituição." GroupName="Disponibilidade" />
                                                                                 </td>
                                                                             </tr>
                                                                         </table>
@@ -663,7 +667,7 @@
             </tr>
         </table>
     </asp:Panel>
-    <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server" PopupControlID="pnObrigado"
+    <cc1:ModalPopupExtender ID="modalObrigado" runat="server" PopupControlID="pnObrigado"
         RepositionMode="RepositionOnWindowResize" TargetControlID="btnModalPopupCancelar"
         BackgroundCssClass="modalBackground" OkControlID="btnVoltar" DropShadow="true"
         PopupDragHandleControlID="Panel2">

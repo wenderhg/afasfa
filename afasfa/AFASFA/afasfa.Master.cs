@@ -192,5 +192,7 @@ namespace AFASFA
             this.CplConteudo.Visible = !result;//Esconde o conteudo
             return result;
         }
+
+        public ScriptManager ScpManager { get { return this.ScriptManager1; } }
     }
 }

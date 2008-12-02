@@ -41,10 +41,6 @@ namespace AFASFA.Cadastros
                 if (idvoluntario != uint.MinValue) //Se tem id verifica se pode acessar
                     CarregaVoluntario();
             }
-            //if (Voluntario == null)
-            //{
-            //    Voluntario = new DataSetAFASFA.voluntariosDataTable();
-            //}
         }
 
         private void CarregaVoluntario()
@@ -61,6 +57,54 @@ namespace AFASFA.Cadastros
             this.UpdateButton.Visible = true;
 
             //Carregar os dados de combos
+            ddlSexo.SelectedValue = Voluntario.Sexo;
+            if (Voluntario.Nacionalidade.Equals("B"))
+            {
+                rblNacionalidade.SelectedIndex = 0;
+                EstadoOrigemDropDownList.SelectedValue = Voluntario.EstadoOrigem.ToString();
+                CarregaCidadedoEstado(Voluntario.EstadoOrigem);
+                ddlCidadeOrigem.SelectedValue = Voluntario.CidadeOrigem;
+            }
+            else
+            {
+                rblNacionalidade.SelectedIndex = 1;
+                PaisOrigemTextBox.Text = Voluntario.PaisOrigem;
+            }
+            UfDropDownList.SelectedValue = Voluntario.UF;
+            EstadoCivilDropDownList.SelectedValue = Voluntario.EstadoCivil;
+            EscolaridadeDropDown.SelectedValue = Voluntario.Escolaridade;
+            this.rbVoluntarioDireto.Checked = Voluntario.TipoVoluntario.Equals("D");
+            this.rbVoluntarioIndireto.Checked = Voluntario.TipoVoluntario.Equals("I");
+            switch (Voluntario.QualDisponibilidade)
+            {
+                case 2:
+                    rbduasHoras.Checked = true;
+                    break;
+                case 4:
+                    rbquatroHoras.Checked = true;
+                    break;
+                case 6:
+                    rbseisHoras.Checked = true;
+                    break;
+                case 8:
+                    rboitoHoras.Checked = true;
+                    break;
+            }
+
+            PreencheDiaSemana(Voluntario.QuaisDias);
+            AceitaTermoCheckBox.Checked = Voluntario.AceitaTermo;
+
+        }
+
+        private void PreencheDiaSemana(string dia)
+        {
+            ckDomingo.Checked = dia.Contains("1");
+            ckSegunda.Checked = dia.Contains("2");
+            ckTerca.Checked = dia.Contains("3");
+            ckQuarta.Checked = dia.Contains("4");
+            ckQuinta.Checked = dia.Contains("5");
+            ckSexta.Checked = dia.Contains("6");
+            ckSabado.Checked = dia.Contains("7");
         }
 
         public DataSetAFASFA.vwvoluntariosRow Voluntario { get; set; }
@@ -145,6 +189,7 @@ namespace AFASFA.Cadastros
                         , idvoluntario
                         );
                 }
+                this.ltCloseWindow.Visible = true;
             }
         }
 
@@ -188,6 +233,7 @@ namespace AFASFA.Cadastros
                         );
                 }
                 this.EnviarEmails();
+                modalObrigado.Show();
             }
         }
 
@@ -266,27 +312,27 @@ namespace AFASFA.Cadastros
             {
                 result.Append(1);
             }
-            else if (ckSegunda.Checked)
+            if (ckSegunda.Checked)
             {
                 result.Append(2);
             }
-            else if (ckTerca.Checked)
+            if (ckTerca.Checked)
             {
                 result.Append(3);
             }
-            else if (ckQuarta.Checked)
+            if (ckQuarta.Checked)
             {
                 result.Append(4);
             }
-            else if (ckQuinta.Checked)
+            if (ckQuinta.Checked)
             {
                 result.Append(5);
             }
-            else if (ckSexta.Checked)
+            if (ckSexta.Checked)
             {
                 result.Append(6);
             }
-            else if (ckSabado.Checked)
+            if (ckSabado.Checked)
             {
                 result.Append(7);
             }
@@ -296,19 +342,19 @@ namespace AFASFA.Cadastros
         private uint? RetornaDisponibilidade()
         {
             uint? result = null;
-            if (ckduasHoras.Checked)
+            if (rbduasHoras.Checked)
             {
                 result = 2;
             }
-            else if (ckquatroHoras.Checked)
+            else if (rbquatroHoras.Checked)
             {
                 result = 4;
             }
-            else if (ckseisHoras.Checked)
+            else if (rbseisHoras.Checked)
             {
                 result = 6;
             }
-            else if (ckoitoHoras.Checked)
+            else if (rboitoHoras.Checked)
             {
                 result = 8;
             }
@@ -350,15 +396,20 @@ namespace AFASFA.Cadastros
 
         protected void EstadoOrigemDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            short _estado;
+            int _estado;
             //Tenta fazer o parser do codigo do estado selecionado
-            if (!short.TryParse(this.EstadoOrigemDropDownList.SelectedValue, out _estado))
+            if (!int.TryParse(this.EstadoOrigemDropDownList.SelectedValue, out _estado))
             {
                 return;
             }
+            CarregaCidadedoEstado(_estado);
+        }
+
+        private void CarregaCidadedoEstado(int _estado)
+        {
             this.ddlCidadeOrigem.Items.Clear();
             this.ddlCidadeOrigem.Items.Add(new ListItem());
-            this.ddlCidadeOrigem.DataSource = Conexao.afasfaWebService.RetornaCidadesPorEstado(_estado);
+            this.ddlCidadeOrigem.DataSource = Conexao.afasfaWebService.RetornaCidadesPorEstado((short)_estado);
             this.ddlCidadeOrigem.DataBind();
         }
 
