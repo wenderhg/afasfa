@@ -80,7 +80,7 @@
                                                         <strong style="color: Red">*</strong> Informações sobre o projeto:
                                                     </td>
                                                     <td width="80%" align="left">
-                                                        <asp:TextBox ID="DadosProjetoTextBox" runat="server" Text='<%# Bind("DadosProjeto") %>'
+                                                        <asp:TextBox ID="DadosProjetoTextBox" runat="server" Text='<%# Bind("DADOSDOPROJETO") %>'
                                                             Columns="60" Rows="5" TextMode="MultiLine" class="txtFormulario" ToolTip="Informe as atividades e objetivo projeto que será exibido na página de apresentação de projetos" />
                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorDadosProjetoTextBox" runat="server"
                                                             ErrorMessage="Informações do projeto de preenchimento obrigatório." ControlToValidate="DadosProjetoTextBox"
