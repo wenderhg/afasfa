@@ -26,9 +26,9 @@ namespace AFASFA.Relatorios
                 case Relatorio.relatorio_Doacoes:
                     CarregaRelatorioDoacoes(ddlRelatorios.SelectedValue);
                     break;
-                case Relatorio.listagem_Voluntarios:
-                    CarregaListagemVoluntario(ddlRelatorios.SelectedValue);
-                    break;
+                //case Relatorio.listagem_Voluntarios:
+                //    CarregaListagemVoluntario(ddlRelatorios.SelectedValue);
+                //    break;
                 case Relatorio.listagem_assistencias:
                     CarregaListagemAssistencia(ddlRelatorios.SelectedValue);
                     break;
@@ -38,9 +38,9 @@ namespace AFASFA.Relatorios
                 case Relatorio.listagem_eventos:
                     CarregaListagemEventos(ddlRelatorios.SelectedValue);
                     break;
-                case Relatorio.listagem_usuarios:
-                    CarregaListagemUsuarios(ddlRelatorios.SelectedValue);
-                    break;
+                //case Relatorio.listagem_usuarios:
+                //    CarregaListagemUsuarios(ddlRelatorios.SelectedValue);
+                //    break;
                 default:
                     break;
             }
@@ -50,10 +50,13 @@ namespace AFASFA.Relatorios
 
         private void CarregaListagemVoluntario(string report)
         {
-            using (Conexao.AfasfaManager.voluntariosTableAdapter = new voluntariosTableAdapter())
+            using (vwvoluntariosTableAdapter tb = new vwvoluntariosTableAdapter())
             {
-                DataSetAfasfa.voluntariosDataTable voluntario = new DataSetAfasfa.voluntariosDataTable();
-                Conexao.AfasfaManager.voluntariosTableAdapter.Fill(voluntario);
+                DataSetAfasfa.vwvoluntariosDataTable voluntario = new DataSetAfasfa.vwvoluntariosDataTable();
+                
+                tb.Connection = Conexao.Instance;
+                tb.Fill(voluntario);
+
                 ReportDataSource datasource = new ReportDataSource("DataSetAFASFA_voluntarios", voluntario);
 
                 ReportViewer1.LocalReport.ReportPath = report;
@@ -138,7 +141,7 @@ namespace AFASFA.Relatorios
                 ReportViewer1.LocalReport.ReportPath = report;
                 ReportViewer1.LocalReport.DataSources.Clear();
                 ReportViewer1.LocalReport.DataSources.Add(datasource);
-                ReportViewer1.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("DataDoacaoInicial", txtDataDoacaoIni.Text) });                
+                ReportViewer1.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("DataDoacaoInicial", txtDataDoacaoIni.Text) });
                 ReportViewer1.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("DataDoacaoFinal", txtDataDoacaoFim.Text) });
             }
         }
@@ -183,13 +186,13 @@ namespace AFASFA.Relatorios
 
         protected void ReportViewer1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void ReportViewer1_PreRender(object sender, EventArgs e)
         {
             //ReportViewer1.LocalReport.GetParameters();
-            
+
             //_params[0].Values.Add(this.txtDataDoacaoIni.Text);
         }
     }

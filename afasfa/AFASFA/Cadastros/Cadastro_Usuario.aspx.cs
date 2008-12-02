@@ -38,9 +38,12 @@ namespace AFASFA.Cadastros
                 this.Session[viewStateNomeArquivo] != null && //se tiver o nome no viewstate
                 (!String.IsNullOrEmpty(Convert.ToString(this.Session[viewStateNomeArquivo])));
             FotoUsuario.ImageUrl = String.Format("/foto/{0}", Convert.ToString(this.Session[viewStateNomeArquivo]));
-            RequiredFieldtxtSenha.Visible = !this.Request.IsAuthenticated;
-            RequiredFieldtxtSenha.Enabled = RequiredFieldtxtSenha.Visible;
-            RequiredFieldtxtSenha.ValidationGroup = "NaoValidar";
+            if (this.Request.IsAuthenticated)
+            {
+                RequiredFieldtxtSenha.Visible = false;
+                RequiredFieldtxtSenha.Enabled = false;
+                RequiredFieldtxtSenha.ValidationGroup = "NaoValidar";
+            }
             //CompareValidatortxtConfirmarSenha.Visible = RequiredFieldtxtSenha.Visible;
             //CompareValidatortxtConfirmarSenha.Enabled = RequiredFieldtxtSenha.Visible;
             //CompareValidatortxtConfirmarSenha.ValidationGroup = "NaoValidar";

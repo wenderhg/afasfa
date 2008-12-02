@@ -148,6 +148,7 @@
                                 OnRowDeleting="gdFiltros_RowDeleting" SkinID="grdPesquisa" OnRowDataBound="gdFiltros_DataBound"
                                 OnRowEditing="gdFiltros_RowEditing" AllowPaging="true" AllowSorting="true" PagerSettings-Mode="NumericFirstLast"
                                 PagerSettings-Visible="true">
+                                
                                 <Columns>
                                     <asp:BoundField DataField="NomeCampo" HeaderText="Nome campo" SortExpression="NomeCampo" />
                                     <asp:BoundField DataField="TipoFiltro" HeaderText="Tipo filtro" ReadOnly="True" SortExpression="TipoFiltro" />

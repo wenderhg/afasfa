@@ -154,8 +154,6 @@
                                                         <td align="left">
                                                             <asp:TextBox ID="txtConfirmarSenha" runat="server" TextMode="Password" Width="30%"
                                                                 CssClass="txtFormulario" ToolTip="Informe sua senha novamente." />
-                                                            <asp:RequiredFieldValidator ID="rfvConfirmaSenha" runat="server" ControlToValidate="txtConfirmarSenha"
-                                                                Display="None" ErrorMessage="Confirmar senha é de preenchimento obrigatório"></asp:RequiredFieldValidator>
                                                             <asp:CompareValidator ID="CompareValidatortxtConfirmarSenha" runat="server" ControlToCompare="txtSenha"
                                                                 ControlToValidate="txtConfirmarSenha" Display="None" ErrorMessage="As senhas devem ser idênticas."></asp:CompareValidator>
                                                         </td>
@@ -324,8 +322,8 @@
             </tr>
             <tr>
                 <td align="center">
-                    <asp:Button ID="btnVoltar" runat="server" Text="OK" UseSubmitBehavior="false"
-                        SkinID="btnFormularioCadastro" CausesValidation="false" PostBackUrl="~/index.aspx" />
+                    <asp:Button ID="btnVoltar" runat="server" Text="OK" UseSubmitBehavior="false" SkinID="btnFormularioCadastro"
+                        CausesValidation="false" PostBackUrl="~/index.aspx" />
                 </td>
             </tr>
         </table>

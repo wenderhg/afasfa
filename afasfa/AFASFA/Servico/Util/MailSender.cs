@@ -36,7 +36,7 @@ namespace Servico.Util
         public static void Enviar(MailMessage message)
         {
             SmtpClient _smtp = new SmtpClient();
-            _smtp.EnableSsl = true;
+            //_smtp.EnableSsl = true;
             _smtp.Send(message);
         }
     }

@@ -156,7 +156,7 @@
       <Table Name="table1">
         <DataSetName>DataSetAFASFA_voluntarios</DataSetName>
         <Top>1.25cm</Top>
-        <Width>17.05291cm</Width>
+        <Width>17.0529cm</Width>
         <Details>
           <TableRows>
             <TableRow>

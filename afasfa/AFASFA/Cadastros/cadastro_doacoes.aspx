@@ -20,7 +20,8 @@
         </InsertParameters>
     </asp:ObjectDataSource>
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="Doacao" DefaultMode="Insert"
-        DataSourceID="ObjectDataSource1" >
+        DataSourceID="ObjectDataSource1" oniteminserted="FormView1_ItemInserted" 
+        oniteminserting="FormView1_ItemInserting">
         <InsertItemTemplate>
             <table cellpadding="0" cellspacing="0" width="100%" style="" border="Ridge">
                 <tr>
@@ -72,8 +73,8 @@
                                                         <strong style="color: Red">*</strong> Data da Doação:
                                                     </td>
                                                     <td align="left">
-                                                        <asp:TextBox ID="DataDoacaoTextBox" runat="server" 
-                                                            Width="20%" class="txtFormulario" ToolTip="Informe a data da doação."  />
+                                                        <asp:TextBox ID="DataDoacaoTextBox" runat="server" Width="20%" class="txtFormulario"
+                                                            ToolTip="Informe a data da doação." />
                                                         <cc1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" MaskType="Date" AcceptNegative="None"
                                                             Mask="99/99/9999" TargetControlID="DataDoacaoTextBox" UserDateFormat="DayMonthYear"
                                                             AutoComplete="true" AutoCompleteValue="09/08/2008">
@@ -85,10 +86,10 @@
                                                         <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Animated="true" Format="dd/MM/yyyy"
                                                             TargetControlID="DataDoacaoTextBox" PopupButtonID="imgCalendarioDataDoacao">
                                                         </cc1:CalendarExtender>
-                                                        <asp:CompareValidator ID="CompareValidatorDataEventoTextBox" runat="server" Display="None"
+<%--                                                        <asp:CompareValidator ID="CompareValidatorDataEventoTextBox" runat="server" Display="None"
                                                             ControlToValidate="DataDoacaoTextBox" ErrorMessage="Data da doação inválida."
                                                             Type="Date" Operator="DataTypeCheck"></asp:CompareValidator>
-                                                    </td>
+--%>                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="lblFomulario" align="right">
@@ -180,9 +181,10 @@
                                                     <td colspan="2" class="txtFormLogin" align="center">
                                                         <br />
                                                         <asp:Button ID="InsertButton" runat="server" CausesValidation="True" Text="Enviar Dados"
-                                                            CommandName="Insert" OnClick="InsertButton_Click" SkinID="btnFormularioCadastro" ToolTip="Click neste botão enviar os dados referente a doação." />
+                                                            CommandName="Insert" SkinID="btnFormularioCadastro" ToolTip="Click neste botão enviar os dados referente a doação." />
                                                         &nbsp;<asp:Button ID="btnInsertCancelButton" runat="server" CausesValidation="False"
-                                                            OnClick="InsertCancelButton_Click" Text="Cancelar" SkinID="btnFormularioCadastro" ToolTip="Click neste botão para cancelar os dados referente a doação." />
+                                                            OnClick="InsertCancelButton_Click" Text="Cancelar" SkinID="btnFormularioCadastro"
+                                                            ToolTip="Click neste botão para cancelar os dados referente a doação." />
                                                         <br />
                                                         <br />
                                                     </td>
@@ -261,15 +263,14 @@
             </tr>
             <tr>
                 <td align="center">
-                    <asp:Button ID="btnVoltar" runat="server" Text="Voltar" UseSubmitBehavior="false"
-                        SkinID="btnFormularioCadastro" CausesValidation="false" />
+                    <asp:Button ID="btnVoltar" runat="server" Text="OK" UseSubmitBehavior="false" SkinID="btnFormularioCadastro"
+                        CausesValidation="false" />
                 </td>
             </tr>
         </table>
     </asp:Panel>
     <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server" PopupControlID="pnObrigado"
-        RepositionMode="RepositionOnWindowResize" TargetControlID="btnModalPopupCancelar"
-        BackgroundCssClass="modalBackground" OkControlID="btnVoltar" DropShadow="true"
-        PopupDragHandleControlID="Panel3">
+        RepositionMode="RepositionOnWindowResize" TargetControlID="btnVoltar" BackgroundCssClass="modalBackground"
+        OkControlID="btnVoltar" DropShadow="true" PopupDragHandleControlID="Panel3">
     </cc1:ModalPopupExtender>
 </asp:Content>

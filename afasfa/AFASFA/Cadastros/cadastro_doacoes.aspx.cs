@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Servico.Util;
+using System.Text;
+using System.Collections;
 
 namespace AFASFA.cadastros
 {
@@ -11,7 +14,12 @@ namespace AFASFA.cadastros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            (this.FormView1.FindControl("DataDoacaoTextBox") as TextBox).Text = DateTime.Today.ToString();
+            if (!IsPostBack)
+            {
+                if ((this.FormView1.FindControl("DataDoacaoTextBox") as TextBox) != null)
+                    (this.FormView1.FindControl("DataDoacaoTextBox") as TextBox).Text = DateTime.Today.ToString();
+            }
+
         }
 
         protected void InsertCancelButton_Click(object sender, EventArgs e)
@@ -43,11 +51,12 @@ namespace AFASFA.cadastros
             //_smtp.Send(_message);
             this.ModalPopupExtender2.Show();
         }
-        
+
 
         protected void btnOK_Click(object sender, EventArgs e)
         {
             this.ModalPopupExtender1.Hide();
+
             this.FormView1.ChangeMode(FormViewMode.ReadOnly);
             this.FormView1.ChangeMode(FormViewMode.Insert);
         }
@@ -56,6 +65,35 @@ namespace AFASFA.cadastros
         {
             this.ModalPopupExtender1.Hide();
         }
-        
+
+        protected void FormView1_ItemInserted(object sender, FormViewInsertedEventArgs e)
+        {
+            this.ModalPopupExtender2.Show();
+        }
+
+        protected void FormView1_ItemInserting(object sender, FormViewInsertEventArgs e)
+        {
+            
+            TextBox _email = (this.FormView1.FindControl("emailTextBox") as TextBox);
+            if (_email != null && !String.IsNullOrEmpty(_email.Text))
+            {
+                MailSender.EnviarEMail(_email.Text, "Doação",
+                        RetornaCampos(e.Values));
+
+            }
+        }
+
+        private string RetornaCampos(System.Collections.Specialized.IOrderedDictionary iOrderedDictionary)
+        {
+            StringBuilder str = new StringBuilder();
+
+            foreach (DictionaryEntry item in iOrderedDictionary)
+            {
+                str.Append(string.Format("{0} \t\t {1}\n", item.Key, item.Value));
+            }
+
+            return str.ToString();
+        }
+
     }
 }

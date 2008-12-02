@@ -141,6 +141,7 @@ namespace AFASFA.Cadastros
         protected void btnOK_Click(object sender, EventArgs e)
         {
             this.ModalPopupExtender1.Hide();
+            this.ltCloseWindow.Visible = true;
             //this.FormView1.ChangeMode(FormViewMode.ReadOnly);
             //this.FormView1.ChangeMode(FormViewMode.Insert);
         }
