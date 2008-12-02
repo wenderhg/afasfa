@@ -62,7 +62,8 @@
             <asp:PostBackTrigger ControlID="UpdateButton" />
         </Triggers>
         <ContentTemplate>
-            <asp:Literal ID="ltCloseWindow" runat="server" EnableViewState="false" Visible="false" Text="<script type='text/javascript'>window.opener = window; window.close('#');</script>"></asp:Literal>
+            <asp:Literal ID="ltCloseWindow" runat="server" EnableViewState="false" Visible="false"
+                Text="<script type='text/javascript'>self.opener = self; self.close();</script>"></asp:Literal>
             <table cellpadding="0" cellspacing="0" width="100%" style="" background="#E6E7F2"
                 border="Ridge">
                 <tr>
@@ -602,7 +603,6 @@
             </table>
         </ContentTemplate>
     </asp:UpdatePanel>
-    <asp:CustomValidator ID="CustomValidatorContato" runat="server" ErrorMessage="CustomValidator"></asp:CustomValidator>
     <asp:Panel ID="pnConfirmacao" runat="server" Style="display: none" CssClass="modalPopup">
         <asp:Panel ID="Panel3" runat="server" Style="cursor: move; background-color: #DDDDDD;
             border: solid 1px Gray; color: Black">
@@ -638,7 +638,7 @@
         BackgroundCssClass="modalBackground" OkControlID="btnOK" CancelControlID="btnCancelar"
         DropShadow="true" PopupDragHandleControlID="Panel3">
     </cc1:ModalPopupExtender>
-    <%--ModalPopup para dados inseridos com sucesso--%>
+    
     <asp:Panel ID="pnObrigado" runat="server" Style="display: none" CssClass="modalPopup">
         <asp:Panel ID="Panel2" runat="server" Style="cursor: move; background-color: #DDDDDD;
             border: solid 1px Gray; color: Black">
@@ -661,18 +661,18 @@
             </tr>
             <tr>
                 <td align="center">
-                    <asp:Button ID="btnVoltar" runat="server" Text="Voltar" UseSubmitBehavior="false"
-                        SkinID="btnFormularioCadastro" CausesValidation="false" />
+                    <asp:Button ID="btnVoltar" runat="server" Text="OK" UseSubmitBehavior="false"
+                        SkinID="btnFormularioCadastro" CausesValidation="false" PostBackUrl="~/voluntarios.aspx"/>
                 </td>
             </tr>
         </table>
     </asp:Panel>
     <cc1:ModalPopupExtender ID="modalObrigado" runat="server" PopupControlID="pnObrigado"
-        RepositionMode="RepositionOnWindowResize" TargetControlID="btnModalPopupCancelar"
+        RepositionMode="RepositionOnWindowResize" TargetControlID="btnVoltar"
         BackgroundCssClass="modalBackground" OkControlID="btnVoltar" DropShadow="true"
         PopupDragHandleControlID="Panel2">
     </cc1:ModalPopupExtender>
-    <%--ModalPopup para mostrar termo de voluntário--%>
+    
     <asp:Panel ID="pnTermo" runat="server" Style="display: none" CssClass="modalPopup">
         <asp:Panel ID="Panel4" runat="server" Style="cursor: move; background-color: #DDDDDD;
             border: solid 1px Gray; color: Black">
@@ -701,7 +701,7 @@
         </table>
     </asp:Panel>
     <cc1:ModalPopupExtender ID="ModalPopupExtender3" runat="server" PopupControlID="pnTermo"
-        RepositionMode="RepositionOnWindowResize" TargetControlID="InsertButton" BackgroundCssClass="modalBackground"
-        OkControlID="btnOkTermo" DropShadow="true" PopupDragHandleControlID="Panel3">
+        RepositionMode="RepositionOnWindowResize" TargetControlID="btnOkTermo" BackgroundCssClass="modalBackground"
+        OkControlID="btnOkTermo" DropShadow="true" PopupDragHandleControlID="Panel4">
     </cc1:ModalPopupExtender>
 </asp:Content>

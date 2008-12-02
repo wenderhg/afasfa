@@ -195,7 +195,7 @@ namespace AFASFA.Cadastros
 
         protected void Inserir_Click(object sender, EventArgs e)
         {
-            this.ModalPopupExtender2.Show();
+            
             if (rblNacionalidade.SelectedIndex == 0)
             {
                 Page.Validate("Brasileira");
@@ -368,6 +368,10 @@ namespace AFASFA.Cadastros
 
         protected void btnCEP_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(this.CepTextBox.Text))
+            {
+                return;
+            }
             //Instancia WebService
             using (br.com.bronzebusiness.www.wscep _cep = new AFASFA.br.com.bronzebusiness.www.wscep())
             {
@@ -375,9 +379,6 @@ namespace AFASFA.Cadastros
                 System.Data.DataSet _dsCEP = _cep.cep(this.CepTextBox.Text);
                 if ((_dsCEP == null) && (_dsCEP.Tables.Count > 0) && (_dsCEP.Tables[0].Rows.Count > 0))
                 {
-
-                    //(this.Page.Master as afasfa).Resumo.
-                    //"CEP não encontrado.";
                     return;
                 }
                 this.LogradouroTextbox.Text = String.Format("{0} {1}", _dsCEP.Tables[0].Rows[0]["logradouro"].ToString(),
