@@ -3,8 +3,8 @@ body
 	margin: 0;
 	padding: 0;
 	font: 85% arial, hevetica, sans-serif;
-	width: 100%;	
-	margin-bottom:auto;
+	width: 100%;
+	margin-bottom: auto;
 	color: #000000;
 	background-color: #E6E7F2;
 }
@@ -12,8 +12,8 @@ body
 #container
 {
 	margin: 1em auto;
-	width: 90%;	
-	text-align: center;	
+	width: 90%;
+	text-align: center;
 	background-color: #FFFFFF;
 	border: 1px solid black;
 }
@@ -73,7 +73,7 @@ body
 {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: x-small;
-	color: Red ;
+	color: Red;
 	text-decoration: none;
 }
 .LinkMenuUsuarioNormal:hover
@@ -122,7 +122,7 @@ body
 	font-size: xx-small;
 	font-style: normal;
 	color: black;
-	font-weight: bold;	
+	font-weight: bold;
 	text-decoration: none;
 }
 
@@ -133,6 +133,38 @@ body
 	font-style: normal;
 	color: white;
 	background-color: #666699;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.lblAlertaApresentacao
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 120%;
+	font-style: normal;
+	color: red;
+	background-color: white;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.txtTextoApresentacao
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 110%;
+	font-style: normal;
+	color: red;
+	background-color: white;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.lblTextoApresentacao
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 80%;
+	font-style: normal;
+	color: black;
 	font-weight: bold;
 	text-decoration: none;
 }

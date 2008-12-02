@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+        <a name="topo"></a>
     <title>#### AFASFA - Associação Filantrópica e Assistêncial São Francisco de Assis ####
     </title>
     <link href="/estilos/estilos.css" rel="stylesheet" type="text/css" />
@@ -59,16 +60,16 @@
             <div align="center">
                 <a href="/index.aspx" class="LinkMenuPrincipal">In&iacute;cio</a></div>
             <div align="center">
-                <a href="/projetos.aspx" class="LinkMenuPrincipal" onclick="navega('projetos.aspx'); return false">
+                <a href="/Visualizar/FrmVisualizarProjetos.aspx" class="LinkMenuPrincipal">
                     Projetos AFASFA</a></div>
             <div align="center">
-                <a href="/projeto_vivaarte.aspx" class="LinkMenuPrincipal" onclick="navega('projeto_vivaarte.aspx'); return false">
+                <a href="/projeto_vivaarte.aspx" class="LinkMenuPrincipal">
                     Projetos Viva-Arte</a></div>
             <div align="center">
                 <a href="/Visualizar/FrmVisualizarEvento.aspx" class="LinkMenuPrincipal">Apresentar
                     Eventos</a></div>
             <div align="center">
-                <a href="/cadastros/cadastro_doacoes.aspx" class="LinkMenuPrincipal">Doações</a></div>
+                <a href="/cadastros/cadastro_doacoes.aspx" class="LinkMenuPrincipal">Disponibilizar Doações</a></div>
             <div align="center">
                 <a href="/ComoChegar/ComoChegar.aspx" class="LinkMenuPrincipal">Como Chegar ao Lar</a></div>
             <div align="center">
@@ -81,7 +82,7 @@
                 <a href="/campanhas.aspx" class="LinkMenuPrincipal">Campanhas</a></div>
             <asp:PlaceHolder runat="server" ID="pnLoginNormal" Visible="false">
                 <div align="center">
-                    <a href="#" class="LinkMenuUsuarioNormal">Recursos Humanos</a>
+                    <a href="/recursos_humano.aspx" class="LinkMenuUsuarioNormal">Recursos Humanos</a>
                 </div>
                 <div align="center">
                     <a href="#" class="LinkMenuUsuarioNormal">Apresentar Dados Quantitatvios</a></div>

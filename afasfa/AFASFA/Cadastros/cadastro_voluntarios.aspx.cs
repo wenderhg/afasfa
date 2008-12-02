@@ -88,6 +88,12 @@ namespace AFASFA.Cadastros
             this.ModalPopupExtender1.Show();
         }
 
+        //protected void btnVerTermoVoluntario_Onclick(object sender, EventArgs e)
+        //{
+        //    this.ModalPopupExtender3.Show();
+        //}
+        
+
         protected void btnOK_Click(object sender, EventArgs e)
         {
             this.ModalPopupExtender1.Hide();
@@ -144,6 +150,7 @@ namespace AFASFA.Cadastros
 
         protected void Inserir_Click(object sender, EventArgs e)
         {
+            this.ModalPopupExtender2.Show();
             if (rblNacionalidade.SelectedIndex == 0)
             {
                 Page.Validate("Brasileira");

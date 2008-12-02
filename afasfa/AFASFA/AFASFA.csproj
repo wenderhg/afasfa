@@ -127,6 +127,13 @@
     <Compile Include="ComoChegar\ComoChegar.aspx.designer.cs">
       <DependentUpon>ComoChegar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="fotos_projetos_vivaarte.aspx.cs">
+      <DependentUpon>fotos_projetos_vivaarte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="fotos_projetos_vivaarte.aspx.designer.cs">
+      <DependentUpon>fotos_projetos_vivaarte.aspx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -148,11 +155,25 @@
     <Compile Include="Pesquisa\FrmPesquisaVoluntario.aspx.designer.cs">
       <DependentUpon>FrmPesquisaVoluntario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="projeto_vivaarte.aspx.cs">
+      <DependentUpon>projeto_vivaarte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="projeto_vivaarte.aspx.designer.cs">
+      <DependentUpon>projeto_vivaarte.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="recursos_humano.aspx.cs">
+      <DependentUpon>recursos_humano.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="recursos_humano.aspx.designer.cs">
+      <DependentUpon>recursos_humano.aspx</DependentUpon>
     </Compile>
     <Compile Include="Relatorios\FrmReportViewer.aspx.cs">
       <DependentUpon>FrmReportViewer.aspx</DependentUpon>
@@ -181,6 +202,13 @@
     </Compile>
     <Compile Include="Visualizar\FrmVisualizarEvento.aspx.designer.cs">
       <DependentUpon>FrmVisualizarEvento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Visualizar\FrmVisualizarProjetos.aspx.cs">
+      <DependentUpon>FrmVisualizarProjetos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visualizar\FrmVisualizarProjetos.aspx.designer.cs">
+      <DependentUpon>FrmVisualizarProjetos.aspx</DependentUpon>
     </Compile>
     <Compile Include="voluntarios.aspx.cs">
       <DependentUpon>voluntarios.aspx</DependentUpon>
@@ -239,15 +267,27 @@
     <Content Include="Cadastros\cadastro_voluntarios.aspx" />
     <Content Include="campanhas.aspx" />
     <Content Include="ComoChegar\ComoChegar.aspx" />
+    <Content Include="fotos_projetos_vivaarte.aspx" />
     <Content Include="Imagens\ajax-loader.gif" />
+    <Content Include="Imagens\artesanato_vivaarte1.jpg" />
+    <Content Include="Imagens\artesanato_vivaarte2.jpg" />
+    <Content Include="Imagens\artesanato_vivaarte3.jpg" />
+    <Content Include="Imagens\artesanato_vivaarte4.jpg" />
+    <Content Include="Imagens\Folheto Lar S+úo Francisco.gif" />
+    <Content Include="Imagens\folheto_leque_lar.gif" />
+    <Content Include="Imagens\Janete.gif" />
+    <Content Include="Imagens\LOGO_viva_arte.jpg" />
     <Content Include="Imagens\b_edit.png" />
     <Content Include="mala_direta.aspx" />
     <Content Include="Pesquisa\FrmPesquisaVoluntario.aspx" />
+    <Content Include="projeto_vivaarte.aspx" />
+    <Content Include="recursos_humano.aspx" />
     <Content Include="Relatorios\FrmReportViewer.aspx" />
     <Content Include="solicitar_senha.aspx" />
     <Content Include="App_Themes\Default\GridSkin.skin" />
     <Content Include="TermoVoluntario.htm" />
     <Content Include="Visualizar\FrmVisualizarEvento.aspx" />
+    <Content Include="Visualizar\FrmVisualizarProjetos.aspx" />
     <Content Include="voluntarios.aspx" />
     <None Include="Web References\br.com.bronzebusiness.www\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>

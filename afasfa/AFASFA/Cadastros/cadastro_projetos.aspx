@@ -9,9 +9,9 @@
         OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="acesso_dados.DataSetAFASFATableAdapters.projetosTableAdapter">
         <InsertParameters>
             <asp:Parameter Name="DESCRICAO" Type="String" />
-            <asp:Parameter Name="FOTO" Type="String" />
             <asp:Parameter Name="DADOSDOPROJETO" Type="String" />
             <asp:Parameter Name="ORDEMAPRESENTACAO" Type="Int32" />
+            <asp:Parameter Name="FOTO" Type="String" />
         </InsertParameters>
     </asp:ObjectDataSource>
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="Projeto" DefaultMode="Insert"
@@ -100,13 +100,11 @@
                                                 <tr>
                                                     <td colspan="2" align="center">
                                                         <br />
-                                                        <asp:Button ID="Button1" runat="server" CommandName="Insert" Text="Salvar Dados"
-                                                            SkinID="btnFormularioCadastro" ToolTip="Click neste botão para salvar os dados" />
-                                                        <%--OnClick="InsertButton_Click"--%>
-                                                        <asp:Button ID="Button2" runat="server" CausesValidation="False" Text="Cancelar"
+                                                        <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Salvar Dados"
+                                                            SkinID="btnFormularioCadastro" ToolTip="Click neste botão para salvar os dados"
+                                                            OnClick="InsertButton_Click" CausesValidation="true" />
+                                                        <asp:Button ID="CancelButton" runat="server" CausesValidation="False" Text="Cancelar"
                                                             OnClick="InsertCancelButton_Click" SkinID="btnFormularioCadastro" ToolTip="Click neste botão para cancelar os dados" />
-                                                        <%--SkinID="btnFormularioCadastro"  />
---%>
                                                         <br />
                                                         <br />
                                                     </td>
@@ -190,8 +188,8 @@
             </tr>
             <tr>
                 <td align="center">
-                    <asp:Button ID="btnVoltar" runat="server" Text="Voltar" UseSubmitBehavior="false"
-                        SkinID="btnFormularioCadastro" CausesValidation="false" />
+                    <asp:Button ID="btnVoltar" runat="server" Text="OK" UseSubmitBehavior="false" SkinID="btnFormularioCadastro"
+                        CausesValidation="false" OnClick="btnVoltar_Click" />
                 </td>
             </tr>
         </table>

@@ -25,11 +25,16 @@ namespace AFASFA.Cadastros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if ((this.Master as afasfa).VerificaAcessoNegado(true))
             {
                 return;
             }
+        }
 
+        protected void InsertButton_Click(object sender, EventArgs e)
+        {
+            this.ModalPopupExtender2.Show();
         }
 
         protected void InsertCancelButton_Click(object sender, EventArgs e)
@@ -37,11 +42,18 @@ namespace AFASFA.Cadastros
             this.ModalPopupExtender1.Show();
         }
 
+        protected void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.ModalPopupExtender2.Hide();
+            this.FormView1.ChangeMode(FormViewMode.ReadOnly);
+            this.FormView1.ChangeMode(FormViewMode.Insert);
+        }
+
         protected void btnOK_Click(object sender, EventArgs e)
         {
             this.ModalPopupExtender1.Hide();
             this.FormView1.ChangeMode(FormViewMode.ReadOnly);
-            this.FormView1.ChangeMode(FormViewMode.Insert);
+            this.FormView1.ChangeMode(FormViewMode.Insert);            
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -53,7 +65,7 @@ namespace AFASFA.Cadastros
         {
             //if ((this.FormView1.FindControl("UploadFotoEvento") as FileUpload).HasFile)
             {
-                return String.Concat(System.IO.Path.GetRandomFileName(), System.IO.Path.GetExtension((this.FormView1.FindControl("UploadFotoEvento") as FileUpload).FileName));
+                return String.Concat(System.IO.Path.GetRandomFileName(), System.IO.Path.GetExtension((this.FormView1.FindControl("UploadFotoProjeto") as FileUpload).FileName));
             }
         }
 
@@ -75,12 +87,17 @@ namespace AFASFA.Cadastros
 
         protected void FormView1_ItemInserting(object sender, FormViewInsertEventArgs e)
         {
-            //Carregar os dados para inserir, olhar Eventos
+            string _nomeArquivo = RetornaNomeArquivo();
+            CarregaArquivo(_nomeArquivo);
+            e.Values["DESCRICAO"] = (this.FormView1.FindControl("ProjetoTextBox") as TextBox).Text;
+            e.Values["DADOSDOPROJETO"] = (this.FormView1.FindControl("DadosProjetoTextBox") as TextBox).Text;
+            e.Values["ORDEMAPRESENTACAO"] = Convert.ToInt32((this.FormView1.FindControl("OrdemApresentacaoTextBox") as TextBox).Text);
+            e.Values["FOTO"] = _nomeArquivo;            
         }
 
         protected void FormView1_ItemInserted(object sender, FormViewInsertedEventArgs e)
         {
-            //Chamar modal de insercao, olhar Eventos
+            this.ModalPopupExtender2.Show();
         }
 
     }

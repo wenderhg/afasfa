@@ -22,8 +22,7 @@
         </InsertParameters>
     </asp:ObjectDataSource>
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="Evento" DataSourceID="ObjectDataSource1"
-        DefaultMode="Insert" OnItemInserting="FormView1_ItemInserting" 
-        oniteminserted="FormView1_ItemInserted">
+        DefaultMode="Insert" OnItemInserting="FormView1_ItemInserting" OnItemInserted="FormView1_ItemInserted">
         <InsertItemTemplate>
             <table cellpadding="0" cellspacing="0" width="100%" style="" border="Ridge">
                 <tr>
@@ -70,7 +69,7 @@
                                                             Width="98%" class="txtFormulario" ToolTip="Informe a descrição ou nome do evento." />
                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorDescricaoTextBox" runat="server"
                                                             ErrorMessage="Descrição é de preenchimento obrigatório" ControlToValidate="DescricaoTextBox"
-                                                            Display="None"></asp:RequiredFieldValidator>
+                                                            Display="None" SetFocusOnError="true"></asp:RequiredFieldValidator>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -79,7 +78,7 @@
                                                     </td>
                                                     <td align="left">
                                                         <asp:TextBox ID="DataEventoTextBox" runat="server" Width="20%" class="txtFormulario"
-                                                            ToolTip="Informe a data de realização do evento."/>
+                                                            ToolTip="Informe a data de realização do evento." />
                                                         <cc1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" MaskType="Date" AcceptNegative="None"
                                                             Mask="99/99/9999" TargetControlID="DataEventoTextBox" UserDateFormat="DayMonthYear"
                                                             AutoComplete="true" AutoCompleteValue="09/08/2008">
@@ -105,7 +104,7 @@
                                                             Width="98%" class="txtFormulario" ToolTip="Informe o local onde será realizado o evento." />
                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorLocalEventoTextBox" runat="server"
                                                             ErrorMessage="Local do Evento é de preenchimento obrigatório" ControlToValidate="LocalEventoTextBox"
-                                                            Display="None"></asp:RequiredFieldValidator>
+                                                            Display="None" SetFocusOnError="true"></asp:RequiredFieldValidator>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -194,7 +193,7 @@
                                                         </cc1:MaskedEditExtender>
                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorValorConviteAdultoTextBox"
                                                             runat="server" ErrorMessage="Valor do convite para adulto é de preenchimento obrigatório"
-                                                            ControlToValidate="ValorConviteAdultoTextBox" Display="None">
+                                                            ControlToValidate="ValorConviteAdultoTextBox" Display="None" SetFocusOnError="true">
                                                         </asp:RequiredFieldValidator>
                                                     </td>
                                                 </tr>
@@ -215,7 +214,7 @@
                                     </cc1:MaskedEditValidator>--%>
                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorValorConviteCriancaTextBox"
                                                             runat="server" ErrorMessage="Valor do convite para criança é de preenchimento obrigatório"
-                                                            ControlToValidate="ValorConviteCriancaTextBox" Display="None"></asp:RequiredFieldValidator>
+                                                            ControlToValidate="ValorConviteCriancaTextBox" Display="None" SetFocusOnError="true"></asp:RequiredFieldValidator>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -316,15 +315,16 @@
             </tr>
             <tr>
                 <td align="center">
-                    <asp:Button ID="btnVoltar" runat="server" Text="Voltar" UseSubmitBehavior="false"
-                        SkinID="btnFormularioCadastro" CausesValidation="false" />
+                    <asp:Button ID="btnVoltar1" runat="server" Text="OK" UseSubmitBehavior="false"
+                        SkinID="btnFormularioCadastro" CausesValidation="false" OnClick="btnVoltar1_onClick" />
                 </td>
             </tr>
         </table>
     </asp:Panel>
     <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server" PopupControlID="pnObrigado"
         RepositionMode="RepositionOnWindowResize" TargetControlID="btnModalPopupCancelar"
-        BackgroundCssClass="modalBackground" OkControlID="btnVoltar" DropShadow="true"
+        BackgroundCssClass="modalBackground" OkControlID="btnVoltar1" DropShadow="true"
         PopupDragHandleControlID="Panel3">
     </cc1:ModalPopupExtender>
+    <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="CustomValidator"></asp:CustomValidator>
 </asp:Content>

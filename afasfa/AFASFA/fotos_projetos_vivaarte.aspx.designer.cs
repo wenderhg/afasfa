@@ -11,24 +11,24 @@
 namespace AFASFA {
     
     
-    public partial class campanhas {
+    public partial class fotos_projetos_vivaarte {
         
         /// <summary>
-        /// Image1 control.
+        /// imgFoto1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Image imgFoto1;
         
         /// <summary>
-        /// Image2 control.
+        /// imgFoto2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image2;
+        protected global::System.Web.UI.WebControls.Image imgFoto2;
     }
 }

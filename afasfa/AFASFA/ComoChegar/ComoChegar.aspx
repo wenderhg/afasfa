@@ -38,10 +38,10 @@
                 });
                 map.addOverlay(_larMarker);
 
-//                GEvent.addListener(map, "click", function(overlay, latlng) {
-//                    if (latlng != null)
-//                        alert("Aqui é:" + latlng.lat() + " " + latlng.lng() + " " + map.getZoom());
-//                });
+                //                GEvent.addListener(map, "click", function(overlay, latlng) {
+                //                    if (latlng != null)
+                //                        alert("Aqui é:" + latlng.lat() + " " + latlng.lng() + " " + map.getZoom());
+                //                });
             }
         }
 
@@ -106,20 +106,26 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CplConteudo" runat="server">
+    <div id="divProjetoVivaArte" class="TextoTitulo" runat="server">
+        COMO CHEGAR
+    </div>
+    <br />
     <table>
         <tbody>
             <tr>
-                <td colspan="2" style="text-align: center">
+                <td colspan="2" style="text-align: center" class="txtFormulario">
                     <asp:Label ID="lblInstrucoes" runat="server" Text="Utilize o mapa abaixo para encontrar o endereço que será usado como origem para montar a rota até a instituição, para isso navegue no mapa e clique sobre o endereço desejado ou utilize o campo abaixo para digitar o endereço origem"></asp:Label>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblEndereco" runat="server" Text="Informe seu endereço: "></asp:Label>
-                    <asp:TextBox ID="txtEndereco" runat="server" Width="250px" AutoCompleteType="HomeStreetAddress"></asp:TextBox>
+                    <asp:Label ID="lblEndereco" runat="server" Text="Informe seu endereço: " CssClass="lblFomulario"></asp:Label>
+                    <asp:TextBox ID="txtEndereco" runat="server" Width="250px" CssClass="txtFormulario"
+                        AutoCompleteType="HomeStreetAddress"></asp:TextBox>
                 </td>
                 <td>
-                    <input type="button" title="Montar rota" value="Montar rota" onclick="procuraEndereco();" />
+                    <input type="button" title="Montar rota" value="Montar rota" onclick="procuraEndereco();"
+                        class="txtFormulario" style:color="white" />
                 </td>
             </tr>
             <tr>
