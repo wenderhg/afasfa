@@ -43,18 +43,37 @@ namespace AFASFA.Cadastros
             this.ModalPopupExtender1.Show();
         }
 
-        protected void btnOK_Click(object sender, EventArgs e)
+        protected void btnVoltar1_onClick(object sender, EventArgs e)
         {
-            this.ModalPopupExtender1.Hide();
+            this.ModalPopupExtender2.Hide();
             this.FormView1.ChangeMode(FormViewMode.ReadOnly);
             this.FormView1.ChangeMode(FormViewMode.Insert);
         }
+       
+
+        protected void btnOK_Click(object sender, EventArgs e)
+        {
+            
+            this.FormView1.ChangeMode(FormViewMode.ReadOnly);
+            this.FormView1.ChangeMode(FormViewMode.Insert);
+            this.ModalPopupExtender2.Hide();
+        }
+        
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             this.ModalPopupExtender1.Hide();
         }
-        
+
+        protected void InsertButton_Click(object sender, EventArgs e)
+        {
+            //if (Page.IsValid)
+            //{
+            this.ModalPopupExtender2.Show();
+            //}
+        }
+
+
         private string RetornaNomeArquivo()
         {
             //if ((this.FormView1.FindControl("UploadFotoEvento") as FileUpload).HasFile)

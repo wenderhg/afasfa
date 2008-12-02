@@ -7,7 +7,7 @@
             <img border="5" class="BordaImagemPaginaInicial" src="Imagens/2007_0913Image0021.JPG"
                 width="250" height="200" align="left"  />
             <br>
-            <p class="TextoPaginaInicial">
+            <p class="TextoPaginaInicial" align="justify">
                 A A.F.A.S.F.A. - Associação Filantrópica e Assistência São Francisco de Assis, inaugurada
                 em 05/05/1995 por José Benedito Francisco - IN MEMORIAN com o objetivo de acolher
                 e dar assistência médica para portadores de vírus HIV. Hoje Lar S&atilde;o Francisco

@@ -35,14 +35,19 @@ namespace AFASFA.Visualizar
                 {
                     if (_eventos.JaRealizado)
                     {
-                        _btnReservarConvite.Visible = true;
-                        _litJarealizado.Text = "Já realizado";
+                        _btnReservarConvite.Visible = false;
+                        _litJarealizado.Text = "EVENTO JÁ REALIZADO";
+
+
                     }
                     else
                     {
-                        _btnReservarConvite.Visible = false;
-                        //_litJarealizado.Text = "tetse teste";
+                        _btnReservarConvite.Visible = true;
+                        _litJarealizado.Text = "";
+
                     }
+                    _btnReservarConvite.Visible = _eventos.ReservaDisponivel;
+
                 }
                 //(e.Item.FindControl("img") as Image).ImageUrl = (e.Item.DataItem as DataRow
             }

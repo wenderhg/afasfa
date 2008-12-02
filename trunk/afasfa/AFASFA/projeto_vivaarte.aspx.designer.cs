@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AFASFA.ComoChegar {
+namespace AFASFA {
     
     
-    public partial class ComoChegar {
+    public partial class projeto_vivaarte {
         
         /// <summary>
         /// divProjetoVivaArte control.
@@ -23,30 +23,12 @@ namespace AFASFA.ComoChegar {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divProjetoVivaArte;
         
         /// <summary>
-        /// lblInstrucoes control.
+        /// lnkFotosProjetoVivarte control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInstrucoes;
-        
-        /// <summary>
-        /// lblEndereco control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEndereco;
-        
-        /// <summary>
-        /// txtEndereco control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEndereco;
+        protected global::System.Web.UI.WebControls.HyperLink lnkFotosProjetoVivarte;
     }
 }

@@ -79,7 +79,7 @@
                                                     <td colspan="2" align="center">
                                                         <br />
                                                         <asp:Button ID="InsertButton" runat="server" CausesValidation="false" CommandName="Insert"
-                                                            Text="Salvar Dados" SkinID="btnFormularioCadastro" />
+                                                            Text="Salvar Dados" SkinID="btnFormularioCadastro" OnClick="InsertButton_Click" />
                                                         &nbsp;<asp:Button ID="InsertCancelButton" runat="server" CausesValidation="False"
                                                             CommandName="Cancel" Text="Cancelar" SkinID="btnFormularioCadastro" OnClick="InsertCancelButton_Click" />
                                                         <br />
@@ -168,9 +168,10 @@
                 </td>
             </tr>
         </table>
-    </asp:Panel>    
+    </asp:Panel>
     <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server" PopupControlID="pnObrigado"
-        RepositionMode="RepositionOnWindowResize" TargetControlID="btnModalPopupCancelar" BackgroundCssClass="modalBackground"
-        OkControlID="btnVoltar" DropShadow="true" PopupDragHandleControlID="Panel3">
+        RepositionMode="RepositionOnWindowResize" TargetControlID="btnModalPopupCancelar"
+        BackgroundCssClass="modalBackground" OkControlID="btnVoltar" DropShadow="true"
+        PopupDragHandleControlID="Panel3">
     </cc1:ModalPopupExtender>
 </asp:Content>

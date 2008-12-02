@@ -11946,26 +11946,23 @@ LIMIT 0, 5";
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `afasfa`.`projetos` (`DESCRICAO`, `FOTO`, `DADOSDOPROJETO`, `ORDEMAPR" +
-                "ESENTACAO`) VALUES (@DESCRICAO, @FOTO, @DADOSDOPROJETO, @ORDEMAPRESENTACAO)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO projetos\r\n                      (DESCRICAO, DADOSDOPROJETO, ORDEMAPRE" +
+                "SENTACAO, FOTO)\r\nVALUES     (@DESCRICAO, @DADOSDOPROJETO, @ORDEMAPRESENTACAO, @F" +
+                "OTO)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@DESCRICAO";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "DESCRICAO";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@FOTO";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "FOTO";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@DADOSDOPROJETO";
+            param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
+            param.Size = 2147483647;
             param.IsNullable = true;
             param.SourceColumn = "DADOSDOPROJETO";
             this._adapter.InsertCommand.Parameters.Add(param);
@@ -11975,6 +11972,14 @@ LIMIT 0, 5";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "ORDEMAPRESENTACAO";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@FOTO";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 100;
+            param.IsNullable = true;
+            param.SourceColumn = "FOTO";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
@@ -12163,26 +12168,26 @@ LIMIT 0, 5";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string DESCRICAO, string FOTO, string DADOSDOPROJETO, int ORDEMAPRESENTACAO) {
+        public virtual int Insert(string DESCRICAO, string DADOSDOPROJETO, int ORDEMAPRESENTACAO, string FOTO) {
             if ((DESCRICAO == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(DESCRICAO));
             }
-            if ((FOTO == null)) {
+            if ((DADOSDOPROJETO == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(FOTO));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(DADOSDOPROJETO));
             }
-            if ((DADOSDOPROJETO == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(ORDEMAPRESENTACAO));
+            if ((FOTO == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(DADOSDOPROJETO));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(FOTO));
             }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(ORDEMAPRESENTACAO));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {

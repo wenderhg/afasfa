@@ -231,6 +231,8 @@
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="CepTextBox"
                                                                 Display="None" ErrorMessage="CEP é de preenchimento obrigatório">
                                                             </asp:RequiredFieldValidator>
+                                                            <asp:HyperLink NavigateUrl="http://www.correios.com.br/servicos/cep/cep_loc_log.cfm"
+                                                                ID="lnkCorreio" runat="server" Target="_blank" CssClass="txtFormulario">Click aqui e consulte o CEP desejado.</asp:HyperLink>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -567,8 +569,8 @@
                                         <tr>
                                             <td align="center" colspan="2">
                                                 <br />
-                                                <asp:Button ID="InsertButton" runat="server" CausesValidation="True" OnClick="Inserir_Click"
-                                                    SkinID="btnFormularioCadastro" Text="Enviar Interesse" ToolTip="Click neste botão para enviar seu interesse." />
+                                                <asp:Button ID="InsertButton" runat="server" OnClick="Inserir_Click" SkinID="btnFormularioCadastro"
+                                                    Text="Enviar Interesse" ToolTip="Click neste botão para enviar seu interesse." />
                                                 &nbsp;
                                                 <asp:Button ID="UpdateButton" runat="server" CausesValidation="True" OnClick="Atualizar_Click"
                                                     Visible="false" SkinID="btnFormularioCadastro" Text="Salvar alterações" ToolTip="Click neste botão para atualizar seus dados." />
@@ -596,6 +598,7 @@
             </table>
         </ContentTemplate>
     </asp:UpdatePanel>
+    <asp:CustomValidator ID="CustomValidatorContato" runat="server" ErrorMessage="CustomValidator"></asp:CustomValidator>
     <asp:Panel ID="pnConfirmacao" runat="server" Style="display: none" CssClass="modalPopup">
         <asp:Panel ID="Panel3" runat="server" Style="cursor: move; background-color: #DDDDDD;
             border: solid 1px Gray; color: Black">
@@ -631,7 +634,6 @@
         BackgroundCssClass="modalBackground" OkControlID="btnOK" CancelControlID="btnCancelar"
         DropShadow="true" PopupDragHandleControlID="Panel3">
     </cc1:ModalPopupExtender>
-    <asp:CustomValidator ID="CustomValidatorContato" runat="server" ErrorMessage="CustomValidator"></asp:CustomValidator>
     <%--ModalPopup para dados inseridos com sucesso--%>
     <asp:Panel ID="pnObrigado" runat="server" Style="display: none" CssClass="modalPopup">
         <asp:Panel ID="Panel2" runat="server" Style="cursor: move; background-color: #DDDDDD;
@@ -664,6 +666,38 @@
     <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server" PopupControlID="pnObrigado"
         RepositionMode="RepositionOnWindowResize" TargetControlID="btnModalPopupCancelar"
         BackgroundCssClass="modalBackground" OkControlID="btnVoltar" DropShadow="true"
-        PopupDragHandleControlID="Panel3">
+        PopupDragHandleControlID="Panel2">
+    </cc1:ModalPopupExtender>
+    <%--ModalPopup para mostrar termo de voluntário--%>
+    <asp:Panel ID="pnTermo" runat="server" Style="display: none" CssClass="modalPopup">
+        <asp:Panel ID="Panel4" runat="server" Style="cursor: move; background-color: #DDDDDD;
+            border: solid 1px Gray; color: Black">
+            <table>
+                <tr>
+                    <td class="lblCabecalhoModalPop">
+                        Agradecimento !!!
+                    </td>
+                </tr>
+            </table>
+        </asp:Panel>
+        <br />
+        <table width="100%" heigh="100%">
+            <tr>
+                <td align="center" class="lblPerguntaModalPop">
+                    Leia o termo atentamente.
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <asp:Button ID="btnOkTermo" runat="server" Text="Ok" UseSubmitBehavior="false" SkinID="btnFormularioCadastro"
+                        CausesValidation="false" />
+                </td>
+            </tr>
+        </table>
+    </asp:Panel>
+    <cc1:ModalPopupExtender ID="ModalPopupExtender3" runat="server" PopupControlID="pnTermo"
+        RepositionMode="RepositionOnWindowResize" TargetControlID="InsertButton" BackgroundCssClass="modalBackground"
+        OkControlID="btnOkTermo" DropShadow="true" PopupDragHandleControlID="Panel3">
     </cc1:ModalPopupExtender>
 </asp:Content>
