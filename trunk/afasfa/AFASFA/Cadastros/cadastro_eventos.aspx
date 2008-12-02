@@ -6,8 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CplConteudo" runat="server">
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}"
-        SelectMethod="GetData" InsertMethod="Insert" 
-        TypeName="AFASFA.acesso_dados.DataSetAfasfaTableAdapters.eventosTableAdapter" 
+        SelectMethod="GetData" InsertMethod="Insert" TypeName="AFASFA.acesso_dados.DataSetAfasfaTableAdapters.eventosTableAdapter"
         DeleteMethod="Delete" UpdateMethod="Update">
         <DeleteParameters>
             <asp:Parameter Name="Original_EVENTO" Type="UInt32" />
@@ -334,8 +333,8 @@
             </tr>
             <tr>
                 <td align="center">
-                    <asp:Button ID="btnVoltar1" runat="server" Text="OK" UseSubmitBehavior="false"
-                        SkinID="btnFormularioCadastro" CausesValidation="false" OnClick="btnVoltar1_onClick" />
+                    <asp:Button ID="btnVoltar1" runat="server" Text="OK" UseSubmitBehavior="false" SkinID="btnFormularioCadastro"
+                        CausesValidation="false" OnClick="btnVoltar1_onClick" />
                 </td>
             </tr>
         </table>

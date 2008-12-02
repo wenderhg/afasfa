@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CplConteudo" runat="server">
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" InsertMethod="Insert"
-        OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="acesso_dados.DataSetAFASFATableAdapters.projetosTableAdapter">
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="AFASFA.acesso_dados.DataSetAfasfaTableAdapters.projetosTableAdapter">
         <InsertParameters>
             <asp:Parameter Name="DESCRICAO" Type="String" />
             <asp:Parameter Name="DADOSDOPROJETO" Type="String" />

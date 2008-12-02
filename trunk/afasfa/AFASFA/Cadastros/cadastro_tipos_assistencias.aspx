@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CplConteudo" runat="server">
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" InsertMethod="Insert"
-        OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="acesso_dados.DataSetAFASFATableAdapters.assistenciasTableAdapter">
+        OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="AFASFA.acesso_dados.DataSetAfasfaTableAdapters.assistenciasTableAdapter">
         <InsertParameters>
             <asp:Parameter Name="DESCRICAO" Type="String" />
             <asp:Parameter Name="RESPONSAVEL" Type="String" />

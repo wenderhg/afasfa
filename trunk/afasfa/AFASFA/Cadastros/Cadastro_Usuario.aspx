@@ -154,6 +154,8 @@
                                                         <td align="left">
                                                             <asp:TextBox ID="txtConfirmarSenha" runat="server" TextMode="Password" Width="30%"
                                                                 CssClass="txtFormulario" ToolTip="Informe sua senha novamente." />
+                                                            <asp:RequiredFieldValidator ID="rfvConfirmaSenha" runat="server" ControlToValidate="txtConfirmarSenha"
+                                                                Display="None" ErrorMessage="Confirmar senha é de preenchimento obrigatório"></asp:RequiredFieldValidator>
                                                             <asp:CompareValidator ID="CompareValidatortxtConfirmarSenha" runat="server" ControlToCompare="txtSenha"
                                                                 ControlToValidate="txtConfirmarSenha" Display="None" ErrorMessage="As senhas devem ser idênticas."></asp:CompareValidator>
                                                         </td>
@@ -329,7 +331,7 @@
         </table>
     </asp:Panel>
     <cc1:ModalPopupExtender ID="ModalPopupExtender2" runat="server" PopupControlID="pnObrigado"
-        RepositionMode="RepositionOnWindowResize" TargetControlID="InsertButton" BackgroundCssClass="modalBackground"
+        RepositionMode="RepositionOnWindowResize" TargetControlID="btnVoltar" BackgroundCssClass="modalBackground"
         OkControlID="btnVoltar" DropShadow="true" PopupDragHandleControlID="Panel3">
     </cc1:ModalPopupExtender>
 </asp:Content>
