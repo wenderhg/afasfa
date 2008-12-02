@@ -18,7 +18,7 @@
     <Shape ID="DesignTable:usuarios_aniversariantes" ZOrder="5" X="-116" Y="-419" Height="122" Width="285" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="75" />
     <Shape ID="DesignTable:usuarios_geral" ZOrder="4" X="214" Y="-407" Height="105" Width="226" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="58" />
     <Shape ID="DesignTable:voluntarios" ZOrder="3" X="-351" Y="-943" Height="343" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
-    <Shape ID="DesignTable:vwvoluntarios" ZOrder="2" X="-359" Y="-622" Height="305" Width="226" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:vwvoluntarios" ZOrder="2" X="-640" Y="-573" Height="305" Width="226" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

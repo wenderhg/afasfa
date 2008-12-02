@@ -5,6 +5,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CplConteudo" runat="server">
+    <asp:UpdateProgress ID="UpdateProgress1" runat="server" DynamicLayout="true" AssociatedUpdatePanelID="up_Principal">
+        <ProgressTemplate>
+            <div class="modalPopup" width="100%">
+                <img src="../Imagens/ajax-loader.gif" />
+                Carregando..
+            </div>
+        </ProgressTemplate>
+    </asp:UpdateProgress>
     <asp:UpdatePanel ID="up_Principal" runat="server">
         <ContentTemplate>
             <table cellpadding="0" cellspacing="0" width="100%" style="" background="#E6E7F2"
@@ -155,8 +163,10 @@
                 </asp:PlaceHolder>
                 <tr>
                     <td>
+                        <br />
                         <asp:Button ID="btnPesquisar" runat="server" Text="Gerar pesquisar" SkinID="btnFormularioCadastro"
                             OnClick="btnPesquisar_Click" CausesValidation="false" />
+                        <br />
                     </td>
                 </tr>
                 <asp:PlaceHolder ID="phResultado" runat="server" Visible="false">
@@ -178,18 +188,19 @@
                                     <asp:TemplateField>
                                         <ItemTemplate>
                                             <asp:Button ID="btnAprovar" runat="server" Visible="false" CommandName="Aprovar"
-                                                Text="Aprovar interesse" SkinID="btnFormularioCadastro" />
+                                                Text="Aprovar interesse" SkinID="btnFormularioCadastro" CausesValidation="false" />
                                             <asp:Button ID="btnRejeitar" runat="server" Visible="false" CommandName="Rejeitar"
-                                                Text="Rejeitar interesse" SkinID="btnFormularioCadastro" />
+                                                Text="Rejeitar interesse" SkinID="btnFormularioCadastro" CausesValidation="false" />
                                             <asp:Button ID="btnInativar" runat="server" Visible="false" CommandName="Inativar"
-                                                Text="Inativar voluntário" SkinID="btnFormularioCadastro" />
+                                                Text="Inativar voluntário" SkinID="btnFormularioCadastro" CausesValidation="false" />
                                             <asp:Button ID="btnReativar" runat="server" Visible="false" CommandName="Reativar"
-                                                Text="Reativar voluntário" SkinID="btnFormularioCadastro" />
+                                                Text="Reativar voluntário" SkinID="btnFormularioCadastro" CausesValidation="false" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField>
                                         <ItemTemplate>
-                                            <asp:HyperLink runat="server" ID="hlEditar" ImageUrl="~/Imagens/b_edit.png" NavigateUrl="~/Cadastros/cadastro_voluntarios.aspx?id={0}"></asp:HyperLink>
+                                            <asp:HyperLink runat="server" ID="hlEditar" ImageUrl="~/Imagens/b_edit.png" NavigateUrl="~/Cadastros/cadastro_voluntarios.aspx?id={0}"
+                                                Target="_blank"></asp:HyperLink>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
