@@ -4785,15 +4785,15 @@ namespace acesso_dados {
             
             private global::System.Data.DataColumn columnUF;
             
-            private global::System.Data.DataColumn columnTelefoneCel;
+            private global::System.Data.DataColumn columnTELEFONECEL;
             
-            private global::System.Data.DataColumn columnTelefoneRes;
+            private global::System.Data.DataColumn columnTELEFONERES;
             
-            private global::System.Data.DataColumn columnEMail;
+            private global::System.Data.DataColumn columnEMAIL;
             
             private global::System.Data.DataColumn columnSexo;
             
-            private global::System.Data.DataColumn columnApelidoContato;
+            private global::System.Data.DataColumn columnAPELIDO;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public vwvoluntariosDataTable() {
@@ -5064,23 +5064,23 @@ namespace acesso_dados {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn TelefoneCelColumn {
+            public global::System.Data.DataColumn TELEFONECELColumn {
                 get {
-                    return this.columnTelefoneCel;
+                    return this.columnTELEFONECEL;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn TelefoneResColumn {
+            public global::System.Data.DataColumn TELEFONERESColumn {
                 get {
-                    return this.columnTelefoneRes;
+                    return this.columnTELEFONERES;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn EMailColumn {
+            public global::System.Data.DataColumn EMAILColumn {
                 get {
-                    return this.columnEMail;
+                    return this.columnEMAIL;
                 }
             }
             
@@ -5092,9 +5092,9 @@ namespace acesso_dados {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn ApelidoContatoColumn {
+            public global::System.Data.DataColumn APELIDOColumn {
                 get {
-                    return this.columnApelidoContato;
+                    return this.columnAPELIDO;
                 }
             }
             
@@ -5162,11 +5162,11 @@ namespace acesso_dados {
                         string Bairro, 
                         string Cidade, 
                         string UF, 
-                        decimal TelefoneCel, 
-                        decimal TelefoneRes, 
-                        string EMail, 
+                        decimal TELEFONECEL, 
+                        decimal TELEFONERES, 
+                        string EMAIL, 
                         string Sexo, 
-                        string ApelidoContato) {
+                        string APELIDO1) {
                 vwvoluntariosRow rowvwvoluntariosRow = ((vwvoluntariosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Apelido,
@@ -5203,11 +5203,11 @@ namespace acesso_dados {
                         Bairro,
                         Cidade,
                         UF,
-                        TelefoneCel,
-                        TelefoneRes,
-                        EMail,
+                        TELEFONECEL,
+                        TELEFONERES,
+                        EMAIL,
                         Sexo,
-                        ApelidoContato};
+                        APELIDO1};
                 rowvwvoluntariosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowvwvoluntariosRow);
                 return rowvwvoluntariosRow;
@@ -5267,11 +5267,11 @@ namespace acesso_dados {
                 this.columnBairro = base.Columns["Bairro"];
                 this.columnCidade = base.Columns["Cidade"];
                 this.columnUF = base.Columns["UF"];
-                this.columnTelefoneCel = base.Columns["TelefoneCel"];
-                this.columnTelefoneRes = base.Columns["TelefoneRes"];
-                this.columnEMail = base.Columns["EMail"];
+                this.columnTELEFONECEL = base.Columns["TELEFONECEL"];
+                this.columnTELEFONERES = base.Columns["TELEFONERES"];
+                this.columnEMAIL = base.Columns["EMAIL"];
                 this.columnSexo = base.Columns["Sexo"];
-                this.columnApelidoContato = base.Columns["ApelidoContato"];
+                this.columnAPELIDO = base.Columns["APELIDO"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5344,16 +5344,16 @@ namespace acesso_dados {
                 base.Columns.Add(this.columnCidade);
                 this.columnUF = new global::System.Data.DataColumn("UF", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUF);
-                this.columnTelefoneCel = new global::System.Data.DataColumn("TelefoneCel", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTelefoneCel);
-                this.columnTelefoneRes = new global::System.Data.DataColumn("TelefoneRes", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTelefoneRes);
-                this.columnEMail = new global::System.Data.DataColumn("EMail", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEMail);
+                this.columnTELEFONECEL = new global::System.Data.DataColumn("TELEFONECEL", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTELEFONECEL);
+                this.columnTELEFONERES = new global::System.Data.DataColumn("TELEFONERES", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTELEFONERES);
+                this.columnEMAIL = new global::System.Data.DataColumn("EMAIL", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEMAIL);
                 this.columnSexo = new global::System.Data.DataColumn("Sexo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSexo);
-                this.columnApelidoContato = new global::System.Data.DataColumn("ApelidoContato", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnApelidoContato);
+                this.columnAPELIDO = new global::System.Data.DataColumn("APELIDO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAPELIDO);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnVoluntario}, true));
                 this.columnApelido.AllowDBNull = false;
@@ -5390,11 +5390,11 @@ namespace acesso_dados {
                 this.columnBairro.MaxLength = 30;
                 this.columnCidade.MaxLength = 30;
                 this.columnUF.MaxLength = 2;
-                this.columnEMail.MaxLength = 100;
+                this.columnEMAIL.MaxLength = 100;
                 this.columnSexo.AllowDBNull = false;
                 this.columnSexo.MaxLength = 1;
-                this.columnApelidoContato.AllowDBNull = false;
-                this.columnApelidoContato.MaxLength = 20;
+                this.columnAPELIDO.AllowDBNull = false;
+                this.columnAPELIDO.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8024,47 +8024,47 @@ namespace acesso_dados {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public decimal TelefoneCel {
+            public decimal TELEFONECEL {
                 get {
                     try {
-                        return ((decimal)(this[this.tablevwvoluntarios.TelefoneCelColumn]));
+                        return ((decimal)(this[this.tablevwvoluntarios.TELEFONECELColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TelefoneCel\' in table \'vwvoluntarios\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TELEFONECEL\' in table \'vwvoluntarios\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablevwvoluntarios.TelefoneCelColumn] = value;
+                    this[this.tablevwvoluntarios.TELEFONECELColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public decimal TelefoneRes {
+            public decimal TELEFONERES {
                 get {
                     try {
-                        return ((decimal)(this[this.tablevwvoluntarios.TelefoneResColumn]));
+                        return ((decimal)(this[this.tablevwvoluntarios.TELEFONERESColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TelefoneRes\' in table \'vwvoluntarios\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TELEFONERES\' in table \'vwvoluntarios\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablevwvoluntarios.TelefoneResColumn] = value;
+                    this[this.tablevwvoluntarios.TELEFONERESColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string EMail {
+            public string EMAIL {
                 get {
                     try {
-                        return ((string)(this[this.tablevwvoluntarios.EMailColumn]));
+                        return ((string)(this[this.tablevwvoluntarios.EMAILColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'EMail\' in table \'vwvoluntarios\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'EMAIL\' in table \'vwvoluntarios\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablevwvoluntarios.EMailColumn] = value;
+                    this[this.tablevwvoluntarios.EMAILColumn] = value;
                 }
             }
             
@@ -8079,12 +8079,12 @@ namespace acesso_dados {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string ApelidoContato {
+            public string APELIDO {
                 get {
-                    return ((string)(this[this.tablevwvoluntarios.ApelidoContatoColumn]));
+                    return ((string)(this[this.tablevwvoluntarios.APELIDOColumn]));
                 }
                 set {
-                    this[this.tablevwvoluntarios.ApelidoContatoColumn] = value;
+                    this[this.tablevwvoluntarios.APELIDOColumn] = value;
                 }
             }
             
@@ -8339,33 +8339,33 @@ namespace acesso_dados {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsTelefoneCelNull() {
-                return this.IsNull(this.tablevwvoluntarios.TelefoneCelColumn);
+            public bool IsTELEFONECELNull() {
+                return this.IsNull(this.tablevwvoluntarios.TELEFONECELColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetTelefoneCelNull() {
-                this[this.tablevwvoluntarios.TelefoneCelColumn] = global::System.Convert.DBNull;
+            public void SetTELEFONECELNull() {
+                this[this.tablevwvoluntarios.TELEFONECELColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsTelefoneResNull() {
-                return this.IsNull(this.tablevwvoluntarios.TelefoneResColumn);
+            public bool IsTELEFONERESNull() {
+                return this.IsNull(this.tablevwvoluntarios.TELEFONERESColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetTelefoneResNull() {
-                this[this.tablevwvoluntarios.TelefoneResColumn] = global::System.Convert.DBNull;
+            public void SetTELEFONERESNull() {
+                this[this.tablevwvoluntarios.TELEFONERESColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsEMailNull() {
-                return this.IsNull(this.tablevwvoluntarios.EMailColumn);
+            public bool IsEMAILNull() {
+                return this.IsNull(this.tablevwvoluntarios.EMAILColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetEMailNull() {
-                this[this.tablevwvoluntarios.EMailColumn] = global::System.Convert.DBNull;
+            public void SetEMAILNull() {
+                this[this.tablevwvoluntarios.EMAILColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -11946,23 +11946,26 @@ LIMIT 0, 5";
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO projetos\r\n                      (DESCRICAO, DADOSDOPROJETO, ORDEMAPRE" +
-                "SENTACAO, FOTO)\r\nVALUES     (@DESCRICAO, @DADOSDOPROJETO, @ORDEMAPRESENTACAO, @F" +
-                "OTO)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `afasfa`.`projetos` (`DESCRICAO`, `FOTO`, `DADOSDOPROJETO`, `ORDEMAPR" +
+                "ESENTACAO`) VALUES (@DESCRICAO, @FOTO, @DADOSDOPROJETO, @ORDEMAPRESENTACAO)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@DESCRICAO";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 50;
             param.IsNullable = true;
             param.SourceColumn = "DESCRICAO";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@DADOSDOPROJETO";
+            param.ParameterName = "@FOTO";
             param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "FOTO";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@DADOSDOPROJETO";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Text;
-            param.Size = 2147483647;
             param.IsNullable = true;
             param.SourceColumn = "DADOSDOPROJETO";
             this._adapter.InsertCommand.Parameters.Add(param);
@@ -11972,14 +11975,6 @@ LIMIT 0, 5";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "ORDEMAPRESENTACAO";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@FOTO";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.Size = 100;
-            param.IsNullable = true;
-            param.SourceColumn = "FOTO";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
@@ -12168,26 +12163,26 @@ LIMIT 0, 5";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string DESCRICAO, string DADOSDOPROJETO, int ORDEMAPRESENTACAO, string FOTO) {
+        public virtual int Insert(string DESCRICAO, string FOTO, string DADOSDOPROJETO, int ORDEMAPRESENTACAO) {
             if ((DESCRICAO == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(DESCRICAO));
             }
-            if ((DADOSDOPROJETO == null)) {
+            if ((FOTO == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(DADOSDOPROJETO));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(FOTO));
             }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(ORDEMAPRESENTACAO));
-            if ((FOTO == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            if ((DADOSDOPROJETO == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(FOTO));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(DADOSDOPROJETO));
             }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(ORDEMAPRESENTACAO));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -15871,27 +15866,27 @@ where VOLUNTARIO = @VOLUNTARIO";
             tableMapping.ColumnMappings.Add("QUALATIVIDADE", "QualAtividade");
             tableMapping.ColumnMappings.Add("QUADISPONIBILIDADE", "QualDisponibilidade");
             tableMapping.ColumnMappings.Add("DataEnvio", "DataEnvio");
-            tableMapping.ColumnMappings.Add("QUAISDIAS", "QuaisDias");
-            tableMapping.ColumnMappings.Add("ACEITATERMO", "AceitaTermo");
-            tableMapping.ColumnMappings.Add("TEMPODOVOLUNTARIO", "TempodoVoluntario");
-            tableMapping.ColumnMappings.Add("ESTADO", "Estado");
-            tableMapping.ColumnMappings.Add("IDCONTATO", "IDContato");
-            tableMapping.ColumnMappings.Add("PAISORIGEM", "PaisOrigem");
-            tableMapping.ColumnMappings.Add("sigla", "Sigla");
+            tableMapping.ColumnMappings.Add("QUAISDIAS", "QUAISDIAS");
+            tableMapping.ColumnMappings.Add("ACEITATERMO", "ACEITATERMO");
+            tableMapping.ColumnMappings.Add("TEMPODOVOLUNTARIO", "TEMPODOVOLUNTARIO");
+            tableMapping.ColumnMappings.Add("ESTADO", "ESTADO");
+            tableMapping.ColumnMappings.Add("IDCONTATO", "IDCONTATO");
+            tableMapping.ColumnMappings.Add("PAISORIGEM", "PAISORIGEM");
+            tableMapping.ColumnMappings.Add("sigla", "sigla");
             tableMapping.ColumnMappings.Add("NomeEstado", "NomeEstado");
             tableMapping.ColumnMappings.Add("NomeCidade", "NomeCidade");
             tableMapping.ColumnMappings.Add("NomeContato", "NomeContato");
             tableMapping.ColumnMappings.Add("CEP", "CEP");
-            tableMapping.ColumnMappings.Add("LOGRADOURO", "Logradouro");
-            tableMapping.ColumnMappings.Add("NUMERO", "Numero");
-            tableMapping.ColumnMappings.Add("COMPLEMENTO", "Complemento");
-            tableMapping.ColumnMappings.Add("BAIRRO", "Bairro");
-            tableMapping.ColumnMappings.Add("CIDADE", "Cidade");
+            tableMapping.ColumnMappings.Add("LOGRADOURO", "LOGRADOURO");
+            tableMapping.ColumnMappings.Add("NUMERO", "NUMERO");
+            tableMapping.ColumnMappings.Add("COMPLEMENTO", "COMPLEMENTO");
+            tableMapping.ColumnMappings.Add("BAIRRO", "BAIRRO");
+            tableMapping.ColumnMappings.Add("CIDADE", "CIDADE");
             tableMapping.ColumnMappings.Add("UF", "UF");
-            tableMapping.ColumnMappings.Add("TELEFONECEL", "TelefoneCel");
-            tableMapping.ColumnMappings.Add("TELEFONERES", "TelefoneRes");
-            tableMapping.ColumnMappings.Add("EMAIL", "EMail");
-            tableMapping.ColumnMappings.Add("SEXO", "Sexo");
+            tableMapping.ColumnMappings.Add("TELEFONECEL", "TELEFONECEL");
+            tableMapping.ColumnMappings.Add("TELEFONERES", "TELEFONERES");
+            tableMapping.ColumnMappings.Add("EMAIL", "EMAIL");
+            tableMapping.ColumnMappings.Add("SEXO", "SEXO");
             tableMapping.ColumnMappings.Add("ApelidoContato", "ApelidoContato");
             this._adapter.TableMappings.Add(tableMapping);
         }
