@@ -9029,7 +9029,7 @@ namespace AFASFA.acesso_dados.DataSetAfasfaTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `afasfa`.`doacoes` (`NOME`, `DATADOACAO`, `ENDERECO`, `BAIRRO`, `ITENS`, `DISPONIBILIDADE`, `OBSERVACAO`, `ESTADO`, `TELEFONERES`, `TELEFONECEL`, `EMAIL`) VALUES (@NOME, @DATADOACAO, @ENDERECO, @BAIRRO, @ITENS, @DISPONIBILIDADE, @OBSERVACAO, @ESTADO, @TELEFONERES, @TELEFONECEL, @EMAIL)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `DOACOES` (`NOME`, `DATADOACAO`, `ENDERECO`, `BAIRRO`, `ITENS`, `DISPONIBILIDADE`, `OBSERVACAO`, `ESTADO`, `TELEFONERES`, `TELEFONECEL`, `EMAIL`) VALUES (@NOME, @DATADOACAO, @ENDERECO, @BAIRRO, @ITENS, @DISPONIBILIDADE, @OBSERVACAO, @ESTADO, @TELEFONERES, @TELEFONECEL, @EMAIL)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@NOME";
@@ -9105,7 +9105,7 @@ namespace AFASFA.acesso_dados.DataSetAfasfaTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `afasfa`.`doacoes` SET `NOME` = @NOME, `DATADOACAO` = @DATADOACAO, `ENDERECO` = @ENDERECO, `BAIRRO` = @BAIRRO, `ITENS` = @ITENS, `DISPONIBILIDADE` = @DISPONIBILIDADE, `OBSERVACAO` = @OBSERVACAO, `ESTADO` = @ESTADO, `TELEFONERES` = @TELEFONERES, `TELEFONECEL` = @TELEFONECEL, `EMAIL` = @EMAIL WHERE ((`DOACAO` = @Original_DOACAO) AND ((@IsNull_NOME = 1 AND `NOME` IS NULL) OR (`NOME` = @Original_NOME)) AND ((@IsNull_DATADOACAO = 1 AND `DATADOACAO` IS NULL) OR (`DATADOACAO` = @Original_DATADOACAO)) AND (`ENDERECO` = @Original_ENDERECO) AND (`BAIRRO` = @Original_BAIRRO) AND ((@IsNull_ESTADO = 1 AND `ESTADO` IS NULL) OR (`ESTADO` = @Original_ESTADO)) AND (`TELEFONERES` = @Original_TELEFONERES) AND ((@IsNull_TELEFONECEL = 1 AND `TELEFONECEL` IS NULL) OR (`TELEFONECEL` = @Original_TELEFONECEL)) AND ((@IsNull_EMAIL = 1 AND `EMAIL` IS NULL) OR (`EMAIL` = @Original_EMAIL)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `DOACOES` SET `NOME` = @NOME, `DATADOACAO` = @DATADOACAO, `ENDERECO` = @ENDERECO, `BAIRRO` = @BAIRRO, `ITENS` = @ITENS, `DISPONIBILIDADE` = @DISPONIBILIDADE, `OBSERVACAO` = @OBSERVACAO, `ESTADO` = @ESTADO, `TELEFONERES` = @TELEFONERES, `TELEFONECEL` = @TELEFONECEL, `EMAIL` = @EMAIL WHERE ((`DOACAO` = @ORIGINAL_DOACAO) AND ((@ISNULL_NOME = 1 AND `NOME` IS NULL) OR (`NOME` = @ORIGINAL_NOME)) AND ((@ISNULL_DATADOACAO = 1 AND `DATADOACAO` IS NULL) OR (`DATADOACAO` = @ORIGINAL_DATADOACAO)) AND (`ENDERECO` = @ORIGINAL_ENDERECO) AND (`BAIRRO` = @ORIGINAL_BAIRRO) AND ((@ISNULL_ESTADO = 1 AND `ESTADO` IS NULL) OR (`ESTADO` = @ORIGINAL_ESTADO)) AND (`TELEFONERES` = @ORIGINAL_TELEFONERES) AND ((@ISNULL_TELEFONECEL = 1 AND `TELEFONECEL` IS NULL) OR (`TELEFONECEL` = @ORIGINAL_TELEFONECEL)) AND ((@ISNULL_EMAIL = 1 AND `EMAIL` IS NULL) OR (`EMAIL` = @ORIGINAL_EMAIL)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@NOME";
@@ -9308,19 +9308,18 @@ namespace AFASFA.acesso_dados.DataSetAfasfaTableAdapters {
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `DOACAO`, `NOME`, `DATADOACAO`, `ENDERECO`,`BAIRRO`,`ITENS`, `DISPONIBILID" +
-                "ADE`, `OBSERVACAO`, `ESTADO`, `TELEFONERES`, `TELEFONECEL`, `EMAIL` FROM `afasfa" +
-                "`.`doacoes`";
+                "ADE`, `OBSERVACAO`, `ESTADO`, `TELEFONERES`, `TELEFONECEL`, `EMAIL` FROM `DOACOES`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT BAIRRO, DATADOACAO, DISPONIBILIDADE, DOACAO, EMAIL, ENDERECO, ESTADO, ITEN" +
-                "S, NOME, OBSERVACAO, TELEFONECEL, TELEFONERES FROM doacoes WHERE (ESTADO = \'P\')";
+                "S, NOME, OBSERVACAO, TELEFONECEL, TELEFONERES FROM DOACOES WHERE (ESTADO = \'P\')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT     DOACAO, NOME, DATADOACAO, ENDERECO, BAIRRO, ITENS, DISPONIBILIDADE, OB" +
                 "SERVACAO, ESTADO, TELEFONERES, TELEFONECEL, \r\n                      EMAIL\r\nFROM " +
-                "        doacoes\r\nWHERE     (DATADOACAO BETWEEN @txtDataIni AND @txtDataFim)";
+                "        DOACOES\r\nWHERE     (DATADOACAO BETWEEN @txtDataIni AND @txtDataFim)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@txtDataIni";
@@ -9935,7 +9934,7 @@ namespace AFASFA.acesso_dados.DataSetAfasfaTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `afasfa`.`assistencias` (`DESCRICAO`, `RESPONSAVEL`) VALUES (@DESCRIC" +
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `ASSISTENCIAS` (`DESCRICAO`, `RESPONSAVEL`) VALUES (@DESCRIC" +
                 "AO, @RESPONSAVEL)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -9954,9 +9953,9 @@ namespace AFASFA.acesso_dados.DataSetAfasfaTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `afasfa`.`assistencias` SET `DESCRICAO` = @DESCRICAO, `RESPONSAVEL` = @RES" +
-                "PONSAVEL WHERE ((`ASSISTENCIA` = @Original_ASSISTENCIA) AND (`DESCRICAO` = @Orig" +
-                "inal_DESCRICAO) AND (`RESPONSAVEL` = @Original_RESPONSAVEL))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE `ASSISTENCIAS` SET `DESCRICAO` = @DESCRICAO, `RESPONSAVEL` = @RES" +
+                "PONSAVEL WHERE ((`ASSISTENCIA` = @ORIGINAL_ASSISTENCIA) AND (`DESCRICAO` = @ORIG" +
+                "INAL_DESCRICAO) AND (`RESPONSAVEL` = @ORIGINAL_RESPONSAVEL))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@DESCRICAO";
@@ -10009,7 +10008,7 @@ namespace AFASFA.acesso_dados.DataSetAfasfaTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `ASSISTENCIA`, `DESCRICAO`, `RESPONSAVEL` FROM `afasfa`.`assistencias`";
+            this._commandCollection[0].CommandText = "SELECT `ASSISTENCIA`, `DESCRICAO`, `RESPONSAVEL` FROM `ASSISTENCIAS`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -10455,7 +10454,7 @@ namespace AFASFA.acesso_dados.DataSetAfasfaTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `afasfa`.`dados_quantitativos` (`MESANO`, `ASSISTENCIA`, `QTDECRIANCASF`, `QTDECRIANCASM`, `QTDEADOLESCENTESF`, `QTDEADOLESCENTESM`, `QTDEADULTOSF`, `QTDEADULTOSM`, `QTDEFAMILIA`, `DESCRICAO`, `RESPONSAVEL`) VALUES (@MESANO, @ASSISTENCIA, @QTDECRIANCASF, @QTDECRIANCASM, @QTDEADOLESCENTESF, @QTDEADOLESCENTESM, @QTDEADULTOSF, @QTDEADULTOSM, @QTDEFAMILIA, @DESCRICAO, @RESPONSAVEL)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `DADOS_QUANTITATIVOS` (`MESANO`, `ASSISTENCIA`, `QTDECRIANCASF`, `QTDECRIANCASM`, `QTDEADOLESCENTESF`, `QTDEADOLESCENTESM`, `QTDEADULTOSF`, `QTDEADULTOSM`, `QTDEFAMILIA`, `DESCRICAO`, `RESPONSAVEL`) VALUES (@MESANO, @ASSISTENCIA, @QTDECRIANCASF, @QTDECRIANCASM, @QTDEADOLESCENTESF, @QTDEADOLESCENTESM, @QTDEADULTOSF, @QTDEADULTOSM, @QTDEFAMILIA, @DESCRICAO, @RESPONSAVEL)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@MESANO";
@@ -10536,7 +10535,7 @@ namespace AFASFA.acesso_dados.DataSetAfasfaTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `afasfa`.`dados_quantitativos` SET `MESANO` = @MESANO, `ASSISTENCIA` = @ASSISTENCIA, `QTDECRIANCASF` = @QTDECRIANCASF, `QTDECRIANCASM` = @QTDECRIANCASM, `QTDEADOLESCENTESF` = @QTDEADOLESCENTESF, `QTDEADOLESCENTESM` = @QTDEADOLESCENTESM, `QTDEADULTOSF` = @QTDEADULTOSF, `QTDEADULTOSM` = @QTDEADULTOSM, `QTDEFAMILIA` = @QTDEFAMILIA, `DESCRICAO` = @DESCRICAO, `RESPONSAVEL` = @RESPONSAVEL WHERE ((`MESANO` = @Original_MESANO) AND (`ASSISTENCIA` = @Original_ASSISTENCIA) AND ((@IsNull_QTDECRIANCASF = 1 AND `QTDECRIANCASF` IS NULL) OR (`QTDECRIANCASF` = @Original_QTDECRIANCASF)) AND ((@IsNull_QTDECRIANCASM = 1 AND `QTDECRIANCASM` IS NULL) OR (`QTDECRIANCASM` = @Original_QTDECRIANCASM)) AND ((@IsNull_QTDEADOLESCENTESF = 1 AND `QTDEADOLESCENTESF` IS NULL) OR (`QTDEADOLESCENTESF` = @Original_QTDEADOLESCENTESF)) AND ((@IsNull_QTDEADOLESCENTESM = 1 AND `QTDEADOLESCENTESM` IS NULL) OR (`QTDEADOLESCENTESM` = @Original_QTDEADOLESCENTESM)) AND ((@IsNull_QTDEADULTOSF = 1 AND `QTDEADULTOSF` IS NULL) OR (`QTDEADULTOSF` = @Original_QTDEADULTOSF)) AND ((@IsNull_QTDEADULTOSM = 1 AND `QTDEADULTOSM` IS NULL) OR (`QTDEADULTOSM` = @Original_QTDEADULTOSM)) AND ((@IsNull_QTDEFAMILIA = 1 AND `QTDEFAMILIA` IS NULL) OR (`QTDEFAMILIA` = @Original_QTDEFAMILIA)) AND (`DESCRICAO` = @Original_DESCRICAO) AND (`RESPONSAVEL` = @Original_RESPONSAVEL))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `DADOS_QUANTITATIVOS` SET `MESANO` = @MESANO, `ASSISTENCIA` = @ASSISTENCIA, `QTDECRIANCASF` = @QTDECRIANCASF, `QTDECRIANCASM` = @QTDECRIANCASM, `QTDEADOLESCENTESF` = @QTDEADOLESCENTESF, `QTDEADOLESCENTESM` = @QTDEADOLESCENTESM, `QTDEADULTOSF` = @QTDEADULTOSF, `QTDEADULTOSM` = @QTDEADULTOSM, `QTDEFAMILIA` = @QTDEFAMILIA, `DESCRICAO` = @DESCRICAO, `RESPONSAVEL` = @RESPONSAVEL WHERE ((`MESANO` = @ORIGINAL_MESANO) AND (`ASSISTENCIA` = @ORIGINAL_ASSISTENCIA) AND ((@ISNULL_QTDECRIANCASF = 1 AND `QTDECRIANCASF` IS NULL) OR (`QTDECRIANCASF` = @ORIGINAL_QTDECRIANCASF)) AND ((@ISNULL_QTDECRIANCASM = 1 AND `QTDECRIANCASM` IS NULL) OR (`QTDECRIANCASM` = @ORIGINAL_QTDECRIANCASM)) AND ((@ISNULL_QTDEADOLESCENTESF = 1 AND `QTDEADOLESCENTESF` IS NULL) OR (`QTDEADOLESCENTESF` = @ORIGINAL_QTDEADOLESCENTESF)) AND ((@ISNULL_QTDEADOLESCENTESM = 1 AND `QTDEADOLESCENTESM` IS NULL) OR (`QTDEADOLESCENTESM` = @ORIGINAL_QTDEADOLESCENTESM)) AND ((@ISNULL_QTDEADULTOSF = 1 AND `QTDEADULTOSF` IS NULL) OR (`QTDEADULTOSF` = @ORIGINAL_QTDEADULTOSF)) AND ((@ISNULL_QTDEADULTOSM = 1 AND `QTDEADULTOSM` IS NULL) OR (`QTDEADULTOSM` = @ORIGINAL_QTDEADULTOSM)) AND ((@ISNULL_QTDEFAMILIA = 1 AND `QTDEFAMILIA` IS NULL) OR (`QTDEFAMILIA` = @ORIGINAL_QTDEFAMILIA)) AND (`DESCRICAO` = @ORIGINAL_DESCRICAO) AND (`RESPONSAVEL` = @ORIGINAL_RESPONSAVEL))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@MESANO";
@@ -10781,7 +10780,7 @@ namespace AFASFA.acesso_dados.DataSetAfasfaTableAdapters {
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `MESANO`, `ASSISTENCIA`, `QTDECRIANCASF`, `QTDECRIANCASM`, `QTDEADOLESCENT" +
                 "ESF`, `QTDEADOLESCENTESM`, `QTDEADULTOSF`, `QTDEADULTOSM`, `QTDEFAMILIA`, `DESCR" +
-                "ICAO`, `RESPONSAVEL` FROM `afasfa`.`dados_quantitativos`";
+                "ICAO`, `RESPONSAVEL` FROM `DADOS_QUANTITATIVOS`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -11329,7 +11328,7 @@ namespace AFASFA.acesso_dados.DataSetAfasfaTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `afasfa`.`eventos` (`DESCRICAO`, `DATAEVENTO`, `LOCALEVENTO`, `FOTOINICIAL`, `JAREALIZADO`, `APRESENTAR`, `RESERVADISPONIVEL`, `DATAMAXIMA`, `VALORCONVITEA`, `VALORCONVITEC`, `OBSERVACAO`) VALUES (@DESCRICAO, @DATAEVENTO, @LOCALEVENTO, @FOTOINICIAL, @JAREALIZADO, @APRESENTAR, @RESERVADISPONIVEL, @DATAMAXIMA, @VALORCONVITEA, @VALORCONVITEC, @OBSERVACAO)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `EVENTOS` (`DESCRICAO`, `DATAEVENTO`, `LOCALEVENTO`, `FOTOINICIAL`, `JAREALIZADO`, `APRESENTAR`, `RESERVADISPONIVEL`, `DATAMAXIMA`, `VALORCONVITEA`, `VALORCONVITEC`, `OBSERVACAO`) VALUES (@DESCRICAO, @DATAEVENTO, @LOCALEVENTO, @FOTOINICIAL, @JAREALIZADO, @APRESENTAR, @RESERVADISPONIVEL, @DATAMAXIMA, @VALORCONVITEA, @VALORCONVITEC, @OBSERVACAO)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@DESCRICAO";
@@ -11407,7 +11406,7 @@ namespace AFASFA.acesso_dados.DataSetAfasfaTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `afasfa`.`eventos` SET `DESCRICAO` = @DESCRICAO, `DATAEVENTO` = @DATAEVENTO, `LOCALEVENTO` = @LOCALEVENTO, `FOTOINICIAL` = @FOTOINICIAL, `JAREALIZADO` = @JAREALIZADO, `APRESENTAR` = @APRESENTAR, `RESERVADISPONIVEL` = @RESERVADISPONIVEL, `DATAMAXIMA` = @DATAMAXIMA, `VALORCONVITEA` = @VALORCONVITEA, `VALORCONVITEC` = @VALORCONVITEC, `OBSERVACAO` = @OBSERVACAO WHERE ((`EVENTO` = @Original_EVENTO))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `EVENTOS` SET `DESCRICAO` = @DESCRICAO, `DATAEVENTO` = @DATAEVENTO, `LOCALEVENTO` = @LOCALEVENTO, `FOTOINICIAL` = @FOTOINICIAL, `JAREALIZADO` = @JAREALIZADO, `APRESENTAR` = @APRESENTAR, `RESERVADISPONIVEL` = @RESERVADISPONIVEL, `DATAMAXIMA` = @DATAMAXIMA, `VALORCONVITEA` = @VALORCONVITEA, `VALORCONVITEC` = @VALORCONVITEC, `OBSERVACAO` = @OBSERVACAO WHERE ((`EVENTO` = @ORIGINAL_EVENTO))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@DESCRICAO";
@@ -11506,13 +11505,13 @@ namespace AFASFA.acesso_dados.DataSetAfasfaTableAdapters {
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        EVENTO, DESCRICAO, DATAEVENTO, LOCALEVENTO, FOTOINICIAL, JAREALIZAD" +
                 "O, APRESENTAR, RESERVADISPONIVEL, DATAMAXIMA, VALORCONVITEA, \r\n                 " +
-                "        VALORCONVITEC, OBSERVACAO\r\nFROM            eventos";
+                "        VALORCONVITEC, OBSERVACAO\r\nFROM            EVENTOS";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = @"SELECT        EVENTO, DESCRICAO, DATAEVENTO, LOCALEVENTO, FOTOINICIAL, JAREALIZADO, APRESENTAR, RESERVADISPONIVEL, DATAMAXIMA, VALORCONVITEA, 
                          VALORCONVITEC, OBSERVACAO
-FROM            eventos
+FROM            EVENTOS
 WHERE        (APRESENTAR = 1)
 ORDER BY datediff(DATAEVENTO, sysdate())
 LIMIT 0, 5";
@@ -11950,7 +11949,7 @@ LIMIT 0, 5";
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `afasfa`.`projetos` (`DESCRICAO`, `FOTO`, `DADOSDOPROJETO`, `ORDEMAPR" +
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `PROJETOS` (`DESCRICAO`, `FOTO`, `DADOSDOPROJETO`, `ORDEMAPR" +
                 "ESENTACAO`) VALUES (@DESCRICAO, @FOTO, @DADOSDOPROJETO, @ORDEMAPRESENTACAO)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -11982,7 +11981,7 @@ LIMIT 0, 5";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `afasfa`.`projetos` SET `DESCRICAO` = @DESCRICAO, `FOTO` = @FOTO, `DADOSDOPROJETO` = @DADOSDOPROJETO, `ORDEMAPRESENTACAO` = @ORDEMAPRESENTACAO WHERE ((`PROJETO` = @Original_PROJETO) AND ((@IsNull_DESCRICAO = 1 AND `DESCRICAO` IS NULL) OR (`DESCRICAO` = @Original_DESCRICAO)) AND ((@IsNull_FOTO = 1 AND `FOTO` IS NULL) OR (`FOTO` = @Original_FOTO)) AND (`ORDEMAPRESENTACAO` = @Original_ORDEMAPRESENTACAO))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `PROJETOS` SET `DESCRICAO` = @DESCRICAO, `FOTO` = @FOTO, `DADOSDOPROJETO` = @DADOSDOPROJETO, `ORDEMAPRESENTACAO` = @ORDEMAPRESENTACAO WHERE ((`PROJETO` = @ORIGINAL_PROJETO) AND ((@ISNULL_DESCRICAO = 1 AND `DESCRICAO` IS NULL) OR (`DESCRICAO` = @ORIGINAL_DESCRICAO)) AND ((@ISNULL_FOTO = 1 AND `FOTO` IS NULL) OR (`FOTO` = @ORIGINAL_FOTO)) AND (`ORDEMAPRESENTACAO` = @ORIGINAL_ORDEMAPRESENTACAO))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@DESCRICAO";
@@ -12075,7 +12074,7 @@ LIMIT 0, 5";
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `PROJETO`, `DESCRICAO`, `FOTO`, `DADOSDOPROJETO`, `ORDEMAPRESENTACAO` FROM" +
-                " `afasfa`.`projetos`";
+                " `PROJETOS`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -12405,8 +12404,8 @@ LIMIT 0, 5";
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `afasfa`.`usuarios` (`login`, `senha`, `administrador`, `IDCONTATO`) " +
-                "VALUES (@login, @senha, @administrador, @IDCONTATO)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `USUARIOS` (`LOGIN`, `SENHA`, `ADMINISTRADOR`, `IDCONTATO`) " +
+                "VALUES (@LOGIN, @SENHA, @ADMINISTRADOR, @IDCONTATO)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@login";
@@ -12438,9 +12437,9 @@ LIMIT 0, 5";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `afasfa`.`usuarios` SET `login` = @login, `senha` = @senha, `administrador" +
-                "` = @administrador, `IDCONTATO` = @IDCONTATO WHERE ((`usuario` = @Original_usuar" +
-                "io) AND (`login` = @Original_login))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE `USUARIOS` SET `LOGIN` = @LOGIN, `SENHA` = @SENHA, `ADMINISTRADOR" +
+                "` = @ADMINISTRADOR, `IDCONTATO` = @IDCONTATO WHERE ((`USUARIO` = @ORIGINAL_USUAR" +
+                "IO) AND (`LOGIN` = @ORIGINAL_LOGIN))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@login";
@@ -12499,13 +12498,12 @@ LIMIT 0, 5";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[4];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        usuario, login, senha, administrador, IDCONTATO\r\nFROM            us" +
-                "uarios";
+            this._commandCollection[0].CommandText = "SELECT        USUARIO, LOGIN, SENHA, ADMINISTRADOR, IDCONTATO\r\nFROM USUARIOS";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        u.usuario, u.login, u.senha, u.administrador, u.IDCONTATO\r\nFROM    " +
-                "        usuarios u\r\nwhere u.usuario = @usuario";
+            this._commandCollection[1].CommandText = "SELECT        U.USUARIO, U.LOGIN, U.SENHA, U.ADMINISTRADOR, U.IDCONTATO\r\nFROM    " +
+                "        USUARIOS U\r\nWHERE U.USUARIO = @USUARIO";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@usuario";
@@ -12516,7 +12514,7 @@ LIMIT 0, 5";
             this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT COUNT(*) FROM usuarios u\r\nwhere u.login = @login";
+            this._commandCollection[2].CommandText = "SELECT COUNT(*) FROM USUARIOS U\r\nwhere U.LOGIN = @LOGIN";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@login";
@@ -12528,7 +12526,7 @@ LIMIT 0, 5";
             this._commandCollection[2].Parameters.Add(param);
             this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT COUNT(*) FROM usuarios u\r\nwhere u.login = @login and u.usuario <> @usuario" +
+            this._commandCollection[3].CommandText = "SELECT COUNT(*) FROM USUARIOS U\r\nwhere U.LOGIN = @LOGIN AND U.USUARIO <> @USUARIO" +
                 "";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -12969,8 +12967,8 @@ LIMIT 0, 5";
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `afasfa`.`estado` (`codigo`, `codigopais`, `sigla`, `nome`) VALUES (@" +
-                "codigo, @codigopais, @sigla, @nome)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `ESTADO` (`CODIGO`, `CODIGOPAIS`, `SIGLA`, `NOME`) VALUES (@" +
+                "CODIGO, @CODIGOPAIS, @SIGLA, @NOME)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@codigo";
@@ -13002,10 +13000,10 @@ LIMIT 0, 5";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `afasfa`.`estado` SET `codigo` = @codigo, `codigopais` = @codigopais, `sig" +
-                "la` = @sigla, `nome` = @nome WHERE ((`codigo` = @Original_codigo) AND (`codigopa" +
-                "is` = @Original_codigopais) AND (`sigla` = @Original_sigla) AND (`nome` = @Origi" +
-                "nal_nome))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE `ESTADO` SET `CODIGO` = @CODIGO, `CODIGOPAIS` = @CODIGOPAIS, `SIG" +
+                "LA` = @SIGLA, `NOME` = @NOME WHERE ((`CODIGO` = @ORIGINAL_CODIGO) AND (`CODIGOPA" +
+                "IS` = @ORIGINAL_CODIGOPAIS) AND (`SIGLA` = @ORIGINAL_SIGLA) AND (`NOME` = @ORIGI" +
+                "NAL_NOME))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@codigo";
@@ -13080,7 +13078,7 @@ LIMIT 0, 5";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `codigo`, `codigopais`, `sigla`, `nome` FROM `afasfa`.`estado`";
+            this._commandCollection[0].CommandText = "SELECT `CODIGO`, `CODIGOPAIS`, `SIGLA`, `NOME` FROM `ESTADO`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -13405,8 +13403,8 @@ LIMIT 0, 5";
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `afasfa`.`cidade` (`codigo`, `codigoestado`, `nome`) VALUES (@codigo," +
-                " @codigoestado, @nome)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `CIDADE` (`CODIGO`, `CODIGOESTADO`, `NOME`) VALUES (@CODIGO," +
+                " @CODIGOESTADO, @NOME)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@codigo";
@@ -13431,9 +13429,9 @@ LIMIT 0, 5";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `afasfa`.`cidade` SET `codigo` = @codigo, `codigoestado` = @codigoestado, " +
-                "`nome` = @nome WHERE ((`codigo` = @Original_codigo) AND (`codigoestado` = @Origi" +
-                "nal_codigoestado) AND (`nome` = @Original_nome))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE `CIDADE` SET `CODIGO` = @CODIGO, `CODIGOESTADO` = @CODIGOESTADO, " +
+                "`NOME` = @NOME WHERE ((`CODIGO` = @ORIGINAL_CODIGO) AND (`CODIGOESTADO` = @ORIGI" +
+                "NAL_CODIGOESTADO) AND (`NOME` = @ORIGINAL_NOME))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@codigo";
@@ -13493,11 +13491,11 @@ LIMIT 0, 5";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `codigo`, `codigoestado`, `nome` FROM `afasfa`.`cidade`";
+            this._commandCollection[0].CommandText = "SELECT `CODIGO`, `CODIGOESTADO`, `NOME` FROM `CIDADE`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT `codigo`, `codigoestado`, `nome` FROM `afasfa`.`cidade`\r\nwhere `afasfa`.`c" +
+            this._commandCollection[1].CommandText = "SELECT `CODIGO`, `CODIGOESTADO`, `NOME` FROM `CIDADE`\r\nwhere `c" +
                 "idade`.`codigoestado` = @codigoestado";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -13826,7 +13824,7 @@ LIMIT 0, 5";
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `afasfa`.`infocontato` (`NOME`, `FOTO`, `RECEBERINFORMACOES`, `CEP`, `LOGRADOURO`, `NUMERO`, `COMPLEMENTO`, `BAIRRO`, `CIDADE`, `UF`, `TELEFONECEL`, `TELEFONERES`, `EMAIL`, `SEXO`, `APELIDO`) VALUES (@NOME, @FOTO, @RECEBERINFORMACOES, @CEP, @LOGRADOURO, @NUMERO, @COMPLEMENTO, @BAIRRO, @CIDADE, @UF, @TELEFONECEL, @TELEFONERES, @EMAIL, @SEXO, @APELIDO)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `INFOCONTATO` (`NOME`, `FOTO`, `RECEBERINFORMACOES`, `CEP`, `LOGRADOURO`, `NUMERO`, `COMPLEMENTO`, `BAIRRO`, `CIDADE`, `UF`, `TELEFONECEL`, `TELEFONERES`, `EMAIL`, `SEXO`, `APELIDO`) VALUES (@NOME, @FOTO, @RECEBERINFORMACOES, @CEP, @LOGRADOURO, @NUMERO, @COMPLEMENTO, @BAIRRO, @CIDADE, @UF, @TELEFONECEL, @TELEFONERES, @EMAIL, @SEXO, @APELIDO)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@NOME";
@@ -13933,7 +13931,7 @@ LIMIT 0, 5";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `afasfa`.`infocontato` SET `NOME` = @NOME, `FOTO` = @FOTO, `RECEBERINFORMACOES` = @RECEBERINFORMACOES, `CEP` = @CEP, `LOGRADOURO` = @LOGRADOURO, `NUMERO` = @NUMERO, `COMPLEMENTO` = @COMPLEMENTO, `BAIRRO` = @BAIRRO, `CIDADE` = @CIDADE, `UF` = @UF, `TELEFONECEL` = @TELEFONECEL, `TELEFONERES` = @TELEFONERES, `EMAIL` = @EMAIL, `SEXO` = @SEXO, `APELIDO` = @APELIDO WHERE ((`IDCONTATO` = @Original_IDCONTATO))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `INFOCONTATO` SET `NOME` = @NOME, `FOTO` = @FOTO, `RECEBERINFORMACOES` = @RECEBERINFORMACOES, `CEP` = @CEP, `LOGRADOURO` = @LOGRADOURO, `NUMERO` = @NUMERO, `COMPLEMENTO` = @COMPLEMENTO, `BAIRRO` = @BAIRRO, `CIDADE` = @CIDADE, `UF` = @UF, `TELEFONECEL` = @TELEFONECEL, `TELEFONERES` = @TELEFONERES, `EMAIL` = @EMAIL, `SEXO` = @SEXO, `APELIDO` = @APELIDO WHERE ((`IDCONTATO` = @ORIGINAL_IDCONTATO))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@NOME";
@@ -14061,14 +14059,14 @@ LIMIT 0, 5";
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `IDCONTATO`, `NOME`, `FOTO`, `RECEBERINFORMACOES`, `CEP`, `LOGRADOURO`, `N" +
                 "UMERO`, `COMPLEMENTO`, `BAIRRO`, `CIDADE`, `UF`, `TELEFONECEL`, `TELEFONERES`, `" +
-                "EMAIL`, `SEXO`, `APELIDO` FROM `afasfa`.`infocontato`";
+                "EMAIL`, `SEXO`, `APELIDO` FROM `INFOCONTATO`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT `IDCONTATO`, `NOME`, `FOTO`, `RECEBERINFORMACOES`, `CEP`, `LOGRADOURO`, `N" +
                 "UMERO`, `COMPLEMENTO`, `BAIRRO`, `CIDADE`, `UF`, `TELEFONECEL`, `TELEFONERES`, `" +
-                "EMAIL`, `SEXO`, `APELIDO` FROM `afasfa`.`infocontato` i\r\nwhere i.idcontato = @id" +
-                "contato";
+                "EMAIL`, `SEXO`, `APELIDO` FROM `INFOCONTATO` i\r\nWHERE I.IDCONTATO = @ID" +
+                "CONTATO";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@idcontato";
@@ -14572,8 +14570,8 @@ LIMIT 0, 5";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT     i.NOME, v.DATANASCIMENTO, i.EMAIL\r\nFROM         voluntarios v INNER JO" +
-                "IN\r\n                      infocontato i ON i.IDCONTATO = v.idcontato\r\nWHERE     " +
+            this._commandCollection[0].CommandText = "SELECT     i.NOME, v.DATANASCIMENTO, i.EMAIL\r\nFROM         VOLUNTARIOS v INNER JO" +
+                "IN\r\n                      INFOCONTATO i ON i.IDCONTATO = v.IDCONTATO\r\nWHERE     " +
                 "(MONTH(v.DATANASCIMENTO) = @drMeses)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -14740,7 +14738,7 @@ LIMIT 0, 5";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT     NOME, EMAIL\r\nFROM         infocontato i";
+            this._commandCollection[0].CommandText = "SELECT     NOME, EMAIL\r\nFROM         INFOCONTATO i";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -14919,13 +14917,13 @@ LIMIT 0, 5";
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO voluntarios
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO VOLUNTARIOS
                          (APELIDO, NACIONALIDADE, DATANASCIMENTO, ESTADOORIGEM, CIDADEORIGEM, HABILITADO, ESTADOCIVIL, TRABALHA, ESCOLARIDADE, PROFISSAO, 
                          LOCALDETRABALHO, COMOFICOUSABENDO, TIPOVOLUNTARIO, QUALATIVIDADE, QUADISPONIBILIDADE, QUAISDIAS, ACEITATERMO, 
-                         TEMPODOVOLUNTARIO, ESTADO, IDCONTATO, PAISORIGEM, DataEnvio)
+                         TEMPODOVOLUNTARIO, ESTADO, IDCONTATO, PAISORIGEM, DATAENVIO)
 VALUES        (@APELIDO, @NACIONALIDADE, @DATANASCIMENTO, @ESTADOORIGEM, @CIDADEORIGEM, @HABILITADO, @ESTADOCIVIL, @TRABALHA, 
                          @ESCOLARIDADE, @PROFISSAO, @LOCALDETRABALHO, @COMOFICOUSABENDO, @TIPOVOLUNTARIO, @QUALATIVIDADE, @QUADISPONIBILIDADE, 
-                         @QUAISDIAS, @ACEITATERMO, @TEMPODOVOLUNTARIO, @ESTADO, @IDCONTATO, @PAISORIGEM, sysdate())";
+                         @QUAISDIAS, @ACEITATERMO, @TEMPODOVOLUNTARIO, @ESTADO, @IDCONTATO, @PAISORIGEM, SYSDATE())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@APELIDO";
@@ -15093,7 +15091,7 @@ VALUES        (@APELIDO, @NACIONALIDADE, @DATANASCIMENTO, @ESTADOORIGEM, @CIDADE
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `afasfa`.`voluntarios` SET `APELIDO` = @APELIDO, `NACIONALIDADE` = @NACIONALIDADE, `DATANASCIMENTO` = @DATANASCIMENTO, `ESTADOORIGEM` = @ESTADOORIGEM, `CIDADEORIGEM` = @CIDADEORIGEM, `HABILITADO` = @HABILITADO, `ESTADOCIVIL` = @ESTADOCIVIL, `TRABALHA` = @TRABALHA, `ESCOLARIDADE` = @ESCOLARIDADE, `PROFISSAO` = @PROFISSAO, `LOCALDETRABALHO` = @LOCALDETRABALHO, `COMOFICOUSABENDO` = @COMOFICOUSABENDO, `TIPOVOLUNTARIO` = @TIPOVOLUNTARIO, `QUALATIVIDADE` = @QUALATIVIDADE, `QUADISPONIBILIDADE` = @QUADISPONIBILIDADE, `QUAISDIAS` = @QUAISDIAS, `ACEITATERMO` = @ACEITATERMO, `TEMPODOVOLUNTARIO` = @TEMPODOVOLUNTARIO, `ESTADO` = @ESTADO, `IDCONTATO` = @IDCONTATO, `PAISORIGEM` = @PAISORIGEM WHERE ((`VOLUNTARIO` = @Original_VOLUNTARIO))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `VOLUNTARIOS` SET `APELIDO` = @APELIDO, `NACIONALIDADE` = @NACIONALIDADE, `DATANASCIMENTO` = @DATANASCIMENTO, `ESTADOORIGEM` = @ESTADOORIGEM, `CIDADEORIGEM` = @CIDADEORIGEM, `HABILITADO` = @HABILITADO, `ESTADOCIVIL` = @ESTADOCIVIL, `TRABALHA` = @TRABALHA, `ESCOLARIDADE` = @ESCOLARIDADE, `PROFISSAO` = @PROFISSAO, `LOCALDETRABALHO` = @LOCALDETRABALHO, `COMOFICOUSABENDO` = @COMOFICOUSABENDO, `TIPOVOLUNTARIO` = @TIPOVOLUNTARIO, `QUALATIVIDADE` = @QUALATIVIDADE, `QUADISPONIBILIDADE` = @QUADISPONIBILIDADE, `QUAISDIAS` = @QUAISDIAS, `ACEITATERMO` = @ACEITATERMO, `TEMPODOVOLUNTARIO` = @TEMPODOVOLUNTARIO, `ESTADO` = @ESTADO, `IDCONTATO` = @IDCONTATO, `PAISORIGEM` = @PAISORIGEM WHERE ((`VOLUNTARIO` = @ORIGINAL_VOLUNTARIO))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@APELIDO";
@@ -15263,11 +15261,11 @@ VALUES        (@APELIDO, @NACIONALIDADE, @DATANASCIMENTO, @ESTADOORIGEM, @CIDADE
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT `APELIDO`, `VOLUNTARIO`, `NACIONALIDADE`, `DATANASCIMENTO`, `ESTADOORIGEM`, `CIDADEORIGEM`, `HABILITADO`, `ESTADOCIVIL`, `TRABALHA`, `ESCOLARIDADE`, `PROFISSAO`, `LOCALDETRABALHO`, `COMOFICOUSABENDO`, `TIPOVOLUNTARIO`, `QUALATIVIDADE`, `QUADISPONIBILIDADE`, `QUAISDIAS`, `ACEITATERMO`, `TEMPODOVOLUNTARIO`, `ESTADO`, `IDCONTATO`, `PAISORIGEM` FROM `afasfa`.`voluntarios`";
+            this._commandCollection[0].CommandText = @"SELECT `APELIDO`, `VOLUNTARIO`, `NACIONALIDADE`, `DATANASCIMENTO`, `ESTADOORIGEM`, `CIDADEORIGEM`, `HABILITADO`, `ESTADOCIVIL`, `TRABALHA`, `ESCOLARIDADE`, `PROFISSAO`, `LOCALDETRABALHO`, `COMOFICOUSABENDO`, `TIPOVOLUNTARIO`, `QUALATIVIDADE`, `QUADISPONIBILIDADE`, `QUAISDIAS`, `ACEITATERMO`, `TEMPODOVOLUNTARIO`, `ESTADO`, `IDCONTATO`, `PAISORIGEM` FROM `VOLUNTARIOS`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "UPDATE       voluntarios\r\nSET                ESTADO = @Estado\r\nWHERE        (VOLU" +
+            this._commandCollection[1].CommandText = "UPDATE       VOLUNTARIOS\r\nSET                ESTADO = @Estado\r\nWHERE        (VOLU" +
                 "NTARIO = @Original_VOLUNTARIO)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -15288,7 +15286,7 @@ VALUES        (@APELIDO, @NACIONALIDADE, @DATANASCIMENTO, @ESTADOORIGEM, @CIDADE
             this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT `APELIDO`, `VOLUNTARIO`, `NACIONALIDADE`, `DATANASCIMENTO`, `ESTADOORIGEM`, `CIDADEORIGEM`, `HABILITADO`, `ESTADOCIVIL`, `TRABALHA`, `ESCOLARIDADE`, `PROFISSAO`, `LOCALDETRABALHO`, `COMOFICOUSABENDO`, `TIPOVOLUNTARIO`, `QUALATIVIDADE`, `QUADISPONIBILIDADE`, `QUAISDIAS`, `ACEITATERMO`, `TEMPODOVOLUNTARIO`, `ESTADO`, `IDCONTATO`, `PAISORIGEM` FROM `afasfa`.`voluntarios`
+            this._commandCollection[2].CommandText = @"SELECT `APELIDO`, `VOLUNTARIO`, `NACIONALIDADE`, `DATANASCIMENTO`, `ESTADOORIGEM`, `CIDADEORIGEM`, `HABILITADO`, `ESTADOCIVIL`, `TRABALHA`, `ESCOLARIDADE`, `PROFISSAO`, `LOCALDETRABALHO`, `COMOFICOUSABENDO`, `TIPOVOLUNTARIO`, `QUALATIVIDADE`, `QUADISPONIBILIDADE`, `QUAISDIAS`, `ACEITATERMO`, `TEMPODOVOLUNTARIO`, `ESTADO`, `IDCONTATO`, `PAISORIGEM` FROM `VOLUNTARIOS`
 where VOLUNTARIO = @VOLUNTARIO";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -15906,7 +15904,7 @@ where VOLUNTARIO = @VOLUNTARIO";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "select * from vwVoluntarios";
+            this._commandCollection[0].CommandText = "SELECT * FROM VWVOLUNTARIOS";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
