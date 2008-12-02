@@ -8,7 +8,7 @@ using acesso_dados;
 using AFASFA.acesso_dados;
 using Servico.Util;
 using System.Data;
-using acesso_dados.DataSetAFASFATableAdapters;
+using AFASFA.acesso_dados.DataSetAfasfaTableAdapters;
 
 namespace AFASFA.Pesquisa
 {
@@ -23,7 +23,7 @@ namespace AFASFA.Pesquisa
             }
             if (!IsPostBack)
             {
-                using (DataSetAFASFA.vwvoluntariosDataTable _table = new DataSetAFASFA.vwvoluntariosDataTable())
+                using (DataSetAfasfa.vwvoluntariosDataTable _table = new DataSetAfasfa.vwvoluntariosDataTable())
                 {
                     foreach (DataColumn _column in _table.Columns)
                     {
@@ -199,7 +199,7 @@ namespace AFASFA.Pesquisa
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                DataSetAFASFA.vwvoluntariosRow _row = (e.Row.DataItem as DataRowView).Row as DataSetAFASFA.vwvoluntariosRow;
+                DataSetAfasfa.vwvoluntariosRow _row = (e.Row.DataItem as DataRowView).Row as DataSetAfasfa.vwvoluntariosRow;
                 //Trata status
                 if (e.Row.Cells[5].Text.Equals("P"))
                 {

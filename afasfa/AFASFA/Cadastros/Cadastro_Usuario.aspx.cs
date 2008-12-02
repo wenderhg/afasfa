@@ -5,11 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using acesso_dados;
-using acesso_dados.DataSetAFASFATableAdapters;
 using AFASFA.acesso_dados;
 using System.IO;
 using Servico.Util;
 using AFASFA.acesso_dados.Seguranca;
+using AFASFA.acesso_dados.DataSetAfasfaTableAdapters;
 
 
 namespace AFASFA.Cadastros
@@ -52,8 +52,8 @@ namespace AFASFA.Cadastros
         {
             using (Conexao.AfasfaManager.usuariosTableAdapter = new usuariosTableAdapter())
             {
-                DataSetAFASFA.usuariosDataTable _usuario = Conexao.AfasfaManager.usuariosTableAdapter.BuscaPorID((Session[Constantes.UsuarioLogado] as Usuario).IdUsuario);
-                DataSetAFASFA.infocontatoDataTable _infoContato = null;
+                DataSetAfasfa.usuariosDataTable _usuario = Conexao.AfasfaManager.usuariosTableAdapter.BuscaPorID((Session[Constantes.UsuarioLogado] as Usuario).IdUsuario);
+                DataSetAfasfa.infocontatoDataTable _infoContato = null;
                 int _idContato = int.MinValue;
                 //Verifica se tem valor na coluna de IDContato
                 if (_usuario.Rows[0]["IDCONTATO"] != DBNull.Value)
@@ -84,7 +84,7 @@ namespace AFASFA.Cadastros
             this.Session[viewStateNomeArquivo] = nomeArquivo;
         }
 
-        private void PreencheCamposEmTela(DataSetAFASFA.usuariosDataTable _usuario, DataSetAFASFA.infocontatoDataTable _infoContato)
+        private void PreencheCamposEmTela(DataSetAfasfa.usuariosDataTable _usuario, DataSetAfasfa.infocontatoDataTable _infoContato)
         {
             if (_usuario.Rows[0]["Login"] != DBNull.Value)
             {
@@ -206,7 +206,7 @@ namespace AFASFA.Cadastros
         {
             if (String.IsNullOrEmpty(this.txtSenha.Text))
             {
-                DataSetAFASFA.usuariosDataTable _usuario = Conexao.AfasfaManager.usuariosTableAdapter.BuscaPorID(Convert.ToInt32(Session[viewStateIdUsuario]));
+                DataSetAfasfa.usuariosDataTable _usuario = Conexao.AfasfaManager.usuariosTableAdapter.BuscaPorID(Convert.ToInt32(Session[viewStateIdUsuario]));
                 return Convert.ToString(_usuario.Rows[0]["Senha"]);
             }
             else
@@ -302,7 +302,7 @@ namespace AFASFA.Cadastros
             }
         }
 
-        private void AtualizaDados(DataSetAFASFA.usuariosDataTable _usuario)
+        private void AtualizaDados(DataSetAfasfa.usuariosDataTable _usuario)
         {
 
             //Conexao.AfasfaManager.usuariosTableAdapter.Insert(_usuario);
@@ -348,7 +348,7 @@ namespace AFASFA.Cadastros
                 }
                 else
                 {
-                    args.IsValid = Conexao.AfasfaManager.usuariosTableAdapter.RetornaLoginRepetido(this.LoginTextBox.Text) == 0;
+                    args.IsValid = (int)Conexao.AfasfaManager.usuariosTableAdapter.RetornaLoginRepetido(this.LoginTextBox.Text) == 0;
                 }
             }
         }

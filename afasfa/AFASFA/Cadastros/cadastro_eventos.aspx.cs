@@ -13,8 +13,6 @@ using System.Xml.Linq;
 using AFASFA.Servico.Seguranca;
 using AFASFA.acesso_dados;
 using AFASFA.acesso_dados.Seguranca;
-using acesso_dados.Properties;
-using acesso_dados.DataSetAFASFATableAdapters;
 using Servico.Util;
 using System.IO;
 
