@@ -253,7 +253,7 @@ namespace AFASFA.Cadastros
                             ddlSexo.SelectedValue,
                             this.ApelidoTextBox.Text);
                 //Se inseriu alguma coisa então busca o ID
-                if (result >= 1)
+                //if (result >= 1)
                 {
                     result = Convert.ToInt32(Conexao.AfasfaManager.infocontatoTableAdapter.RetornaUltimoID());
                 }
