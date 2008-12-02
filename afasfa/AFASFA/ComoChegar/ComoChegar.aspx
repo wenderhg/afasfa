@@ -3,7 +3,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAS2v6XLJZdnkdSkVSdtzxpBR6lFJuOo_Kjbh4z5CsiAf7zyP9yBQTlro8cZobrOTc1okRo5Ak0LYQuw"
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAS2v6XLJZdnkdSkVSdtzxpBSdzXYkwlYpBrilXp4R8FCiRw30GxTDHGlpFdMdu1m8Zj8fEItcjV49gw"
         type="text/javascript"></script>
 
     <script type="text/javascript">
@@ -114,7 +114,7 @@
         <tbody>
             <tr>
                 <td colspan="2" style="text-align: center" class="txtFormulario">
-                    <asp:Label ID="lblInstrucoes" runat="server" Text="Utilize o mapa abaixo para encontrar o endereço que será usado como origem para montar a rota até a instituição, para isso navegue no mapa e clique sobre o endereço desejado ou utilize o campo abaixo para digitar o endereço origem"></asp:Label>
+                    <asp:Label ID="lblInstrucoes" runat="server" Text="Utilize o mapa abaixo para visualizar a rota até a instituição, para isso informe no campo abaixo o endereço origem, como no exemplo: 'R. Capivari 300, Indaiatuba, SP'. <br>A pesquisa pode ser feita pelo também pelo CEP, como no exemplo: '13339-340'"></asp:Label>
                 </td>
             </tr>
             <tr>
