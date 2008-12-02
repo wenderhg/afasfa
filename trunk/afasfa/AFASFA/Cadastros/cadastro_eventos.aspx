@@ -6,7 +6,26 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="CplConteudo" runat="server">
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}"
-        SelectMethod="GetData" InsertMethod="Insert" TypeName="acesso_dados.DataSetAFASFATableAdapters.eventosTableAdapter">
+        SelectMethod="GetData" InsertMethod="Insert" 
+        TypeName="AFASFA.acesso_dados.DataSetAfasfaTableAdapters.eventosTableAdapter" 
+        DeleteMethod="Delete" UpdateMethod="Update">
+        <DeleteParameters>
+            <asp:Parameter Name="Original_EVENTO" Type="UInt32" />
+        </DeleteParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="DESCRICAO" Type="String" />
+            <asp:Parameter Name="DATAEVENTO" Type="DateTime" />
+            <asp:Parameter Name="LOCALEVENTO" Type="String" />
+            <asp:Parameter Name="FOTOINICIAL" Type="String" />
+            <asp:Parameter Name="JAREALIZADO" Type="Byte" />
+            <asp:Parameter Name="APRESENTAR" Type="Byte" />
+            <asp:Parameter Name="RESERVADISPONIVEL" Type="Byte" />
+            <asp:Parameter Name="DATAMAXIMA" Type="DateTime" />
+            <asp:Parameter Name="VALORCONVITEA" Type="String" />
+            <asp:Parameter Name="VALORCONVITEC" Type="String" />
+            <asp:Parameter Name="OBSERVACAO" Type="String" />
+            <asp:Parameter Name="Original_EVENTO" Type="UInt32" />
+        </UpdateParameters>
         <InsertParameters>
             <asp:Parameter Name="DESCRICAO" Type="String" />
             <asp:Parameter Name="DATAEVENTO" Type="DateTime" />

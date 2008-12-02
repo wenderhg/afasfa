@@ -348,7 +348,7 @@ namespace AFASFA.Cadastros
                 }
                 else
                 {
-                    args.IsValid = (int)Conexao.AfasfaManager.usuariosTableAdapter.RetornaLoginRepetido(this.LoginTextBox.Text) == 0;
+                    args.IsValid = Convert.ToInt32(Conexao.AfasfaManager.usuariosTableAdapter.RetornaLoginRepetido(this.LoginTextBox.Text)) == 0;
                 }
             }
         }
