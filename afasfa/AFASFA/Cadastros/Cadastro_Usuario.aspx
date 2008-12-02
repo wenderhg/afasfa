@@ -322,8 +322,8 @@
             </tr>
             <tr>
                 <td align="center">
-                    <asp:Button ID="btnVoltar" runat="server" Text="Voltar" UseSubmitBehavior="false"
-                        SkinID="btnFormularioCadastro" CausesValidation="false" />
+                    <asp:Button ID="btnVoltar" runat="server" Text="OK" UseSubmitBehavior="false"
+                        SkinID="btnFormularioCadastro" CausesValidation="false" PostBackUrl="~/index.aspx" />
                 </td>
             </tr>
         </table>
