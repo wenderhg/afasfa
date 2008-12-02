@@ -92,6 +92,7 @@
         function procuraEndereco() {
             var txtEndereco = document.getElementById("<% =txtEndereco.ClientID %>");
             _busca.load("from: " + txtEndereco.value + ", Brasil to: Estrada Municipal Pedro Vila 230, Indaiatuba, SP, Brasil", { "locale": "pt_BR" });
+            document.getElementById("btImprimir").style.display = "block";
         }
 
         function resultadoBusca(latlng) {
@@ -121,16 +122,16 @@
                 <td>
                     <asp:Label ID="lblEndereco" runat="server" Text="Informe seu endereço: " CssClass="lblFomulario"></asp:Label>
                     <asp:TextBox ID="txtEndereco" runat="server" Width="250px" CssClass="txtFormulario"
-                        AutoCompleteType="HomeStreetAddress"></asp:TextBox>
+                        AutoCompleteType="HomeStreetAddress"></asp:TextBox>&nbsp;
+                    <input type="button" title="Montar rota" value="Montar rota" onclick="procuraEndereco();"
+                        class="txtFormulario" style="BORDER-RIGHT: #003366 2px double; BORDER-TOP: #003366 2px double; BORDER-LEFT: #003366 2px double; COLOR: white; BORDER-BOTTOM: #003366 2px double; FONT-FAMILY: Verdana; BACKGROUND-COLOR: #666699" />
                 </td>
                 <td>
-                    <input type="button" title="Montar rota" value="Montar rota" onclick="procuraEndereco();"
-                        class="txtFormulario" style:color="white" />
                 </td>
             </tr>
             <tr>
                 <td colspan="2" style="text-align: center">
-                    <div id="map" style="width: 600px; height: 400px">
+                    <div id="map" style="width: 400px; height: 400px">
                     </div>
                 </td>
             </tr>
@@ -138,6 +139,8 @@
                 <td colspan="2" style="text-align: center">
                     <div id="rota">
                     </div>
+                    <input type="button" title="Imprimir" value="Imprimir" onclick="print();"
+                        style="display: none;BORDER-RIGHT: #003366 2px double; BORDER-TOP: #003366 2px double; BORDER-LEFT: #003366 2px double; COLOR: white; BORDER-BOTTOM: #003366 2px double; FONT-FAMILY: Verdana; BACKGROUND-COLOR: #666699" id="btImprimir" name="btImprimir" />
                 </td>
             </tr>
         </tbody>

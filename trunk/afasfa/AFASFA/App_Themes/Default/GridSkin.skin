@@ -7,7 +7,8 @@
             EmptyDataRowStyle-HorizontalAlign="Center" EmptyDataRowStyle-CssClass="lblFomulario"
             EmptyDataRowStyle-VerticalAlign="Middle" EmptyDataRowStyle-Width="100%">
    <AlternatingRowStyle BackColor="#FFFFCC" CssClass="lblFormLogin" BorderStyle="Ridge"
-        BorderWidth="1"/>   
+        BorderWidth="1"/>
+        <RowStyle CssClass="lblFormLogin" />
   
    <HeaderStyle BackColor="#666699" ForeColor="White" HorizontalAlign="Center" 
    VerticalAlign="Middle" CssClass="lblBtnFomularioCadastro"  />

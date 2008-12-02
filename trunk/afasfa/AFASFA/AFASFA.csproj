@@ -281,6 +281,7 @@
     <Content Include="Cadastros\cadastro_voluntarios.aspx" />
     <Content Include="campanhas.aspx" />
     <Content Include="ComoChegar\ComoChegar.aspx" />
+    <Content Include="estilos\EstiloImpressao.css" />
     <Content Include="fotos_projetos_vivaarte.aspx" />
     <Content Include="Imagens\ajax-loader.gif" />
     <Content Include="Imagens\artesanato_vivaarte1.jpg" />

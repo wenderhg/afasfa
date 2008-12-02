@@ -52,11 +52,11 @@
                 CssClass="lblFomulario">
                 <asp:ListItem Selected="True"></asp:ListItem>
                 <asp:ListItem Text="Relatório de Doações" Value="Relatorios\relatorio_doacoes_por_data.rdlc"></asp:ListItem>
-                <asp:ListItem Text="Listagem de Voluntários" Value="Relatorios\listagem_Voluntarios.rdlc"></asp:ListItem>
+<%--                <asp:ListItem Text="Listagem de Voluntários" Value="Relatorios\listagem_Voluntarios.rdlc"></asp:ListItem>--%>
                 <asp:ListItem Text="Listagem de Assistências" Value="Relatorios\listagem_assistencias.rdlc"></asp:ListItem>
                 <asp:ListItem Text="Listagem de Projetos" Value="Relatorios\listagem_projetos.rdlc"></asp:ListItem>
                 <asp:ListItem Text="Listagem de Eventos" Value="Relatorios\listagem_eventos.rdlc"></asp:ListItem>
-                <asp:ListItem Text="Listagem de Usuários" Value="Relatorios\listagem_usuarios.rdlc"></asp:ListItem>
+                <%--<asp:ListItem Text="Listagem de Usuários" Value="Relatorios\listagem_usuarios.rdlc"></asp:ListItem>--%>
             </asp:DropDownList>
             <br />
             <br />

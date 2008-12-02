@@ -10,21 +10,21 @@ public enum Relatorio
     /// <summary>
     /// Relatorios
     /// </summary>
-    listagem_Voluntarios = 2,
+    //listagem_Voluntarios = 2,
     /// <summary>
     /// Relatorios
     /// </summary>
-    listagem_assistencias = 3,
+    listagem_assistencias = 3 -1,
     /// <summary>
     /// Relatorios
     /// </summary>
-    listagem_projetos = 4,
+    listagem_projetos = 4 -1,
     /// <summary>
     /// Relatorios
     /// </summary>
-    listagem_eventos = 5,
+    listagem_eventos = 5 -1 ,
     /// <summary>
     /// Relatorios
     /// </summary>
-    listagem_usuarios = 6
+    listagem_usuarios = 6 -1
 }

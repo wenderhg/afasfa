@@ -63,7 +63,7 @@
         </Triggers>
         <ContentTemplate>
             <asp:Literal ID="ltCloseWindow" runat="server" EnableViewState="false" Visible="false"
-                Text="<script type='text/javascript'>self.opener = self; self.close();</script>"></asp:Literal>
+                Text="<script type='text/javascript'>self.opener='Outra';self.close();</script>"></asp:Literal>
             <table cellpadding="0" cellspacing="0" width="100%" style="" background="#E6E7F2"
                 border="Ridge">
                 <tr>
