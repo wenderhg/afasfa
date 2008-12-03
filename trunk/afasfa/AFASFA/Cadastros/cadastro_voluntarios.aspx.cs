@@ -378,7 +378,7 @@ namespace AFASFA.Cadastros
             {
                 //Chama Metodo que retorna o endereco
                 System.Data.DataSet _dsCEP = _cep.cep(this.CepTextBox.Text);
-                if ((_dsCEP == null) || (_dsCEP.Tables.Count > 0) || (_dsCEP.Tables[0].Rows.Count > 0))
+                if ((_dsCEP == null) || (_dsCEP.Tables.Count == 0) || (_dsCEP.Tables[0].Rows.Count == 0))
                 {
                     return;
                 }

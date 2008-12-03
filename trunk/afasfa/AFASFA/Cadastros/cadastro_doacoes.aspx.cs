@@ -73,13 +73,15 @@ namespace AFASFA.cadastros
 
         protected void FormView1_ItemInserting(object sender, FormViewInsertEventArgs e)
         {
-            
+
             TextBox _email = (this.FormView1.FindControl("emailTextBox") as TextBox);
+            MailSender.EnviarEMail(_email.Text, "Doação",
+                    RetornaCampos(e.Values));
+
             if (_email != null && !String.IsNullOrEmpty(_email.Text))
             {
-                MailSender.EnviarEMail(_email.Text, "Doação",
-                        RetornaCampos(e.Values));
-
+                MailSender.EnviarEMail(_email.Text, "Agradecimento pela doação.",
+                    "Muito Obrigado por disponibilizar sua doação. Logo entraremos em contato");
             }
         }
 
