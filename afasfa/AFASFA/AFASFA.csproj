@@ -155,6 +155,7 @@
     <Compile Include="fotos_projetos_vivaarte.aspx.designer.cs">
       <DependentUpon>fotos_projetos_vivaarte.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Handler\afasfaImageHandler.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

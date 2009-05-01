@@ -11,15 +11,14 @@ namespace AFASFA.Cadastros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            (this.Page.Master as afasfa).Resumo.EnableClientScript = true;
         }
+
         protected void InsertCancelButton_Click(object sender, EventArgs e)
         {
             this.ModalPopupExtender1.Show();
         }
-
-
-
+        
         protected void InsertButton_Click(object sender, EventArgs e)
         {
             this.ModalPopupExtender2.Show();

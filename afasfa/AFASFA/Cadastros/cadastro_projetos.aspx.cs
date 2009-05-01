@@ -28,6 +28,7 @@ namespace AFASFA.Cadastros
             {
                 return;
             }
+            (this.Page.Master as afasfa).Resumo.EnableClientScript = true;
         }
 
         protected void InsertButton_Click(object sender, EventArgs e)

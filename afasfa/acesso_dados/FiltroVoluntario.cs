@@ -97,16 +97,15 @@ namespace acesso_dados
                         if (_reader["UF"] != DBNull.Value)
                             _row.UF = Convert.ToString(_reader["UF"]);
                         if (_reader["TELEFONECEL"] != DBNull.Value)
-                            _row.TelefoneCel = Convert.ToDecimal(_reader["TELEFONECEL"]);
+                            _row.TELEFONECEL = Convert.ToDecimal(_reader["TELEFONECEL"]);
                         if (_reader["TELEFONERES"] != DBNull.Value)
-                            _row.TelefoneRes = Convert.ToDecimal(_reader["TELEFONERES"]);
+                            _row.TELEFONERES = Convert.ToDecimal(_reader["TELEFONERES"]);
                         if (_reader["EMAIL"] != DBNull.Value)
-                            _row.EMail = Convert.ToString(_reader["EMAIL"]);
+                            _row.EMAIL = Convert.ToString(_reader["EMAIL"]);
                         if (_reader["SEXO"] != DBNull.Value)
                             _row.Sexo = Convert.ToString(_reader["SEXO"]);
                         if (_reader["ApelidoContato"] != DBNull.Value)
-                            _row.ApelidoContato = Convert.ToString(_reader["ApelidoContato"]);
-
+                            _row.Apelido = Convert.ToString(_reader["ApelidoContato"]);
 
                         _result.AddvwvoluntariosRow(_row);
 

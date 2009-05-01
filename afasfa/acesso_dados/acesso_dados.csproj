@@ -55,7 +55,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AFASFA.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Conexao.cs" />
+    <Compile Include="Conexao__.cs" />
     <Compile Include="Enum\Relatorio.cs" />
     <Compile Include="Filtro.cs" />
     <Compile Include="FiltroCollection.cs" />

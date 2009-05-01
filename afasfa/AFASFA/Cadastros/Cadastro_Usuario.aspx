@@ -7,8 +7,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="CplConteudo" runat="server">
 
     <script language="javascript" type="text/javascript">
-        function PreencheApelido() {
-            document.getElementById("<%= btnPreencheApelido.ClientID %>").click();
+        function PreencheApelido(sender) {
+            document.getElementById("<%= ApelidoTextBox.ClientID %>").value = sender.value;
         }
     </script>
 
@@ -88,12 +88,10 @@
                                                             <strong style="color: red">*</strong> Login:
                                                         </td>
                                                         <td align="left">
-                                                            <asp:TextBox ID="LoginTextBox" runat="server" CssClass="txtFormulario" onblur="PreencheApelido();"
+                                                            <asp:TextBox ID="LoginTextBox" runat="server" CssClass="txtFormulario" onblur="PreencheApelido(this);"
                                                                 Text='<%# Bind("Login") %>' Width="20%" ToolTip="Informe seu login." />
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidatorLoginTextBox" runat="server"
                                                                 ControlToValidate="LoginTextBox" Display="None" ErrorMessage="Login é de preenchimento obrigatório"></asp:RequiredFieldValidator>
-                                                            <asp:Button ID="btnPreencheApelido" runat="server" CausesValidation="false" OnClick="btnPreencheApelido_Click"
-                                                                Style="display: none" Text="_" />
                                                             <asp:CustomValidator ID="CustomValidatorLoginRepetido" runat="server" Display="None"
                                                                 ErrorMessage="O login informado já existe." OnServerValidate="CustomValidatorLoginRepetido_ServerValidate"></asp:CustomValidator>
                                                         </td>
