@@ -36,6 +36,7 @@ namespace AFASFA.Pesquisa
                 }
                 this.Filtros.Clear();
             }
+            (this.Page.Master as afasfa).Resumo.EnableClientScript = true;
         }
 
         private string RetornaCampoExcluidos()

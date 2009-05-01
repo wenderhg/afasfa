@@ -19,7 +19,9 @@ namespace AFASFA
                 this.drMeses.DataSource = Conexao.afasfaWebService.RetornaMeses();
                 this.drMeses.DataBind();
             }
+            (this.Page.Master as afasfa).Resumo.EnableClientScript = true;
         }
+
         protected void btnCriarPesquisa_Click(object sender, EventArgs e)
         {
             if (this.chkGeral.Checked)

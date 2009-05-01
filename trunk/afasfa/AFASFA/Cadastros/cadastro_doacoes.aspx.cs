@@ -19,7 +19,7 @@ namespace AFASFA.cadastros
                 if ((this.FormView1.FindControl("DataDoacaoTextBox") as TextBox) != null)
                     (this.FormView1.FindControl("DataDoacaoTextBox") as TextBox).Text = DateTime.Today.ToString();
             }
-
+            (this.Page.Master as afasfa).Resumo.EnableClientScript = true;
         }
 
         protected void InsertCancelButton_Click(object sender, EventArgs e)

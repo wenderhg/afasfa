@@ -15,6 +15,7 @@ namespace AFASFA.Relatorios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            (this.Page.Master as afasfa).Resumo.EnableClientScript = true;
         }
 
         protected void btGerar_Click(object sender, EventArgs e)

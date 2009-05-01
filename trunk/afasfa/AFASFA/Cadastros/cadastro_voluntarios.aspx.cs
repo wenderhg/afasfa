@@ -41,6 +41,7 @@ namespace AFASFA.Cadastros
                 if (idvoluntario != uint.MinValue) //Se tem id verifica se pode acessar
                     CarregaVoluntario();
             }
+            (this.Page.Master as afasfa).Resumo.EnableClientScript = true;
         }
 
         private void CarregaVoluntario()

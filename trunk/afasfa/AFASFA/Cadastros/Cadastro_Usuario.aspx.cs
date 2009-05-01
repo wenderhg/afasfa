@@ -24,6 +24,7 @@ namespace AFASFA.Cadastros
                 PreencheCamposEmTela();
             }
             AjustaControles();
+            (this.Page.Master as afasfa).Resumo.EnableClientScript = true;
         }
 
         private void AjustaControles()
@@ -133,12 +134,6 @@ namespace AFASFA.Cadastros
 
             PreencheValoresParaUpdate(Convert.ToInt32(_usuario.Rows[0]["usuario"]), Convert.ToInt32(_usuario.Rows[0]["idcontato"]),
                 nomeArquivo);
-        }
-
-        protected void btnPreencheApelido_Click(object sender, EventArgs e)
-        {
-            this.ApelidoTextBox.Text = this.LoginTextBox.Text;
-            this.NomeTextBox.Focus();
         }
 
         protected void InsertButton_Click(object sender, EventArgs e)

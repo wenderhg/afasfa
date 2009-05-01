@@ -33,7 +33,7 @@ namespace AFASFA.Cadastros
                 (this.FormView1.FindControl("DataEventoTextBox") as TextBox).Text = DateTime.Today.ToString();
                 (this.FormView1.FindControl("DataMaximaTextBox") as TextBox).Text = DateTime.Today.AddYears(1).ToString();
             }
-
+            (this.Page.Master as afasfa).Resumo.EnableClientScript = true;
         }
 
         protected void InsertCancelButton_Click(object sender, EventArgs e)

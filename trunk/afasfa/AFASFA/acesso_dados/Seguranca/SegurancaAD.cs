@@ -39,7 +39,7 @@ namespace AFASFA.acesso_dados.Seguranca
             Usuario _result = null;
             //Cria objeto que faz Select no banco
             using (MySqlCommand _command = new MySqlCommand("Select USUARIO, I.NOME, LOGIN, SEXO, I.APELIDO, ADMINISTRADOR " +
-                  "FROM USUARIOS U INNER JOIN INFOCONTATO I ON I.IDCONTATO = U.IDCONTATO " + 
+                  "FROM USUARIOS U INNER JOIN INFOCONTATO I ON I.IDCONTATO = U.IDCONTATO " +
                   "WHERE LOGIN = @USUARIO AND SENHA = @SENHA", Conexao.Instance))
             {
                 //Define os parametros
@@ -47,42 +47,51 @@ namespace AFASFA.acesso_dados.Seguranca
                 _command.Parameters["usuario"].Value = usuario;
                 _command.Parameters.Add("senha", MySqlDbType.VarChar, 100);
                 _command.Parameters["senha"].Value = senha;
-                //Abre a conexao
-                _command.Connection.Open();
-                //Executa o select e cria objeto que só vai para frente apontando para uma linha do retorno
-                using (IDataReader reader = _command.ExecuteReader())
+                try
                 {
-                    if (reader.Read())//Avança uma linha no retorno do select
+                    //Abre a conexao
+                    if (_command.Connection.State == ConnectionState.Closed)
                     {
-                        _result = new Usuario(); //Cria usuario
-                        //Se o campo nao for nulo preenche a propriedade do objeto usuario
-                        if (reader["Apelido"] != DBNull.Value)
+                        _command.Connection.Open();
+                    }                    
+                    //Executa o select e cria objeto que só vai para frente apontando para uma linha do retorno
+                    using (IDataReader reader = _command.ExecuteReader())
+                    {
+                        if (reader.Read())//Avança uma linha no retorno do select
                         {
-                            _result.Apelido = Convert.ToString(reader["Apelido"]);
-                        }
-                        if (reader["sexo"] != DBNull.Value)
-                        {
-                            _result.Sexo = Convert.ToString(reader["sexo"]);
-                        }
-                        if (reader["login"] != DBNull.Value)
-                        {
-                            _result.Login = Convert.ToString(reader["login"]);
-                        }
-                        if (reader["nome"] != DBNull.Value)
-                        {
-                            _result.NomeUsuario = Convert.ToString(reader["nome"]);
-                        }
-                        if (reader["usuario"] != DBNull.Value)
-                        {
-                            _result.IdUsuario = Convert.ToInt32(reader["usuario"]);
-                        }
-                        if (reader["administrador"] != DBNull.Value)
-                        {
-                            _result.Administrador = Convert.ToString(reader["administrador"]).Equals("S");
+                            _result = new Usuario(); //Cria usuario
+                            //Se o campo nao for nulo preenche a propriedade do objeto usuario
+                            if (reader["Apelido"] != DBNull.Value)
+                            {
+                                _result.Apelido = Convert.ToString(reader["Apelido"]);
+                            }
+                            if (reader["sexo"] != DBNull.Value)
+                            {
+                                _result.Sexo = Convert.ToString(reader["sexo"]);
+                            }
+                            if (reader["login"] != DBNull.Value)
+                            {
+                                _result.Login = Convert.ToString(reader["login"]);
+                            }
+                            if (reader["nome"] != DBNull.Value)
+                            {
+                                _result.NomeUsuario = Convert.ToString(reader["nome"]);
+                            }
+                            if (reader["usuario"] != DBNull.Value)
+                            {
+                                _result.IdUsuario = Convert.ToInt32(reader["usuario"]);
+                            }
+                            if (reader["administrador"] != DBNull.Value)
+                            {
+                                _result.Administrador = Convert.ToString(reader["administrador"]).Equals("S");
+                            }
                         }
                     }
                 }
-                _command.Connection.Close(); //Fecha conexao
+                finally
+                {
+                    _command.Connection.Close(); //Fecha conexao
+                }
             }
 
             return _result;//Retorna usuario
